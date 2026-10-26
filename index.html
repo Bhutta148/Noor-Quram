@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f3f5f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1715" media="(prefers-color-scheme: dark)">
+<title>Noor Quran</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Amiri+Quran&family=Noto+Nastaliq+Urdu:wght@400;600&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: compact sticky command bar on top, reading column in the middle, playback bar fixed at the bottom */
+:root{
+  --bg:#f3f5f2; --surface:#ffffff; --ink:#16231f; --muted:#5d6b66;
+  --line:#dde4e0; --accent:#1f5c53; --accent-ink:#ffffff; --gold:#9a6c1f; --hl:#e4f0ea; --err:#b3261e;
+  --f-quran:"Amiri Quran","Amiri","Scheherazade New","Traditional Arabic",serif;
+  --f-ar:"Amiri","Scheherazade New","Traditional Arabic",serif;
+  --f-ur:"Noto Nastaliq Urdu","Jameel Noori Nastaleeq","Urdu Typesetting",serif;
+  --f-ui:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --top-h:124px; --bar-h:72px;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0f1715; --surface:#16211e; --ink:#e6ece9; --muted:#9aaba5;
+  --line:#26332f; --accent:#6fbfae; --accent-ink:#0b1412; --gold:#d6ab5e; --hl:#1c2d29; --err:#ff8a80; color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-ui);-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:10px 12px}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Top bar */
+.top{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.top .wrap{display:flex;flex-direction:column;gap:8px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand h1{margin:0;font-size:18px;letter-spacing:.01em;white-space:nowrap}
+.brand h1 span{color:var(--gold);font-family:var(--f-quran);font-weight:400;margin-left:6px}
+.status{font-size:13px;line-height:1.35;color:var(--muted);min-height:1.35em;overflow-wrap:anywhere}
+.status.err{color:var(--err)}
+form.cmd{display:flex;gap:8px}
+form.cmd input{flex:1;min-width:0;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface)}
+.mic{width:50px;flex:none;font-size:20px;padding:0}
+.mic.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.55}}
+@media (prefers-reduced-motion:reduce){.mic.on{animation:none}}
+
+/* Settings (scroll away with the page) */
+main .wrap{padding-block:14px calc(var(--bar-h) + 28px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:12px}
+.settings{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.field{display:flex;flex-direction:column;gap:4px;min-width:0}
+.field.full{grid-column:1/-1}
+.field span{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+select{width:100%;min-width:0;font-size:15px;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
+.chips{grid-column:1/-1;display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.chips button{font-size:13px;padding:6px 12px;border-radius:999px;white-space:nowrap;color:var(--accent)}
+
+/* Verses */
+.surah-head{text-align:center;padding:14px 0 4px}
+.surah-head .ar{font-family:var(--f-quran);font-size:32px;color:var(--gold);line-height:1.7}
+.surah-head h2{margin:0;font-size:20px;text-wrap:balance}
+.surah-head p{margin:4px 0 0;color:var(--muted);font-size:14px}
+.bismillah{font-family:var(--f-quran);font-size:27px;text-align:center;margin:4px 0}
+.ayah{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;scroll-margin-top:calc(var(--top-h) + 12px);scroll-margin-bottom:calc(var(--bar-h) + 12px)}
+.ayah.playing{background:var(--hl);border-color:var(--accent)}
+.ayah .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ref{font-size:13px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+.acts{display:flex;gap:6px}
+.acts button{font-size:13px;padding:6px 10px;border-radius:8px}
+.ar-text{font-family:var(--f-quran);font-size:27px;line-height:2.15;direction:rtl;text-align:right}
+.tr-text[dir=rtl]{text-align:right}
+.tr-text.ur{font-family:var(--f-ur);font-size:18px;line-height:2.3}
+
+/* Tafsir panel */
+.tafsir{border-top:1px solid var(--line);padding-top:10px;display:flex;flex-direction:column;gap:8px}
+.tf-head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.tf-name{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.tf-head button{font-size:13px;padding:5px 10px;border-radius:8px}
+.tf-body{font-size:15px;line-height:1.7;max-height:60vh;overflow-y:auto;padding-right:4px}
+.tf-body p{margin:0 0 .7em}
+.tf-body[dir=rtl]{text-align:right}
+.tf-body.ur{font-family:var(--f-ur);font-size:17px;line-height:2.3}
+.tf-body.ar{font-family:var(--f-ar);font-size:20px;line-height:1.9}
+.note{font-size:13px;color:var(--muted)}
+.note.err{color:var(--err)}
+
+/* Search results and messages */
+.results-head{margin:4px 0 0;font-size:16px}
+.hit{text-align:left;width:100%;display:flex;flex-direction:column;gap:4px;border-radius:14px;padding:12px 14px}
+.hit b{color:var(--accent);font-size:13px}
+.notice{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.notice h2{margin:0;font-size:18px}
+.notice p{margin:0;color:var(--muted)}
+.loading{color:var(--muted);text-align:center;padding:30px 0}
+.credits{font-size:12px;color:var(--muted);text-align:center;margin:12px 0 0}
+
+/* Bottom playback bar */
+.player{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--bg);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.player .wrap{display:flex;gap:8px;padding-block:10px}
+.player button{flex:1;font-weight:600;font-size:14px;min-height:48px;padding:8px 6px;white-space:nowrap}
+.player #speakBtn{flex:1.3}
+.player #stopBtn{flex:.8}
+.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+
+/* Hide read-aloud controls where the browser has no speech engine */
+.no-tts [data-needs=tts]{display:none!important}
+</style>
+</head>
+<body>
+<header class="top" id="top">
+  <div class="wrap">
+    <div class="brand"><h1>Noor Quran<span lang="ar">نور</span></h1></div>
+    <form class="cmd" id="cmdForm" autocomplete="off">
+      <input id="cmd" type="text" enterkeyhint="go" placeholder="Say or type: Surah Yasin, 2:255, tafsir…" aria-label="Command">
+      <button type="button" class="mic" id="micBtn" aria-label="Speak a command" aria-pressed="false">🎙</button>
+    </form>
+    <div class="status" id="status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="settings" aria-label="Reading settings">
+      <div class="chips" id="chips"></div>
+      <label class="field full"><span>Surah</span><select id="surahSel"><option>Loading…</option></select></label>
+      <label class="field full"><span>Translation</span><select id="trSel"><option>Loading…</option></select></label>
+      <label class="field full"><span>Tafsir</span><select id="tfSel"></select></label>
+      <label class="field"><span>Reciter</span><select id="qariSel"><option>Loading…</option></select></label>
+      <label class="field"><span>Voice commands in</span>
+        <select id="micLang">
+          <option value="en-US">English</option>
+          <option value="ur-PK">Urdu</option>
+          <option value="ar-SA">Arabic</option>
+          <option value="pt-PT">Portuguese</option>
+        </select>
+      </label>
+    </section>
+    <div id="content"><p class="loading">Loading verses…</p></div>
+    <p class="credits">Arabic text: Tanzil (Uthmani). Translations and recitations via AlQuran Cloud. Tafsir from classical works (Ibn Kathir, As-Saadi, Al-Muyassar, Al-Jalalayn, Al-Mukhtasar, Maarif-ul-Quran) via the open tafsir_api project. Translations and tafsir are by named scholars, never machine-generated.</p>
+  </div>
+</main>
+
+<nav class="player" aria-label="Playback">
+  <div class="wrap">
+    <button class="primary" id="playBtn">▶ Recite</button>
+    <button id="speakBtn" data-needs="tts">🔊 Translation</button>
+    <button id="stopBtn">■ Stop</button>
+  </div>
+</nav>
+
+<script>
+"use strict";
+(function(){
+const API="https://api.alquran.cloud/v1";
+const $=id=>document.getElementById(id);
+
+/* ---------- Feature checks: never assume a phone feature exists ---------- */
+const TTS=(typeof window.speechSynthesis!=="undefined"&&window.speechSynthesis)||null;
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition||null;
+if(!TTS) document.body.classList.add("no-tts");
+const audio=(typeof Audio!=="undefined")?new Audio():null;
+
+/* ---------- Data ---------- */
+const RTL=["ar","ur","fa","ps","ug","dv","ku","sd","he","yi"];
+const LANGS={english:"en",urdu:"ur",arabic:"ar",portuguese:"pt",french:"fr",spanish:"es",german:"de",turkish:"tr",indonesian:"id",malay:"ms",bengali:"bn",bangla:"bn",hindi:"hi",persian:"fa",farsi:"fa",russian:"ru",italian:"it",chinese:"zh",dutch:"nl",swahili:"sw",somali:"so",pashto:"ps",tamil:"ta",japanese:"ja",korean:"ko",bosnian:"bs",albanian:"sq",azerbaijani:"az",
+ "انگریزی":"en","انگلش":"en","اردو":"ur","عربی":"ar","عربي":"ar"};
+const PREFERRED={en:"en.sahih",ur:"ur.jalandhry",pt:"pt.elhayek",fr:"fr.hamidullah",id:"id.indonesian",tr:"tr.diyanet",es:"es.cortes",de:"de.aburida",bn:"bn.bengali",hi:"hi.hindi"};
+const FALLBACK_TR=[{identifier:"en.sahih",language:"en",englishName:"Saheeh International"},{identifier:"ur.jalandhry",language:"ur",englishName:"Fateh Muhammad Jalandhry"}];
+const FALLBACK_QARI=[{identifier:"ar.alafasy",englishName:"Alafasy"}];
+
+/* Tafsir: classical, widely accepted works only. "Simple" = short and easy; "Detailed" = full classical tafsir. */
+const TAFSIR_SRC=["https://cdn.jsdelivr.net/gh/spa5k/tafsir_api@main/tafsir/","https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/"];
+const TAFSIRS=[
+ {id:"en-tafsir-al-mukhtasar",lang:"en",level:"Simple",name:"Al-Mukhtasar (Tafsir Center for Quranic Studies)"},
+ {id:"en-al-jalalayn",lang:"en",level:"Simple",name:"Tafsir al-Jalalayn"},
+ {id:"ur-tafsir-as-saadi-urdu",lang:"ur",level:"Simple",name:"Tafsir As-Saadi"},
+ {id:"ar-tafsir-muyassar",lang:"ar",level:"Simple",name:"At-Tafsir Al-Muyassar"},
+ {id:"ar-tafsir-al-mukhtasar",lang:"ar",level:"Simple",name:"Al-Mukhtasar"},
+ {id:"french-mokhtasar",lang:"fr",level:"Simple",name:"Al-Mukhtasar"},
+ {id:"spanish-mokhtasar",lang:"es",level:"Simple",name:"Al-Mukhtasar"},
+ {id:"turkish-mokhtasar",lang:"tr",level:"Simple",name:"Al-Mukhtasar"},
+ {id:"indonesian-mokhtasar",lang:"id",level:"Simple",name:"Al-Mukhtasar"},
+ {id:"bengali-mokhtasar",lang:"bn",level:"Simple",name:"Al-Mukhtasar"},
+ {id:"hindi-mokhtasar",lang:"hi",level:"Simple",name:"Al-Mukhtasar"},
+ {id:"persian-mokhtasar",lang:"fa",level:"Simple",name:"Al-Mukhtasar"},
+ {id:"russian-mokhtasar",lang:"ru",level:"Simple",name:"Al-Mukhtasar"},
+ {id:"en-tafisr-ibn-kathir",lang:"en",level:"Detailed",name:"Tafsir Ibn Kathir (abridged)"},
+ {id:"en-tafsir-maarif-ul-quran",lang:"en",level:"Detailed",name:"Maarif-ul-Quran (Mufti Muhammad Shafi)"},
+ {id:"ur-tafseer-ibn-e-kaseer",lang:"ur",level:"Detailed",name:"Tafsir Ibn Kathir"},
+ {id:"ar-tafsir-ibn-kathir",lang:"ar",level:"Detailed",name:"Tafsir Ibn Kathir"},
+ {id:"ar-tafseer-al-saddi",lang:"ar",level:"Detailed",name:"Tafsir As-Saadi"}
+];
+const TF_DEFAULT={en:"en-tafsir-al-mukhtasar",ur:"ur-tafsir-as-saadi-urdu",ar:"ar-tafsir-muyassar",fr:"french-mokhtasar",es:"spanish-mokhtasar",tr:"turkish-mokhtasar",id:"indonesian-mokhtasar",bn:"bengali-mokhtasar",hi:"hindi-mokhtasar",fa:"persian-mokhtasar",ru:"russian-mokhtasar"};
+
+/* Common names people say for surahs and famous verses (English and Urdu) */
+const ALIASES={"ayatulkursi":[2,255],"ayatalkursi":[2,255],"ayatkursi":[2,255],"kursi":[2,255],"آیت الکرسی":[2,255],"آیۃ الکرسی":[2,255],
+ "yasin":[36],"yaseen":[36],"fatiha":[1],"fateha":[1],"alhamd":[1],"baqarah":[2],"baqra":[2],"imran":[3],"kahf":[18],"kahaf":[18],"rahman":[55],"rehman":[55],"waqiah":[56],"waqia":[56],"mulk":[67],"ikhlas":[112],"falaq":[113],"naas":[114],"maryam":[19],"yusuf":[12],"kausar":[108],"kawthar":[108],"muzammil":[73],"jumuah":[62],"jumma":[62],
+ "یاسین":[36],"یسین":[36],"یس":[36],"فاتحہ":[1],"فاتحه":[1],"الحمد":[1],"بقرہ":[2],"کہف":[18],"رحمان":[55],"رحمن":[55],"واقعہ":[56],"ملک":[67],"اخلاص":[112],"فلق":[113],"ناس":[114],"مریم":[19],"یوسف":[12],"کوثر":[108],"مزمل":[73],"جمعہ":[62]};
+
+/* ---------- State ---------- */
+const S={surahs:[],surah:1,tr:"en.sahih",trLang:"en",qari:"ar.alafasy",tf:"",data:null,view:"",cur:0,playIdx:-1,editions:[],rec:null,ttsTok:0};
+function load(){try{const s=JSON.parse(localStorage.getItem("noor")||"{}");
+  if(s.surah)S.surah=parseInt(s.surah,10)||1; if(s.tr)S.tr=s.tr; if(s.trLang)S.trLang=s.trLang; if(s.qari)S.qari=s.qari; if(s.tf)S.tf=s.tf;
+  if(s.micLang)$("micLang").value=s.micLang;}catch(e){}}
+function save(){try{localStorage.setItem("noor",JSON.stringify({surah:S.surah,tr:S.tr,trLang:S.trLang,qari:S.qari,tf:S.tf,micLang:$("micLang").value}))}catch(e){}}
+load(); if(!S.tf) S.tf=TF_DEFAULT[S.trLang]||TF_DEFAULT.en;
+
+/* ---------- Helpers ---------- */
+function status(t,err){const el=$("status");el.textContent=t||"";el.className="status"+(err?" err":"");el.title=t||"";measure()}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const _ln={};
+function langName(c){if(_ln[c])return _ln[c];let n=c.toUpperCase();try{n=new Intl.DisplayNames(["en"],{type:"language"}).of(c)||n}catch(e){}return(_ln[c]=n)}
+async function get(p){const r=await fetch(API+p);let j=null;try{j=await r.json()}catch(e){}
+  if(!r.ok||!j||j.code!==200){const err=new Error((j&&typeof j.data==="string"&&j.data)||("Request failed ("+r.status+")"));err.status=r.status;throw err}return j.data}
+const tfInfo=id=>TAFSIRS.find(t=>t.id===id)||TAFSIRS[0];
+const DIGITS=/[٠-٩۰-۹]/g;
+const asciiDigits=s=>s.replace(DIGITS,d=>String(d.charCodeAt(0)&15));
+const HARAKAT=/[ؐ-ًؚ-ٰٟۖ-ۭـ]/g;
+function norm(s){
+  s=String(s).toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g,"").replace(HARAKAT,"");
+  s=s.replace(/[ٱأإآ]/g,"ا").replace(/[یىۓے]/g,"ي").replace(/ک/g,"ك").replace(/[ہۃةۀ]/g,"ه");
+  s=s.replace(/(^|\s)(surah|sura|surat|soorah|سوره|سورت)(?=\s|$)/g," ");
+  s=s.replace(/\b(al|an|ar|as|at|ad|adh|az|ash|ath|aal)[-\s]/g,"");
+  s=s.replace(/(^|\s)ال/g,"$1");
+  s=s.replace(/[^a-zء-ي٠-ۿ]/g,"");
+  return s.replace(/ee/g,"i").replace(/oo/g,"u").replace(/(.)\1+/g,"$1").replace(/h$/,"");
+}
+const ALIAS_N=Object.keys(ALIASES).map(k=>[norm(k),ALIASES[k]]);
+function lev(a,b){const m=[];for(let j=0;j<=b.length;j++)m[j]=j;for(let i=1;i<=a.length;i++){let p=m[0];m[0]=i;for(let j=1;j<=b.length;j++){const t=m[j];m[j]=Math.min(m[j]+1,m[j-1]+1,p+(a[i-1]===b[j-1]?0:1));p=t}}return m[b.length]}
+function findSurah(q){
+  const n=norm(q); if(n.length<2) return null;
+  for(const [k,v] of ALIAS_N) if(k===n) return v;
+  for(const [k,v] of ALIAS_N) if(k.length>=4&&n.includes(k)) return v;
+  let best=null,bd=99;
+  for(const s of S.surahs){
+    for(const k of [norm(s.englishName),norm(s.englishNameTranslation||""),norm(s.name||"")]){
+      if(!k) continue; if(k===n) return [s.number];
+      const d=lev(n,k); if(d<bd){bd=d;best=s.number}
+    }
+  }
+  return best&&bd<=Math.max(1,Math.floor(n.length/4))?[best]:null;
+}
+
+/* ---------- Loading ---------- */
+async function init(){
+  status("Loading…");
+  $("content").innerHTML='<p class="loading">Loading verses…</p>';
+  let surahs;
+  try{ surahs=await get("/surah"); }
+  catch(e){ showOffline(); return; }
+  S.surahs=surahs;
+  const [eds,aud]=await Promise.all([get("/edition?format=text&type=translation").catch(()=>FALLBACK_TR),get("/edition?format=audio&language=ar").catch(()=>FALLBACK_QARI)]);
+  S.editions=(eds&&eds.length)?eds:FALLBACK_TR;
+  $("surahSel").innerHTML=surahs.map(s=>`<option value="${s.number}">${s.number}. ${esc(s.englishName)} · ${esc(s.englishNameTranslation||"")}</option>`).join("");
+  const byLang={}; S.editions.forEach(e=>{(byLang[e.language]=byLang[e.language]||[]).push(e)});
+  const rank=l=>l==="en"?0:l==="ur"?1:2;
+  const order=Object.keys(byLang).sort((a,b)=>rank(a)-rank(b)||langName(a).localeCompare(langName(b)));
+  $("trSel").innerHTML=order.map(l=>`<optgroup label="${esc(langName(l))}">`+byLang[l].map(e=>`<option value="${esc(e.identifier)}">${esc(langName(l))}: ${esc(e.englishName)}</option>`).join("")+"</optgroup>").join("");
+  if(!S.editions.some(e=>e.identifier===S.tr)){S.tr="en.sahih";S.trLang="en"}
+  S.trLang=(S.editions.find(e=>e.identifier===S.tr)||{}).language||S.trLang;
+  $("trSel").value=S.tr;
+  let qaris=(aud||[]).filter(e=>e.type==="versebyverse"); if(!qaris.length) qaris=(aud&&aud.length)?aud:FALLBACK_QARI;
+  $("qariSel").innerHTML=qaris.map(e=>`<option value="${esc(e.identifier)}">${esc(e.englishName)}</option>`).join("");
+  if(!qaris.some(e=>e.identifier===S.qari)) S.qari=qaris[0].identifier;
+  $("qariSel").value=S.qari;
+  $("tfSel").innerHTML=["Simple","Detailed"].map(lv=>`<optgroup label="${lv} explanation">`+TAFSIRS.filter(t=>t.level===lv).map(t=>`<option value="${t.id}">${esc(langName(t.lang))}: ${esc(t.name)}</option>`).join("")+"</optgroup>").join("");
+  $("tfSel").value=S.tf;
+  const ok=await openSurah(S.surah);
+  if(ok&&!TTS) status("Read-aloud isn't available in this browser");
+}
+function showOffline(){
+  status("Not connected",true);
+  $("content").innerHTML=`<div class="notice"><h2>Couldn't reach the Quran server</h2>
+    <p>Check your internet connection and try again. Open the app in Chrome or Safari; previews inside other apps can block it.</p>
+    <button class="primary" id="retryBtn">Try again</button></div>`;
+  $("retryBtn").onclick=init;
+}
+
+const BISM_WORDS=["بسم","الله","الرحمن","الرحيم"];
+const plainAr=w=>w.replace(HARAKAT,"").replace(/[ٱأإآ]/g,"ا");
+function stripBismillah(text,surahNo,idx){
+  if(surahNo===1||surahNo===9||idx!==0) return text;
+  const w=text.replace(/^﻿/,"").trim().split(/\s+/);
+  if(w.length>4&&BISM_WORDS.every((b,k)=>plainAr(w[k])===b)) return w.slice(4).join(" ");
+  return text;
+}
+
+async function openSurah(n,ayah){
+  n=Math.min(114,Math.max(1,parseInt(n,10)||1));
+  const meta=S.surahs[n-1];
+  if(ayah&&meta&&ayah>meta.numberOfAyahs){status(`${meta.englishName} has ${meta.numberOfAyahs} verses`,true);ayah=meta.numberOfAyahs}
+  const key=`${n}|${S.qari}|${S.tr}`;
+  const have=S.data&&S.data.key===key;
+  if(!have){
+    stopAll();
+    $("surahSel").value=n;
+    status(`Opening ${meta?meta.englishName:"surah "+n}…`);
+    try{
+      const d=await get(`/surah/${n}/editions/quran-uthmani,${S.qari},${S.tr}`);
+      const pick=(id,k)=>d.find(x=>x&&x.edition&&x.edition.identifier===id)||d[k];
+      S.data={key,ar:pick("quran-uthmani",0),au:pick(S.qari,1),tr:pick(S.tr,2)};
+    }catch(e){status("Couldn't open that surah. Check your connection.",true);$("surahSel").value=S.surah;return false}
+    S.surah=n; save(); status("");
+  }
+  if(!have||S.view!=="surah"){render(); if(!ayah) window.scrollTo({top:0});}
+  S.cur=ayah?ayah-1:0;
+  if(ayah) scrollAyah(S.cur,true);
+  return true;
+}
+
+function render(){
+  const {ar,tr}=S.data, lang=S.trLang, rtl=RTL.includes(lang), meta=S.surahs[ar.number-1]||ar;
+  let h=`<div class="surah-head"><div class="ar" lang="ar">${esc(ar.name)}</div><h2>${ar.number}. ${esc(meta.englishName)}</h2><p>${esc(meta.englishNameTranslation||"")} · ${meta.numberOfAyahs} verses · ${esc(meta.revelationType||"")}</p></div>`;
+  if(ar.number!==1&&ar.number!==9) h+=`<div class="bismillah" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>`;
+  h+=ar.ayahs.map((a,i)=>`<article class="ayah" id="a${i}">
+    <div class="row"><span class="ref">${ar.number}:${a.numberInSurah}</span>
+    <span class="acts"><button data-play="${i}" aria-label="Recite verse ${a.numberInSurah}">▶</button><button data-say="${i}" data-needs="tts" aria-label="Read translation of verse ${a.numberInSurah}">🔊</button><button data-tf="${i}" aria-label="Tafsir of verse ${a.numberInSurah}">📖 Tafsir</button></span></div>
+    <div class="ar-text" lang="ar">${esc(stripBismillah(a.text,ar.number,i))}</div>
+    <div class="tr-text${lang==="ur"?" ur":""}" dir="${rtl?"rtl":"ltr"}" lang="${esc(lang)}">${esc(tr.ayahs[i]?tr.ayahs[i].text:"")}</div></article>`).join("");
+  $("content").innerHTML=h; S.view="surah";
+}
+function scrollAyah(i,flash){
+  const el=$("a"+i); if(!el) return;
+  try{el.scrollIntoView({behavior:"smooth",block:"center"})}catch(e){el.scrollIntoView()}
+  if(flash){el.classList.add("playing");setTimeout(()=>{if(S.playIdx!==i)el.classList.remove("playing")},2200)}
+}
+
+/* ---------- Recitation ---------- */
+function mark(i){
+  document.querySelectorAll(".ayah.playing").forEach(e=>e.classList.remove("playing"));
+  S.playIdx=i;
+  if(i>=0){S.cur=i;const el=$("a"+i);if(el){el.classList.add("playing");try{el.scrollIntoView({behavior:"smooth",block:"center"})}catch(e){}}}
+}
+function playAyah(i){
+  if(!S.data||S.view!=="surah") return;
+  if(!audio){status("Audio isn't supported in this browser",true);return}
+  ttsStop(); mark(i);
+  const a=S.data.au.ayahs[i]; if(!a||!a.audio){status("No recitation for this verse",true);return}
+  audio.dataset.alt=(a.audioSecondary&&a.audioSecondary[0])||"";
+  audio.src=a.audio;
+  const p=audio.play();
+  if(p&&p.catch) p.catch(err=>{if(err&&err.name==="NotAllowedError") status("Tap ▶ Recite to start the audio",true)});
+  status(`Reciting ${S.data.ar.number}:${i+1}`);
+}
+if(audio){
+  audio.addEventListener("ended",()=>{const i=S.playIdx;if(i>=0&&S.data&&i<S.data.au.ayahs.length-1) playAyah(i+1); else if(i>=0){mark(-1);status("Finished")}});
+  audio.addEventListener("error",()=>{
+    if(S.playIdx<0) return;
+    const alt=audio.dataset.alt;
+    if(alt&&audio.src!==alt){audio.dataset.alt="";audio.src=alt;const p=audio.play();if(p&&p.catch)p.catch(()=>{});}
+    else status("Couldn't play the recitation. Check your connection.",true);
+  });
+}
+function stopAll(){mark(-1);if(audio)audio.pause();ttsStop()}
+
+/* ---------- Read aloud (text-to-speech) ---------- */
+function ttsStop(){S.ttsTok++;try{if(TTS)TTS.cancel()}catch(e){}}
+function voiceFor(lang){try{return TTS.getVoices().find(v=>v.lang&&v.lang.toLowerCase().replace("_","-").startsWith(lang))||null}catch(e){return null}}
+function chunks(text){
+  const parts=String(text).replace(/([.!?۔؟])\s+/g,"$1\n").split(/\n+/).map(s=>s.trim()).filter(Boolean);
+  const out=[];let cur="";
+  for(let p of parts){
+    while(p.length>300){const cut=p.lastIndexOf(" ",300)>100?p.lastIndexOf(" ",300):300;out.push(p.slice(0,cut));p=p.slice(cut).trim()}
+    if(cur&&(cur+" "+p).length>220){out.push(cur);cur=p}else cur=cur?cur+" "+p:p;
+  }
+  if(cur) out.push(cur); return out;
+}
+function speak(text,lang,onDone){
+  if(!TTS){status("Read-aloud isn't available in this browser. Open the app in Chrome or Safari.",true);return false}
+  ttsStop(); const tok=S.ttsTok;
+  const v=voiceFor(lang);
+  if(!v&&lang!=="en"&&TTS.getVoices().length) status(`No ${langName(lang)} voice on this phone; add one in your phone's text-to-speech settings`,true);
+  const list=chunks(text);
+  list.forEach((p,k)=>{
+    const u=new SpeechSynthesisUtterance(p); u.lang=v?v.lang:lang; if(v)u.voice=v;
+    if(k===list.length-1) u.onend=()=>{if(tok===S.ttsTok&&onDone)onDone()};
+    try{TTS.speak(u)}catch(e){}
+  });
+  return true;
+}
+function sayAyah(i,cont){
+  if(!S.data||S.view!=="surah") return;
+  if(!TTS){speak("","");return}
+  if(audio) audio.pause();
+  mark(i);
+  const t=S.data.tr.ayahs[i]; if(!t) return;
+  speak(t.text,S.trLang,()=>{
+    if(cont&&S.playIdx===i&&i<S.data.tr.ayahs.length-1) sayAyah(i+1,true);
+    else if(S.playIdx===i) mark(-1);
+  });
+}
+
+/* ---------- Tafsir ---------- */
+const tfCache=new Map();
+async function fetchTafsir(id,s,a){
+  const key=`${id}/${s}/${a}`; if(tfCache.has(key)) return tfCache.get(key);
+  for(const base of TAFSIR_SRC){
+    try{const r=await fetch(`${base}${key}.json`); if(r.ok){const j=await r.json(); const t=(j&&j.text)||""; tfCache.set(key,t); return t}}catch(e){}
+  }
+  throw new Error("Couldn't load the tafsir. Check your connection.");
+}
+async function showTafsir(i,forceOpen){
+  const box=$("a"+i); if(!box||!S.data) return;
+  let p=box.querySelector(".tafsir");
+  if(p&&!forceOpen){p.remove();return}
+  if(!p){p=document.createElement("div");p.className="tafsir";box.appendChild(p)}
+  S.cur=i;
+  const t=tfInfo(S.tf), s=S.data.ar.number, a=i+1, rtl=RTL.includes(t.lang);
+  const head=`<div class="tf-head"><span class="tf-name">${t.level} tafsir · ${esc(t.name)}</span>`;
+  p.innerHTML=head+`</div><div class="note">Loading tafsir…</div>`;
+  try{
+    let txt=(await fetchTafsir(t.id,s,a)).trim(), note="";
+    if(!txt){ /* some tafsirs explain a group of verses under its first verse */
+      for(let b=a-1;b>=1&&b>=a-10;b--){const prev=(await fetchTafsir(t.id,s,b)).trim();if(prev){txt=prev;note=`Verses ${s}:${b} to ${s}:${a} are explained together.`;break}}
+    }
+    if(!txt){p.innerHTML=head+`</div><div class="note">This tafsir has no explanation for this verse. Choose another tafsir in the Tafsir list.</div>`;return}
+    const paras=txt.split(/\n+/).map(x=>x.trim()).filter(Boolean).map(x=>`<p>${esc(x)}</p>`).join("");
+    p.innerHTML=head+`<button data-tfsay="${i}" data-needs="tts">🔊 Listen</button></div>${note?`<div class="note">${note}</div>`:""}
+      <div class="tf-body${t.lang==="ur"?" ur":t.lang==="ar"?" ar":""}" dir="${rtl?"rtl":"ltr"}" lang="${t.lang}">${paras}</div>`;
+    p.dataset.text=txt.length>8000?txt.slice(0,8000):txt; p.dataset.lang=t.lang;
+    try{p.scrollIntoView({behavior:"smooth",block:"nearest"})}catch(e){}
+  }catch(e){p.innerHTML=head+`</div><div class="note err">${esc(e.message)}</div>`}
+}
+function sayTafsir(i){
+  const p=$("a"+i)&&$("a"+i).querySelector(".tafsir"); if(!p||!p.dataset.text) return;
+  if(!TTS){speak("","");return}
+  if(audio) audio.pause(); mark(i);
+  speak(p.dataset.text,p.dataset.lang,()=>{if(S.playIdx===i)mark(-1)});
+}
+
+/* ---------- Search ---------- */
+async function search(q){
+  stopAll(); status(`Searching “${q}”…`);
+  try{
+    const d=await get(`/search/${encodeURIComponent(q)}/all/${encodeURIComponent(S.tr)}`);
+    const hits=(d.matches||[]).slice(0,50), rtl=RTL.includes(S.trLang);
+    $("content").innerHTML=`<h2 class="results-head">${d.count} verse${d.count===1?"":"s"} mention “${esc(q)}”${d.count>50?" (first 50 shown)":""}</h2>`+
+      hits.map(m=>`<button class="hit" data-go="${m.surah.number}:${m.numberInSurah}"><b>${m.surah.number}:${m.numberInSurah} · ${esc(m.surah.englishName)}</b><span dir="${rtl?"rtl":"ltr"}">${esc(m.text)}</span></button>`).join("");
+    S.view="search"; status(""); window.scrollTo({top:0});
+  }catch(e){status(e.status===404?`No verses found for “${q}” in this translation`:"Search failed. Check your connection.",true)}
+}
+
+/* ---------- Commands (typed or spoken) ---------- */
+function setLang(code){
+  const ok=id=>id&&S.editions.some(e=>e.identifier===id);
+  const id=ok(PREFERRED[code])?PREFERRED[code]:(S.editions.find(e=>e.language===code)||{}).identifier;
+  if(!id){status(`No ${langName(code)} translation available`,true);return}
+  S.tr=id;S.trLang=code;$("trSel").value=id;
+  if(TF_DEFAULT[code]){S.tf=TF_DEFAULT[code];$("tfSel").value=S.tf}
+  save(); openSurah(S.surah,S.view==="surah"?S.cur+1:null);
+}
+async function run(raw){
+  const said=String(raw||"").trim(); if(!said) return;
+  status(`“${said}”`);
+  let t=asciiDigits(said).toLowerCase().replace(/[۔.!?،؟]+$/g,"").replace(/\s+/g," ").trim();
+
+  let m=t.match(/^(?:search|find|search for|talash|تلاش)\s+(?:for\s+)?(.+)$/); if(m) return search(m[1]);
+  if(/^(stop|pause|ruko|رکو|رکیں|بند|بند کرو|بس)$/.test(t)) return stopAll();
+  if(/^(read|speak|say)( the)?( translation| it| aloud)?$|^(ترجمہ|ترجمه)( سنائیں| سناؤ| پڑھیں)?$/.test(t)) return sayAyah(S.cur,true);
+  if(/^(next|اگلی|اگلا)( surah| سورت| سورہ)?$/.test(t)) return openSurah(S.surah+1);
+  if(/^(previous|prev|back|پچھلی|پچھلا)( surah| سورت| سورہ)?$/.test(t)) return openSurah(S.surah-1);
+
+  const TAF=/(^|\s)(tafsir|tafseer|tafsiir|explain|explanation|meaning|تفسیر|تفسير)(?=\s|$)/;
+  const PLAY=/(^|\s)(play|recite|listen to|listen|tilawat|tilawah|تلاوت|سنائیں|سناؤ)(?=\s|$)/;
+  const wantTafsir=TAF.test(t), wantPlay=PLAY.test(t);
+  if(wantTafsir||wantPlay) t=t.replace(TAF," ").replace(PLAY," ").replace(/(^|\s)(of|the|کی|کا|کے)(?=\s|$)/g," ").replace(/\s+/g," ").trim();
+  const act=async(s,a)=>{const ok=await openSurah(s,a);if(!ok)return;if(wantTafsir)showTafsir(S.cur,true);if(wantPlay)playAyah(S.cur)};
+  if(!t){ if(wantTafsir) return showTafsir(S.cur,true); if(wantPlay) return playAyah(S.cur); return; }
+
+  const lw=t.replace(/(^|\s)(change|switch|show|set|translation|translations|language|in|to|into|mein|میں|ترجمہ|ترجمه)(?=\s|$)/g," ").trim();
+  if(LANGS[lw]&&!wantPlay&&!wantTafsir) return setLang(LANGS[lw]);
+
+  m=t.match(/(\d{1,3})\s*[:.\/-]\s*(\d{1,3})/)||t.match(/^(\d{1,3}) (\d{1,3})$/);
+  if(m&&+m[1]>=1&&+m[1]<=114) return act(+m[1],+m[2]);
+
+  const AY=/(?:verse|ayah|ayat|aayat|aya|ayet|[آا][یي][تة])\s*(?:number|no|نمبر)?\s*(\d{1,3})/;
+  const am=t.match(AY), ay=am?+am[1]:null;
+  const rest=t.replace(AY," ").replace(/(^|\s)(open|go to|goto|show|surah|sura|surat|soorah|chapter|number|سورہ|سورة|سوره|سورت|کھولیں|کھولو|نمبر)(?=\s|$)/g," ").replace(/\s+/g," ").trim();
+  if(!rest&&ay) return act(S.surah,ay);
+  if(/^\d{1,3}$/.test(rest)&&+rest>=1&&+rest<=114) return act(+rest,ay);
+  const f=findSurah(rest); if(f) return act(f[0],ay||f[1]);
+  return search(said);
+}
+
+/* ---------- Voice input ---------- */
+function listen(){
+  if(!SR){status("Voice commands work in Chrome (Android) or Safari (iPhone). You can type instead.",true);$("cmd").focus();return}
+  if(S.rec){try{S.rec.stop()}catch(e){}return}
+  let r; try{r=new SR()}catch(e){status("Voice commands aren't available here",true);return}
+  r.lang=$("micLang").value; r.interimResults=true; r.maxAlternatives=1; r.continuous=false;
+  S.rec=r; let done=false;
+  const btn=$("micBtn"); btn.classList.add("on"); btn.setAttribute("aria-pressed","true"); status("Listening…");
+  r.onresult=e=>{const res=e.results[e.results.length-1];const txt=res[0].transcript;$("cmd").value=txt;if(res.isFinal&&!done){done=true;run(txt)}};
+  r.onerror=e=>{const c=e.error;status(c==="not-allowed"||c==="service-not-allowed"?"Allow microphone access to use voice commands":c==="no-speech"?"Didn't hear anything. Tap 🎙 and speak.":"Voice didn't work this time. Try again or type.",true)};
+  r.onend=()=>{S.rec=null;btn.classList.remove("on");btn.setAttribute("aria-pressed","false");if(!done&&$("status").textContent==="Listening…")status("")};
+  try{r.start()}catch(e){S.rec=null;btn.classList.remove("on");status("Couldn't start the microphone",true)}
+}
+
+/* ---------- Wire up ---------- */
+const EXAMPLES=["Surah Yasin","Ayatul Kursi","Tafsir 2:255","Search patience","Translation in Urdu"];
+$("chips").innerHTML=EXAMPLES.map(c=>`<button type="button" data-cmd="${esc(c)}">${esc(c)}</button>`).join("");
+$("chips").addEventListener("click",e=>{const b=e.target.closest("button[data-cmd]");if(b){$("cmd").value=b.dataset.cmd;run(b.dataset.cmd)}});
+$("cmdForm").addEventListener("submit",e=>{e.preventDefault();$("cmd").blur();run($("cmd").value)});
+$("micBtn").addEventListener("click",listen);
+$("surahSel").addEventListener("change",e=>openSurah(e.target.value));
+$("trSel").addEventListener("change",e=>{
+  S.tr=e.target.value; S.trLang=(S.editions.find(x=>x.identifier===S.tr)||{}).language||"en";
+  if(TF_DEFAULT[S.trLang]&&tfInfo(S.tf).lang!==S.trLang){S.tf=TF_DEFAULT[S.trLang];$("tfSel").value=S.tf}
+  save(); openSurah(S.surah,S.view==="surah"?S.cur+1:null);
+});
+$("qariSel").addEventListener("change",e=>{S.qari=e.target.value;save();openSurah(S.surah,S.view==="surah"?S.cur+1:null)});
+$("tfSel").addEventListener("change",e=>{S.tf=e.target.value;save();document.querySelectorAll(".tafsir").forEach(p=>showTafsir(+p.parentElement.id.slice(1),true))});
+$("micLang").addEventListener("change",save);
+$("playBtn").addEventListener("click",()=>playAyah(S.cur));
+$("speakBtn").addEventListener("click",()=>sayAyah(S.cur,true));
+$("stopBtn").addEventListener("click",stopAll);
+$("content").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  if(b.dataset.play) playAyah(+b.dataset.play);
+  else if(b.dataset.say) sayAyah(+b.dataset.say,false);
+  else if(b.dataset.tf) showTafsir(+b.dataset.tf);
+  else if(b.dataset.tfsay) sayTafsir(+b.dataset.tfsay);
+  else if(b.dataset.go){const [s,a]=b.dataset.go.split(":");openSurah(+s,+a)}
+});
+function measure(){const t=$("top");if(t)document.documentElement.style.setProperty("--top-h",t.offsetHeight+"px")}
+window.addEventListener("resize",measure); measure();
+window.NoorQuran={run,state:S};
+init();
+})();
+</script>
+</body>
+</html>
