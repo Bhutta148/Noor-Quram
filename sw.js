@@ -1,14 +1,14 @@
 /* Noor Quran offline worker.
    - The app page always loads fresh when online, and from the saved copy when offline.
-   - Surahs, translations and tafsir you have opened are saved, so they open without internet.
+   - Surahs, translations, tafsir, word meanings and hadith chapters you have opened are saved, so they open without internet.
    - Recitation audio is never saved (too large); it streams as normal. */
-const VERSION = "v1";
+const VERSION = "v2";
 const SHELL = "noor-shell-" + VERSION;
 const DATA = "noor-data";
 const FONTS = "noor-fonts";
-const MAX_DATA_ITEMS = 200;
+const MAX_DATA_ITEMS = 300;
 const SHELL_FILES = ["./", "./index.html", "./manifest.json", "./icon-192.png", "./icon-512.png"];
-const DATA_HOSTS = ["api.alquran.cloud", "cdn.jsdelivr.net", "raw.githubusercontent.com"];
+const DATA_HOSTS = ["api.alquran.cloud", "api.quran.com", "cdn.jsdelivr.net", "raw.githubusercontent.com"];
 const FONT_HOSTS = ["fonts.googleapis.com", "fonts.gstatic.com"];
 /* lists the app needs at start-up; saved right away so the app can open offline */
 const DATA_PRELOAD = [
