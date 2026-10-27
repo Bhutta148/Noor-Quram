@@ -1,0 +1,20 @@
+{
+  "id": "./",
+  "name": "Noor Quran",
+  "short_name": "Noor Quran",
+  "description": "Read the Quran with translations, tafsir and recitation. Use voice or text commands in many languages.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#11302b",
+  "theme_color": "#11302b",
+  "lang": "en",
+  "dir": "auto",
+  "categories": ["books", "education", "lifestyle"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

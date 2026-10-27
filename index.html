@@ -6,6 +6,10 @@
 <meta name="theme-color" content="#f3f5f2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1715" media="(prefers-color-scheme: dark)">
 <title>Noor Quran</title>
+<meta name="description" content="Read the Quran with translations, tafsir and recitation. Use voice or text commands in many languages.">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Amiri+Quran&family=Noto+Nastaliq+Urdu:wght@400;600&family=Figtree:wght@400;500;600;700&display=swap">
@@ -37,6 +41,8 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .brand{display:flex;align-items:center;gap:12px;min-width:0}
 .brand h1{margin:0;font-size:18px;letter-spacing:.01em;white-space:nowrap}
 .brand h1 span{color:var(--gold);font-family:var(--f-quran);font-weight:400;margin-left:6px}
+.install{margin-left:auto;flex:none;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+[hidden]{display:none!important}
 .status{font-size:13px;line-height:1.35;color:var(--muted);min-height:1.35em;overflow-wrap:anywhere}
 .status.err{color:var(--err)}
 form.cmd{display:flex;gap:8px}
@@ -110,7 +116,7 @@ select{width:100%;min-width:0;font-size:15px;padding:10px;border-radius:10px;bor
 <body>
 <header class="top" id="top">
   <div class="wrap">
-    <div class="brand"><h1>Noor Quran<span lang="ar">نور</span></h1></div>
+    <div class="brand"><h1>Noor Quran<span lang="ar">نور</span></h1><button type="button" class="install" id="installBtn" hidden>⬇ Install app</button></div>
     <form class="cmd" id="cmdForm" autocomplete="off">
       <input id="cmd" type="text" enterkeyhint="go" placeholder="Say or type: Surah Yasin, 2:255, tafsir…" aria-label="Command">
       <button type="button" class="mic" id="micBtn" aria-label="Speak a command" aria-pressed="false">🎙</button>
@@ -300,7 +306,7 @@ async function openSurah(n,ayah){
       const d=await get(`/surah/${n}/editions/quran-uthmani,${S.qari},${S.tr}`);
       const pick=(id,k)=>d.find(x=>x&&x.edition&&x.edition.identifier===id)||d[k];
       S.data={key,ar:pick("quran-uthmani",0),au:pick(S.qari,1),tr:pick(S.tr,2)};
-    }catch(e){status("Couldn't open that surah. Check your connection.",true);$("surahSel").value=S.surah;return false}
+    }catch(e){status(navigator.onLine===false?"You're offline. Surahs you've opened before still work; this one needs internet the first time.":"Couldn't open that surah. Check your internet; surahs you've opened before also work offline.",true);$("surahSel").value=S.surah;return false}
     S.surah=n; save(); status("");
   }
   if(!have||S.view!=="surah"){render(); if(!ayah) window.scrollTo({top:0});}
@@ -525,6 +531,18 @@ $("content").addEventListener("click",e=>{
 });
 function measure(){const t=$("top");if(t)document.documentElement.style.setProperty("--top-h",t.offsetHeight+"px")}
 window.addEventListener("resize",measure); measure();
+/* ---------- Install as an app, and keep opened surahs for offline use ---------- */
+let installEvt=null;
+function isInstalled(){try{return matchMedia("(display-mode: standalone)").matches||navigator.standalone===true}catch(e){return false}}
+window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();installEvt=e;$("installBtn").hidden=isInstalled();measure()});
+$("installBtn").addEventListener("click",async()=>{
+  const ev=installEvt; if(!ev) return;
+  installEvt=null; $("installBtn").hidden=true; measure();
+  try{await ev.prompt();const c=await ev.userChoice;if(c&&c.outcome==="accepted")status("Installing Noor Quran…")}catch(e){}
+});
+window.addEventListener("appinstalled",()=>{installEvt=null;$("installBtn").hidden=true;measure();status("Noor Quran is installed. Open it from your home screen.")});
+if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})})}
+
 window.NoorQuran={run,state:S};
 init();
 })();
