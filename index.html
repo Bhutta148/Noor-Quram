@@ -393,7 +393,7 @@ const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.
 /* ======================================================================
    Settings
    ====================================================================== */
-const DEF={ui:null,theme:"auto",tr1:"ur.kanzuliman",tr2:"",tf:"",qari:"ar.alafasy",mic:"",arSize:28,trSize:17,wbw:false,wbwLang:"",translit:false,hz:false,rep:1,hide:"none",hLang:"",hAr:true,last:{s:1,a:1},bm:[],mem:{},best:{}};
+const DEF={ui:null,theme:"auto",tr1:"ur.kanzuliman",tr2:"",tf:"",qari:"ar.alafasy",mic:"",arSize:28,trSize:17,wbw:false,wbwLang:"",translit:false,hz:false,rep:1,hide:"none",play:"ar",trAudio:"rec",hLang:"",hAr:true,last:{s:1,a:1},bm:[],mem:{},best:{}};
 const S=Object.assign({},DEF,store.get("noor2",{}));
 if(!S.last||!S.last.s) S.last={s:1,a:1};
 if(!Array.isArray(S.bm)) S.bm=[];
@@ -439,7 +439,8 @@ offTitle:"Couldn't connect",offMsg:"You're offline. Surahs and chapters you open
 close:"Close",speak:"Speak",listening:"Listening… speak now",micDenied:"Allow microphone access to use voice commands",noSpeech:"Didn't hear anything. Tap the mic and speak.",voiceFail:"Didn't catch that. Try again or type it.",voiceUnsupported:"Voice commands work in Chrome on Android or Safari on iPhone. You can type instead.",
 tryThese:"Try",installApp:"Install app",installHint:"Install Noor Quran on your phone like a normal app.",installed:"Noor Quran is installed. Open it from your home screen.",installing:"Installing…",
 translationBy:"Translation: {n}",themeSet:"Theme changed",notInSurah:"Surah {s} has {n} verses",tafsirLoading:"Loading tafsir…",tafsirNone:"This tafsir has no explanation for this verse. Choose another tafsir in Settings.",tafsirGroup:"Verses {a} to {b} are explained together.",
-ttsNoVoice:"No {l} voice on this phone. Add one in your phone's text-to-speech settings.",audioFail:"Couldn't play the recitation. Check your internet.",tapPlay:"Tap play to start the audio",simpleTf:"Simple",detailedTf:"Detailed",
+ttsNoVoice:"Your phone has no {l} voice, so it can't read this aloud. To add one: phone Settings → search “Text-to-speech” → Preferred engine: Google → tap the settings icon → Install voice data → {l}.",audioFail:"Couldn't play the recitation. Check your internet.",tapPlay:"Tap play to start the audio",simpleTf:"Simple",detailedTf:"Detailed",
+pm_ar:"Arabic only",pm_both:"Arabic + {l}",pm_tr:"{l} only",playLbl:"When you press play",taLbl:"Listen to the translation with",ta_rec:"Recorded voice",ta_tts:"Phone's voice",taNote:"The recorded voice works on every phone (Urdu: Shamshad Ali Khan). Its wording can differ slightly from the translation shown on screen.",readingTr:"{l} translation",
 aboutLead:"Noor Quran brings the Quran, its translation and tafsir, hadith, and learning tools together in one free app.",aboutTrust:"Every translation, tafsir and hadith grade comes from a named scholar or published work. Nothing is written or changed by AI.",sources:"Sources",version:"Version",
 juzName:"Para {n}",openSurahAt:"Open",hz_on:"Hifz mode is on",hz_off:"Hifz mode is off",repSet:"Each verse repeats {n}×",langSwitched:"Language changed",noHifzSurah:"Choose a surah first"
 },ur:{
@@ -473,7 +474,8 @@ offTitle:"رابطہ نہیں ہو سکا",offMsg:"آپ آف لائن ہیں۔ �
 close:"بند کریں",speak:"بولیں",listening:"سن رہا ہے… اب بولیں",micDenied:"آواز سے کمانڈ کے لیے مائیکروفون کی اجازت دیں",noSpeech:"کچھ سنائی نہیں دیا۔ مائیک دبا کر بولیں۔",voiceFail:"بات سمجھ نہیں آئی۔ دوبارہ بولیں یا لکھ دیں۔",voiceUnsupported:"آواز سے کمانڈ اینڈرائیڈ پر کروم یا آئی فون پر سفاری میں چلتی ہے۔ آپ لکھ بھی سکتے ہیں۔",
 tryThese:"مثلاً",installApp:"ایپ انسٹال کریں",installHint:"نور قرآن کو اپنے فون پر عام ایپ کی طرح انسٹال کریں۔",installed:"نور قرآن انسٹال ہو گئی۔ ہوم اسکرین سے کھولیں۔",installing:"انسٹال ہو رہی ہے…",
 translationBy:"ترجمہ: {n}",themeSet:"تھیم تبدیل ہو گئی",notInSurah:"سورہ {s} میں {n} آیات ہیں",tafsirLoading:"تفسیر لوڈ ہو رہی ہے…",tafsirNone:"اس تفسیر میں اس آیت کی وضاحت موجود نہیں۔ ترتیبات میں کوئی اور تفسیر منتخب کریں۔",tafsirGroup:"آیات {a} تا {b} کی تفسیر ایک ساتھ ہے۔",
-ttsNoVoice:"اس فون میں {l} آواز موجود نہیں۔ فون کی ٹیکسٹ ٹو اسپیچ ترتیبات میں انسٹال کریں۔",audioFail:"تلاوت نہیں چل سکی۔ انٹرنیٹ چیک کریں۔",tapPlay:"آواز شروع کرنے کے لیے پلے دبائیں",simpleTf:"آسان",detailedTf:"تفصیلی",
+ttsNoVoice:"آپ کے فون میں {l} آواز نہیں، اس لیے یہ متن پڑھ کر نہیں سنایا جا سکتا۔ آواز شامل کریں: فون کی سیٹنگز میں “Text-to-speech” تلاش کریں ← انجن: Google ← سیٹنگز کا نشان ← Install voice data ← {l}۔",audioFail:"تلاوت نہیں چل سکی۔ انٹرنیٹ چیک کریں۔",tapPlay:"آواز شروع کرنے کے لیے پلے دبائیں",simpleTf:"آسان",detailedTf:"تفصیلی",
+pm_ar:"صرف عربی",pm_both:"عربی + {l}",pm_tr:"صرف {l}",playLbl:"پلے دبانے پر کیا سنائی دے",taLbl:"ترجمہ کس آواز میں سنیں",ta_rec:"ریکارڈ شدہ آواز",ta_tts:"فون کی آواز",taNote:"ریکارڈ شدہ آواز ہر فون پر چلتی ہے (اردو: شمشاد علی خان)۔ اس کے الفاظ اسکرین پر دکھائے گئے ترجمے سے کچھ مختلف ہو سکتے ہیں۔",readingTr:"{l} ترجمہ",
 aboutLead:"نور قرآن میں قرآن مجید، اس کا ترجمہ اور تفسیر، احادیث اور سیکھنے کے ٹولز ایک ہی مفت ایپ میں جمع ہیں۔",aboutTrust:"ہر ترجمہ، تفسیر اور حدیث کا درجہ کسی معروف عالم یا شائع شدہ کتاب سے لیا گیا ہے۔ اس میں مصنوعی ذہانت سے کچھ نہیں لکھا یا بدلا گیا۔",sources:"ماخذ",version:"ورژن",
 juzName:"پارہ {n}",openSurahAt:"کھولیں",hz_on:"حفظ موڈ آن ہے",hz_off:"حفظ موڈ بند ہے",repSet:"ہر آیت {n} بار دہرائی جائے گی",langSwitched:"زبان تبدیل ہو گئی",noHifzSurah:"پہلے سورت منتخب کریں"
 }};
@@ -521,6 +523,7 @@ const TRN={"ur.kanzuliman":["Kanzul Iman (Ahmed Raza Khan)","کنز الایما
 const trName=(id,fb)=>TRN[id]?TRN[id][isUr()?1:0]:(fb||id);
 const repLbl=n=>isUr()?num(n)+" بار":n+"×";
 const REPS=()=>[1,3,5,10].map(n=>[n,repLbl(n)]);
+const playOpts=()=>{const L=langName(trLang());return [["ar",t("pm_ar")],["both",t("pm_both",{l:L})],["tr",t("pm_tr",{l:L})]]};
 const PREFERRED={en:"en.sahih",ur:"ur.kanzuliman",pt:"pt.elhayek",fr:"fr.hamidullah",id:"id.indonesian",tr:"tr.diyanet",es:"es.cortes",de:"de.aburida",bn:"bn.bengali",hi:"hi.hindi"};
 const LANGS={english:"en",urdu:"ur",arabic:"ar",portuguese:"pt",french:"fr",spanish:"es",german:"de",turkish:"tr",indonesian:"id",malay:"ms",bengali:"bn",bangla:"bn",hindi:"hi",persian:"fa",farsi:"fa",russian:"ru",italian:"it",chinese:"zh",dutch:"nl",swahili:"sw",somali:"so",pashto:"ps",tamil:"ta",japanese:"ja",korean:"ko",bosnian:"bs",albanian:"sq",azerbaijani:"az","انگریزی":"en","انگلش":"en","اردو":"ur","عربی":"ar","عربي":"ar"};
 /* Para (juz) starts in the Madani mushaf, with their traditional names */
@@ -884,7 +887,7 @@ function ayahHTML(i){
   return `<article class="ayah${S.hz&&mem?" mem":""}" id="a${i}" data-i="${i}">
    <div class="top"><span class="vk">${num(s+":"+n)}</span><span class="acts">
     <button class="ib" data-act="play" data-i="${i}" aria-label="${t("play")}">${icon("play")}</button>
-    <button class="ib" data-act="say" data-i="${i}" aria-label="${t("readTr")}"${TTS?"":" hidden"}>${icon("speak")}</button>
+    <button class="ib" data-act="say" data-i="${i}" aria-label="${t("readTr")}">${icon("speak")}</button>
     <button class="ib" data-act="tf" data-i="${i}" aria-label="${t("tafsir")}">${icon("tafsir")}</button>
     <button class="ib${bm?" on":""}" data-act="bm" data-i="${i}" aria-label="${t("bookmark")}" aria-pressed="${bm}">${icon(bm?"bmOn":"bm")}</button>
     <button class="ib" data-act="share" data-i="${i}" aria-label="${t("share")}">${icon("share")}</button>
@@ -963,6 +966,7 @@ function openOpts(){
   openSheet(`<h3>${t("displayOpts")}</h3>
    <div class="opt-row"><span>${t("wbwOnLbl")}</span>${toggle("wbw",S.wbw)}</div>
    ${S.wbw?`<div class="fld"><span>${t("wbwLang")}</span>${seg("wbwLang",[["ur","اردو"],["en","English"]],S.wbwLang)}</div><div class="opt-row"><span>${t("translit")}</span>${toggle("translit",S.translit)}</div>`:""}
+   <div class="fld"><span>${t("playLbl")}</span>${seg("play",playOpts(),playMode())}</div>
    <div class="opt-row"><span>${t("hifzMode")}</span>${toggle("hz",S.hz)}</div>
    <div class="fld"><span>${t("repeatEach")}</span>${seg("rep",REPS(),S.rep)}</div>
    ${S.hz?`<div class="fld"><span>${t("hideLbl")}</span>${seg("hide",[["none",t("hide_none")],["tr",t("hide_tr")],["ar",t("hide_ar")],["both",t("hide_both")]],S.hide)}</div>`:""}
@@ -971,53 +975,104 @@ function openOpts(){
    <button class="btn" data-act="nav" data-href="#/settings">${icon("gear")} ${t("moreSettings")}</button>`);
 }
 
-/* Recitation */
-const P={audio:(typeof Audio!=="undefined")?new Audio():null,idx:-1,left:0,on:false};
+/* Recitation: Arabic, the recorded translation, or both in turn */
+const P={audio:(typeof Audio!=="undefined")?new Audio():null,idx:-1,left:0,on:false,phase:"ar",mode:"ar",single:false,tok:0,tts:false};
 const WA=(typeof Audio!=="undefined")?new Audio():null;
+const playMode=()=>S.play||"ar";
 function mark(i){$$(".ayah.on").forEach(e=>e.classList.remove("on"));P.idx=i;if(i>=0&&R){R.cur=i;renderUpTo(i);const el=$("#a"+i);if(el){el.classList.add("on");try{el.scrollIntoView({behavior:"smooth",block:"center"})}catch(e){}}S.last={s:R.s,a:i+1};save()}}
-function playFrom(i){if(!R)return;ttsStop();P.left=S.rep||1;playIdx(i)}
-function playIdx(i){
-  if(!R||!P.audio)return;const a=R.au&&R.au.ayahs[i];if(!a||!a.audio){toast(t("audioFail"));return}
-  mark(i);P.on=true;if(WA)WA.pause();
-  P.audio.dataset.alt=(a.audioSecondary&&a.audioSecondary[0])||"";P.audio.src=a.audio;
-  const p=P.audio.play();if(p&&p.catch)p.catch(e=>{if(e&&e.name==="NotAllowedError")toast(t("tapPlay"))});
+function playFrom(i,mode,single){
+  if(!R)return;ttsStop();if(WA)WA.pause();P.tok++;
+  P.mode=mode||playMode();P.single=!!single;P.left=S.rep||1;P.phase=P.mode==="tr"?"tr":"ar";
+  step(i);
+}
+const TRAUD={},TRAUD_NAME={},TAC={};
+async function trAudioEdition(l){
+  if(Object.prototype.hasOwnProperty.call(TRAUD,l))return TRAUD[l];
+  const a=await aq(`/edition?format=audio&language=${encodeURIComponent(l)}`);
+  const e=(a||[]).find(x=>x.type==="versebyverse")||null;
+  TRAUD[l]=e?e.identifier:null;TRAUD_NAME[l]=e?(e.englishName||e.name||""):"";return TRAUD[l];
+}
+async function trAudioUrl(s,i){
+  if(S.trAudio==="tts")return null;
+  let ed=null;try{ed=await trAudioEdition(trLang())}catch(e){return null}
+  if(!ed)return null;const k=s+"|"+ed;
+  try{if(!TAC[k]){const d=await aq(`/surah/${s}/${ed}`);TAC[k]=(d&&d.ayahs)||[]}}catch(e){return null}
+  const x=TAC[k][i];return x&&x.audio?{src:x.audio,alt:(x.audioSecondary||[])[0]||""}:null;
+}
+function setSrc(src,alt){P.audio.dataset.alt=alt||"";P.audio.src=src;const p=P.audio.play();if(p&&p.catch)p.catch(e=>{if(e&&e.name==="NotAllowedError")toast(t("tapPlay"))})}
+function speakTr(i,tok){
+  const x=R&&R.tr&&R.tr.ayahs[i];if(!x){stopAll();return}
+  if(P.audio)P.audio.pause();P.tts=true;
+  const ok=speak(x.text,trLang(),()=>{if(tok===P.tok){P.tts=false;next(i)}});
+  if(!ok){P.tts=false;P.tok++;P.on=false;mark(-1)}
   updatePlayer();
 }
+async function step(i){
+  if(!R||!P.audio)return;const tok=P.tok;
+  mark(i);P.on=true;P.tts=false;
+  if(P.phase==="ar"){
+    const a=R.au&&R.au.ayahs[i];if(!a||!a.audio){toast(t("audioFail"));stopAll();return}
+    setSrc(a.audio,(a.audioSecondary||[])[0]);updatePlayer();return;
+  }
+  updatePlayer();
+  const u=await trAudioUrl(R.s,i);if(tok!==P.tok||!R)return;
+  if(u){setSrc(u.src,u.alt);updatePlayer();return}
+  speakTr(i,tok);
+}
+function next(i){
+  if(!R||!P.on)return;
+  if(P.phase==="ar"){P.left--;if(P.left>0){P.audio.currentTime=0;P.audio.play().catch(()=>{});return}if(P.mode==="both"){P.phase="tr";step(i);return}}
+  if(P.single){stopAll();return}
+  if(i<R.ar.ayahs.length-1){P.left=S.rep||1;P.phase=P.mode==="tr"?"tr":"ar";step(i+1)}else stopAll();
+}
 if(P.audio){
-  P.audio.addEventListener("ended",()=>{
-    if(!P.on||!R)return;P.left--;
-    if(P.left>0){P.audio.currentTime=0;P.audio.play().catch(()=>{});return}
-    if(P.idx<R.ar.ayahs.length-1){P.left=S.rep||1;playIdx(P.idx+1)}else{stopAll()}
+  P.audio.addEventListener("ended",()=>{if(P.on&&!P.tts)next(P.idx)});
+  P.audio.addEventListener("error",()=>{
+    if(!P.on||P.tts)return;const alt=P.audio.dataset.alt;
+    if(alt&&P.audio.src!==alt){P.audio.dataset.alt="";P.audio.src=alt;P.audio.play().catch(()=>{});return}
+    if(P.phase==="tr"){speakTr(P.idx,P.tok);return}
+    toast(t("audioFail"));P.on=false;updatePlayer();
   });
-  P.audio.addEventListener("error",()=>{if(!P.on)return;const alt=P.audio.dataset.alt;if(alt&&P.audio.src!==alt){P.audio.dataset.alt="";P.audio.src=alt;P.audio.play().catch(()=>{})}else{toast(t("audioFail"));P.on=false;updatePlayer()}});
   P.audio.addEventListener("play",updatePlayer);P.audio.addEventListener("pause",updatePlayer);
 }
-function stopAll(){P.on=false;if(P.audio)P.audio.pause();if(WA)WA.pause();ttsStop();mark(-1);updatePlayer()}
-function togglePlay(){if(!R)return;if(P.on&&P.audio&&!P.audio.paused){P.audio.pause();P.on=false}else if(P.audio&&P.audio.src&&P.idx>=0){P.on=true;P.audio.play().catch(()=>{})}else playFrom(R.cur||0);updatePlayer()}
+function stopAll(){P.tok++;P.on=false;P.tts=false;if(P.audio)P.audio.pause();if(WA)WA.pause();ttsStop();mark(-1);updatePlayer()}
+const isPlaying=()=>!!(P.on&&(P.tts||(P.audio&&!P.audio.paused)));
+function togglePlay(){
+  if(!R)return;
+  if(isPlaying()){if(P.tts){stopAll();return}P.audio.pause();P.on=false}
+  else if(P.audio&&P.audio.src&&P.idx>=0){P.on=true;P.audio.play().catch(()=>{})}
+  else playFrom(R.cur||0);
+  updatePlayer();
+}
+function modeLabel(m){const L=langName(trLang());return m==="both"?t("pm_both",{l:L}):m==="tr"?t("pm_tr",{l:L}):t("pm_ar")}
 function plInfo(playing){
   const i=R?(P.idx>=0?P.idx:(R.cur||0)):-1;const ref=R&&i>=0?num(R.s+":"+(i+1)):"";
-  const q=(QARIS||[]).find(x=>x.identifier===S.qari);
-  return `<b>${ref}</b><span>${playing?t("reciting"):(q?esc(q.englishName):t("readyToRecite"))}</span>`;
+  const q=(QARIS||[]).find(x=>x.identifier===S.qari);const qn=q?q.englishName:"";
+  let line;
+  if(playing)line=P.phase==="tr"?t("readingTr",{l:langName(trLang())}):(qn?t("reciting")+" · "+qn:t("reciting"));
+  else{const m=playMode();line=(qn||t("readyToRecite"))+(m!=="ar"?" · "+modeLabel(m):"")}
+  return `<b>${ref}</b><span>${esc(line)}</span>`;
 }
-function refreshPlInfo(){const el=$("#plInfo");if(el)el.innerHTML=plInfo(!!(P.on&&P.audio&&!P.audio.paused))}
+function refreshPlInfo(){const el=$("#plInfo");if(el)el.innerHTML=plInfo(isPlaying())}
 function updatePlayer(){
   const p=$("#player");if(!p||p.hidden)return;
-  const playing=!!(P.on&&P.audio&&!P.audio.paused);
+  const playing=isPlaying();
   p.innerHTML=`<div class="in">
    <button class="ib" data-act="prevV" aria-label="${t("prev")}">${icon("prev","svg flip")}</button>
    <button class="pl-main" data-act="toggle" aria-label="${playing?t("pause"):t("play")}">${icon(playing?"pause":"play")}</button>
    <button class="ib" data-act="nextV" aria-label="${t("next")}">${icon("next","svg flip")}</button>
    <div class="pl-info" id="plInfo">${plInfo(playing)}</div>
    <button class="ib${S.rep>1?" on":""}" data-act="cycleRep" aria-label="${t("repeat")}">${icon("repeat")}<small dir="ltr">${num(S.rep)}×</small></button>
-   <button class="ib" data-act="sayCur" aria-label="${t("readTr")}"${TTS?"":" hidden"}>${icon("speak")}</button>
+   <button class="ib${P.on&&P.phase==="tr"?" on":""}" data-act="sayCur" aria-label="${t("readTr")}">${icon("speak")}</button>
    <button class="ib" data-act="stop" aria-label="${t("stop")}">${icon("stop")}</button></div>`;
   measure();
 }
 
-/* Read aloud (text to speech) */
+/* Read aloud with the phone's own voice (used when there is no recording) */
 let TTS_TOK=0;
 function ttsStop(){TTS_TOK++;try{if(TTS)TTS.cancel()}catch(e){}}
 function voiceFor(l){try{return TTS.getVoices().find(v=>v.lang&&v.lang.toLowerCase().replace("_","-").startsWith(l))||null}catch(e){return null}}
+function hasVoice(l){if(!TTS)return false;let v=[];try{v=TTS.getVoices()}catch(e){}if(!v.length)return null;return !!voiceFor(l)}
 function chunks(text){
   const parts=String(text).replace(/([.!?۔؟])\s+/g,"$1\n").split(/\n+/).map(s=>s.trim()).filter(Boolean);
   const out=[];let cur="";
@@ -1025,18 +1080,12 @@ function chunks(text){
   if(cur)out.push(cur);return out;
 }
 function speak(text,l,onDone){
-  if(!TTS){toast(t("noTTS"));return false}
+  if(!TTS){toast(t("noTTS"),5000);return false}
+  if(hasVoice(l)===false&&l!=="en"){toast(t("ttsNoVoice",{l:langName(l)}),8000);return false}
   ttsStop();const tok=TTS_TOK;const v=voiceFor(l);
-  if(!v&&l!=="en"&&TTS.getVoices().length)toast(t("ttsNoVoice",{l:langName(l)}),3600);
-  const list=chunks(text);
+  const list=chunks(text);if(!list.length){if(onDone)setTimeout(onDone,0);return true}
   list.forEach((p,k)=>{const u=new SpeechSynthesisUtterance(p);u.lang=v?v.lang:l;if(v)u.voice=v;if(k===list.length-1)u.onend=()=>{if(tok===TTS_TOK&&onDone)onDone()};try{TTS.speak(u)}catch(e){}});
   return true;
-}
-function sayAyah(i,cont){
-  if(!R)return;if(!TTS){toast(t("noTTS"));return}
-  P.on=false;if(P.audio)P.audio.pause();mark(i);
-  const x=R.tr.ayahs[i];if(!x)return;
-  speak(x.text,trLang(),()=>{if(cont&&P.idx===i&&i<R.ar.ayahs.length-1)sayAyah(i+1,true);else if(P.idx===i)mark(-1)});
 }
 
 /* Tafsir */
@@ -1295,6 +1344,8 @@ async function vSettings(){
     <label class="fld"><span>${t("secondTr")}</span><select data-set="tr2" id="setTr2"><option value="">${t("none")}</option>${S.tr2?`<option value="${esc(S.tr2)}" selected>${esc(S.tr2)}</option>`:""}</select></label>
     <label class="fld"><span>${t("tafsir")}</span><select data-set="tf">${tafsirOptions()}</select></label>
     <label class="fld"><span>${t("reciter")}</span><select data-set="qari" id="setQari"><option value="${esc(S.qari)}">${esc(S.qari)}</option></select></label>
+    <div class="fld"><span>${t("playLbl")}</span>${seg("play",playOpts(),playMode())}</div>
+    <div class="fld"><span>${t("taLbl")}</span>${seg("trAudio",[["rec",t("ta_rec")],["tts",t("ta_tts")]],S.trAudio||"rec")}<span class="note">${t("taNote")}</span></div>
     <label class="fld"><span>${t("arSize")}: <b id="arSizeV">${num(S.arSize)}</b></span><input type="range" min="20" max="44" step="1" value="${S.arSize}" data-set="arSize" data-live="arSize"></label>
     <div class="preview ar-text" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
     <label class="fld"><span>${t("trSize")}: <b id="trSizeV">${num(S.trSize)}</b></span><input type="range" min="13" max="26" step="1" value="${S.trSize}" data-set="trSize" data-live="trSize"></label>
@@ -1388,7 +1439,7 @@ async function run(raw){
   m=q.match(/^(?:para|parah|sipara|juz|juzz|پارہ|پاره|سپارہ|سیپارہ|جز)\s*(?:number|no|نمبر)?\s*(\d{1,2})$/);
   if(m&&+m[1]>=1&&+m[1]<=30){const j=JUZ[+m[1]-1];return go(`#/s/${j[0]}/${j[1]}`)}
   const hb=matchHadithBook(q);if(hb)return go(hb.n?`#/hadith/${hb.b}/n/${hb.n}`:`#/hadith/${hb.b}`);
-  if(/^(read|speak|say)( the)?( translation| it| aloud)?$|^(ترجمہ|ترجمه)( سنائیں| سناؤ| پڑھیں)?$/.test(q)){closeAll();if(VIEW.name==="reader"&&R)sayAyah(R.cur||0,true);return}
+  if(/^(read|speak|say)( the)?( translation| it| aloud)?$|^(ترجمہ|ترجمه)( سنائیں| سناؤ| پڑھیں)?$/.test(q)){closeAll();if(VIEW.name==="reader"&&R)playFrom(R.cur||0,"tr");return}
   const curS=R&&VIEW.name==="reader"?R.s:S.last.s;
   if(/^(next|اگلی|اگلا)( surah| سورت| سورہ)?$/.test(q))return go(`#/s/${Math.min(114,curS+1)}`);
   if(/^(previous|prev|back|پچھلی|پچھلا)( surah| سورت| سورہ)?$/.test(q))return go(`#/s/${Math.max(1,curS-1)}`);
@@ -1448,6 +1499,7 @@ function afterSetting(k){
     if(k==="wbw"||k==="wbwLang"){if(S.wbw&&(!R.wbw||k==="wbwLang")){R.wbw=null;rerenderAyahs();loadWbw(R.tok)}else rerenderAyahs()}
     else if(k==="translit"||k==="hz"||k==="hide")rerenderAyahs();
     else if(k==="rep"){updatePlayer();renderHzBar()}
+    else if(k==="play"||k==="trAudio"){updatePlayer()}
     else if(k==="tr1"||k==="tr2"||k==="qari")go(`#/s/${R.s}/${(R.cur||0)+1}`);
   }
   if((k==="hLang"||k==="hAr")&&/^h/.test(VIEW.name)&&VIEW.name!=="hifz")route();
@@ -1469,14 +1521,14 @@ const ACT={
   seg:(el)=>{const k=el.dataset.k;let v=el.dataset.v;if(k==="rep")v=+v;S[k]=v;save();el.parentNode.querySelectorAll("button").forEach(b=>{const on=b===el;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on)});afterSetting(k)},
   opts:()=>openOpts(),
   play:(el)=>playFrom(+el.dataset.i),
-  say:(el)=>sayAyah(+el.dataset.i,false),
-  sayCur:()=>{if(R)sayAyah(R.cur||0,true)},
+  say:(el)=>playFrom(+el.dataset.i,"tr",true),
+  sayCur:()=>{if(!R)return;if(P.on&&P.phase==="tr"&&P.mode==="tr"){stopAll();return}playFrom(R.cur||0,"tr")},
   tf:(el)=>showTafsir(+el.dataset.i),
-  tfsay:(el)=>{const p=$("#a"+el.dataset.i+" .tafsir");if(p&&p.dataset.text){P.on=false;if(P.audio)P.audio.pause();speak(p.dataset.text,p.dataset.lang)}},
+  tfsay:(el)=>{const p=$("#a"+el.dataset.i+" .tafsir");if(p&&p.dataset.text){stopAll();speak(p.dataset.text,p.dataset.lang)}},
   toggle:()=>togglePlay(),
   stop:()=>stopAll(),
-  prevV:()=>{if(!R)return;const i=Math.max(0,(P.idx>=0?P.idx:R.cur||0)-1);if(P.on)playFrom(i);else{R.cur=i;scrollToAyah(i,true);updatePlayer()}},
-  nextV:()=>{if(!R)return;const i=Math.min(R.ar.ayahs.length-1,(P.idx>=0?P.idx:R.cur||0)+1);if(P.on)playFrom(i);else{R.cur=i;scrollToAyah(i,true);updatePlayer()}},
+  prevV:()=>{if(!R)return;const i=Math.max(0,(P.idx>=0?P.idx:R.cur||0)-1);if(P.on)playFrom(i,P.mode);else{R.cur=i;scrollToAyah(i,true);updatePlayer()}},
+  nextV:()=>{if(!R)return;const i=Math.min(R.ar.ayahs.length-1,(P.idx>=0?P.idx:R.cur||0)+1);if(P.on)playFrom(i,P.mode);else{R.cur=i;scrollToAyah(i,true);updatePlayer()}},
   cycleRep:()=>{const c=[1,3,5,10];S.rep=c[(c.indexOf(S.rep)+1)%c.length];save();afterSetting("rep")},
   bm:(el)=>{
     const i=+el.dataset.i,a=R.ar.ayahs[i],n=a.numberInSurah;const ix=S.bm.findIndex(b=>b.t==="v"&&b.s===R.s&&b.a===n);
@@ -1495,7 +1547,7 @@ const ACT={
   word:(el)=>{
     if(!R||!R.wbw)return;const i=+el.dataset.i,k=+el.dataset.k;const W=R.wbw[R.ar.ayahs[i].numberInSurah];const w=W&&W[k];if(!w)return;
     $$(".w.on").forEach(x=>x.classList.remove("on"));el.classList.add("on");
-    if(w.au&&WA){P.on=false;if(P.audio)P.audio.pause();ttsStop();let tries=0;const src=x=>/^https?:/.test(w.au)?w.au:WAUD[x]+w.au;WA.onerror=()=>{if(++tries<WAUD.length){WA.src=src(tries);WA.play().catch(()=>{})}};WA.src=src(0);WA.play().catch(()=>{});updatePlayer()}
+    if(w.au&&WA){if(P.on)stopAll();ttsStop();let tries=0;const src=x=>/^https?:/.test(w.au)?w.au:WAUD[x]+w.au;WA.onerror=()=>{if(++tries<WAUD.length){WA.src=src(tries);WA.play().catch(()=>{})}};WA.src=src(0);WA.play().catch(()=>{});updatePlayer()}
   },
   hmore:()=>hMore(),
   hsay:(el)=>{const x=HT.get(el.dataset.b+":"+el.dataset.n);if(x&&x.text)speak(x.text,x.L)},
