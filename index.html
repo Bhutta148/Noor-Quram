@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0e3b34">
 <title>Noor Quran</title>
-<meta name="description" content="Quran with Urdu and English translations, tafsir and recitation, ten hadith books, word-by-word meanings, Hifz, Qaida lessons and quizzes.">
+<meta name="description" content="Quran with Urdu and English translations, tafsir and recitation, ten hadith books, the Six Kalimas, how to pray, the 99 Names of Allah, word-by-word meanings, Hifz, Qaida lessons and quizzes.">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-512.png">
@@ -298,6 +298,69 @@ html[lang="ur"] .opt{line-height:2}
 .qtype b{font-size:16px}
 .qtype .s{font-size:12.5px;color:var(--muted);line-height:1.5}
 html[lang="ur"] .qtype .s{line-height:1.9}
+.opt.ar-opt{font-family:var(--f-ar);font-size:22px;line-height:1.8;text-align:center}
+
+/* Faith and prayer: Six Kalimas, Salah, Names of Allah */
+.jump{display:flex;gap:8px;flex-wrap:wrap}
+.kcard,.scard,.sec{display:flex;flex-direction:column;gap:10px}
+.sec .h2{margin:0;color:var(--ink);font-size:16px}
+.qword.nq{font-family:var(--f-ar);line-height:2.2}
+.kcard,.scard,.sec,[id^="sec-"]{scroll-margin-top:calc(var(--bar-h) + 14px)}
+.kcard.on{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
+.khead{display:flex;align-items:center;gap:12px;min-width:0}
+.khead .main{flex:1;min-width:0;display:flex;flex-direction:column}
+.khead .o{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);line-height:1.5}
+html[lang="ur"] .khead .o{font-size:13px;letter-spacing:0;line-height:1.9}
+.khead .t{font-weight:700;font-size:17px;line-height:1.4}
+html[lang="ur"] .khead .t{font-weight:600;line-height:1.95}
+.khead .s{font-size:12.5px;color:var(--muted);line-height:1.5}
+html[lang="ur"] .khead .s{line-height:1.9}
+.k-ar,.r-ar{font-family:var(--f-ar);font-size:calc(var(--ar-size)*.86);line-height:2.15;direction:rtl;text-align:right;overflow-wrap:break-word;color:var(--ink)}
+.r-ar.q{font-family:var(--f-quran);font-size:calc(var(--ar-size)*.9);line-height:2.3}
+.ktl{font-family:var(--f-ui);font-size:13.5px;line-height:1.6;color:var(--muted);font-style:italic;direction:ltr;text-align:left;overflow-wrap:break-word}
+.k-tr,.r-tr{font-size:var(--tr-size);line-height:1.7;overflow-wrap:break-word}
+.k-tr.ur,.r-tr.ur{font-family:var(--f-ur);line-height:2.35;text-align:right}
+.rec{display:flex;flex-direction:column;gap:6px;padding:12px;border-radius:12px;background:var(--surface2);border:1px solid var(--line);min-width:0}
+.rx{align-self:flex-start;font-size:12px;font-weight:700;color:var(--accent);background:var(--hl);border-radius:999px;padding:0 10px;line-height:1.9}
+.rfoot{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+a.chip{text-decoration:none}
+.chip.src{color:var(--muted);font-size:12.5px}
+.sdesc{margin:0}
+.snote{font-size:14px;line-height:1.6;background:var(--hl);border-radius:12px;padding:10px 12px}
+html[lang="ur"] .snote{line-height:2.1}
+.bullets{margin:0;padding-inline-start:20px;display:flex;flex-direction:column;gap:4px}
+.prow{display:flex;flex-direction:column;gap:6px;padding:10px 0;border-bottom:1px solid var(--line)}
+.prow:last-of-type{border-bottom:0}
+.prow .pt{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-weight:700}
+.prow .pt span{font-size:12.5px;font-weight:500;color:var(--muted)}
+.rk{display:flex;gap:6px;flex-wrap:wrap}
+.rk span{font-size:13px;border-radius:999px;padding:1px 10px;border:1px solid var(--line);background:var(--surface2);line-height:1.8}
+html[lang="ur"] .rk span{line-height:2}
+.rk .f{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.rk .wt{border-color:var(--gold);color:var(--gold);font-weight:600}
+.nhead{display:flex;flex-direction:column;align-items:center;text-align:center;gap:0}
+.nhead .nallah{font-family:var(--f-quran);font-size:52px;line-height:1.75;color:var(--gold)}
+.nhead b{font-family:var(--f-ui);font-size:17px}
+.ngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(102px,1fr));gap:10px}
+.nm{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:0;padding:16px 6px 10px;border-radius:14px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);text-align:center;min-width:0}
+.nm .no{position:absolute;top:5px;inset-inline-start:8px;font-size:11px;color:var(--muted);font-family:var(--f-ui);line-height:1.4}
+.nm .na{font-family:var(--f-ar);font-size:25px;line-height:1.8;color:var(--gold)}
+.nm .na.long{font-size:18px;line-height:1.9}
+.nm .nt{font-family:var(--f-ui);font-size:12px;font-weight:600;line-height:1.35;direction:ltr}
+.nm .nmn,.nod .nmn{font-size:11.5px;color:var(--muted);line-height:1.4;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.nm .nmn.ur,.nod .nmn.ur{font-family:var(--f-ur);font-size:12.5px;line-height:1.95}
+.nbig{font-family:var(--f-ar);font-size:50px;line-height:1.7;color:var(--gold);text-align:center}
+.ntl{text-align:center;font-weight:700;font-size:17px;font-family:var(--f-ui)}
+.nmean{text-align:center;font-size:19px;font-weight:600;line-height:1.5}
+.nmean.ur{font-family:var(--f-ur);line-height:2.1}
+.nmean2{text-align:center;color:var(--muted);font-size:14px;font-family:var(--f-ui)}
+.nmean2.ur{font-family:var(--f-ur);line-height:2}
+.nex{margin:0;text-align:center;line-height:1.6}
+.nod{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink)}
+.nod .na{font-family:var(--f-ar);font-size:32px;line-height:1.7;color:var(--gold);flex:none;max-width:45%}
+.nod .main{flex:1;min-width:0;display:flex;flex-direction:column}
+.nod b{font-family:var(--f-ui);font-size:15px}
+.nod .nmn{font-size:13px}
 
 /* Bottom player, sheet, toast */
 .player{position:fixed;left:0;right:0;bottom:0;z-index:15;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);box-shadow:0 -6px 18px rgba(0,0,0,.07)}
@@ -336,7 +399,7 @@ html[lang="ur"] .pl-info{line-height:1.8}
 .wl-btns .ur{font-family:var(--f-ur);font-size:20px}
 .about p{margin:0 0 10px}
 .about ul{margin:0;padding-inline-start:20px;display:flex;flex-direction:column;gap:6px}
-@media (min-width:640px){.tiles{grid-template-columns:repeat(8,minmax(0,1fr))}}
+@media (min-width:640px){.tiles{grid-template-columns:repeat(6,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -447,8 +510,19 @@ tryThese:"Try",installApp:"Install app",installHint:"Install Noor Quran on your 
 translationBy:"Translation: {n}",themeSet:"Theme changed",notInSurah:"Surah {s} has {n} verses",tafsirLoading:"Loading tafsir…",tafsirNone:"This tafsir has no explanation for this verse. Choose another tafsir in Settings.",tafsirGroup:"Verses {a} to {b} are explained together.",
 ttsNoVoice:"Your phone has no {l} voice, so it can't read this aloud. To add one: phone Settings → search “Text-to-speech” → Preferred engine: Google → tap the settings icon → Install voice data → {l}.",audioFail:"Couldn't play the recitation. Check your internet.",tapPlay:"Tap play to start the audio",simpleTf:"Simple",detailedTf:"Detailed",
 pm_ar:"Arabic only",pm_both:"Arabic + {l}",pm_tr:"{l} only",playLbl:"When you press play",taLbl:"Listen to the translation with",ta_rec:"Recorded voice",ta_tts:"Phone's voice",taNote:"The recorded voice works on every phone (Urdu: Shamshad Ali Khan). Its wording can differ slightly from the translation shown on screen.",readingTr:"{l} translation",
-aboutLead:"Noor Quran brings the Quran, its translation and tafsir, hadith, and learning tools together in one free app.",aboutTrust:"Every translation, tafsir and hadith grade comes from a named scholar or published work. Nothing is written or changed by AI.",sources:"Sources",version:"Version",
-duaHead:"طالبِ دعا",iosTitle:"Install on iPhone",iosSteps:"Open this page in Safari, tap the Share button (the square with an arrow), then tap <bdi class=\"nb\">Add to Home Screen</bdi> and <bdi class=\"nb\">Add</bdi>.",juzName:"Para {n}",openSurahAt:"Open",hz_on:"Hifz mode is on",hz_off:"Hifz mode is off",repSet:"Each verse repeats {n}×",langSwitched:"Language changed",noHifzSurah:"Choose a surah first"
+aboutLead:"Noor Quran brings the Quran, its translation and tafsir, hadith, the basics of faith and prayer, and learning tools together in one free app.",aboutTrust:"Quran translations, tafsir, hadith and hadith grades come from named scholars and published works and are shown unchanged.",aboutBasics:"Six Kalimas, Salah and the Names of Allah: every Arabic text was checked word by word against published sources, and each Salah recitation links to its hadith or verse. Their short translations and step-by-step notes were written for this app.",sources:"Sources",version:"Version",
+duaHead:"طالبِ دعا",iosTitle:"Install on iPhone",iosSteps:"Open this page in Safari, tap the Share button (the square with an arrow), then tap <bdi class=\"nb\">Add to Home Screen</bdi> and <bdi class=\"nb\">Add</bdi>.",juzName:"Para {n}",openSurahAt:"Open",hz_on:"Hifz mode is on",hz_off:"Hifz mode is off",repSet:"Each verse repeats {n}×",langSwitched:"Language changed",noHifzSurah:"Choose a surah first",
+faith:"Faith & prayer",kalimas:"Six Kalimas",salah:"How to pray",names:"Names of Allah",names99:"99 Names",names99sub:"Asma-ul-Husna",
+kalimaIntro:"The Six Kalimas are short words of faith that children in Pakistan and India learn by heart. They are based on the Quran and hadith.",testYourself:"Test yourself",
+hanafi:"Hanafi method",salahIntro:"How to pray two rak'ahs, step by step, following the Hanafi school as taught in Pakistan and India. A note shows what changes in prayers of three or four rak'ahs. Some details differ in other schools; if unsure, ask a scholar you trust.",
+condTitle:"Before you pray",stepsTitle:"Step by step",rakatTitle:"Rak'ahs of the daily prayers",witrTitle:"Witr and Dua-e-Qunoot",womenTitle:"For women",stepsShort:"Steps",rakatShort:"Rak'ahs",witrShort:"Witr",womenShort:"Women",
+times:"{n} times",source:"Source",hearInQuran:"Listen in the Quran",sunnah:"Sunnah",fard:"Fard",nafl:"Nafl",witr:"Witr",
+p_fajr:"Fajr",p_zuhr:"Zuhr",p_asr:"Asr",p_maghrib:"Maghrib",p_isha:"Isha",p_jumuah:"Jumu'ah (Friday)",totalRakat:"{n} in all",
+rakatNote:"* Ghair-mu'akkadah: a lighter Sunnah. Nafl are optional. Witr is wajib in the Hanafi school. On Friday, Jumu'ah is prayed in place of Zuhr.",
+nameOfDay:"Name of Allah for today",namesFilter:"Search a name or its meaning",allahName:"Ism-e-Zaat, Allah's own name",nameN:"Name {n} of 99",prevN:"Previous",nextN:"Next",
+qt_names:"Names of Allah",qtd_names:"Meanings of the 99 names",qt_salah:"Kalimas & Salah",qtd_salah:"The Six Kalimas, rak'ahs and what to say in prayer",
+qNameMean:"What does this name mean?",qWhichName:"Which name means “{m}”?",qWhichKalima:"Which Kalima is this?",qKalimaN:"Which is the {n} Kalima?",qFard:"How many fard rak'ahs are in {p}?",
+qRecite_ruku:"What do you say in ruku?",qRecite_sujood:"What do you say in sajdah?",qRecite_samia:"What do you say while rising from ruku?",qRecite_jalsa:"Which dua can you say between the two sajdahs?"
 },ur:{
 app:"نور قرآن",menu:"مینو",home:"ہوم",quran:"قرآن مجید",surahs:"سورتیں",juz:"پارے",hadith:"احادیث",learn:"سیکھیں",wbw:"لفظ بہ لفظ",hifz:"حفظ",qaida:"قاعدہ — پڑھنا سیکھیں",qaidaShort:"قاعدہ",quiz:"کوئز",bookmarks:"بک مارکس",settings:"ترتیبات",about:"ایپ کے بارے میں",more:"مزید",
 salamSub:"آج قرآن مجید کی چند آیات ضرور پڑھیں",searchPh:"تلاش کریں یا بولیں: سورہ یاسین، ۲:۲۵۵، بخاری ۱",continue:"جہاں سے چھوڑا تھا",resume:"جاری رکھیں",surah:"سورہ",verse:"آیت",verseOfDay:"آج کی آیت",hadithOfDay:"آج کی حدیث",
@@ -482,8 +556,19 @@ tryThese:"مثلاً",installApp:"ایپ انسٹال کریں",installHint:"ن�
 translationBy:"ترجمہ: {n}",themeSet:"تھیم تبدیل ہو گئی",notInSurah:"سورہ {s} میں {n} آیات ہیں",tafsirLoading:"تفسیر لوڈ ہو رہی ہے…",tafsirNone:"اس تفسیر میں اس آیت کی وضاحت موجود نہیں۔ ترتیبات میں کوئی اور تفسیر منتخب کریں۔",tafsirGroup:"آیات {a} تا {b} کی تفسیر ایک ساتھ ہے۔",
 ttsNoVoice:"آپ کے فون میں {l} آواز نہیں، اس لیے یہ متن پڑھ کر نہیں سنایا جا سکتا۔ آواز شامل کریں: فون کی سیٹنگز میں “Text-to-speech” تلاش کریں ← انجن: Google ← سیٹنگز کا نشان ← Install voice data ← {l}۔",audioFail:"تلاوت نہیں چل سکی۔ انٹرنیٹ چیک کریں۔",tapPlay:"آواز شروع کرنے کے لیے پلے دبائیں",simpleTf:"آسان",detailedTf:"تفصیلی",
 pm_ar:"صرف عربی",pm_both:"عربی + {l}",pm_tr:"صرف {l}",playLbl:"پلے دبانے پر کیا سنائی دے",taLbl:"ترجمہ کس آواز میں سنیں",ta_rec:"ریکارڈ شدہ آواز",ta_tts:"فون کی آواز",taNote:"ریکارڈ شدہ آواز ہر فون پر چلتی ہے (اردو: شمشاد علی خان)۔ اس کے الفاظ اسکرین پر دکھائے گئے ترجمے سے کچھ مختلف ہو سکتے ہیں۔",readingTr:"{l} ترجمہ",
-aboutLead:"نور قرآن میں قرآن مجید، اس کا ترجمہ اور تفسیر، احادیث اور سیکھنے کے ٹولز ایک ہی مفت ایپ میں جمع ہیں۔",aboutTrust:"ہر ترجمہ، تفسیر اور حدیث کا درجہ کسی معروف عالم یا شائع شدہ کتاب سے لیا گیا ہے۔ اس میں مصنوعی ذہانت سے کچھ نہیں لکھا یا بدلا گیا۔",sources:"ماخذ",version:"ورژن",
-duaHead:"طالبِ دعا",iosTitle:"آئی فون پر انسٹال کریں",iosSteps:"یہ صفحہ سفاری میں کھولیں، شیئر کا بٹن (تیر والا چوکور نشان) دبائیں، پھر <bdi class=\"nb\" dir=\"ltr\">Add to Home Screen</bdi> (ہوم اسکرین پر شامل کریں) اور <bdi class=\"nb\" dir=\"ltr\">Add</bdi> دبائیں۔",juzName:"پارہ {n}",openSurahAt:"کھولیں",hz_on:"حفظ موڈ آن ہے",hz_off:"حفظ موڈ بند ہے",repSet:"ہر آیت {n} بار دہرائی جائے گی",langSwitched:"زبان تبدیل ہو گئی",noHifzSurah:"پہلے سورت منتخب کریں"
+aboutLead:"نور قرآن میں قرآن مجید، اس کا ترجمہ اور تفسیر، احادیث، ایمان اور نماز کی بنیادی باتیں اور سیکھنے کے ٹولز ایک ہی مفت ایپ میں جمع ہیں۔",aboutTrust:"قرآن مجید کے تراجم، تفاسیر، احادیث اور ان کے درجات معروف علماء اور شائع شدہ کتب سے لیے گئے ہیں اور بغیر کسی تبدیلی کے دکھائے جاتے ہیں۔",aboutBasics:"چھ کلمے، نماز کا طریقہ اور اسماء الحسنیٰ: ہر عربی متن کو شائع شدہ ماخذ سے لفظ بہ لفظ ملایا گیا ہے، اور نماز کی ہر دعا اپنی حدیث یا آیت سے جڑی ہے۔ ان کے مختصر ترجمے اور مرحلہ وار ہدایات اس ایپ کے لیے لکھی گئی ہیں۔",sources:"ماخذ",version:"ورژن",
+duaHead:"طالبِ دعا",iosTitle:"آئی فون پر انسٹال کریں",iosSteps:"یہ صفحہ سفاری میں کھولیں، شیئر کا بٹن (تیر والا چوکور نشان) دبائیں، پھر <bdi class=\"nb\" dir=\"ltr\">Add to Home Screen</bdi> (ہوم اسکرین پر شامل کریں) اور <bdi class=\"nb\" dir=\"ltr\">Add</bdi> دبائیں۔",juzName:"پارہ {n}",openSurahAt:"کھولیں",hz_on:"حفظ موڈ آن ہے",hz_off:"حفظ موڈ بند ہے",repSet:"ہر آیت {n} بار دہرائی جائے گی",langSwitched:"زبان تبدیل ہو گئی",noHifzSurah:"پہلے سورت منتخب کریں",
+faith:"ایمان اور نماز",kalimas:"چھ کلمے",salah:"نماز کا طریقہ",names:"اسماء الحسنیٰ",names99:"اسماء الحسنیٰ",names99sub:"اللہ تعالیٰ کے ننانوے نام",
+kalimaIntro:"چھ کلمے ایمان کے مختصر کلمات ہیں جو پاکستان اور ہندوستان میں بچوں کو زبانی یاد کرائے جاتے ہیں۔ ان کا مضمون قرآن و حدیث سے لیا گیا ہے۔",testYourself:"خود کو آزمائیں",
+hanafi:"فقہ حنفی کے مطابق",salahIntro:"دو رکعت نماز کا مرحلہ وار طریقہ، فقہ حنفی کے مطابق جیسا کہ پاکستان اور ہندوستان میں سکھایا جاتا ہے۔ تین یا چار رکعت والی نماز کا فرق ساتھ لکھا ہے۔ دوسرے فقہی مذاہب میں بعض تفصیلات مختلف ہیں؛ کسی بات میں شک ہو تو کسی معتبر عالم سے پوچھ لیں۔",
+condTitle:"نماز سے پہلے",stepsTitle:"مرحلہ وار طریقہ",rakatTitle:"نمازوں کی رکعتیں",witrTitle:"وتر اور دعائے قنوت",womenTitle:"خواتین کے لیے",stepsShort:"طریقہ",rakatShort:"رکعتیں",witrShort:"وتر",womenShort:"خواتین",
+times:"{n} بار",source:"حوالہ",hearInQuran:"قرآن مجید میں تلاوت سنیں",sunnah:"سنت",fard:"فرض",nafl:"نفل",witr:"وتر",
+p_fajr:"فجر",p_zuhr:"ظہر",p_asr:"عصر",p_maghrib:"مغرب",p_isha:"عشاء",p_jumuah:"جمعہ",totalRakat:"کل {n}",
+rakatNote:"* غیر مؤکدہ سنت۔ نفل اختیاری ہیں۔ فقہ حنفی میں وتر واجب ہیں۔ جمعہ کے دن ظہر کی جگہ نمازِ جمعہ ادا کی جاتی ہے۔",
+nameOfDay:"آج کا اسمِ مبارک",namesFilter:"نام یا معنی تلاش کریں",allahName:"اسمِ ذات",nameN:"۹۹ میں سے {n}",prevN:"پچھلا",nextN:"اگلا",
+qt_names:"اسماء الحسنیٰ",qtd_names:"اللہ تعالیٰ کے ننانوے ناموں کے معنی",qt_salah:"کلمے اور نماز",qtd_salah:"چھ کلمے، رکعتیں اور نماز کے اذکار",
+qNameMean:"اس نام کا مطلب کیا ہے؟",qWhichName:"کس نام کا مطلب «{m}» ہے؟",qWhichKalima:"یہ کون سا کلمہ ہے؟",qKalimaN:"{n} کلمہ کون سا ہے؟",qFard:"{p} میں کتنے فرض ہیں؟",
+qRecite_ruku:"رکوع میں کیا پڑھتے ہیں؟",qRecite_sujood:"سجدے میں کیا پڑھتے ہیں؟",qRecite_samia:"رکوع سے اٹھتے ہوئے کیا کہتے ہیں؟",qRecite_jalsa:"دونوں سجدوں کے درمیان کون سی دعا پڑھ سکتے ہیں؟"
 }};
 const isUr=()=>S.ui==="ur";
 function t(k,v){let s=(STR[isUr()?"ur":"en"]||STR.en)[k];if(s==null)s=STR.en[k];if(s==null)s=k;if(v)for(const x in v)s=s.split("{"+x+"}").join(v[x]);return s}
@@ -559,6 +644,24 @@ const TLIT={"ا":"","ب":"b","ت":"t","ث":"th","ج":"j","ح":"ḥ","خ":"kh","�
 const ALIF="ا", AHF="أ", AHK="إ";
 
 /* ======================================================================
+   Faith and prayer: Six Kalimas, Salah (Hanafi method), Names of Allah
+   Arabic of the Kalimas and of every Salah recitation was checked word by word against published sources;
+   each Salah recitation links to its hadith or verse inside this app. Al-Fatiha and Al-Ikhlas: Tanzil Quran text (simple).
+   ====================================================================== */
+const KALIMAS=[{"n":1,"k":"tayyab","oe":"First Kalima","ou":"پہلا کلمہ","ne":"Kalima Tayyab","nu":"کلمہ طیب","se":"Words of purity","su":"پاکیزگی کا کلمہ","ar":"لَا إِلَٰهَ إِلَّا اللَّهُ مُحَمَّدٌ رَسُولُ اللَّهِ","tl":"Laa ilaaha illallaahu Muhammadur Rasoolullaah","en":"There is no god but Allah; Muhammad ﷺ is the Messenger of Allah.","ur":"اللہ کے سوا کوئی معبود نہیں، محمد ﷺ اللہ کے رسول ہیں۔"},{"n":2,"k":"shahadat","oe":"Second Kalima","ou":"دوسرا کلمہ","ne":"Kalima Shahadat","nu":"کلمہ شہادت","se":"Words of testimony","su":"گواہی کا کلمہ","ar":"أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ","tl":"Ash-hadu al-laa ilaaha illallaahu wahdahoo laa shareeka lahoo wa ash-hadu anna Muhammadan 'abduhoo wa Rasooluh","en":"I bear witness that there is no god but Allah, He is One and has no partner; and I bear witness that Muhammad ﷺ is His servant and His Messenger.","ur":"میں گواہی دیتا ہوں کہ اللہ کے سوا کوئی معبود نہیں، وہ اکیلا ہے، اس کا کوئی شریک نہیں، اور میں گواہی دیتا ہوں کہ محمد ﷺ اس کے بندے اور رسول ہیں۔"},{"n":3,"k":"tamjeed","oe":"Third Kalima","ou":"تیسرا کلمہ","ne":"Kalima Tamjeed","nu":"کلمہ تمجید","se":"Words of glorifying Allah","su":"اللہ کی بزرگی کا کلمہ","ar":"سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلَا إِلَٰهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ الْعَلِيِّ الْعَظِيمِ","tl":"Subhaanallaahi wal-hamdu lillaahi wa laa ilaaha illallaahu wallaahu akbar, wa laa hawla wa laa quwwata illaa billaahil-'aliyyil-'azeem","en":"Glory be to Allah, all praise is for Allah, there is no god but Allah, and Allah is the Greatest. There is no power to turn away from sin and no strength to do good except through Allah, the Most High, the Most Great.","ur":"اللہ پاک ہے، اور سب تعریفیں اللہ ہی کے لیے ہیں، اور اللہ کے سوا کوئی معبود نہیں، اور اللہ سب سے بڑا ہے۔ گناہوں سے بچنے کی طاقت اور نیکی کرنے کی قوت اللہ ہی کی طرف سے ہے جو بلند و برتر اور عظمت والا ہے۔"},{"n":4,"k":"tauheed","oe":"Fourth Kalima","ou":"چوتھا کلمہ","ne":"Kalima Tauheed","nu":"کلمہ توحید","se":"Words of Allah's oneness","su":"اللہ کی وحدانیت کا کلمہ","ar":"لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، يُحْيِي وَيُمِيتُ، وَهُوَ حَيٌّ لَا يَمُوتُ أَبَدًا أَبَدًا، ذُو الْجَلَالِ وَالْإِكْرَامِ، بِيَدِهِ الْخَيْرُ، وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ","tl":"Laa ilaaha illallaahu wahdahoo laa shareeka lah, lahul-mulku wa lahul-hamd, yuhyee wa yumeet, wa huwa hayyul-laa yamootu abadan abadaa, dhul-jalaali wal-ikraam, biyadihil-khair, wa huwa 'alaa kulli shai'in qadeer","en":"There is no god but Allah, He is One and has no partner. His is the kingdom and His is all praise. He gives life and causes death, and He is Ever-Living and will never die, ever. He is the Lord of majesty and honour. In His hand is all good, and He has power over everything.","ur":"اللہ کے سوا کوئی معبود نہیں، وہ اکیلا ہے، اس کا کوئی شریک نہیں۔ اسی کی بادشاہی ہے اور اسی کے لیے سب تعریف ہے۔ وہی زندگی دیتا ہے اور وہی موت دیتا ہے، اور وہ ہمیشہ زندہ ہے، اسے کبھی موت نہیں آئے گی۔ وہ بڑے جلال اور بزرگی والا ہے۔ اسی کے ہاتھ میں ہر بھلائی ہے، اور وہ ہر چیز پر قادر ہے۔"},{"n":5,"k":"astaghfar","oe":"Fifth Kalima","ou":"پانچواں کلمہ","ne":"Kalima Astaghfar","nu":"کلمہ استغفار","se":"Words of seeking forgiveness","su":"معافی مانگنے کا کلمہ","ar":"أَسْتَغْفِرُ اللَّهَ رَبِّي مِنْ كُلِّ ذَنْبٍ أَذْنَبْتُهُ عَمَدًا أَوْ خَطَأً، سِرًّا أَوْ عَلَانِيَةً، وَأَتُوبُ إِلَيْهِ مِنَ الذَّنْبِ الَّذِي أَعْلَمُ وَمِنَ الذَّنْبِ الَّذِي لَا أَعْلَمُ، إِنَّكَ أَنْتَ عَلَّامُ الْغُيُوبِ وَسَتَّارُ الْعُيُوبِ وَغَفَّارُ الذُّنُوبِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ الْعَلِيِّ الْعَظِيمِ","tl":"Astaghfirullaaha rabbee min kulli dhambin adhnabtuhoo 'amadan aw khata'an, sirran aw 'alaaniyatan wa atoobu ilaihi minadh-dhambil-ladhee a'lamu wa minadh-dhambil-ladhee laa a'lam, innaka anta 'allaamul-ghuyoobi wa sattaarul-'uyoobi wa ghaffaarudh-dhunoob, wa laa hawla wa laa quwwata illaa billaahil-'aliyyil-'azeem","en":"I seek forgiveness from Allah, my Lord, for every sin I have committed, on purpose or by mistake, secretly or openly; and I turn to Him in repentance from the sin I know and from the sin I do not know. Surely You are the Knower of the unseen, the Concealer of faults and the Forgiver of sins. There is no power to turn away from sin and no strength to do good except through Allah, the Most High, the Most Great.","ur":"میں اللہ سے معافی مانگتا ہوں جو میرا رب ہے، ہر اس گناہ سے جو میں نے کیا، جان بوجھ کر یا بھول کر، چھپ کر یا کھلم کھلا، اور میں اس کی طرف توبہ کرتا ہوں اس گناہ سے جسے میں جانتا ہوں اور اس گناہ سے جسے میں نہیں جانتا۔ (اے اللہ!) بے شک تو ہی غیب کی باتیں جاننے والا، عیبوں کو چھپانے والا اور گناہوں کو بخشنے والا ہے۔ گناہوں سے بچنے کی طاقت اور نیکی کرنے کی قوت اللہ ہی کی طرف سے ہے جو بلند و برتر اور عظمت والا ہے۔"},{"n":6,"k":"raddekufr","oe":"Sixth Kalima","ou":"چھٹا کلمہ","ne":"Kalima Radd-e-Kufr","nu":"کلمہ ردِ کفر","se":"Words of rejecting disbelief","su":"کفر سے بیزاری کا کلمہ","ar":"اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ أَنْ أُشْرِكَ بِكَ شَيْئًا وَأَنَا أَعْلَمُ بِهِ، وَأَسْتَغْفِرُكَ لِمَا لَا أَعْلَمُ بِهِ، تُبْتُ عَنْهُ وَتَبَرَّأْتُ مِنَ الْكُفْرِ وَالشِّرْكِ وَالْكِذْبِ وَالْغِيبَةِ وَالْبِدْعَةِ وَالنَّمِيمَةِ وَالْفَوَاحِشِ وَالْبُهْتَانِ وَالْمَعَاصِي كُلِّهَا، وَأَسْلَمْتُ وَأَقُولُ: لَا إِلَٰهَ إِلَّا اللَّهُ مُحَمَّدٌ رَسُولُ اللَّهِ","tl":"Allaahumma innee a'oodhu bika min an ushrika bika shai'an wa ana a'lamu bih, wa astaghfiruka limaa laa a'lamu bih, tubtu 'anhu wa tabarra'tu minal-kufri wash-shirki wal-kidhbi wal-gheebati wal-bid'ati wan-nameemati wal-fawaahishi wal-buhtaani wal-ma'aasee kullihaa, wa aslamtu wa aqoolu: laa ilaaha illallaahu Muhammadur Rasoolullaah","en":"O Allah, I seek refuge in You from knowingly associating anything with You, and I ask Your forgiveness for what I do not know. I repent from it, and I declare myself free of disbelief, associating partners with Allah, lying, backbiting, innovation in religion, tale-carrying, shameful deeds, false accusation and all sins. I have accepted Islam, and I say: there is no god but Allah; Muhammad ﷺ is the Messenger of Allah.","ur":"اے اللہ! میں تیری پناہ مانگتا ہوں اس بات سے کہ جان بوجھ کر کسی چیز کو تیرا شریک ٹھہراؤں، اور میں اس (گناہ) کی معافی مانگتا ہوں جسے میں نہیں جانتا۔ میں نے اس سے توبہ کی، اور میں بیزار ہوا کفر سے، شرک سے، جھوٹ سے، غیبت سے، بدعت سے، چغلی سے، بے حیائی کے کاموں سے، بہتان سے اور ہر قسم کے گناہوں سے۔ میں اسلام لایا، اور میں کہتا ہوں: اللہ کے سوا کوئی معبود نہیں، محمد ﷺ اللہ کے رسول ہیں۔"}];
+const SALAH={"rec":{"takbir":{"ar":"اللَّهُ أَكْبَرُ","tl":"Allaahu akbar","en":"Allah is the Greatest.","ur":"اللہ سب سے بڑا ہے۔","src":["tirmidhi",3]},"sana":{"ar":"سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ، وَتَبَارَكَ اسْمُكَ، وَتَعَالَى جَدُّكَ، وَلَا إِلَٰهَ غَيْرُكَ","tl":"Subhaanaka Allaahumma wa bihamdika, wa tabaarakasmuka, wa ta'aalaa jadduka, wa laa ilaaha ghairuk","en":"Glory be to You, O Allah, and praise be to You. Blessed is Your name and exalted is Your majesty, and there is no god besides You.","ur":"اے اللہ! تو پاک ہے اور تیری ہی تعریف ہے، تیرا نام بڑی برکت والا ہے، تیری شان بلند ہے، اور تیرے سوا کوئی معبود نہیں۔","src":["tirmidhi",243]},"taawwuz":{"ar":"أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ","tl":"A'oodhu billaahi minash-shaitaanir-rajeem","en":"I seek refuge in Allah from Satan, the accursed.","ur":"میں شیطان مردود سے اللہ کی پناہ مانگتا ہوں۔","src":"16:98"},"tasmiyah":{"ar":"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ","tl":"Bismillaahir-Rahmaanir-Raheem","en":"In the name of Allah, the Most Gracious, the Most Merciful.","ur":"اللہ کے نام سے شروع جو بہت مہربان رحمت والا","src":"1:1"},"ameen":{"ar":"آمِين","tl":"Aameen","en":"O Allah, accept our prayer.","ur":"اے اللہ! قبول فرما۔","src":["bukhari",780]},"ruku":{"ar":"سُبْحَانَ رَبِّيَ الْعَظِيمِ","tl":"Subhaana rabbiyal-'azeem","en":"Glory be to my Lord, the Magnificent.","ur":"پاک ہے میرا رب جو عظمت والا ہے۔","x":3,"src":["abudawud",871]},"samia":{"ar":"سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ","tl":"Sami'allaahu liman hamidah","en":"Allah hears the one who praises Him.","ur":"اللہ نے اس کی سن لی جس نے اس کی تعریف کی۔","src":["bukhari",722]},"rabbana":{"ar":"رَبَّنَا لَكَ الْحَمْدُ","tl":"Rabbanaa lakal-hamd","en":"Our Lord, all praise is for You.","ur":"اے ہمارے رب! سب تعریف تیرے ہی لیے ہے۔","src":["bukhari",722]},"sujood":{"ar":"سُبْحَانَ رَبِّيَ الْأَعْلَى","tl":"Subhaana rabbiyal-a'laa","en":"Glory be to my Lord, the Most High.","ur":"پاک ہے میرا رب جو سب سے بلند ہے۔","x":3,"src":["abudawud",871]},"jalsa":{"ar":"رَبِّ اغْفِرْ لِي","tl":"Rabbighfir lee","en":"My Lord, forgive me.","ur":"اے میرے رب! مجھے بخش دے۔","src":["ibnmajah",897]},"tashahhud":{"ar":"التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ، السَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ، السَّلَامُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ، أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ","tl":"At-tahiyyaatu lillaahi was-salawaatu wat-tayyibaat, as-salaamu 'alaika ayyuhan-nabiyyu wa rahmatullaahi wa barakaatuh, as-salaamu 'alainaa wa 'alaa 'ibaadillaahis-saaliheen, ash-hadu al-laa ilaaha illallaah, wa ash-hadu anna Muhammadan 'abduhoo wa rasooluh","en":"All greetings, prayers and good words are for Allah. Peace be upon you, O Prophet, and the mercy of Allah and His blessings. Peace be upon us and upon the righteous servants of Allah. I bear witness that there is no god but Allah, and I bear witness that Muhammad is His servant and His Messenger.","ur":"تمام قولی، بدنی اور مالی عبادتیں اللہ ہی کے لیے ہیں۔ اے نبی! آپ پر سلام ہو اور اللہ کی رحمت اور اس کی برکتیں۔ ہم پر اور اللہ کے نیک بندوں پر سلام ہو۔ میں گواہی دیتا ہوں کہ اللہ کے سوا کوئی معبود نہیں، اور میں گواہی دیتا ہوں کہ محمد ﷺ اس کے بندے اور رسول ہیں۔","src":["bukhari",831]},"durood":{"ar":"اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ، اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ","tl":"Allaahumma salli 'alaa Muhammadin wa 'alaa aali Muhammad, kamaa sallaita 'alaa Ibraaheema wa 'alaa aali Ibraaheem, innaka hameedum majeed. Allaahumma baarik 'alaa Muhammadin wa 'alaa aali Muhammad, kamaa baarakta 'alaa Ibraaheema wa 'alaa aali Ibraaheem, innaka hameedum majeed","en":"O Allah, send Your mercy upon Muhammad and the family of Muhammad, as You sent Your mercy upon Ibrahim and the family of Ibrahim; You are Praiseworthy, Glorious. O Allah, send Your blessings upon Muhammad and the family of Muhammad, as You sent Your blessings upon Ibrahim and the family of Ibrahim; You are Praiseworthy, Glorious.","ur":"اے اللہ! محمد ﷺ پر اور آلِ محمد پر رحمت نازل فرما، جیسے تو نے ابراہیم علیہ السلام پر اور آلِ ابراہیم پر رحمت نازل فرمائی، بے شک تو تعریف کے لائق، بزرگی والا ہے۔ اے اللہ! محمد ﷺ پر اور آلِ محمد پر برکت نازل فرما، جیسے تو نے ابراہیم علیہ السلام پر اور آلِ ابراہیم پر برکت نازل فرمائی، بے شک تو تعریف کے لائق، بزرگی والا ہے۔","src":["bukhari",3370]},"dua":{"ar":"اللَّهُمَّ إِنِّي ظَلَمْتُ نَفْسِي ظُلْمًا كَثِيرًا، وَلَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ، فَاغْفِرْ لِي مَغْفِرَةً مِنْ عِنْدِكَ، وَارْحَمْنِي، إِنَّكَ أَنْتَ الْغَفُورُ الرَّحِيمُ","tl":"Allaahumma innee zalamtu nafsee zulman katheeran, wa laa yaghfirudh-dhunooba illaa ant, faghfir lee maghfiratam min 'indik, warhamnee, innaka antal-ghafoorur-raheem","en":"O Allah, I have wronged myself greatly, and no one forgives sins except You. So forgive me with forgiveness from You, and have mercy on me. Surely You are the Forgiving, the Merciful.","ur":"اے اللہ! میں نے اپنی جان پر بہت ظلم کیا، اور تیرے سوا کوئی گناہوں کو نہیں بخشتا، تو اپنی طرف سے مجھے بخش دے، اور مجھ پر رحم فرما، بے شک تو ہی بخشنے والا، مہربان ہے۔","src":["bukhari",834]},"salam":{"ar":"السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ","tl":"As-salaamu 'alaikum wa rahmatullaah","en":"Peace be upon you and the mercy of Allah.","ur":"تم پر سلامتی ہو اور اللہ کی رحمت۔","src":["abudawud",996]},"qunoot":{"ar":"اللَّهُمَّ إِنَّا نَسْتَعِينُكَ وَنَسْتَغْفِرُكَ، وَنُؤْمِنُ بِكَ وَنَتَوَكَّلُ عَلَيْكَ، وَنُثْنِي عَلَيْكَ الْخَيْرَ، وَنَشْكُرُكَ وَلَا نَكْفُرُكَ، وَنَخْلَعُ وَنَتْرُكُ مَنْ يَفْجُرُكَ، اللَّهُمَّ إِيَّاكَ نَعْبُدُ، وَلَكَ نُصَلِّي وَنَسْجُدُ، وَإِلَيْكَ نَسْعَى وَنَحْفِدُ، وَنَرْجُو رَحْمَتَكَ وَنَخْشَى عَذَابَكَ، إِنَّ عَذَابَكَ بِالْكُفَّارِ مُلْحِقٌ","tl":"Allaahumma innaa nasta'eenuka wa nastaghfiruka wa nu'minu bika wa natawakkalu 'alaika wa nuthnee 'alaikal-khair, wa nashkuruka wa laa nakfuruka wa nakhla'u wa natruku mai-yafjuruk. Allaahumma iyyaaka na'budu wa laka nusallee wa nasjudu wa ilaika nas'aa wa nahfidu wa narjoo rahmataka wa nakhshaa 'adhaabaka inna 'adhaabaka bil-kuffaari mulhiq","en":"O Allah, we ask You for help and ask Your forgiveness; we believe in You and put our trust in You; we praise You in the best way; we thank You and are not ungrateful to You; and we cast off and leave whoever disobeys You. O Allah, You alone we worship; to You we pray and before You we prostrate; towards You we hasten and strive; we hope for Your mercy and fear Your punishment. Surely Your punishment will reach the disbelievers.","ur":"اے اللہ! ہم تجھ سے مدد مانگتے ہیں اور تجھ سے معافی چاہتے ہیں، تجھ پر ایمان لاتے ہیں اور تجھ پر بھروسا کرتے ہیں، اور تیری بہت اچھی تعریف کرتے ہیں، تیرا شکر کرتے ہیں اور تیری ناشکری نہیں کرتے، اور جو تیری نافرمانی کرے اسے ہم چھوڑ دیتے ہیں اور اس سے الگ ہو جاتے ہیں۔ اے اللہ! ہم تیری ہی عبادت کرتے ہیں، تیرے ہی لیے نماز پڑھتے اور سجدہ کرتے ہیں، تیری ہی طرف دوڑتے اور کوشش کرتے ہیں، تیری رحمت کی امید رکھتے ہیں اور تیرے عذاب سے ڈرتے ہیں، بے شک تیرا عذاب کافروں کو پہنچنے والا ہے۔","src":{"en":"Taught by Ibn Mas'ud (RA), Musannaf Ibn Abi Shaybah","ur":"حضرت ابن مسعود رضی اللہ عنہ سے منقول، مصنف ابن ابی شیبہ"}}},"steps":[{"en":"Intention (Niyyah)","ur":"نیت","de":"Stand facing the Qibla and make the intention in your heart for the prayer you are about to offer, for example two rak'ahs fard of Fajr. Saying it with the tongue as well is good, but not required.","du":"قبلہ رخ کھڑے ہو کر دل میں اس نماز کی نیت کریں جو آپ پڑھنے لگے ہیں، مثلاً فجر کے دو فرض۔ زبان سے بھی کہہ لیں تو بہتر ہے، مگر ضروری نہیں۔"},{"en":"Opening takbir (Takbir-e-Tahrima)","ur":"تکبیرِ تحریمہ","de":"Raise both hands to the ears, palms facing the Qibla, and say Allahu Akbar. Then fold the hands below the navel, right hand over left.","du":"دونوں ہاتھ کانوں تک اٹھائیں، ہتھیلیاں قبلہ کی طرف ہوں، اور اللہ اکبر کہیں۔ پھر ناف کے نیچے دایاں ہاتھ بائیں ہاتھ پر رکھ کر ہاتھ باندھ لیں۔","r":["takbir"]},{"en":"Sana","ur":"ثنا","de":"Recite the Sana quietly.","du":"آہستہ آواز میں ثنا پڑھیں۔","r":["sana"]},{"en":"Ta'awwuz and Bismillah","ur":"تعوذ اور تسمیہ","de":"Then quietly recite:","du":"پھر آہستہ سے پڑھیں:","r":["taawwuz","tasmiyah"]},{"en":"Surah Al-Fatiha","ur":"سورہ فاتحہ","de":"Recite Surah Al-Fatiha, then say Ameen quietly.","du":"سورہ فاتحہ پڑھیں، پھر آہستہ سے آمین کہیں۔","r":["@1","ameen"]},{"en":"Another surah","ur":"کوئی سورت ملائیں","de":"Recite another surah, or at least three short verses, for example Surah Al-Ikhlas.","du":"کوئی سورت یا کم از کم تین چھوٹی آیات پڑھیں، مثلاً سورہ اخلاص۔","r":["@112"]},{"en":"Ruku (bowing)","ur":"رکوع","de":"Say Allahu Akbar and bow. Hold your knees with the fingers spread, keep your back and head level, and say three times:","du":"اللہ اکبر کہتے ہوئے رکوع میں جائیں۔ انگلیاں کھول کر گھٹنوں کو پکڑیں، کمر اور سر برابر رکھیں، اور تین بار کہیں:","r":["ruku"]},{"en":"Standing up from ruku (Qawmah)","ur":"قومہ","de":"Say the first words while rising, and the second once you are standing straight. Behind an imam, say only the second.","du":"رکوع سے اٹھتے ہوئے پہلا کلمہ کہیں اور سیدھے کھڑے ہو کر دوسرا۔ امام کے پیچھے ہوں تو صرف دوسرا کلمہ کہیں۔","r":["samia","rabbana"]},{"en":"First sajdah","ur":"پہلا سجدہ","de":"Say Allahu Akbar and go down: knees first, then hands, then nose and forehead, with your face between your hands. Keep the fingers together pointing to the Qibla and the toes bent towards it, and say three times:","du":"اللہ اکبر کہتے ہوئے سجدے میں جائیں: پہلے گھٹنے، پھر ہاتھ، پھر ناک اور پیشانی زمین پر رکھیں، چہرہ دونوں ہاتھوں کے درمیان ہو۔ ہاتھوں کی انگلیاں ملی ہوئی اور قبلہ رخ ہوں اور پاؤں کی انگلیاں قبلہ کی طرف مڑی ہوں، اور تین بار کہیں:","r":["sujood"]},{"en":"Sitting between the sajdahs (Jalsa)","ur":"جلسہ","de":"Say Allahu Akbar and sit up calmly, on your left foot with the right foot upright. You may say:","du":"اللہ اکبر کہتے ہوئے اٹھیں اور اطمینان سے بیٹھ جائیں: بایاں پاؤں بچھا کر اس پر بیٹھیں اور دایاں پاؤں کھڑا رکھیں۔ چاہیں تو یہ دعا پڑھیں:","r":["jalsa"]},{"en":"Second sajdah","ur":"دوسرا سجدہ","de":"Say Allahu Akbar and make a second sajdah in the same way, saying its tasbih three times. This completes the first rak'ah.","du":"اللہ اکبر کہتے ہوئے اسی طرح دوسرا سجدہ کریں اور تین بار سجدے کی تسبیح پڑھیں۔ یوں پہلی رکعت مکمل ہو گئی۔"},{"en":"Second rak'ah","ur":"دوسری رکعت","de":"Stand up saying Allahu Akbar. Recite Bismillah and Al-Fatiha, then another surah, and do ruku and both sajdahs as before. Sana and Ta'awwuz are said only in the first rak'ah.","du":"اللہ اکبر کہتے ہوئے کھڑے ہو جائیں۔ بسم اللہ اور سورہ فاتحہ پڑھیں، پھر کوئی سورت، اور پہلے کی طرح رکوع اور دونوں سجدے کریں۔ ثنا اور تعوذ صرف پہلی رکعت میں پڑھے جاتے ہیں۔"},{"en":"Sitting: Tashahhud (Qa'dah)","ur":"قعدہ: تشہد","de":"After the second sajdah, sit as in jalsa with your hands on your thighs and recite the Tashahhud. Raise the right index finger at “laa ilaaha” and lower it at “illallaah”.","du":"دوسرے سجدے کے بعد جلسے کی طرح بیٹھ جائیں، ہاتھ رانوں پر رکھیں اور تشہد پڑھیں۔ «لا الٰہ» پر دائیں ہاتھ کی شہادت کی انگلی اٹھائیں اور «الا اللہ» پر رکھ دیں۔","r":["tashahhud"],"ne":"Three or four rak'ahs: this is the first sitting. After the Tashahhud, stand up saying Allahu Akbar for the remaining rak'ahs. In the third and fourth rak'ahs of a fard prayer, recite only Al-Fatiha. After the last rak'ah, sit again, recite the Tashahhud and continue with the steps below.","nu":"تین یا چار رکعت والی نماز: یہ پہلا قعدہ ہے۔ تشہد کے بعد اللہ اکبر کہتے ہوئے باقی رکعتوں کے لیے کھڑے ہو جائیں۔ فرض نماز کی تیسری اور چوتھی رکعت میں صرف سورہ فاتحہ پڑھیں۔ آخری رکعت کے بعد پھر بیٹھ کر تشہد پڑھیں اور نیچے دیے گئے مراحل پورے کریں۔"},{"en":"Durood-e-Ibrahimi","ur":"درودِ ابراہیمی","de":"In the final sitting, after the Tashahhud, recite Durood-e-Ibrahimi.","du":"آخری قعدے میں تشہد کے بعد درودِ ابراہیمی پڑھیں۔","r":["durood"]},{"en":"Dua","ur":"دعا","de":"Then make a dua, such as the one the Prophet ﷺ taught Abu Bakr (may Allah be pleased with him) to say in his prayer:","du":"پھر کوئی دعا پڑھیں، مثلاً یہ دعا جو نبی کریم ﷺ نے حضرت ابوبکر صدیق رضی اللہ عنہ کو نماز میں پڑھنے کے لیے سکھائی:","r":["dua"]},{"en":"Salam","ur":"سلام","de":"Turn your face to the right and say the salam, then to the left and say it again. Your prayer is complete.","du":"دائیں طرف منہ پھیر کر سلام کہیں، پھر بائیں طرف منہ پھیر کر دوبارہ سلام کہیں۔ آپ کی نماز مکمل ہو گئی۔","r":["salam"]}],"quran":{"1":["بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ","الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ","الرَّحْمَٰنِ الرَّحِيمِ","مَالِكِ يَوْمِ الدِّينِ","إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ","اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ","صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ"],"112":["قُلْ هُوَ اللَّهُ أَحَدٌ","اللَّهُ الصَّمَدُ","لَمْ يَلِدْ وَلَمْ يُولَدْ","وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ"]},"cond":{"en":["Be in wudu (ablution).","Your body, clothes and the place of prayer are clean.","Your body is properly covered (satr).","It is the time of the prayer.","Face the Qibla."],"ur":["باوضو ہوں۔","بدن، کپڑے اور نماز کی جگہ پاک ہوں۔","ستر ڈھکا ہوا ہو۔","نماز کا وقت ہو چکا ہو۔","قبلہ رخ کھڑے ہوں۔"]},"witr":{"en":"Witr is three rak'ahs after Isha, and in the Hanafi school it is wajib. Pray two rak'ahs and sit for the Tashahhud, then stand for the third. In the third rak'ah, after Al-Fatiha and a surah, raise your hands to the ears saying Allahu Akbar, fold them again and recite Dua-e-Qunoot. Then go into ruku and finish the prayer as usual.","ur":"وتر عشاء کے بعد تین رکعت ہیں اور فقہ حنفی میں واجب ہیں۔ دو رکعت پڑھ کر تشہد کے لیے بیٹھیں، پھر تیسری رکعت کے لیے کھڑے ہو جائیں۔ تیسری رکعت میں سورہ فاتحہ اور کوئی سورت پڑھنے کے بعد اللہ اکبر کہتے ہوئے ہاتھ کانوں تک اٹھائیں، پھر باندھ کر دعائے قنوت پڑھیں۔ اس کے بعد رکوع میں جائیں اور حسبِ معمول نماز مکمل کریں۔"},"women":{"en":["For the opening takbir, raise the hands to the shoulders, and place them on the chest, right hand over left.","In ruku, bend only enough for the hands to reach the knees, with the fingers together and the arms close to the sides.","In sajdah, keep the body close together: the stomach near the thighs and the forearms on the ground.","When sitting, sit on the left hip with both feet out to the right.","Recite quietly in every prayer."],"ur":["تکبیرِ تحریمہ میں ہاتھ کندھوں تک اٹھائیں، اور سینے پر دایاں ہاتھ بائیں ہاتھ پر رکھیں۔","رکوع میں صرف اتنا جھکیں کہ ہاتھ گھٹنوں تک پہنچ جائیں، انگلیاں ملی ہوئی اور بازو پہلوؤں سے لگے ہوں۔","سجدے میں سمٹ کر رہیں: پیٹ رانوں سے ملا ہو اور بازو زمین پر بچھے ہوں۔","جلسے اور قعدے میں بائیں سرین پر بیٹھیں اور دونوں پاؤں دائیں طرف نکال دیں۔","ہر نماز میں قراءت آہستہ کریں۔"]},"prayers":[["fajr",[["s",2],["f",2]]],["zuhr",[["s",4],["f",4],["s",2],["n",2]]],["asr",[["g",4],["f",4]]],["maghrib",[["f",3],["s",2],["n",2]]],["isha",[["g",4],["f",4],["s",2],["n",2],["w",3],["n",2]]],["jumuah",[["s",4],["f",2],["s",4],["s",2],["n",2]]]]};
+const HADITH99={"ar":"إِنَّ لِلَّهِ تِسْعَةً وَتِسْعِينَ اسْمًا، مِائَةً إِلَّا وَاحِدًا، مَنْ أَحْصَاهَا دَخَلَ الْجَنَّةَ","en":"Allah has ninety-nine names, i.e. one-hundred minus one, and whoever knows them will go to Paradise.","ur":"اللہ تعالیٰ کے ننانوے نام ہیں یعنی ایک کم سو۔ جو شخص ان سب کو محفوظ رکھے گا وہ جنت میں داخل ہو گا۔","src":["bukhari",2736]};
+/* Names of Allah (meanings, notes): from the "99 Names" project, https://github.com/muzzammil763/99-Names
+   MIT License
+   Copyright (c) 2026 99 Names contributors
+   Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+   The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+   Changes made here: alef wasla written as a plain alef; Urdu meaning of no. 20 and the note for no. 36 reworded; transliteration of nos. 8, 19, 29, 33, 36, 48 and 65 adjusted. */
+/* [number, Arabic, transliteration, English meaning, Urdu meaning, short note] */
+const NAMES=[[1,"الرَّحْمَٰنُ","Ar-Rahman","The Most Gracious","بے حد مہربان","His mercy is vast and reaches every creature in this world, believer and disbeliever alike."],[2,"الرَّحِيمُ","Ar-Raheem","The Most Merciful","نہایت رحم والا","He shows special, lasting mercy to those who believe, above all in the Hereafter."],[3,"الْمَلِكُ","Al-Malik","The King","حقیقی بادشاہ","The true Sovereign of all that exists, whose rule needs no one and never ends."],[4,"الْقُدُّوسُ","Al-Quddus","The Most Holy","نہایت پاک","Free of every flaw, need and imperfection, far above anything unworthy of Him."],[5,"السَّلَامُ","As-Salam","The Source of Peace","سلامتی دینے والا","Perfect and free of all defect, He is the source of peace and safety for His creation."],[6,"الْمُؤْمِنُ","Al-Mu'min","The Giver of Security","امن دینے والا","He grants safety and faith, and confirms the truth of His word and His messengers."],[7,"الْمُهَيْمِنُ","Al-Muhaymin","The Guardian","نگہبان","He watches over and protects all things, and nothing escapes His care."],[8,"الْعَزِيزُ","Al-'Aziz","The Almighty","غالب","Mighty and honoured, He is never overcome and none can resist His will."],[9,"الْجَبَّارُ","Al-Jabbar","The Compeller","زبردست","He sets right what is broken and brings all things under His will."],[10,"الْمُتَكَبِّرُ","Al-Mutakabbir","The Supreme in Greatness","بڑائی والا","All true greatness belongs to Him alone, above everything He has created."],[11,"الْخَالِقُ","Al-Khaliq","The Creator","پیدا کرنے والا","He brings things into being from nothing, by His knowledge and decree."],[12,"الْبَارِئُ","Al-Bari'","The Originator","ٹھیک ٹھیک بنانے والا","He brings creation into existence free of flaw and in perfect balance."],[13,"الْمُصَوِّرُ","Al-Musawwir","The Fashioner","صورت بنانے والا","He gives every creature its unique form and appearance."],[14,"الْغَفَّارُ","Al-Ghaffar","The Ever-Forgiving","بہت بخشنے والا","He forgives again and again, however often His servants return to Him."],[15,"الْقَهَّارُ","Al-Qahhar","The Subduer","سب پر غالب","He prevails over all things, and everything submits to His power."],[16,"الْوَهَّابُ","Al-Wahhab","The Bestower","بہت عطا کرنے والا","He gives freely and endlessly, without being asked and without any return."],[17,"الرَّزَّاقُ","Ar-Razzaq","The Provider","رزق دینے والا","He provides for every living being, in body and in soul."],[18,"الْفَتَّاحُ","Al-Fattah","The Opener","کھولنے والا","He opens the doors of mercy and provision, and judges between people with truth."],[19,"الْعَلِيمُ","Al-'Alim","The All-Knowing","سب کچھ جاننے والا","His knowledge covers everything, hidden and open, past, present and future."],[20,"الْقَابِضُ","Al-Qabid","The Withholder","تنگی کرنے والا","In His wisdom He holds back provision and constricts hearts as He wills."],[21,"الْبَاسِطُ","Al-Basit","The Extender","کشادگی دینے والا","He expands provision and opens hearts generously for whom He wills."],[22,"الْخَافِضُ","Al-Khafid","The Abaser","پست کرنے والا","He lowers the arrogant and the oppressor in His perfect justice."],[23,"الرَّافِعُ","Ar-Rafi'","The Exalter","بلند کرنے والا","He raises in rank the believers and those given knowledge."],[24,"الْمُعِزُّ","Al-Mu'izz","The Giver of Honour","عزت دینے والا","True honour comes only from Him, and He grants it to whom He wills."],[25,"الْمُذِلُّ","Al-Mudhill","The Giver of Dishonour","ذلت دینے والا","He humbles whom He wills, and none can honour whom He has disgraced."],[26,"السَّمِيعُ","As-Sami'","The All-Hearing","سب کچھ سننے والا","He hears every voice and every whispered prayer, in every language at once."],[27,"الْبَصِيرُ","Al-Basir","The All-Seeing","سب کچھ دیکھنے والا","He sees all things, however small or hidden they may be."],[28,"الْحَكَمُ","Al-Hakam","The Judge","فیصلہ کرنے والا","He is the final judge, and His judgement is always just."],[29,"الْعَدْلُ","Al-'Adl","The Utterly Just","سراپا عدل","He is perfectly just, and never wrongs anyone by even an atom's weight."],[30,"اللَّطِيفُ","Al-Latif","The Subtle, the Kind","باریک بین، مہربان","He knows the finest details and is gentle to His servants in ways they may not see."],[31,"الْخَبِيرُ","Al-Khabir","The All-Aware","پوری خبر رکھنے والا","He is aware of the inner reality of all things, and nothing is hidden from Him."],[32,"الْحَلِيمُ","Al-Halim","The Forbearing","بردبار","He does not hasten to punish, giving His servants time to repent."],[33,"الْعَظِيمُ","Al-'Azim","The Magnificent","عظمت والا","His greatness is beyond the reach of minds and the limits of description."],[34,"الْغَفُورُ","Al-Ghafur","The All-Forgiving","بخشنے والا","He covers sins and forgives them completely, however great they are."],[35,"الشَّكُورُ","Ash-Shakur","The Appreciative","قدر دان","He rewards even small good deeds with a great reward."],[36,"الْعَلِيُّ","Al-'Aliyy","The Most High","بلند و برتر","He is above all things in rank, might and greatness."],[37,"الْكَبِيرُ","Al-Kabir","The Most Great","سب سے بڑا","He is greater than everything, and everything is small before Him."],[38,"الْحَفِيظُ","Al-Hafiz","The Preserver","حفاظت کرنے والا","He guards His creation and keeps a record of every deed."],[39,"الْمُقِيتُ","Al-Muqit","The Nourisher","قوت دینے والا","He gives every creature the sustenance and strength it needs."],[40,"الْحَسِيبُ","Al-Hasib","The Reckoner","حساب لینے والا","He takes account of all deeds, and He is sufficient for those who rely on Him."],[41,"الْجَلِيلُ","Al-Jalil","The Majestic","جلال والا","He possesses every quality of majesty and grandeur."],[42,"الْكَرِيمُ","Al-Karim","The Most Generous","کرم والا","He gives abundantly, forgives freely and honours those who turn to Him."],[43,"الرَّقِيبُ","Ar-Raqib","The Watchful","نگرانی کرنے والا","He watches over every soul and every action, at every moment."],[44,"الْمُجِيبُ","Al-Mujib","The Responsive","دعا قبول کرنے والا","He answers the call of those who pray to Him."],[45,"الْوَاسِعُ","Al-Wasi'","The All-Encompassing","وسعت والا","His knowledge, mercy and generosity have no limit."],[46,"الْحَكِيمُ","Al-Hakim","The All-Wise","حکمت والا","Everything He creates and decrees has perfect wisdom behind it."],[47,"الْوَدُودُ","Al-Wadud","The Loving","محبت کرنے والا","He loves His righteous servants and places love for them in hearts."],[48,"الْمَجِيدُ","Al-Majeed","The Glorious","بزرگی والا","His glory is perfect, and His generosity is vast."],[49,"الْبَاعِثُ","Al-Ba'ith","The Resurrector","مُردوں کو اٹھانے والا","He will raise all people from their graves on the Day of Judgement."],[50,"الشَّهِيدُ","Ash-Shahid","The Witness","گواہ","He witnesses all things, and nothing happens out of His sight."],[51,"الْحَقُّ","Al-Haqq","The Truth","برحق","He is the absolute Truth, and His existence and promise are certain."],[52,"الْوَكِيلُ","Al-Wakil","The Trustee","کارساز","He is the best to rely on, and He takes care of all the affairs of those who trust Him."],[53,"الْقَوِيُّ","Al-Qawiyy","The All-Strong","قوت والا","His strength is perfect and never weakens or tires."],[54,"الْمَتِينُ","Al-Matin","The Firm","مضبوط","His power is firm and unshakeable, needing no help from anyone."],[55,"الْوَلِيُّ","Al-Waliyy","The Protecting Friend","مددگار دوست","He is the ally and helper of the believers, bringing them out of darkness into light."],[56,"الْحَمِيدُ","Al-Hamid","The Praiseworthy","تعریف کے لائق","All praise belongs to Him, whether or not anyone praises Him."],[57,"الْمُحْصِي","Al-Muhsi","The Accounter","گننے والا","He counts and knows the number of all things, down to every breath and leaf."],[58,"الْمُبْدِئُ","Al-Mubdi'","The Initiator","پہلی بار پیدا کرنے والا","He began creation the first time, without any model before it."],[59,"الْمُعِيدُ","Al-Mu'id","The Restorer","دوبارہ پیدا کرنے والا","He will bring creation back to life after death."],[60,"الْمُحْيِي","Al-Muhyi","The Giver of Life","زندگی دینے والا","He gives life to the body, and gives life to hearts with faith."],[61,"الْمُمِيتُ","Al-Mumit","The Bringer of Death","موت دینے والا","He decrees death for every living being at its appointed time."],[62,"الْحَيُّ","Al-Hayy","The Ever-Living","ہمیشہ زندہ","His life is perfect and eternal, with no beginning and no end."],[63,"الْقَيُّومُ","Al-Qayyum","The Self-Subsisting","سب کو قائم رکھنے والا","He needs nothing, and everything depends on Him to exist."],[64,"الْوَاجِدُ","Al-Wajid","The Finder","پانے والا","He lacks nothing and finds whatever He wills, whenever He wills."],[65,"الْمَاجِدُ","Al-Maajid","The Noble","بزرگ و برتر","He is noble and honoured, with perfect glory and generosity."],[66,"الْوَاحِدُ","Al-Wahid","The One","ایک","He is one in His essence, His attributes and His actions."],[67,"الْأَحَدُ","Al-Ahad","The Unique","یکتا","He is uniquely One, with no partner, equal or likeness."],[68,"الصَّمَدُ","As-Samad","The Eternal Refuge","بے نیاز","All creation turns to Him in need, while He needs no one."],[69,"الْقَادِرُ","Al-Qadir","The All-Capable","قدرت والا","He is able to do anything He wills."],[70,"الْمُقْتَدِرُ","Al-Muqtadir","The All-Powerful","پوری قدرت رکھنے والا","His power is complete over everything, and nothing can stop Him."],[71,"الْمُقَدِّمُ","Al-Muqaddim","The Expediter","آگے کرنے والا","He brings forward whom and what He wills, in His wisdom."],[72,"الْمُؤَخِّرُ","Al-Mu'akhkhir","The Delayer","پیچھے کرنے والا","He holds back whom and what He wills, in His wisdom."],[73,"الْأَوَّلُ","Al-Awwal","The First","سب سے پہلا","He existed before everything, with no beginning."],[74,"الْآخِرُ","Al-Akhir","The Last","سب سے آخری","He remains after everything has perished, with no end."],[75,"الظَّاهِرُ","Az-Zahir","The Manifest","ظاہر","His existence is evident in everything, and nothing is above Him."],[76,"الْبَاطِنُ","Al-Batin","The Hidden","پوشیدہ","He is hidden from sight, and nothing is closer than Him."],[77,"الْوَالِي","Al-Wali","The Governor","کارساز مالک","He governs and manages all the affairs of creation."],[78,"الْمُتَعَالِي","Al-Muta'ali","The Most Exalted","بلند و بالا","He is exalted far above the attributes of His creation."],[79,"الْبَرُّ","Al-Barr","The Source of Goodness","بھلائی کرنے والا","He is kind and good to His servants, and His goodness is everywhere."],[80,"التَّوَّابُ","At-Tawwab","The Accepter of Repentance","توبہ قبول کرنے والا","He guides His servants to repent and accepts their repentance again and again."],[81,"الْمُنْتَقِمُ","Al-Muntaqim","The Avenger","بدلہ لینے والا","He brings justice against those who persist in wrongdoing."],[82,"الْعَفُوُّ","Al-'Afuww","The Pardoner","معاف کرنے والا","He erases sins completely, as if they had never been."],[83,"الرَّءُوفُ","Ar-Ra'uf","The Most Kind","نہایت شفیق","His compassion is gentle and tender towards His servants."],[84,"مَالِكُ الْمُلْكِ","Malik-ul-Mulk","Owner of All Sovereignty","سلطنت کا مالک","All dominion is His, and He gives and takes it from whom He wills."],[85,"ذُو الْجَلَالِ وَالْإِكْرَامِ","Dhul-Jalali wal-Ikram","Lord of Majesty and Honour","جلال اور اکرام والا","He is the possessor of all majesty, and the source of all honour and generosity."],[86,"الْمُقْسِطُ","Al-Muqsit","The Equitable","انصاف کرنے والا","He acts with perfect fairness and gives everyone their due."],[87,"الْجَامِعُ","Al-Jami'","The Gatherer","جمع کرنے والا","He will gather all people together on the Day of Judgement."],[88,"الْغَنِيُّ","Al-Ghaniyy","The Self-Sufficient","غنی","He is rich beyond all need, and all creation needs Him."],[89,"الْمُغْنِي","Al-Mughni","The Enricher","غنی کرنے والا","He enriches whom He wills and frees them from need of others."],[90,"الْمَانِعُ","Al-Mani'","The Preventer","روکنے والا","He withholds what He wills, protecting His servants from harm."],[91,"الضَّارُّ","Ad-Darr","The Distresser","نقصان پہنچانے والا","No harm happens except by His decree, and in it there is wisdom."],[92,"النَّافِعُ","An-Nafi'","The Benefactor","نفع پہنچانے والا","All benefit comes from Him alone."],[93,"النُّورُ","An-Nur","The Light","نور","He is the Light of the heavens and the earth, and He guides hearts with His light."],[94,"الْهَادِي","Al-Hadi","The Guide","ہدایت دینے والا","He guides His servants to what benefits them, and to the straight path."],[95,"الْبَدِيعُ","Al-Badi'","The Incomparable Originator","بے مثال پیدا کرنے والا","He created the heavens and the earth with no model before them."],[96,"الْبَاقِي","Al-Baqi","The Everlasting","ہمیشہ باقی رہنے والا","He remains forever, while everything else will perish."],[97,"الْوَارِثُ","Al-Warith","The Inheritor","سب کا وارث","He remains after all creation, and everything returns to Him."],[98,"الرَّشِيدُ","Ar-Rashid","The Guide to the Right Path","راہ دکھانے والا","All His actions are rightly guided, and He leads to what is right."],[99,"الصَّبُورُ","As-Sabur","The Most Patient","بڑا صبر کرنے والا","He is patient with His servants and does not hasten to punish them."]];
+
+/* ======================================================================
    Icons
    ====================================================================== */
 const IC={
@@ -588,7 +691,10 @@ const IC={
  trash:'<path d="M4.5 7h15M10 11v6M14 11v6M6.5 7l1 13h9l1-13M9.5 7V4.5h5V7"/>',
  repeat:'<path d="M17 3.5l3 3-3 3"/><path d="M4 11.5V10a3.5 3.5 0 0 1 3.5-3.5H20M7 20.5l-3-3 3-3"/><path d="M20 12.5V14a3.5 3.5 0 0 1-3.5 3.5H4"/>',
  eye:'<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/>',
- iosShare:'<path d="M8.5 9H7a1.5 1.5 0 0 0-1.5 1.5v9A1.5 1.5 0 0 0 7 21h10a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 17 9h-1.5"/><path d="M12 14V3M8.5 6.5L12 3l3.5 3.5"/>'
+ iosShare:'<path d="M8.5 9H7a1.5 1.5 0 0 0-1.5 1.5v9A1.5 1.5 0 0 0 7 21h10a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 17 9h-1.5"/><path d="M12 14V3M8.5 6.5L12 3l3.5 3.5"/>',
+ kalima:'<path d="M4.5 5.5h15v10h-8l-4.5 4v-4H4.5z"/><path d="M8 9.2h8M8 12.2h5"/>',
+ salah:'<rect x="6" y="3" width="12" height="18" rx="1.6"/><path d="M9 21v-7.5a3 3 0 0 1 6 0V21"/><path d="M12 6v2.2"/>',
+ names:'<rect x="3" y="5" width="18" height="14" rx="3.6"/><text x="12" y="15.7" text-anchor="middle" font-size="9.6" font-weight="700" font-family="Figtree,system-ui,sans-serif" fill="currentColor" stroke="none">99</text>'
 };
 const icon=(n,c)=>`<svg class="${c||"svg"}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]||""}</svg>`;
 
@@ -613,12 +719,16 @@ async function editions(){if(EDS)return EDS;EDS=await aq("/edition?format=text&t
 async function reciters(){if(QARIS)return QARIS;const a=await aq("/edition?format=audio&language=ar");QARIS=a.filter(e=>e.type==="versebyverse");if(!QARIS.length)QARIS=a;return QARIS}
 const HC=new Map();
 let HB=0,TB=0;
+/* Repairs for letters lost to broken characters in the published hadith files (the Salah guide links to these).
+   Sahih al-Bukhari 834: the "wa" of "wa la yaghfiru" arrives as two broken characters. */
+const HFIX={"ara-bukhari":{834:[[FC(0xFFFD,0xFFFD,0x064E,0x0644,0x0627,0x064E),FC(0x0648,0x064E,0x0644,0x0627,0x064E)]]}};
+function hfix(path,j){const f=HFIX[path.split("/")[1]];if(f&&j&&Array.isArray(j.hadiths))j.hadiths.forEach(h=>{const x=f[h.hadithnumber];if(x&&h.text)x.forEach(([a,b])=>{h.text=String(h.text).split(a).join(b)})});return j}
 async function hget(path){
   if(HC.has(path))return HC.get(path);
   let last=null;
   for(let k=0;k<HAPI.length;k++){const bi=(HB+k)%HAPI.length;
     for(const ext of [".min.json",".json"]){
-      try{const r=await fetch(HAPI[bi]+path+ext);if(r.ok){const j=await r.json();HC.set(path,j);if(HC.size>8)HC.delete(HC.keys().next().value);HB=bi;return j}last=new Error("HTTP "+r.status);last.status=r.status}catch(e){last=e}
+      try{const r=await fetch(HAPI[bi]+path+ext);if(r.ok){const j=hfix(path,await r.json());HC.set(path,j);if(HC.size>8)HC.delete(HC.keys().next().value);HB=bi;return j}last=new Error("HTTP "+r.status);last.status=r.status}catch(e){last=e}
     }
   }
   throw last||new Error("hadith");
@@ -703,7 +813,7 @@ function openSheet(html){
   s.hidden=false;$("#scrim").hidden=false;SHEET=true;ovOpen();
 }
 function renderDrawer(){
-  const items=[["#/","home","home"],["#/quran","quran","quran"],["#/quran/juz","juz","juz"],["#/hadith","hadith","hadith"],"learn",["#/wbw","wbw","wbw"],["#/hifz","hifz","hifz"],["#/qaida","qaida","qaida"],["#/quiz","quiz","quiz"],"more",["#/bookmarks","bm","bookmarks"],["#/settings","gear","settings"],["#/about","info","about"]];
+  const items=[["#/","home","home"],["#/quran","quran","quran"],["#/quran/juz","juz","juz"],["#/hadith","hadith","hadith"],"faith",["#/kalimas","kalima","kalimas"],["#/salah","salah","salah"],["#/names","names","names"],"learn",["#/wbw","wbw","wbw"],["#/hifz","hifz","hifz"],["#/qaida","qaida","qaida"],["#/quiz","quiz","quiz"],"more",["#/bookmarks","bm","bookmarks"],["#/settings","gear","settings"],["#/about","info","about"]];
   $("#drawer").innerHTML=`<div class="dr-head"><img src="icon-192.png" alt="" width="48" height="48"><div><b>${t("app")}</b><span lang="ar">نُورُ الْقُرْآن</span></div></div>
    <div class="dr-nav">${items.map(x=>typeof x==="string"?`<div class="dr-sec">${t(x)}</div>`:`<a href="${x[0]}" data-act="nav" data-nav="${x[0]}">${icon(x[1])}<span>${t(x[2])}</span></a>`).join("")}</div>
    <button class="dr-install" data-act="install" id="drInstall"${installEvt?"":" hidden"}>${icon("download")} ${t("installApp")}</button>
@@ -729,6 +839,9 @@ const ROUTES=[
  [/^\/hadith\/([a-z]+)$/,m=>vHadithBook(m[1])],
  [/^\/hadith\/([a-z]+)\/(\d+)$/,m=>vHadithSection(m[1],+m[2])],
  [/^\/hadith\/([a-z]+)\/n\/(\d+)$/,m=>vHadithOne(m[1],+m[2])],
+ [/^\/kalimas(?:\/(\d))?$/,m=>vKalimas(m[1]?+m[1]:0)],
+ [/^\/salah(?:\/([a-z]+))?$/,m=>vSalah(m[1]||"")],
+ [/^\/names(?:\/(\d{1,2}))?$/,m=>vNames(m[1]?+m[1]:0)],
  [/^\/wbw$/,()=>{S.wbw=true;save();toast(t("wbwOn"));location.replace(`#/s/${S.last.s}/${S.last.a}`)}],
  [/^\/hifz$/,()=>vHifz()],
  [/^\/qaida$/,()=>vQaida()],
@@ -791,7 +904,8 @@ function hLangNote(b){const want=S.hLang||(isUr()?"ur":"en");return want==="ur"&
 function vHome(){
   VIEW.name="home";setBar(t("app"),hijri(),"");setPlayer(false);const tok=newTok();
   const L=S.last;
-  const tiles=[["#/quran","quran","quran"],["#/hadith","hadith","hadith"],["#/wbw","wbw","wbw"],["#/hifz","hifz","hifz"],["#/qaida","qaida","qaidaShort"],["#/quiz","quiz","quiz"],["#/bookmarks","bm","bookmarks"],["#/settings","gear","settings"]];
+  const tiles=[["#/quran","quran","quran"],["#/quran/juz","juz","juz"],["#/hadith","hadith","hadith"],["#/kalimas","kalima","kalimas"],["#/salah","salah","salah"],["#/names","names","names99"],["#/wbw","wbw","wbw"],["#/hifz","hifz","hifz"],["#/qaida","qaida","qaidaShort"],["#/quiz","quiz","quiz"],["#/bookmarks","bm","bookmarks"],["#/settings","gear","settings"]];
+  const nd=NAMES[dayIndex()%NAMES.length];
   view(`<section class="hero">
      <div class="salam"><span class="ar" lang="ar">السَّلَامُ عَلَيْكُمْ</span><span>${t("salamSub")}</span></div>
      <button class="searchbox" data-act="cmd">${icon("search")}<span>${t("searchPh")}</span>${icon("mic")}</button>
@@ -801,6 +915,7 @@ function vHome(){
    <div id="installSlot"></div>
    <section class="card" id="vod"><div class="eyebrow">${t("verseOfDay")}</div><p class="muted">${t("loading")}</p></section>
    <section class="card" id="hod"><div class="eyebrow">${t("hadithOfDay")}</div><p class="muted">${t("loading")}</p></section>
+   <a class="card nod" id="nod" href="#/names/${nd[0]}"><span class="na" lang="ar">${esc(nd[1])}</span><span class="main"><span class="eyebrow">${t("nameOfDay")}</span><b dir="ltr">${esc(nd[2])}</b><span class="nmn${trCls()}" dir="${trDir()}">${esc(nameMean(nd))}</span></span>${icon("next","svg flip")}</a>
    <div id="hifzMini"></div>`);
   renderInstallSlot();
   surahs().then(list=>{if(!alive(tok))return;const m=list[L.s-1];if(m)$("#contT").textContent=surahName(m)+" · "+t("verse")+" "+num(L.a)}).catch(()=>{});
@@ -1269,10 +1384,11 @@ function qpNext(){
 /* ======================================================================
    Quiz
    ====================================================================== */
-const QTYPES=["mixed","surah","words","hadith"];
+const QTYPES=["mixed","surah","words","hadith","names","salah"];
+const QICON={hadith:"hadith",words:"wbw",surah:"quran",names:"names",salah:"salah"};
 function vQuiz(){
   VIEW.name="quiz";setBar(t("quiz"),"","");setPlayer(false);newTok();
-  view(`<p class="lead">${t("quizIntro")}</p><div class="qtypes">${QTYPES.map(q=>`<a class="card qtype" href="#/quiz/${q}"><span class="star ic">${icon(q==="hadith"?"hadith":q==="words"?"wbw":q==="surah"?"quran":"quiz")}</span><b>${t("qt_"+q)}</b><span class="s">${t("qtd_"+q)}</span>${S.best["quiz_"+q]!=null?`<span class="s">${t("best")}: ${num(S.best["quiz_"+q])}/${num(10)}</span>`:""}<span class="btn pri sm">${t("start")}</span></a>`).join("")}</div>`);
+  view(`<p class="lead">${t("quizIntro")}</p><div class="qtypes">${QTYPES.map(q=>`<a class="card qtype" href="#/quiz/${q}"><span class="star ic">${icon(QICON[q]||"quiz")}</span><b>${t("qt_"+q)}</b><span class="s">${t("qtd_"+q)}</span>${S.best["quiz_"+q]!=null?`<span class="s">${t("best")}: ${num(S.best["quiz_"+q])}/${num(10)}</span>`:""}<span class="btn pri sm">${t("start")}</span></a>`).join("")}</div>`);
 }
 let QZ=null;
 function vQuizPlay(type){
@@ -1282,6 +1398,7 @@ function vQuizPlay(type){
   view(`<div id="qz"></div>`);qzNext();
 }
 async function makeQ(kind){
+  if(kind==="names"||kind==="salah")return basicsQ(kind);
   const list=await surahs();
   if(kind==="surahMeta")kind=pick(["makki","count"]);
   if(kind==="surah")kind=pick(["first","first","makki","count"]);
@@ -1315,23 +1432,118 @@ async function makeQ(kind){
   }
   throw new Error("kind");
 }
+/* Names of Allah, Kalimas and Salah questions: built from the text inside the app, so they work offline */
+function basicsQ(kind){
+  if(kind==="names"){
+    const x=pick(NAMES),opts=shuffle([x].concat(shuffle(NAMES.filter(y=>y!==x)).slice(0,3))),link=`#/names/${x[0]}`;
+    if(rnd(3)<2)return {prompt:t("qNameMean"),body:`<div class="qbody"><div class="qword nq" lang="ar">${esc(x[1])}</div><p class="muted" style="margin:0;text-align:center" dir="ltr">${esc(x[2])}</p></div>`,opts:opts.map(nameMean),ans:opts.indexOf(x),optUr:isUr(),link};
+    return {prompt:t("qWhichName",{m:nameMean(x)}),body:"",opts:opts.map(y=>y[1]),ans:opts.indexOf(x),optAr:true,link};
+  }
+  const k2=pick(["kalima","kalima","kname","fard","recite","recite"]);
+  if(k2==="kalima"||k2==="kname"){
+    const k=pick(KALIMAS),opts=shuffle([k].concat(shuffle(KALIMAS.filter(y=>y!==k)).slice(0,3)));
+    return {prompt:k2==="kalima"?t("qWhichKalima"):t("qKalimaN",{n:isUr()?k.ou.split(" ")[0]:ORD_EN[k.n-1]}),body:k2==="kalima"?`<div class="qbody"><div class="k-ar" lang="ar">${esc(k.ar)}</div></div>`:"",opts:opts.map(kName),ans:opts.indexOf(k),link:`#/kalimas/${k.n}`};
+  }
+  if(k2==="fard"){const p=pick(SALAH.prayers),f=p[1].find(x=>x[0]==="f")[1],opts=[2,3,4];return {prompt:t("qFard",{p:t("p_"+p[0])}),body:"",opts:opts.map(x=>num(x)),ans:opts.indexOf(f),link:"#/salah/rakat"}}
+  const keys=["ruku","sujood","samia","jalsa"],pos=pick(keys),opts=shuffle(keys);
+  return {prompt:t("qRecite_"+pos),body:"",opts:opts.map(k=>SALAH.rec[k].ar),ans:opts.indexOf(pos),optAr:true,link:"#/salah"};
+}
 async function qzNext(){
   if(!QZ||!alive(QZ.tok))return;
   if(QZ.n>=QZ.total)return qzFinish();
   QZ.n++;QZ.lock=false;const tok=QZ.tok;
   $("#qz").innerHTML=`<div class="qhead"><span>${t("questionOf",{n:num(QZ.n),t:num(QZ.total)})}</span><span>${t("score")}: ${num(QZ.score)}</span></div><span class="prog"><i style="width:${(QZ.n-1)*10}%"></i></span><p class="muted pad">${t("loading")}</p>`;
-  let q=null;const kind=QZ.type==="mixed"?pick(["surah","surah","words","hadith"]):QZ.type;
+  let q=null;const kind=QZ.type==="mixed"?pick(["surah","surah","words","hadith","names","salah"]):QZ.type;
   for(let k=0;k<3&&!q;k++){try{q=await makeQ(kind)}catch(e){q=null}}
-  if(!q){try{q=await makeQ("surahMeta")}catch(e){}}
+  if(!q){try{q=await makeQ(QZ.type==="mixed"?pick(["names","salah"]):"surahMeta")}catch(e){}}
   if(!alive(tok))return;
   if(!q){$("#qz").innerHTML=`<div class="card empty"><p>${t("quizOffline")}</p><button class="btn pri" data-act="retry">${t("retry")}</button></div>`;return}
   QZ.q=q;
   $("#qz").innerHTML=`<div class="qhead"><span>${t("questionOf",{n:num(QZ.n),t:num(QZ.total)})}</span><span>${t("score")}: ${num(QZ.score)}</span></div><span class="prog"><i style="width:${(QZ.n-1)*10}%"></i></span>
-   <section class="card qcard"><h2 class="q">${esc(q.prompt)}</h2>${q.body}<div class="opts">${q.opts.map((o,k)=>`<button class="opt" data-act="qPick" data-k="${k}"${q.optUr?' dir="rtl" lang="ur"':""}>${esc(o)}</button>`).join("")}</div><div id="qfb"></div></section>`;
+   <section class="card qcard"><h2 class="q">${esc(q.prompt)}</h2>${q.body}<div class="opts">${q.opts.map((o,k)=>`<button class="opt${q.optAr?" ar-opt":""}" data-act="qPick" data-k="${k}"${q.optUr?' dir="rtl" lang="ur"':q.optAr?' dir="rtl" lang="ar"':""}>${esc(o)}</button>`).join("")}</div><div id="qfb"></div></section>`;
 }
 function qzFinish(){
   const k="quiz_"+QZ.type;S.best[k]=Math.max(S.best[k]||0,QZ.score);save();
   $("#qz").innerHTML=`<section class="card empty">${icon("quiz","svg big")}<h2>${t("finished")}</h2><div class="bigstat">${num(QZ.score)}/${num(QZ.total)}</div><p class="muted">${t("scoreOf",{s:num(QZ.score),t:num(QZ.total)})} · ${t("best")}: ${num(S.best[k])}</p><div class="cardfoot"><button class="btn pri" data-act="qzAgain">${t("playAgain")}</button><a class="btn" href="#/quiz">${t("quizHome")}</a></div></section>`;
+}
+
+/* ======================================================================
+   Faith and prayer: Six Kalimas, Salah, Names of Allah (all text is in the app, so it works offline)
+   ====================================================================== */
+const ORD_EN=["first","second","third","fourth","fifth","sixth"];
+const trOf=o=>isUr()?o.ur:o.en;
+const trCls=()=>isUr()?" ur":"";
+const trDir=()=>isUr()?"rtl":"ltr";
+const kName=k=>isUr()?k.nu:k.ne;
+const nameMean=x=>isUr()?x[4]:x[3];
+const smoothScroll=el=>{if(!el)return;let rm=false;try{rm=matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){}try{el.scrollIntoView({behavior:rm?"auto":"smooth",block:"start"})}catch(e){el.scrollIntoView()}};
+function srcChip(src){
+  if(!src)return "";
+  if(Array.isArray(src))return `<a class="chip src" href="#/hadith/${src[0]}/n/${src[1]}">${t("source")}: ${esc(bookName(src[0]))} ${num(src[1])}</a>`;
+  if(typeof src==="string"){const [s,a]=src.split(":");return `<a class="chip src" href="#/s/${s}/${a}">${t("source")}: ${t("quran")} ${num(src)}</a>`}
+  return `<span class="chip src">${t("source")}: ${esc(trOf(src))}</span>`;
+}
+function recHTML(key){
+  if(key[0]==="@"){
+    const s=key.slice(1),vs=SALAH.quran[s]||[];
+    return `<div class="rec"><div class="r-ar q" lang="ar">${vs.map((v,i)=>`${esc(v)} <span class="vend">${vend(i+1)}</span>`).join(" ")}</div><div class="rfoot"><a class="btn sm" href="#/s/${s}">${icon("play")} ${t("hearInQuran")}</a></div></div>`;
+  }
+  const r=SALAH.rec[key];if(!r)return "";
+  return `<div class="rec" id="rec-${key}"><div class="r-ar" lang="ar">${esc(r.ar)}</div>${r.x?`<span class="rx">${t("times",{n:num(r.x)})}</span>`:""}<div class="ktl" dir="ltr" lang="en">${esc(r.tl)}</div><div class="r-tr${trCls()}" dir="${trDir()}">${esc(trOf(r))}</div><div class="rfoot"><button class="btn sm" data-act="rSay" data-k="${key}">${icon("speak")} ${t("listen")}</button>${srcChip(r.src)}</div></div>`;
+}
+function vKalimas(n){
+  VIEW.name="kalimas";setBar(t("kalimas"),"","");setPlayer(false);newTok();VIEW.cleanup=ttsStop;
+  view(`<p class="lead">${t("kalimaIntro")}</p>
+   ${KALIMAS.map(k=>`<section class="card kcard" id="k${k.n}"><div class="khead"><span class="star">${num(k.n)}</span><div class="main"><span class="o">${esc(isUr()?k.ou:k.oe)}</span><span class="t">${esc(kName(k))}</span><span class="s">${esc(isUr()?k.su:k.se)}</span></div><button class="ib" data-act="kShare" data-k="${k.n}" aria-label="${t("share")}">${icon("share")}</button></div>
+     <div class="k-ar" lang="ar">${esc(k.ar)}</div>
+     <div class="ktl" dir="ltr" lang="en">${esc(k.tl)}</div>
+     <div class="k-tr${trCls()}" dir="${trDir()}">${esc(trOf(k))}</div>
+     <div class="rfoot"><button class="btn sm" data-act="kSay" data-k="${k.n}">${icon("speak")} ${t("listen")}</button><button class="btn sm" data-act="kSayTr" data-k="${k.n}">${icon("speak")} ${t("readTr")}</button></div></section>`).join("")}
+   <a class="btn pri wide" href="#/quiz/salah">${icon("quiz")} ${t("testYourself")}</a>`);
+  if(n>=1&&n<=6){const el=$("#k"+n);if(el){el.classList.add("on");setTimeout(()=>{try{el.scrollIntoView({block:"start"})}catch(e){}},40)}}
+}
+function vSalah(sec){
+  VIEW.name="salah";setBar(t("salah"),t("hanafi"),"");setPlayer(false);newTok();VIEW.cleanup=ttsStop;
+  const L=isUr()?"ur":"en",kind={s:"sunnah",g:"sunnah",f:"fard",n:"nafl",w:"witr"};
+  view(`<nav class="jump" aria-label="${t("salah")}">${[["steps","stepsShort"],["rakat","rakatShort"],["witr","witrShort"],["women","womenShort"]].map(([id,k])=>`<button class="chip" data-act="jump" data-id="sec-${id}">${t(k)}</button>`).join("")}</nav>
+   <section class="card"><p class="sdesc">${t("salahIntro")}</p></section>
+   <section class="card sec"><h2 class="h2">${t("condTitle")}</h2><ul class="bullets">${SALAH.cond[L].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></section>
+   <h2 class="h2" id="sec-steps">${t("stepsTitle")}</h2>
+   ${SALAH.steps.map((s,i)=>`<section class="card scard" id="step${i+1}"><div class="khead"><span class="star">${num(i+1)}</span><div class="main"><span class="t">${esc(isUr()?s.ur:s.en)}</span></div></div><p class="sdesc">${esc(isUr()?s.du:s.de)}</p>${(s.r||[]).map(recHTML).join("")}${s.ne?`<div class="snote">${esc(isUr()?s.nu:s.ne)}</div>`:""}</section>`).join("")}
+   <section class="card sec" id="sec-rakat"><h2 class="h2">${t("rakatTitle")}</h2>${SALAH.prayers.map(([p,parts])=>`<div class="prow"><div class="pt">${t("p_"+p)}<span>${t("totalRakat",{n:num(parts.reduce((a,x)=>a+x[1],0))})}</span></div><div class="rk">${parts.map(([k,c])=>`<span class="${k==="f"?"f":k==="w"?"wt":""}">${num(c)} ${t(kind[k])}${k==="g"?"*":""}</span>`).join("")}</div></div>`).join("")}<p class="note">${t("rakatNote")}</p></section>
+   <section class="card sec" id="sec-witr"><h2 class="h2">${t("witrTitle")}</h2><p class="sdesc">${esc(SALAH.witr[L])}</p>${recHTML("qunoot")}</section>
+   <section class="card sec" id="sec-women"><h2 class="h2">${t("womenTitle")}</h2><ul class="bullets">${SALAH.women[L].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></section>
+   <a class="btn pri wide" href="#/quiz/salah">${icon("quiz")} ${t("testYourself")}</a>`);
+  if(sec){const el=$("#sec-"+sec);if(el)setTimeout(()=>{try{el.scrollIntoView({block:"start"})}catch(e){}},40)}
+}
+function vNames(n){
+  VIEW.name="names";setBar(t("names"),t("names99sub"),"");setPlayer(false);newTok();VIEW.cleanup=ttsStop;
+  view(`<section class="card nhead"><span class="nallah" lang="ar">اللَّهُ</span><b>Allah</b><span class="muted">${t("allahName")}</span></section>
+   <section class="card"><div class="eyebrow">${t("hadith")}</div><div class="h-ar" lang="ar">${esc(HADITH99.ar)}</div><div class="h-tr${trCls()}" dir="${trDir()}">${esc(trOf(HADITH99))}</div><div class="cardfoot">${srcChip(HADITH99.src)}</div></section>
+   <input type="search" data-live="filter" placeholder="${t("namesFilter")}" aria-label="${t("namesFilter")}" autocomplete="off">
+   <div class="ngrid" id="list">${NAMES.map(x=>`<button class="nm" data-act="nOpen" data-n="${x[0]}" data-f="${esc(plain(x[0]+" "+x[2]+" "+x[3]+" "+x[4]+" "+x[1]))}"><span class="no">${num(x[0])}</span><span class="na${plain(x[1]).replace(/\s/g,"").length>8?" long":""}" lang="ar">${esc(x[1])}</span><span class="nt">${esc(x[2])}</span><span class="nmn${trCls()}" dir="${trDir()}">${esc(nameMean(x))}</span></button>`).join("")}</div>
+   <a class="btn pri wide" href="#/quiz/names">${icon("quiz")} ${t("testYourself")}</a>`);
+  if(n>=1&&n<=NAMES.length)openName(n);
+}
+function openName(n){
+  const x=NAMES[n-1];if(!x)return;
+  const p=n===1?NAMES.length:n-1,q=n===NAMES.length?1:n+1;
+  openSheet(`<div class="eyebrow" style="text-align:center">${t("nameN",{n:num(n)})}</div><div class="nbig" lang="ar">${esc(x[1])}</div><div class="ntl" dir="ltr">${esc(x[2])}</div>
+   <div class="nmean${trCls()}" dir="${trDir()}">${esc(nameMean(x))}</div><div class="nmean2${isUr()?"":" ur"}" dir="${isUr()?"ltr":"rtl"}" lang="${isUr()?"en":"ur"}">${esc(isUr()?x[3]:x[4])}</div>${isUr()?"":`<p class="nex">${esc(x[5])}</p>`}
+   <div class="cardfoot" style="justify-content:center"><button class="btn" data-act="nSay" data-n="${n}">${icon("speak")} ${t("listen")}</button><button class="btn" data-act="nShare" data-n="${n}">${icon("share")} ${t("share")}</button></div>
+   <div class="hnav"><button class="btn" data-act="nOpen" data-n="${p}">${icon("prev","svg flip")} ${t("prevN")}</button><button class="btn" data-act="nOpen" data-n="${q}">${t("nextN")} ${icon("next","svg flip")}</button></div>`);
+}
+/* Typed or spoken: "kalima 3", "third kalima", "تیسرا کلمہ", "kalima tamjeed" */
+const K_ORD=[["first","1st","pehla","پہلا","پہلے"],["second","2nd","doosra","dusra","دوسرا","دوسرے"],["third","3rd","teesra","tisra","تیسرا","تیسرے"],["fourth","4th","chautha","چوتھا","چوتھے"],["fifth","5th","panchwan","پانچواں","پانچوان","پانچویں"],["sixth","6th","chhata","chata","چھٹا","چھٹے"]];
+const K_NAME=[/tayy?[ai]bb?a?h?|طیب/,/shahad|شہادت/,/tamj[ie]+d|تمجید/,/ta[uw]h[ie]+d|توحید/,/[ai]st[ai]gh?f[ae]a?r|استغفار/,/rad+(?:[- ]?e)?[- ]?kufr|رد ?ِ? ?کفر/];
+function kalimaFrom(q){
+  if(!/kalim|kalma|کلم/.test(q))return 0;
+  if(/^(6|six|چھ)\s/.test(q)&&!/\s(kalima|kalma|کلمہ)$/.test(q))return -1;
+  const m=q.match(/(?:^|\D)([1-6])(?:st|nd|rd|th)?(?:\D|$)/);if(m)return +m[1];
+  const w=q.split(/\s+/);
+  for(let i=0;i<K_ORD.length;i++)if(K_ORD[i].some(o=>w.includes(o)))return i+1;
+  for(let i=0;i<K_NAME.length;i++)if(K_NAME[i].test(q))return i+1;
+  return -1;
 }
 
 /* ======================================================================
@@ -1395,12 +1607,15 @@ async function vSettings(){
 }
 function vAbout(){
   VIEW.name="about";setBar(t("about"),"","");setPlayer(false);newTok();
-  view(`<section class="card about"><div class="salam"><img src="icon-192.png" width="72" height="72" alt="" style="border-radius:18px"><span class="ar" lang="ar">نُورُ الْقُرْآن</span></div><p>${t("aboutLead")}</p><p>${t("aboutTrust")}</p><p class="muted">${t("version")} 2.0</p></section>
+  view(`<section class="card about"><div class="salam"><img src="icon-192.png" width="72" height="72" alt="" style="border-radius:18px"><span class="ar" lang="ar">نُورُ الْقُرْآن</span></div><p>${t("aboutLead")}</p><p>${t("aboutTrust")}</p><p>${t("aboutBasics")}</p><p class="muted">${t("version")} 2.1</p></section>
    <section class="card about"><div class="eyebrow">${t("sources")}</div><ul dir="ltr" lang="en">
     <li>Quran text, translations and recitations: <a href="https://alquran.cloud" target="_blank" rel="noopener">AlQuran Cloud</a> (text from Tanzil)</li>
     <li>Word-by-word meanings and word audio: <a href="https://quran.com" target="_blank" rel="noopener">Quran.com</a></li>
     <li>Hadith collections and grades: <a href="https://github.com/fawazahmed0/hadith-api" target="_blank" rel="noopener">Hadith API by Fawaz Ahmed</a> (public domain)</li>
     <li>Tafsir: <a href="https://github.com/spa5k/tafsir_api" target="_blank" rel="noopener">Tafsir API</a></li>
+    <li>Six Kalimas: Arabic checked word by word against the text published by Jamia Saeedia Dar-ul-Quran and other published copies</li>
+    <li>Salah: Hanafi method, checked against the guide by Darul Iftaa Birmingham. Recitations from Sahih al-Bukhari, Sunan Abu Dawud, Jami at-Tirmidhi and Sunan Ibn Majah; Dua-e-Qunoot as taught by Ibn Mas'ud (Musannaf Ibn Abi Shaybah); Al-Fatiha and Al-Ikhlas from Tanzil</li>
+    <li>Names of Allah: meanings and notes from the <a href="https://github.com/muzzammil763/99-Names" target="_blank" rel="noopener">99 Names project</a> (MIT licence, © 2026 99 Names contributors); Arabic cross-checked against a second list</li>
     <li>Fonts: Amiri Quran, Amiri, Noto Nastaliq Urdu, Figtree (Google Fonts)</li></ul></section>`);
 }
 async function vSearch(q){
@@ -1448,8 +1663,12 @@ async function run(raw){
   let q=asciiDigits(said).toLowerCase().replace(/[۔.!?،؟]+$/g,"").replace(/\s+/g," ").trim();
   let m=q.match(/^(?:search|find|search for|talash|تلاش|ڈھونڈیں|ڈھونڈو)\s+(?:for\s+)?(.+)$/);if(m)return go("#/search/"+encodeURIComponent(m[1]));
   if(/^(stop|pause|ruko|رکو|رکیں|بند|بند کرو|بس)$/.test(q)){stopAll();hideOverlays();return closeAll()}
-  const NAV=[[/^(home|ہوم|گھر)$/,"#/"],[/^(quran|قرآن|قران|surahs|سورتیں)$/,"#/quran"],[/^(paras?|juz|پارے|سپارے)$/,"#/quran/juz"],[/^(hadith|ahadith|hadees|حدیث|احادیث)$/,"#/hadith"],[/^(qaida|qaidah|قاعدہ|قاعده)$/,"#/qaida"],[/^(quiz|کوئز|امتحان)$/,"#/quiz"],[/^(hifz|memorize|memorise|حفظ)$/,"#/hifz"],[/^(bookmarks?|بک مارکس?)$/,"#/bookmarks"],[/^(settings|ترتیبات|سیٹنگز|سیٹنگ)$/,"#/settings"],[/^(word by word|wbw|لفظ بہ لفظ)$/,"#/wbw"]];
+  const NAV=[[/^(home|ہوم|گھر)$/,"#/"],[/^(quran|قرآن|قران|surahs|سورتیں)$/,"#/quran"],[/^(paras?|juz|پارے|سپارے)$/,"#/quran/juz"],[/^(hadith|ahadith|hadees|حدیث|احادیث)$/,"#/hadith"],[/^(qaida|qaidah|قاعدہ|قاعده)$/,"#/qaida"],[/^(quiz|کوئز|امتحان)$/,"#/quiz"],[/^(hifz|memorize|memorise|حفظ)$/,"#/hifz"],[/^(bookmarks?|بک مارکس?)$/,"#/bookmarks"],[/^(settings|ترتیبات|سیٹنگز|سیٹنگ)$/,"#/settings"],[/^(word by word|wbw|لفظ بہ لفظ)$/,"#/wbw"],
+    [/^(salah|salat|salaah|namaz|namaaz|nimaz|prayer|prayers|how to pray|namaz ka tariqa|namaz ka tareeqa|نماز|نمازیں|نماز کا طریقہ|طریقہ نماز|طریقۂ نماز)$/,"#/salah"],
+    [/^(witr|vitr|qunoot|qunut|dua e qunoot|dua-e-qunoot|duae qunoot|dua qunoot|وتر|قنوت|دعائے قنوت|دعا قنوت|دعاے قنوت)$/,"#/salah/witr"],
+    [/^((99|100) names( of allah)?|names of allah|allah names|allah's (99 |100 )?names|asma ul husna|asmaul husna|asma-ul-husna|asma al husna|allah ke naam|اسماء الحسنی|اسماء الحسنیٰ|اسمائے حسنی|اسمائے حسنیٰ|اسمائے الحسنیٰ|اللہ کے نام|اللہ کے ننانوے نام|(99|100) نام|ننانوے نام)$/,"#/names"]];
   for(const [re,h] of NAV)if(re.test(q))return go(h);
+  const kn=kalimaFrom(q);if(kn)return go(kn>0?`#/kalimas/${kn}`:"#/kalimas");
   if(/^(night|dark)( mode| theme)?$|^(رات|ڈارک)( موڈ)?$/.test(q)){setTheme("night");return closeAll()}
   if(/^(day|light)( mode| theme)?$|^(دن|لائٹ)( موڈ)?$/.test(q)){setTheme("emerald");return closeAll()}
   m=q.match(/^(?:para|parah|sipara|juz|juzz|پارہ|پاره|سپارہ|سیپارہ|جز)\s*(?:number|no|نمبر)?\s*(\d{1,2})$/);
@@ -1488,7 +1707,7 @@ async function setTrLang(code){
 function setTheme(th){S.theme=th;save();applyTheme();toast(t("themeSet"));if(VIEW.name==="settings")$$(".th").forEach(b=>{b.classList.toggle("on",b.dataset.v===th);b.setAttribute("aria-pressed",b.dataset.v===th)})}
 
 /* Command sheet and voice input */
-function examples(){return isUr()?["سورہ یاسین","آیت الکرسی","تفسیر ۲:۲۵۵","بخاری ۱","پارہ ۳۰","قاعدہ","کوئز","تلاش رحمت"]:["Surah Yasin","Ayatul Kursi","Tafsir 2:255","Bukhari 1","Para 30","Qaida","Quiz","Search mercy"]}
+function examples(){return isUr()?["سورہ یاسین","آیت الکرسی","تفسیر ۲:۲۵۵","بخاری ۱","پارہ ۳۰","تیسرا کلمہ","نماز","اسماء الحسنیٰ","تلاش رحمت"]:["Surah Yasin","Ayatul Kursi","Tafsir 2:255","Bukhari 1","Para 30","Kalima 3","Namaz","99 Names","Search mercy"]}
 function openCmd(){
   openSheet(`<h3>${t("searchTitle")}</h3><form class="cmdform" data-form="cmd"><input id="cmdIn" type="search" placeholder="${t("searchPh")}" autocomplete="off" enterkeyhint="go" aria-label="${t("searchPh")}"><button type="button" class="mic" id="micBtn" data-act="mic" aria-label="${t("speak")}">${icon("mic")}</button></form><div class="status" id="cmdStatus"></div><div class="eyebrow">${t("tryThese")}</div><div class="chips">${examples().map(c=>`<button class="chip" data-act="ex" data-c="${esc(c)}">${esc(c)}</button>`).join("")}</div>`);
 }
@@ -1595,6 +1814,14 @@ const ACT={
   },
   install:async()=>{if(!installEvt)return;const ev=installEvt;installEvt=null;updateInstallUi();try{await ev.prompt();const c=await ev.userChoice;if(c&&c.outcome==="accepted")toast(t("installing"))}catch(e){}},
   iosHintOff:()=>{S.iosHintOff=true;save();renderInstallSlot()},
+  kSay:(el)=>{const k=KALIMAS[+el.dataset.k-1];if(k)speak(k.ar,"ar")},
+  kSayTr:(el)=>{const k=KALIMAS[+el.dataset.k-1];if(k)speak(trOf(k),isUr()?"ur":"en")},
+  kShare:(el)=>{const k=KALIMAS[+el.dataset.k-1];if(k)shareText(`${k.ar}\n\n${trOf(k)}\n\n— ${isUr()?k.ou+": "+k.nu:k.oe+": "+k.ne}`)},
+  rSay:(el)=>{const r=SALAH.rec[el.dataset.k];if(r)speak(r.ar,"ar")},
+  jump:(el)=>smoothScroll($("#"+el.dataset.id)),
+  nOpen:(el)=>openName(+el.dataset.n),
+  nSay:(el)=>{const x=NAMES[+el.dataset.n-1];if(x)speak(x[1],"ar")},
+  nShare:(el)=>{const x=NAMES[+el.dataset.n-1];if(x)shareText(`${x[1]}\n${x[2]}\n${x[3]}\n${x[4]}\n\n— ${t("names")} ${x[0]}`)},
   welcome:(el)=>{S.ui=el.dataset.v;if(S.ui==="en"&&!S.tr2)S.tr2="en.sahih";uiDefaults();saveNow();$("#welcome").hidden=true;applyUi();route()}
 };
 document.addEventListener("click",e=>{
@@ -1610,7 +1837,7 @@ document.addEventListener("change",e=>{
 });
 document.addEventListener("input",e=>{
   const el=e.target.closest("[data-live]");if(!el)return;const k=el.dataset.live;
-  if(k==="filter"){const q=plain(asciiDigits(el.value.trim()));$$("#list .row").forEach(r=>{r.hidden=!!q&&!(r.dataset.f||"").includes(q)});return}
+  if(k==="filter"){const q=plain(asciiDigits(el.value.trim()));$$("#list [data-f]").forEach(r=>{r.hidden=!!q&&!(r.dataset.f||"").includes(q)});return}
   if(k==="arSize"||k==="trSize"){S[k]=+el.value;applySizes();const b=$("#"+k+"V");if(b)b.textContent=num(S[k]);save()}
 });
 document.addEventListener("submit",e=>{
@@ -1641,7 +1868,7 @@ if(!S.ui){
 }else{uiDefaults();applyUi();route()}
 validateEditions().then(ch=>{if(ch&&VIEW.name==="reader")route()});
 measure();
-window.NoorQuran={run,state:S,go,get R(){return R}};
+window.NoorQuran={run,state:S,go,get R(){return R},data:{KALIMAS,SALAH,NAMES,HADITH99}};
 })();
 </script>
 </body>
