@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0e3b34">
 <title>Noor Quran</title>
-<meta name="description" content="Quran with Urdu and English translations, tafsir and recitation, ten hadith books, the Six Kalimas, how to pray, the 99 Names of Allah, word-by-word meanings, Hifz, Qaida lessons and quizzes.">
+<meta name="description" content="Quran with Urdu and English translations, tafsir and recitation, ten hadith books, the Six Kalimas, how to pray, prayer times with reminders, the 99 Names of Allah, word-by-word meanings, Hifz, Qaida lessons and quizzes.">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-512.png">
@@ -400,6 +400,56 @@ html[lang="ur"] .pl-info{line-height:1.8}
 .wl-btns .ur{font-family:var(--f-ur);font-size:20px}
 .about p{margin:0 0 10px}
 .about ul{margin:0;padding-inline-start:20px;display:flex;flex-direction:column;gap:6px}
+/* Translations with their own read-aloud button */
+.tb{display:flex;align-items:flex-start;gap:4px}
+.tb .tx{flex:1;min-width:0}
+.tb+.tb,.tb+.chip+.tb{border-top:1px dashed var(--line);padding-top:8px}
+.ib.say{width:36px;height:36px;margin-top:-3px;color:var(--muted);border-radius:10px}
+.ib.say .svg{width:19px;height:19px}
+.ib.say.on,.btn[data-act="sayTx"].on{color:var(--accent);background:var(--hl);border-color:var(--accent)}
+p.ur2,.sdesc.ur2{font-family:var(--f-ur);line-height:2.25;text-align:right}
+.bullets .li{display:block}
+.bullets .li.ur{font-family:var(--f-ur);line-height:2.2;text-align:right}
+.bullets .tr2{color:var(--muted);font-size:.95em}
+.snote .tb{line-height:1.6}
+.snote .tb.ur{font-family:var(--f-ur);line-height:2.1;text-align:right}
+.sdesc.tb.ur{font-family:var(--f-ur);line-height:2.25;text-align:right}
+.nex.tb{text-align:start;line-height:1.6;margin:0}
+.nex.tb.ur{font-family:var(--f-ur);line-height:2.2;text-align:right}
+.khead .s.ur{font-family:var(--f-ur);font-size:14px}
+.hfill .muted{margin:0}
+/* Prayer times and the Adhan */
+button.row{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);text-align:start;font:inherit;color:var(--ink);cursor:pointer}
+button.row:last-child{border-bottom:0}
+.np-card{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.np-card .ic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:var(--hl);color:var(--accent);flex:none}
+.np-card .main{flex:1;min-width:0;display:flex;flex-direction:column}
+.np-card b{font-size:16px}
+.np-card .azdot{color:var(--accent)}
+.ptnext .np{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ptnext .np b{font-size:26px;color:var(--accent);line-height:1.5}
+.ptnext .npt{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+.npl{color:var(--muted)}
+.pthead{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.pthead span{color:var(--muted);font-size:13px}
+.ptrows{display:flex;flex-direction:column;gap:2px;margin-bottom:6px}
+.ptrow{display:flex;align-items:center;gap:10px;min-height:50px;padding:2px 4px 2px 12px;border-radius:12px}
+.ptrow .pn{flex:1;font-weight:600}
+.ptrow .ptm{font-variant-numeric:tabular-nums;font-weight:600}
+.ptrow.next{background:var(--hl);color:var(--accent)}
+.ptrow.cur .pn::after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ok);margin-inline-start:8px;vertical-align:middle}
+.ib.bell{color:var(--muted)}
+.ib.bell.on{color:var(--accent)}
+.adj summary{cursor:pointer;color:var(--accent);font-weight:600;min-height:40px;display:flex;align-items:center}
+.adjgrid{display:grid;grid-template-columns:1fr 96px;gap:8px;align-items:center;margin-top:6px}
+.azbar{position:fixed;left:0;right:0;bottom:calc(var(--player-h) + env(safe-area-inset-bottom,0px));z-index:30;padding:8px max(12px,env(safe-area-inset-right,0px)) 10px max(12px,env(safe-area-inset-left,0px))}
+.az-in{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:10px;background:var(--bar);color:var(--bar-ink);border-radius:16px;padding:10px 8px 10px 12px;box-shadow:0 8px 24px rgba(0,0,0,.28)}
+.az-in .ic{color:var(--gold);flex:none;display:grid}
+.az-in .main{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.4}
+.az-in .main span{font-size:12.5px;color:var(--bar-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.az-in .btn.pri{background:var(--gold);border-color:var(--gold);color:#1b1206;flex:none}
+body.az .wrap{padding-bottom:calc(110px + var(--player-h) + env(safe-area-inset-bottom,0px))}
+body.az .toast{bottom:calc(96px + var(--player-h) + env(safe-area-inset-bottom,0px))}
 @media (min-width:640px){.tiles{grid-template-columns:repeat(6,minmax(0,1fr))}}
 </style>
 </head>
@@ -418,6 +468,7 @@ html[lang="ur"] .pl-info{line-height:1.8}
 <div class="player" id="player" hidden></div>
 <section class="sheet" id="sheet" role="dialog" aria-modal="true" hidden></section>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="azbar" id="azbar" hidden></div>
 <div class="welcome" id="welcome" hidden></div>
 
 <script>
@@ -463,12 +514,19 @@ const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.
 /* ======================================================================
    Settings
    ====================================================================== */
-const DEF={ui:null,theme:"auto",tr1:"ur.kanzuliman",tr2:"",tf:"",qari:"ar.alafasy",mic:"",arSize:28,trSize:17,wbw:false,wbwLang:"",translit:false,hz:false,rep:1,hide:"none",play:"ar",trAudio:"rec",hLang:"",hAr:true,last:{s:1,a:1},bm:[],mem:{},best:{}};
+const DEF={ui:null,theme:"auto",tr1:"ur.kanzuliman",tr2:"",tf:"",qari:"ar.alafasy",mic:"",arSize:28,trSize:17,wbw:false,wbwLang:"",translit:false,hz:false,rep:1,hide:"none",play:"ar",trAudio:"rec",hLang:"",hAr:true,rate:1,vUr:"",vEn:"",pt:null,v:0,last:{s:1,a:1},bm:[],mem:{},best:{}};
 const S=Object.assign({},DEF,store.get("noor2",{}));
 if(!S.last||!S.last.s) S.last={s:1,a:1};
 if(!Array.isArray(S.bm)) S.bm=[];
 if(!S.mem||typeof S.mem!=="object") S.mem={};
 if(!S.best||typeof S.best!=="object") S.best={};
+/* Prayer times: place, method, reminder switches (Settings v3 also shows Urdu with English by default in the English app) */
+const PT_DEF={loc:null,method:"auto",asr:"auto",adhan:false,on:{fajr:true,dhuhr:true,asr:true,maghrib:true,isha:true},wake:false,notify:false,adj:{fajr:0,sunrise:0,dhuhr:0,asr:0,maghrib:0,isha:0}};
+S.pt=Object.assign({},PT_DEF,S.pt&&typeof S.pt==="object"?S.pt:{});
+S.pt.on=Object.assign({},PT_DEF.on,S.pt.on||{});S.pt.adj=Object.assign({},PT_DEF.adj,S.pt.adj||{});
+["own","ownName","ownFajr","ownFajrName","voice"].forEach(k=>{delete S.pt[k]});
+if(S.pt.loc&&(typeof S.pt.loc!=="object"||!isFinite(S.pt.loc.lat)||!isFinite(S.pt.loc.lng)))S.pt.loc=null;
+if(!(S.v>=3)){if(S.ui==="en"&&S.hLang==="en")S.hLang="both";S.v=3}
 (function migrate(){const o=store.get("noor",null);if(o&&!store.get("noor2",null)){if(o.surah)S.last={s:+o.surah||1,a:1};if(o.qari)S.qari=o.qari;if(o.micLang)S.mic=o.micLang}})();
 let saveT=null;
 function save(){clearTimeout(saveT);saveT=setTimeout(()=>store.set("noor2",S),120)}
@@ -511,7 +569,7 @@ tryThese:"Try",installApp:"Install app",installHint:"Install Noor Quran on your 
 translationBy:"Translation: {n}",themeSet:"Theme changed",notInSurah:"Surah {s} has {n} verses",tafsirLoading:"Loading tafsir…",tafsirNone:"This tafsir has no explanation for this verse. Choose another tafsir in Settings.",tafsirGroup:"Verses {a} to {b} are explained together.",
 ttsNoVoice:"Your phone has no {l} voice, so it can't read this aloud. To add one: phone Settings → search “Text-to-speech” → Preferred engine: Google → tap the settings icon → Install voice data → {l}.",audioFail:"Couldn't play the recitation. Check your internet.",tapPlay:"Tap play to start the audio",simpleTf:"Simple",detailedTf:"Detailed",
 pm_ar:"Arabic only",pm_both:"Arabic + {l}",pm_tr:"{l} only",playLbl:"When you press play",taLbl:"Listen to the translation with",ta_rec:"Recorded voice",ta_tts:"Phone's voice",taNote:"The recorded voice works on every phone (Urdu: Shamshad Ali Khan). Its wording can differ slightly from the translation shown on screen.",readingTr:"{l} translation",
-aboutLead:"Noor Quran brings the Quran, its translation and tafsir, hadith, the basics of faith and prayer, and learning tools together in one free app.",aboutTrust:"Quran translations, tafsir, hadith and hadith grades come from named scholars and published works and are shown unchanged.",aboutBasics:"Six Kalimas, Salah and the Names of Allah: every Arabic text was checked word by word against published sources, and each Salah recitation links to its hadith or verse. Their short translations and step-by-step notes were written for this app.",sources:"Sources",version:"Version",
+aboutLead:"Noor Quran brings the Quran, its translation and tafsir, hadith, the basics of faith and prayer, and learning tools together in one free app.",aboutTrust:"Quran translations, tafsir, hadith and hadith grades come from named scholars and published works and are shown unchanged.",aboutBasics:"Six Kalimas, Salah and the Names of Allah: every Arabic text was checked word by word against published sources, and each Salah recitation links to its hadith or verse. Their short translations, the Urdu notes on the Names and the step-by-step notes were written for this app.",sources:"Sources",version:"Version",
 duaHead:"طالبِ دعا",iosTitle:"Install on iPhone",iosSteps:"Open this page in Safari, tap the Share button (the square with an arrow), then tap <bdi class=\"nb\">Add to Home Screen</bdi> and <bdi class=\"nb\">Add</bdi>.",juzName:"Para {n}",openSurahAt:"Open",hz_on:"Hifz mode is on",hz_off:"Hifz mode is off",repSet:"Each verse repeats {n}×",langSwitched:"Language changed",noHifzSurah:"Choose a surah first",
 faith:"Faith & prayer",kalimas:"Six Kalimas",salah:"How to pray",names:"Names of Allah",names99:"99 Names",names99sub:"Asma-ul-Husna",
 kalimaIntro:"The Six Kalimas are short words of faith that children in Pakistan and India learn by heart. They are based on the Quran and hadith.",testYourself:"Test yourself",
@@ -523,7 +581,22 @@ rakatNote:"* Ghair-mu'akkadah: a lighter Sunnah. Nafl are optional. Witr is waji
 nameOfDay:"Name of Allah for today",namesFilter:"Search a name or its meaning",allahName:"Ism-e-Zaat, Allah's own name",nameN:"Name {n} of 99",prevN:"Previous",nextN:"Next",
 qt_names:"Names of Allah",qtd_names:"Meanings of the 99 names",qt_salah:"Kalimas & Salah",qtd_salah:"The Six Kalimas, rak'ahs and what to say in prayer",
 qNameMean:"What does this name mean?",qWhichName:"Which name means “{m}”?",qWhichKalima:"Which Kalima is this?",qKalimaN:"Which is the {n} Kalima?",qFard:"How many fard rak'ahs are in {p}?",
-qRecite_ruku:"What do you say in ruku?",qRecite_sujood:"What do you say in sajdah?",qRecite_samia:"What do you say while rising from ruku?",qRecite_jalsa:"Which dua can you say between the two sajdahs?"
+qRecite_ruku:"What do you say in ruku?",qRecite_sujood:"What do you say in sajdah?",qRecite_samia:"What do you say while rising from ruku?",qRecite_jalsa:"Which dua can you say between the two sajdahs?",
+trSec:"Translations",trLangLbl:"Translation shown for hadith, Kalimas, Salah and the Names of Allah",both:"Both",
+noUrThis:"No Urdu translation of this hadith is available yet, so the English is shown.",urFrom:"Urdu translation from {b} {n}",urFromPart:"Urdu translation of the first part, from {b} {n}",
+mapNote:"This book has no Urdu translation of its own. When the same hadith is in one of the main books, its published Urdu translation is shown from there, often with the full chain of narrators. The few others show the English.",
+langsUEAm:"Urdu (from the main books) · English · Arabic",inUrdu:"Urdu",inEnglish:"English",listenUr:"Listen in Urdu",listenEn:"Listen in English",
+readSec:"Reading aloud",urVoice:"Urdu voice",enVoice:"English voice",voiceBest:"Best on this phone",testVoice:"Test",speechRate:"Speed",
+noUrVoice:"This phone has no Urdu voice yet. To add Google's natural Urdu voice: phone Settings → search “Text-to-speech” → Preferred engine: Google → tap the settings icon → Install voice data → Urdu (Pakistan).",
+voiceNote:"The Quran translation is read by a recorded Urdu voice (Shamshad Ali Khan). Hadith, Kalimas, Salah and the Names are read by your phone's voice; Google's Urdu (Pakistan) voice sounds the most natural.",
+testUr:"السلام علیکم! یہ نور قرآن کی اردو آواز ہے۔",testEn:"Assalamu alaikum! This is the English voice of Noor Quran.",
+prayerTimes:"Prayer times",p_sunrise:"Sunrise",nextPrayer:"Next prayer",inT:"in {t}",hm:"{h} h {m} min",mOnly:"{m} min",
+setLoc:"Set your location",setLocHint:"Prayer times are worked out on your phone for the place you choose.",useGps:"Use my location",chooseCity:"Or choose a city",cityPh:"Type a city name",locating:"Finding your location…",gpsDenied:"Location permission was refused. Choose your city instead.",gpsFail:"Couldn't get your location. Choose your city instead.",nearC:"Near {c}",yourLoc:"Your location",changeLoc:"Change",noCity:"No city found",
+methodLbl:"Calculation method",mAuto:"For this region: {m}",m_Karachi:"University of Islamic Sciences, Karachi",m_MuslimWorldLeague:"Muslim World League",m_UmmAlQura:"Umm al-Qura, Makkah",m_Egyptian:"Egyptian General Authority of Survey",m_Dubai:"UAE (Dubai)",m_Qatar:"Qatar",m_Kuwait:"Kuwait",m_MoonsightingCommittee:"Moonsighting Committee Worldwide",m_NorthAmerica:"ISNA (North America)",m_Singapore:"Singapore, Malaysia, Indonesia",m_Turkey:"Diyanet (Turkey)",m_Tehran:"Institute of Geophysics, Tehran",
+asrLbl:"Asr",asrHanafi:"Hanafi (later)",asrStd:"Shafi'i, Maliki, Hanbali (earlier)",adjLbl:"Adjust a time (minutes)",
+adhanSec:"Reminder",adhanAuto:"Reminder at prayer time",adhanOnT:"Reminder on",adhanOffT:"Reminder off",adhanFor:"Reminder for {p}",keepOn:"Keep the screen on while this page is open",notifyLbl:"Notification at prayer time",notifyBlocked:"Notifications are blocked for Noor Quran. You can allow them in your phone's settings.",
+adhanLimit:"At each prayer time a reminder appears at the bottom while Noor Quran is open. With notifications on, your phone also shows a notification while the app is in the background. A web app can't wake a phone that has closed it or locked its screen, so turn on “Keep the screen on” and leave the phone on charge, like a masjid clock. The bell next to each prayer turns its reminder on or off.",
+timeForP:"Time for {p}",duaAdhan:"Dua after the Adhan",prayerSet:"Place and method",npSet:"Set your location to see prayer times and turn on reminders",prayerSub:"Times for your city and reminders"
 },ur:{
 app:"نور قرآن",menu:"مینو",home:"ہوم",quran:"قرآن مجید",surahs:"سورتیں",juz:"پارے",hadith:"احادیث",learn:"سیکھیں",wbw:"لفظ بہ لفظ",hifz:"حفظ",qaida:"قاعدہ — پڑھنا سیکھیں",qaidaShort:"قاعدہ",quiz:"کوئز",bookmarks:"بک مارکس",settings:"ترتیبات",about:"ایپ کے بارے میں",more:"مزید",
 salamSub:"آج قرآن مجید کی چند آیات ضرور پڑھیں",searchPh:"تلاش کریں یا بولیں: سورہ یاسین، ۲:۲۵۵، بخاری ۱",continue:"جہاں سے چھوڑا تھا",resume:"جاری رکھیں",surah:"سورہ",verse:"آیت",verseOfDay:"آج کی آیت",hadithOfDay:"آج کی حدیث",
@@ -557,7 +630,7 @@ tryThese:"مثلاً",installApp:"ایپ انسٹال کریں",installHint:"ن�
 translationBy:"ترجمہ: {n}",themeSet:"تھیم تبدیل ہو گئی",notInSurah:"سورہ {s} میں {n} آیات ہیں",tafsirLoading:"تفسیر لوڈ ہو رہی ہے…",tafsirNone:"اس تفسیر میں اس آیت کی وضاحت موجود نہیں۔ ترتیبات میں کوئی اور تفسیر منتخب کریں۔",tafsirGroup:"آیات {a} تا {b} کی تفسیر ایک ساتھ ہے۔",
 ttsNoVoice:"آپ کے فون میں {l} آواز نہیں، اس لیے یہ متن پڑھ کر نہیں سنایا جا سکتا۔ آواز شامل کریں: فون کی سیٹنگز میں “Text-to-speech” تلاش کریں ← انجن: Google ← سیٹنگز کا نشان ← Install voice data ← {l}۔",audioFail:"تلاوت نہیں چل سکی۔ انٹرنیٹ چیک کریں۔",tapPlay:"آواز شروع کرنے کے لیے پلے دبائیں",simpleTf:"آسان",detailedTf:"تفصیلی",
 pm_ar:"صرف عربی",pm_both:"عربی + {l}",pm_tr:"صرف {l}",playLbl:"پلے دبانے پر کیا سنائی دے",taLbl:"ترجمہ کس آواز میں سنیں",ta_rec:"ریکارڈ شدہ آواز",ta_tts:"فون کی آواز",taNote:"ریکارڈ شدہ آواز ہر فون پر چلتی ہے (اردو: شمشاد علی خان)۔ اس کے الفاظ اسکرین پر دکھائے گئے ترجمے سے کچھ مختلف ہو سکتے ہیں۔",readingTr:"{l} ترجمہ",
-aboutLead:"نور قرآن میں قرآن مجید، اس کا ترجمہ اور تفسیر، احادیث، ایمان اور نماز کی بنیادی باتیں اور سیکھنے کے ٹولز ایک ہی مفت ایپ میں جمع ہیں۔",aboutTrust:"قرآن مجید کے تراجم، تفاسیر، احادیث اور ان کے درجات معروف علماء اور شائع شدہ کتب سے لیے گئے ہیں اور بغیر کسی تبدیلی کے دکھائے جاتے ہیں۔",aboutBasics:"چھ کلمے، نماز کا طریقہ اور اسماء الحسنیٰ: ہر عربی متن کو شائع شدہ ماخذ سے لفظ بہ لفظ ملایا گیا ہے، اور نماز کی ہر دعا اپنی حدیث یا آیت سے جڑی ہے۔ ان کے مختصر ترجمے اور مرحلہ وار ہدایات اس ایپ کے لیے لکھی گئی ہیں۔",sources:"ماخذ",version:"ورژن",
+aboutLead:"نور قرآن میں قرآن مجید، اس کا ترجمہ اور تفسیر، احادیث، ایمان اور نماز کی بنیادی باتیں اور سیکھنے کے ٹولز ایک ہی مفت ایپ میں جمع ہیں۔",aboutTrust:"قرآن مجید کے تراجم، تفاسیر، احادیث اور ان کے درجات معروف علماء اور شائع شدہ کتب سے لیے گئے ہیں اور بغیر کسی تبدیلی کے دکھائے جاتے ہیں۔",aboutBasics:"چھ کلمے، نماز کا طریقہ اور اسماء الحسنیٰ: ہر عربی متن کو شائع شدہ ماخذ سے لفظ بہ لفظ ملایا گیا ہے، اور نماز کی ہر دعا اپنی حدیث یا آیت سے جڑی ہے۔ ان کے مختصر ترجمے، اسماء الحسنیٰ کی اردو وضاحتیں اور مرحلہ وار ہدایات اس ایپ کے لیے لکھی گئی ہیں۔",sources:"ماخذ",version:"ورژن",
 duaHead:"طالبِ دعا",iosTitle:"آئی فون پر انسٹال کریں",iosSteps:"یہ صفحہ سفاری میں کھولیں، شیئر کا بٹن (تیر والا چوکور نشان) دبائیں، پھر <bdi class=\"nb\" dir=\"ltr\">Add to Home Screen</bdi> (ہوم اسکرین پر شامل کریں) اور <bdi class=\"nb\" dir=\"ltr\">Add</bdi> دبائیں۔",juzName:"پارہ {n}",openSurahAt:"کھولیں",hz_on:"حفظ موڈ آن ہے",hz_off:"حفظ موڈ بند ہے",repSet:"ہر آیت {n} بار دہرائی جائے گی",langSwitched:"زبان تبدیل ہو گئی",noHifzSurah:"پہلے سورت منتخب کریں",
 faith:"ایمان اور نماز",kalimas:"چھ کلمے",salah:"نماز کا طریقہ",names:"اسماء الحسنیٰ",names99:"اسماء الحسنیٰ",names99sub:"اللہ تعالیٰ کے ننانوے نام",
 kalimaIntro:"چھ کلمے ایمان کے مختصر کلمات ہیں جو پاکستان اور ہندوستان میں بچوں کو زبانی یاد کرائے جاتے ہیں۔ ان کا مضمون قرآن و حدیث سے لیا گیا ہے۔",testYourself:"خود کو آزمائیں",
@@ -569,7 +642,22 @@ rakatNote:"* غیر مؤکدہ سنت۔ نفل اختیاری ہیں۔ فقہ ح
 nameOfDay:"آج کا اسمِ مبارک",namesFilter:"نام یا معنی تلاش کریں",allahName:"اسمِ ذات",nameN:"۹۹ میں سے {n}",prevN:"پچھلا",nextN:"اگلا",
 qt_names:"اسماء الحسنیٰ",qtd_names:"اللہ تعالیٰ کے ننانوے ناموں کے معنی",qt_salah:"کلمے اور نماز",qtd_salah:"چھ کلمے، رکعتیں اور نماز کے اذکار",
 qNameMean:"اس نام کا مطلب کیا ہے؟",qWhichName:"کس نام کا مطلب «{m}» ہے؟",qWhichKalima:"یہ کون سا کلمہ ہے؟",qKalimaN:"{n} کلمہ کون سا ہے؟",qFard:"{p} میں کتنے فرض ہیں؟",
-qRecite_ruku:"رکوع میں کیا پڑھتے ہیں؟",qRecite_sujood:"سجدے میں کیا پڑھتے ہیں؟",qRecite_samia:"رکوع سے اٹھتے ہوئے کیا کہتے ہیں؟",qRecite_jalsa:"دونوں سجدوں کے درمیان کون سی دعا پڑھ سکتے ہیں؟"
+qRecite_ruku:"رکوع میں کیا پڑھتے ہیں؟",qRecite_sujood:"سجدے میں کیا پڑھتے ہیں؟",qRecite_samia:"رکوع سے اٹھتے ہوئے کیا کہتے ہیں؟",qRecite_jalsa:"دونوں سجدوں کے درمیان کون سی دعا پڑھ سکتے ہیں؟",
+trSec:"تراجم",trLangLbl:"حدیث، کلموں، نماز اور اسماء الحسنیٰ کا ترجمہ",both:"دونوں",
+noUrThis:"اس حدیث کا اردو ترجمہ ابھی دستیاب نہیں، اس لیے انگریزی ترجمہ دکھایا گیا ہے۔",urFrom:"اردو ترجمہ: {b} {n} سے",urFromPart:"پہلے حصے کا اردو ترجمہ: {b} {n} سے",
+mapNote:"اس کتاب کا اپنا اردو ترجمہ موجود نہیں۔ جو حدیث بڑی کتب حدیث میں موجود ہے، اس کا شائع شدہ اردو ترجمہ وہیں سے دکھایا گیا ہے، اکثر پوری سند کے ساتھ۔ باقی چند احادیث کا انگریزی ترجمہ دکھایا گیا ہے۔",
+langsUEAm:"اردو (بڑی کتب سے) · انگریزی · عربی",inUrdu:"اردو",inEnglish:"انگریزی",listenUr:"اردو میں سنیں",listenEn:"انگریزی میں سنیں",
+readSec:"آواز میں پڑھنا",urVoice:"اردو آواز",enVoice:"انگریزی آواز",voiceBest:"اس فون کی بہترین آواز",testVoice:"سن کر دیکھیں",speechRate:"رفتار",
+noUrVoice:"اس فون میں ابھی اردو آواز موجود نہیں۔ گوگل کی قدرتی اردو آواز شامل کرنے کے لیے: فون کی سیٹنگز ← “Text-to-speech” تلاش کریں ← Preferred engine: Google ← سیٹنگز کا نشان ← Install voice data ← Urdu (Pakistan)۔",
+voiceNote:"قرآن مجید کا ترجمہ ریکارڈ شدہ اردو آواز (شمشاد علی خان) میں سنایا جاتا ہے۔ احادیث، کلمے، نماز اور اسماء الحسنیٰ آپ کے فون کی آواز پڑھتی ہے؛ گوگل کی اردو (پاکستان) آواز سب سے زیادہ قدرتی لگتی ہے۔",
+testUr:"السلام علیکم! یہ نور قرآن کی اردو آواز ہے۔",testEn:"Assalamu alaikum! This is the English voice of Noor Quran.",
+prayerTimes:"نماز کے اوقات",p_sunrise:"طلوعِ آفتاب",nextPrayer:"اگلی نماز",inT:"{t} میں",hm:"{h} گھنٹے {m} منٹ",mOnly:"{m} منٹ",
+setLoc:"اپنا مقام منتخب کریں",setLocHint:"نماز کے اوقات آپ کے منتخب کردہ مقام کے مطابق آپ کے فون پر ہی حساب کیے جاتے ہیں۔",useGps:"میرا موجودہ مقام",chooseCity:"یا شہر منتخب کریں",cityPh:"شہر کا نام لکھیں",locating:"آپ کا مقام معلوم کیا جا رہا ہے…",gpsDenied:"مقام کی اجازت نہیں دی گئی۔ اپنا شہر منتخب کر لیں۔",gpsFail:"آپ کا مقام معلوم نہیں ہو سکا۔ اپنا شہر منتخب کر لیں۔",nearC:"{c} کے قریب",yourLoc:"آپ کا مقام",changeLoc:"تبدیل کریں",noCity:"کوئی شہر نہیں ملا",
+methodLbl:"حساب کا طریقہ",mAuto:"اس علاقے کا طریقہ: {m}",m_Karachi:"جامعۃ العلوم الاسلامیہ، کراچی",m_MuslimWorldLeague:"رابطہ عالمِ اسلامی",m_UmmAlQura:"ام القریٰ، مکہ مکرمہ",m_Egyptian:"مصری جنرل اتھارٹی آف سروے",m_Dubai:"متحدہ عرب امارات (دبئی)",m_Qatar:"قطر",m_Kuwait:"کویت",m_MoonsightingCommittee:"مون سائٹنگ کمیٹی ورلڈ وائیڈ",m_NorthAmerica:"اسنا (شمالی امریکہ)",m_Singapore:"سنگاپور، ملائیشیا، انڈونیشیا",m_Turkey:"دیانت (ترکی)",m_Tehran:"جیو فزکس انسٹیٹیوٹ، تہران",
+asrLbl:"عصر",asrHanafi:"حنفی (بعد میں)",asrStd:"شافعی، مالکی، حنبلی (پہلے)",adjLbl:"کسی وقت کو منٹوں میں آگے پیچھے کریں",
+adhanSec:"یاد دہانی",adhanAuto:"نماز کے وقت یاد دہانی",adhanOnT:"یاد دہانی آن ہے",adhanOffT:"یاد دہانی بند ہے",adhanFor:"{p} کی یاد دہانی",keepOn:"یہ صفحہ کھلا ہو تو اسکرین بند نہ ہو",notifyLbl:"نماز کے وقت اطلاع",notifyBlocked:"نور قرآن کے لیے اطلاعات بند ہیں۔ آپ فون کی سیٹنگز میں اجازت دے سکتے ہیں۔",
+adhanLimit:"نماز کے وقت نور قرآن کھلا ہو تو نیچے یاد دہانی آتی ہے۔ اطلاعات آن ہوں تو ایپ پس منظر میں ہونے پر فون اطلاع بھی دکھاتا ہے۔ ویب ایپ اس فون کو نہیں جگا سکتی جس نے اسے بند کر دیا ہو یا اسکرین لاک ہو، اس لیے “اسکرین بند نہ ہو” آن کریں اور فون کو چارجر پر لگا رہنے دیں، مسجد کی گھڑی کی طرح۔ ہر نماز کے ساتھ گھنٹی کا نشان اس نماز کی یاد دہانی آن یا بند کرتا ہے۔",
+timeForP:"{p} کا وقت",duaAdhan:"اذان کے بعد کی دعا",prayerSet:"مقام اور طریقہ",npSet:"نماز کے اوقات دیکھنے اور یاد دہانی آن کرنے کے لیے اپنا مقام منتخب کریں",prayerSub:"آپ کے شہر کے اوقات اور یاد دہانی"
 }};
 const isUr=()=>S.ui==="ur";
 function t(k,v){let s=(STR[isUr()?"ur":"en"]||STR.en)[k];if(s==null)s=STR.en[k];if(s==null)s=k;if(v)for(const x in v)s=s.split("{"+x+"}").join(v[x]);return s}
@@ -665,6 +753,39 @@ const NAME_AU={"0":"112:2","1":"55:1","2":"2:163","3":"59:23","4":"59:23","5":"5
 /* [number, Arabic, transliteration, English meaning, Urdu meaning, short note] */
 const NAMES=[[1,"الرَّحْمَٰنُ","Ar-Rahman","The Most Gracious","بے حد مہربان","His mercy is vast and reaches every creature in this world, believer and disbeliever alike."],[2,"الرَّحِيمُ","Ar-Raheem","The Most Merciful","نہایت رحم والا","He shows special, lasting mercy to those who believe, above all in the Hereafter."],[3,"الْمَلِكُ","Al-Malik","The King","حقیقی بادشاہ","The true Sovereign of all that exists, whose rule needs no one and never ends."],[4,"الْقُدُّوسُ","Al-Quddus","The Most Holy","نہایت پاک","Free of every flaw, need and imperfection, far above anything unworthy of Him."],[5,"السَّلَامُ","As-Salam","The Source of Peace","سلامتی دینے والا","Perfect and free of all defect, He is the source of peace and safety for His creation."],[6,"الْمُؤْمِنُ","Al-Mu'min","The Giver of Security","امن دینے والا","He grants safety and faith, and confirms the truth of His word and His messengers."],[7,"الْمُهَيْمِنُ","Al-Muhaymin","The Guardian","نگہبان","He watches over and protects all things, and nothing escapes His care."],[8,"الْعَزِيزُ","Al-'Aziz","The Almighty","غالب","Mighty and honoured, He is never overcome and none can resist His will."],[9,"الْجَبَّارُ","Al-Jabbar","The Compeller","زبردست","He sets right what is broken and brings all things under His will."],[10,"الْمُتَكَبِّرُ","Al-Mutakabbir","The Supreme in Greatness","بڑائی والا","All true greatness belongs to Him alone, above everything He has created."],[11,"الْخَالِقُ","Al-Khaliq","The Creator","پیدا کرنے والا","He brings things into being from nothing, by His knowledge and decree."],[12,"الْبَارِئُ","Al-Bari'","The Originator","ٹھیک ٹھیک بنانے والا","He brings creation into existence free of flaw and in perfect balance."],[13,"الْمُصَوِّرُ","Al-Musawwir","The Fashioner","صورت بنانے والا","He gives every creature its unique form and appearance."],[14,"الْغَفَّارُ","Al-Ghaffar","The Ever-Forgiving","بہت بخشنے والا","He forgives again and again, however often His servants return to Him."],[15,"الْقَهَّارُ","Al-Qahhar","The Subduer","سب پر غالب","He prevails over all things, and everything submits to His power."],[16,"الْوَهَّابُ","Al-Wahhab","The Bestower","بہت عطا کرنے والا","He gives freely and endlessly, without being asked and without any return."],[17,"الرَّزَّاقُ","Ar-Razzaq","The Provider","رزق دینے والا","He provides for every living being, in body and in soul."],[18,"الْفَتَّاحُ","Al-Fattah","The Opener","کھولنے والا","He opens the doors of mercy and provision, and judges between people with truth."],[19,"الْعَلِيمُ","Al-'Alim","The All-Knowing","سب کچھ جاننے والا","His knowledge covers everything, hidden and open, past, present and future."],[20,"الْقَابِضُ","Al-Qabid","The Withholder","تنگی کرنے والا","In His wisdom He holds back provision and constricts hearts as He wills."],[21,"الْبَاسِطُ","Al-Basit","The Extender","کشادگی دینے والا","He expands provision and opens hearts generously for whom He wills."],[22,"الْخَافِضُ","Al-Khafid","The Abaser","پست کرنے والا","He lowers the arrogant and the oppressor in His perfect justice."],[23,"الرَّافِعُ","Ar-Rafi'","The Exalter","بلند کرنے والا","He raises in rank the believers and those given knowledge."],[24,"الْمُعِزُّ","Al-Mu'izz","The Giver of Honour","عزت دینے والا","True honour comes only from Him, and He grants it to whom He wills."],[25,"الْمُذِلُّ","Al-Mudhill","The Giver of Dishonour","ذلت دینے والا","He humbles whom He wills, and none can honour whom He has disgraced."],[26,"السَّمِيعُ","As-Sami'","The All-Hearing","سب کچھ سننے والا","He hears every voice and every whispered prayer, in every language at once."],[27,"الْبَصِيرُ","Al-Basir","The All-Seeing","سب کچھ دیکھنے والا","He sees all things, however small or hidden they may be."],[28,"الْحَكَمُ","Al-Hakam","The Judge","فیصلہ کرنے والا","He is the final judge, and His judgement is always just."],[29,"الْعَدْلُ","Al-'Adl","The Utterly Just","سراپا عدل","He is perfectly just, and never wrongs anyone by even an atom's weight."],[30,"اللَّطِيفُ","Al-Latif","The Subtle, the Kind","باریک بین، مہربان","He knows the finest details and is gentle to His servants in ways they may not see."],[31,"الْخَبِيرُ","Al-Khabir","The All-Aware","پوری خبر رکھنے والا","He is aware of the inner reality of all things, and nothing is hidden from Him."],[32,"الْحَلِيمُ","Al-Halim","The Forbearing","بردبار","He does not hasten to punish, giving His servants time to repent."],[33,"الْعَظِيمُ","Al-'Azim","The Magnificent","عظمت والا","His greatness is beyond the reach of minds and the limits of description."],[34,"الْغَفُورُ","Al-Ghafur","The All-Forgiving","بخشنے والا","He covers sins and forgives them completely, however great they are."],[35,"الشَّكُورُ","Ash-Shakur","The Appreciative","قدر دان","He rewards even small good deeds with a great reward."],[36,"الْعَلِيُّ","Al-'Aliyy","The Most High","بلند و برتر","He is above all things in rank, might and greatness."],[37,"الْكَبِيرُ","Al-Kabir","The Most Great","سب سے بڑا","He is greater than everything, and everything is small before Him."],[38,"الْحَفِيظُ","Al-Hafiz","The Preserver","حفاظت کرنے والا","He guards His creation and keeps a record of every deed."],[39,"الْمُقِيتُ","Al-Muqit","The Nourisher","قوت دینے والا","He gives every creature the sustenance and strength it needs."],[40,"الْحَسِيبُ","Al-Hasib","The Reckoner","حساب لینے والا","He takes account of all deeds, and He is sufficient for those who rely on Him."],[41,"الْجَلِيلُ","Al-Jalil","The Majestic","جلال والا","He possesses every quality of majesty and grandeur."],[42,"الْكَرِيمُ","Al-Karim","The Most Generous","کرم والا","He gives abundantly, forgives freely and honours those who turn to Him."],[43,"الرَّقِيبُ","Ar-Raqib","The Watchful","نگرانی کرنے والا","He watches over every soul and every action, at every moment."],[44,"الْمُجِيبُ","Al-Mujib","The Responsive","دعا قبول کرنے والا","He answers the call of those who pray to Him."],[45,"الْوَاسِعُ","Al-Wasi'","The All-Encompassing","وسعت والا","His knowledge, mercy and generosity have no limit."],[46,"الْحَكِيمُ","Al-Hakim","The All-Wise","حکمت والا","Everything He creates and decrees has perfect wisdom behind it."],[47,"الْوَدُودُ","Al-Wadud","The Loving","محبت کرنے والا","He loves His righteous servants and places love for them in hearts."],[48,"الْمَجِيدُ","Al-Majeed","The Glorious","بزرگی والا","His glory is perfect, and His generosity is vast."],[49,"الْبَاعِثُ","Al-Ba'ith","The Resurrector","مُردوں کو اٹھانے والا","He will raise all people from their graves on the Day of Judgement."],[50,"الشَّهِيدُ","Ash-Shahid","The Witness","گواہ","He witnesses all things, and nothing happens out of His sight."],[51,"الْحَقُّ","Al-Haqq","The Truth","برحق","He is the absolute Truth, and His existence and promise are certain."],[52,"الْوَكِيلُ","Al-Wakil","The Trustee","کارساز","He is the best to rely on, and He takes care of all the affairs of those who trust Him."],[53,"الْقَوِيُّ","Al-Qawiyy","The All-Strong","قوت والا","His strength is perfect and never weakens or tires."],[54,"الْمَتِينُ","Al-Matin","The Firm","مضبوط","His power is firm and unshakeable, needing no help from anyone."],[55,"الْوَلِيُّ","Al-Waliyy","The Protecting Friend","مددگار دوست","He is the ally and helper of the believers, bringing them out of darkness into light."],[56,"الْحَمِيدُ","Al-Hamid","The Praiseworthy","تعریف کے لائق","All praise belongs to Him, whether or not anyone praises Him."],[57,"الْمُحْصِي","Al-Muhsi","The Accounter","گننے والا","He counts and knows the number of all things, down to every breath and leaf."],[58,"الْمُبْدِئُ","Al-Mubdi'","The Initiator","پہلی بار پیدا کرنے والا","He began creation the first time, without any model before it."],[59,"الْمُعِيدُ","Al-Mu'id","The Restorer","دوبارہ پیدا کرنے والا","He will bring creation back to life after death."],[60,"الْمُحْيِي","Al-Muhyi","The Giver of Life","زندگی دینے والا","He gives life to the body, and gives life to hearts with faith."],[61,"الْمُمِيتُ","Al-Mumit","The Bringer of Death","موت دینے والا","He decrees death for every living being at its appointed time."],[62,"الْحَيُّ","Al-Hayy","The Ever-Living","ہمیشہ زندہ","His life is perfect and eternal, with no beginning and no end."],[63,"الْقَيُّومُ","Al-Qayyum","The Self-Subsisting","سب کو قائم رکھنے والا","He needs nothing, and everything depends on Him to exist."],[64,"الْوَاجِدُ","Al-Wajid","The Finder","پانے والا","He lacks nothing and finds whatever He wills, whenever He wills."],[65,"الْمَاجِدُ","Al-Maajid","The Noble","بزرگ و برتر","He is noble and honoured, with perfect glory and generosity."],[66,"الْوَاحِدُ","Al-Wahid","The One","ایک","He is one in His essence, His attributes and His actions."],[67,"الْأَحَدُ","Al-Ahad","The Unique","یکتا","He is uniquely One, with no partner, equal or likeness."],[68,"الصَّمَدُ","As-Samad","The Eternal Refuge","بے نیاز","All creation turns to Him in need, while He needs no one."],[69,"الْقَادِرُ","Al-Qadir","The All-Capable","قدرت والا","He is able to do anything He wills."],[70,"الْمُقْتَدِرُ","Al-Muqtadir","The All-Powerful","پوری قدرت رکھنے والا","His power is complete over everything, and nothing can stop Him."],[71,"الْمُقَدِّمُ","Al-Muqaddim","The Expediter","آگے کرنے والا","He brings forward whom and what He wills, in His wisdom."],[72,"الْمُؤَخِّرُ","Al-Mu'akhkhir","The Delayer","پیچھے کرنے والا","He holds back whom and what He wills, in His wisdom."],[73,"الْأَوَّلُ","Al-Awwal","The First","سب سے پہلا","He existed before everything, with no beginning."],[74,"الْآخِرُ","Al-Akhir","The Last","سب سے آخری","He remains after everything has perished, with no end."],[75,"الظَّاهِرُ","Az-Zahir","The Manifest","ظاہر","His existence is evident in everything, and nothing is above Him."],[76,"الْبَاطِنُ","Al-Batin","The Hidden","پوشیدہ","He is hidden from sight, and nothing is closer than Him."],[77,"الْوَالِي","Al-Wali","The Governor","کارساز مالک","He governs and manages all the affairs of creation."],[78,"الْمُتَعَالِي","Al-Muta'ali","The Most Exalted","بلند و بالا","He is exalted far above the attributes of His creation."],[79,"الْبَرُّ","Al-Barr","The Source of Goodness","بھلائی کرنے والا","He is kind and good to His servants, and His goodness is everywhere."],[80,"التَّوَّابُ","At-Tawwab","The Accepter of Repentance","توبہ قبول کرنے والا","He guides His servants to repent and accepts their repentance again and again."],[81,"الْمُنْتَقِمُ","Al-Muntaqim","The Avenger","بدلہ لینے والا","He brings justice against those who persist in wrongdoing."],[82,"الْعَفُوُّ","Al-'Afuww","The Pardoner","معاف کرنے والا","He erases sins completely, as if they had never been."],[83,"الرَّءُوفُ","Ar-Ra'uf","The Most Kind","نہایت شفیق","His compassion is gentle and tender towards His servants."],[84,"مَالِكُ الْمُلْكِ","Malik-ul-Mulk","Owner of All Sovereignty","سلطنت کا مالک","All dominion is His, and He gives and takes it from whom He wills."],[85,"ذُو الْجَلَالِ وَالْإِكْرَامِ","Dhul-Jalali wal-Ikram","Lord of Majesty and Honour","جلال اور اکرام والا","He is the possessor of all majesty, and the source of all honour and generosity."],[86,"الْمُقْسِطُ","Al-Muqsit","The Equitable","انصاف کرنے والا","He acts with perfect fairness and gives everyone their due."],[87,"الْجَامِعُ","Al-Jami'","The Gatherer","جمع کرنے والا","He will gather all people together on the Day of Judgement."],[88,"الْغَنِيُّ","Al-Ghaniyy","The Self-Sufficient","غنی","He is rich beyond all need, and all creation needs Him."],[89,"الْمُغْنِي","Al-Mughni","The Enricher","غنی کرنے والا","He enriches whom He wills and frees them from need of others."],[90,"الْمَانِعُ","Al-Mani'","The Preventer","روکنے والا","He withholds what He wills, protecting His servants from harm."],[91,"الضَّارُّ","Ad-Darr","The Distresser","نقصان پہنچانے والا","No harm happens except by His decree, and in it there is wisdom."],[92,"النَّافِعُ","An-Nafi'","The Benefactor","نفع پہنچانے والا","All benefit comes from Him alone."],[93,"النُّورُ","An-Nur","The Light","نور","He is the Light of the heavens and the earth, and He guides hearts with His light."],[94,"الْهَادِي","Al-Hadi","The Guide","ہدایت دینے والا","He guides His servants to what benefits them, and to the straight path."],[95,"الْبَدِيعُ","Al-Badi'","The Incomparable Originator","بے مثال پیدا کرنے والا","He created the heavens and the earth with no model before them."],[96,"الْبَاقِي","Al-Baqi","The Everlasting","ہمیشہ باقی رہنے والا","He remains forever, while everything else will perish."],[97,"الْوَارِثُ","Al-Warith","The Inheritor","سب کا وارث","He remains after all creation, and everything returns to Him."],[98,"الرَّشِيدُ","Ar-Rashid","The Guide to the Right Path","راہ دکھانے والا","All His actions are rightly guided, and He leads to what is right."],[99,"الصَّبُورُ","As-Sabur","The Most Patient","بڑا صبر کرنے والا","He is patient with His servants and does not hasten to punish them."]];
 
+/* Dua after the Adhan: Sunan Ibn Majah 722 (also Sahih al-Bukhari 614), with its published Urdu and English translations; recited in Hisn al-Muslim no. 25 */
+const DUA_ADHAN={"ar":"اللَّهُمَّ رَبَّ هَذِهِ الدَّعْوَةِ التَّامَّةِ، وَالصَّلاَةِ الْقَائِمَةِ، آتِ مُحَمَّدًا الْوَسِيلَةَ وَالْفَضِيلَةَ، وَابْعَثْهُ مَقَامًا مَحْمُودًا الَّذِي وَعَدْتَهُ","tl":"Allaahumma Rabba haadhihid-da'watit-taammah, was-salaatil-qaa'imah, aati Muhammadanil-waseelata wal-fadeelah, wab'ath-hu maqaamam mahmoodanil-ladhee wa'adtah","en":"O Allah, Lord of this perfect call and the prayer to be offered, grant Muhammad the privilege (of intercession) and also the eminence, and resurrect him to the praised position that You have promised.","ur":"اے اللہ! اس مکمل پکار اور قائم ہونے والی نماز کے مالک، محمد صلی اللہ علیہ وسلم کو وسیلہ اور فضیلت عطا فرما، آپ کو اس مقام محمود تک پہنچا جس کا تو نے ان سے وعدہ کیا ہے۔","src":["ibnmajah",722],"au":{"hm":25,"from":3.45,"to":18.85}};
+/* The three forty-hadith books have no Urdu translation of their own. Each entry points to the same hadith in one of the main books, whose published Urdu translation is shown: [book, number, 1 = covers the first part only]. Matched by comparing the Arabic, and checked by hand. */
+const FORTY_UR={"nawawi":{"1":["bukhari",54],"2":["muslim",93],"3":["bukhari",8],"4":["muslim",6723],"5":["muslim",4492],"6":["muslim",4094],"7":["muslim",196],"8":["bukhari",25],"9":["muslim",6113],"10":["muslim",2346],"11":["tirmidhi",2518],"12":["tirmidhi",2317],"13":["bukhari",13],"14":["muslim",4375],"15":["muslim",173],"16":["bukhari",6116],"17":["tirmidhi",1409],"18":["tirmidhi",1987],"19":["tirmidhi",2516],"20":["bukhari",6120],"21":["muslim",159],"22":["muslim",110],"23":["muslim",534],"24":["muslim",6572],"25":["muslim",2329],"26":["muslim",2335],"27":["muslim",6516,1],"28":["tirmidhi",2676],"29":["tirmidhi",2616],"31":["ibnmajah",4102],"32":["ibnmajah",2341],"33":["muslim",4470,1],"34":["muslim",177],"35":["muslim",6541],"36":["muslim",6853],"37":["muslim",338],"38":["bukhari",6502],"39":["ibnmajah",2045],"40":["bukhari",6416],"42":["tirmidhi",3540]},"qudsi":{"1":["muslim",6971],"2":["bukhari",4974],"3":["bukhari",1038],"4":["bukhari",6181],"5":["muslim",7475],"6":["muslim",4923],"7":["nasai",666],"8":["muslim",878],"9":["tirmidhi",413],"10":["bukhari",7492],"11":["bukhari",5352],"12":["muslim",3997],"13":["bukhari",1413],"14":["muslim",6839],"15":["bukhari",7405],"16":["bukhari",6491],"17":["muslim",6572],"18":["muslim",6556],"19":["abudawud",4090],"20":["muslim",6544],"21":["bukhari",2270],"22":["ibnmajah",4008],"23":["muslim",6548],"24":["muslim",6705],"25":["bukhari",6502],"26":["tirmidhi",2347],"27":["muslim",4885],"28":["bukhari",3463],"29":["bukhari",6424],"30":["bukhari",7504],"31":["muslim",6681],"32":["muslim",6981],"33":["muslim",6986],"34":["tirmidhi",3540],"35":["bukhari",7494],"36":["bukhari",4476],"37":["bukhari",3244],"38":["tirmidhi",2560],"39":["muslim",7176],"40":["bukhari",7518]},"dehlawi":{"2":["abudawud",2636],"3":["abudawud",4918],"4":["ibnmajah",3745],"5":["tirmidhi",2670],"7":["nasai",2552],"8":["muslim",7417],"9":["muslim",156],"11":["abudawud",4914],"12":["ibnmajah",2224],"14":["ibnmajah",2386],"17":["muslim",2420],"19":["ibnmajah",3755,1],"21":["bukhari",6168],"23":["ibnmajah",2006],"24":["nasai",2533],"25":["abudawud",4811],"26":["abudawud",5130],"28":["ibnmajah",4250],"30":["ibnmajah",3712],"32":["ibnmajah",2580],"33":["nasai",3794],"38":["bukhari",1804],"40":["abudawud",4869]}};
+/* Urdu notes for the Names of Allah, translated for this app from the English notes above */
+const NAME_UR=["اس کی رحمت بہت وسیع ہے اور اس دنیا میں ہر مخلوق تک پہنچتی ہے، مومن ہو یا کافر۔","وہ ایمان والوں پر خاص اور ہمیشہ رہنے والی رحمت فرماتا ہے، سب سے بڑھ کر آخرت میں۔","وہ ہر موجود چیز کا حقیقی بادشاہ ہے، جس کی بادشاہی کسی کی محتاج نہیں اور کبھی ختم نہیں ہوتی۔","وہ ہر عیب، ہر محتاجی اور ہر کمی سے پاک ہے، اور ہر اس بات سے بہت بلند ہے جو اس کی شان کے لائق نہیں۔","وہ کامل اور ہر نقص سے محفوظ ہے، اور اپنی مخلوق کے لیے امن و سلامتی کا سرچشمہ ہے۔","وہ امن اور ایمان عطا کرتا ہے، اور اپنے کلام اور اپنے رسولوں کی سچائی کی تصدیق فرماتا ہے۔","وہ ہر چیز کی نگرانی اور حفاظت کرتا ہے، اور کوئی چیز اس کی نگہبانی سے باہر نہیں۔","وہ زبردست اور عزت والا ہے، اس پر کبھی کوئی غالب نہیں آ سکتا اور اس کے ارادے کے آگے کوئی ٹھہر نہیں سکتا۔","وہ ٹوٹے ہوئے کو جوڑتا اور بگڑے ہوئے کو سنوارتا ہے، اور ہر چیز کو اپنے ارادے کے تابع رکھتا ہے۔","حقیقی بڑائی صرف اسی کی ہے، وہ اپنی پیدا کی ہوئی ہر چیز سے بڑھ کر ہے۔","وہ اپنے علم اور فیصلے سے چیزوں کو عدم سے وجود میں لاتا ہے۔","وہ مخلوق کو بے عیب اور پورے توازن کے ساتھ وجود میں لاتا ہے۔","وہ ہر مخلوق کو اس کی الگ صورت اور شکل عطا کرتا ہے۔","اس کے بندے جتنی بار بھی اس کی طرف لوٹیں، وہ بار بار معاف فرماتا ہے۔","وہ ہر چیز پر غالب ہے، اور ہر چیز اس کی قدرت کے آگے جھکی ہوئی ہے۔","وہ بے حساب اور بے انتہا عطا کرتا ہے، بن مانگے اور بغیر کسی بدلے کے۔","وہ ہر جاندار کو رزق دیتا ہے، جسم کے لیے بھی اور روح کے لیے بھی۔","وہ رحمت اور رزق کے دروازے کھولتا ہے، اور لوگوں کے درمیان حق کے ساتھ فیصلہ کرتا ہے۔","اس کا علم ہر چیز پر محیط ہے، چھپی ہو یا ظاہر، ماضی ہو، حال ہو یا مستقبل۔","وہ اپنی حکمت سے جس کے لیے چاہے رزق کم کر دیتا ہے اور دلوں کو تنگ کر دیتا ہے۔","وہ جس کے لیے چاہے رزق کشادہ کر دیتا ہے اور دلوں کو کھول دیتا ہے۔","وہ اپنے کامل عدل سے متکبروں اور ظالموں کو پست کرتا ہے۔","وہ ایمان والوں اور علم والوں کے درجے بلند کرتا ہے۔","حقیقی عزت صرف اسی کی طرف سے ہے، اور وہ جسے چاہے عزت عطا کرتا ہے۔","وہ جسے چاہے ذلیل کرتا ہے، اور جسے وہ ذلیل کر دے اسے کوئی عزت نہیں دے سکتا۔","وہ ہر آواز اور ہر آہستہ کی گئی دعا سنتا ہے، ہر زبان میں، ایک ہی وقت میں۔","وہ ہر چیز کو دیکھتا ہے، چاہے وہ کتنی ہی چھوٹی یا چھپی ہوئی ہو۔","وہی آخری فیصلہ کرنے والا ہے، اور اس کا فیصلہ ہمیشہ انصاف پر مبنی ہوتا ہے۔","وہ سراسر عادل ہے، اور کسی پر ذرہ برابر بھی ظلم نہیں کرتا۔","وہ باریک سے باریک بات جانتا ہے، اور اپنے بندوں پر ایسے طریقوں سے مہربانی کرتا ہے جو انہیں نظر بھی نہیں آتے۔","وہ ہر چیز کی اندرونی حقیقت سے باخبر ہے، اور اس سے کچھ بھی چھپا ہوا نہیں۔","وہ سزا دینے میں جلدی نہیں کرتا، بلکہ اپنے بندوں کو توبہ کی مہلت دیتا ہے۔","اس کی عظمت عقلوں کی رسائی اور بیان کی حدوں سے باہر ہے۔","وہ گناہوں پر پردہ ڈالتا ہے اور انہیں پوری طرح معاف کر دیتا ہے، چاہے وہ کتنے ہی بڑے ہوں۔","وہ چھوٹی سی نیکی کا بھی بڑا اجر دیتا ہے۔","وہ مرتبے، قوت اور عظمت میں ہر چیز سے بلند ہے۔","وہ ہر چیز سے بڑا ہے، اور اس کے سامنے ہر چیز چھوٹی ہے۔","وہ اپنی مخلوق کی حفاظت کرتا ہے اور ہر عمل کو محفوظ رکھتا ہے۔","وہ ہر مخلوق کو وہ خوراک اور طاقت دیتا ہے جس کی اسے ضرورت ہے۔","وہ تمام اعمال کا حساب لیتا ہے، اور جو اس پر بھروسہ کرے اس کے لیے وہی کافی ہے۔","جلال اور بزرگی کی ہر صفت اسی کی ہے۔","وہ بہت زیادہ عطا کرتا ہے، کھلے دل سے معاف کرتا ہے، اور اپنی طرف رجوع کرنے والوں کو عزت دیتا ہے۔","وہ ہر جان اور ہر عمل پر ہر لمحہ نگاہ رکھتا ہے۔","جو اس سے دعا کرے، وہ اس کی پکار سنتا اور قبول کرتا ہے۔","اس کے علم، رحمت اور سخاوت کی کوئی حد نہیں۔","وہ جو کچھ پیدا کرتا ہے اور جو فیصلہ کرتا ہے، اس کے پیچھے کامل حکمت ہوتی ہے۔","وہ اپنے نیک بندوں سے محبت کرتا ہے اور لوگوں کے دلوں میں ان کی محبت ڈال دیتا ہے۔","اس کی بزرگی کامل ہے، اور اس کی سخاوت بہت وسیع ہے۔","وہ قیامت کے دن تمام لوگوں کو ان کی قبروں سے اٹھائے گا۔","وہ ہر چیز کا گواہ ہے، اور کوئی بات اس کی نظر سے باہر نہیں ہوتی۔","وہ سراسر حق ہے، اس کا وجود بھی یقینی ہے اور اس کا وعدہ بھی۔","وہ بہترین کارساز ہے جس پر بھروسہ کیا جائے، اور جو اس پر بھروسہ کرے اس کے سب کام وہی سنوارتا ہے۔","اس کی قوت کامل ہے، جو نہ کبھی کمزور ہوتی ہے نہ تھکتی ہے۔","اس کی قدرت مضبوط اور اٹل ہے، اسے کسی کی مدد کی ضرورت نہیں۔","وہ ایمان والوں کا دوست اور مددگار ہے، جو انہیں اندھیروں سے نکال کر روشنی میں لاتا ہے۔","ہر تعریف اسی کے لیے ہے، چاہے کوئی اس کی تعریف کرے یا نہ کرے۔","وہ ہر چیز کو گنتا اور اس کی تعداد جانتا ہے، یہاں تک کہ ہر سانس اور ہر پتے کو۔","اس نے کسی پہلے نمونے کے بغیر مخلوق کو پہلی بار پیدا کیا۔","وہ موت کے بعد مخلوق کو دوبارہ زندہ کرے گا۔","وہ جسم کو زندگی دیتا ہے، اور ایمان کے ذریعے دلوں کو زندہ کرتا ہے۔","وہ ہر جاندار کے لیے اس کے مقررہ وقت پر موت کا فیصلہ کرتا ہے۔","اس کی زندگی کامل اور ہمیشہ کی ہے، نہ اس کی کوئی ابتدا ہے نہ انتہا۔","وہ کسی چیز کا محتاج نہیں، اور ہر چیز اپنے وجود کے لیے اسی کی محتاج ہے۔","اسے کسی چیز کی کمی نہیں، وہ جو چاہے جب چاہے پا لیتا ہے۔","وہ بزرگ اور عزت والا ہے، کامل شان اور سخاوت والا۔","وہ اپنی ذات، اپنی صفات اور اپنے افعال میں ایک ہے۔","وہ یکتا ہے، نہ اس کا کوئی شریک ہے، نہ ہمسر، نہ کوئی اس جیسا۔","ساری مخلوق اپنی ضرورتوں میں اسی کی طرف رجوع کرتی ہے، جبکہ وہ کسی کا محتاج نہیں۔","وہ جو چاہے کر سکتا ہے۔","اس کی قدرت ہر چیز پر پوری ہے، اور کوئی چیز اسے روک نہیں سکتی۔","وہ اپنی حکمت سے جسے اور جس چیز کو چاہے آگے کر دیتا ہے۔","وہ اپنی حکمت سے جسے اور جس چیز کو چاہے پیچھے کر دیتا ہے۔","وہ ہر چیز سے پہلے موجود تھا، اس کی کوئی ابتدا نہیں۔","ہر چیز کے فنا ہونے کے بعد بھی وہ باقی رہے گا، اس کی کوئی انتہا نہیں۔","اس کا وجود ہر چیز میں ظاہر ہے، اور اس کے اوپر کوئی چیز نہیں۔","وہ نگاہوں سے پوشیدہ ہے، اور اس سے زیادہ قریب کوئی چیز نہیں۔","وہ مخلوق کے تمام معاملات کا انتظام اور تدبیر کرتا ہے۔","وہ اپنی مخلوق کی صفات سے بہت بلند و برتر ہے۔","وہ اپنے بندوں کے ساتھ مہربانی اور بھلائی کرتا ہے، اور اس کی بھلائی ہر طرف پھیلی ہوئی ہے۔","وہ اپنے بندوں کو توبہ کی توفیق دیتا ہے اور بار بار ان کی توبہ قبول فرماتا ہے۔","جو لوگ ظلم اور گناہ پر اڑے رہیں، وہ ان سے انصاف کے ساتھ بدلہ لیتا ہے۔","وہ گناہوں کو اس طرح مٹا دیتا ہے جیسے وہ کبھی تھے ہی نہیں۔","اپنے بندوں پر اس کی شفقت نہایت نرم اور مہربان ہے۔","ساری بادشاہی اسی کی ہے، وہ جسے چاہے دیتا ہے اور جس سے چاہے چھین لیتا ہے۔","ہر جلال اسی کا ہے، اور ہر عزت و کرم کا سرچشمہ وہی ہے۔","وہ پورے انصاف سے کام لیتا ہے اور ہر ایک کو اس کا حق دیتا ہے۔","وہ قیامت کے دن سب لوگوں کو اکٹھا کرے گا۔","وہ ہر ضرورت سے بے نیاز ہے، اور ساری مخلوق اس کی محتاج ہے۔","وہ جسے چاہے غنی کر دیتا ہے اور دوسروں کی محتاجی سے بچا لیتا ہے۔","وہ جو چاہے روک لیتا ہے، اور اپنے بندوں کو نقصان سے بچاتا ہے۔","کوئی نقصان اس کے حکم کے بغیر نہیں پہنچتا، اور اس میں بھی حکمت ہوتی ہے۔","ہر نفع صرف اسی کی طرف سے آتا ہے۔","وہ آسمانوں اور زمین کا نور ہے، اور اپنے نور سے دلوں کو ہدایت دیتا ہے۔","وہ اپنے بندوں کو ان کے فائدے کی چیزوں اور سیدھے راستے کی طرف رہنمائی کرتا ہے۔","اس نے آسمانوں اور زمین کو کسی پہلے نمونے کے بغیر پیدا کیا۔","وہ ہمیشہ باقی رہے گا، جبکہ باقی ہر چیز فنا ہو جائے گی۔","ساری مخلوق کے بعد وہی باقی رہے گا، اور ہر چیز اسی کی طرف لوٹتی ہے۔","اس کے سب کام درست اور حکمت والے ہیں، اور وہ صحیح راستے کی طرف رہنمائی کرتا ہے۔","وہ اپنے بندوں کے ساتھ صبر سے کام لیتا ہے اور انہیں سزا دینے میں جلدی نہیں کرتا۔"];
+/* Cities for prayer times: Natural Earth (public domain) via city-timezones (MIT licence, (c) Kevin Roberts); Urdu names added for this app. name[,Urdu]|lat|lng|country|time zone */
+const CITY_TZ=["Asia/Tokyo","Asia/Kolkata","America/Mexico_City","Asia/Shanghai","America/Sao_Paulo","America/New_York","Asia/Karachi","America/Argentina/Buenos_Aires","Europe/Moscow","Europe/Istanbul","Asia/Dhaka","Africa/Cairo","Asia/Seoul","Asia/Jakarta","America/Los_Angeles","Europe/London","Asia/Tehran","America/Lima","Asia/Manila","America/Bogota","Africa/Kinshasa","America/Chicago","Asia/Bangkok","Asia/Hong_Kong","Australia/Sydney","Asia/Chongqing","Asia/Baghdad","Europe/Paris","Australia/Melbourne","Asia/Taipei","Africa/Lagos","America/Toronto","Asia/Ho_Chi_Minh","Asia/Riyadh","Asia/Singapore","Asia/Rangoon","Africa/Luanda","Africa/Abidjan","Asia/Harbin","Africa/Khartoum","Europe/Madrid","Europe/Berlin","Africa/Casablanca","Asia/Kabul","America/Bahia","America/Montreal","America/Fortaleza","Africa/Addis_Ababa","Asia/Pyongyang","America/Santiago","Africa/Nairobi","Africa/Johannesburg","Africa/Dar_es_Salaam","Africa/Algiers","America/Recife","Africa/Dakar","America/Detroit","Asia/Damascus","America/Phoenix","America/Monterrey","America/Caracas","America/Guayaquil","Europe/Kyiv","Europe/Rome","America/Havana","Asia/Tashkent","Europe/Vienna","Africa/Accra","Asia/Baku","Europe/Athens","America/Denver","Asia/Aden","America/La_Paz","Europe/Bucharest","Asia/Urumqi","America/Belem","Asia/Beirut","Asia/Jerusalem","Europe/Warsaw","Europe/Minsk","Europe/Budapest","Europe/Lisbon","America/Manaus","Africa/Douala","America/Port-au-Prince","Asia/Kuala_Lumpur","Africa/Tunis","Africa/Harare","Indian/Antananarivo","Africa/Conakry","America/Santo_Domingo","Asia/Phnom_Penh","America/Tijuana","America/Vancouver","America/Puerto_Rico","Africa/Bamako","Australia/Brisbane","Africa/Kampala","Europe/Brussels","America/Argentina/Cordoba","America/Ojinaga","Africa/Maputo","Africa/Lusaka","Asia/Yekaterinburg","Asia/Makassar","Africa/Brazzaville","Europe/Stockholm","Asia/Dubai","Asia/Novosibirsk","Africa/Tripoli","Australia/Perth","Africa/Lubumbashi","America/Indiana/Indianapolis","Africa/Lome","Europe/Belgrade","Asia/Yerevan","Asia/Almaty","Asia/Qatar","Asia/Omsk","Europe/Copenhagen","Asia/Kuwait","Asia/Amman","Asia/Tbilisi","Europe/Sofia","Europe/Dublin","America/Edmonton","America/Guatemala","America/Maceio","Australia/Adelaide","Africa/Mogadishu","Europe/Amsterdam","Pacific/Auckland","Europe/Zurich","Europe/Oslo","Asia/Muscat","Asia/Samarkand","America/Winnipeg","America/Kentucky/Louisville","Pacific/Honolulu","Asia/Kuching","Asia/Gaza","Atlantic/Canary","Asia/Bahrain","Asia/Hebron","Asia/Brunei","Atlantic/Madeira","Indian/Maldives","Atlantic/Azores"];
+const CITY_SRC="Tokyo|35.69|139.75|JP|0~Mumbai,ممبئی|19.02|72.86|IN|1~Mexico City|19.44|-99.13|MX|2~Shanghai|31.22|121.44|CN|3~Sao Paulo|-23.56|-46.63|BR|4~New York,نیویارک|40.75|-73.98|US|5~Karachi,کراچی|24.87|66.99|PK|6~Buenos Aires|-34.6|-58.4|AR|7~Delhi,دہلی|28.67|77.23|IN|1~Moscow|55.75|37.62|RU|8~Istanbul,استنبول|41.1|29.01|TR|9~Dhaka,ڈھاکہ|23.72|90.41|BD|10~Cairo,قاہرہ|30.05|31.25|EG|11~Seoul|37.57|127|KR|12~Kolkata,کولکتہ|22.49|88.32|IN|1~Beijing|39.93|116.39|CN|3~Jakarta,جکارتہ|-6.17|106.83|ID|13~Los Angeles|33.99|-118.18|US|14~London,لندن|51.5|-0.12|GB|15~Tehran,تہران|35.67|51.42|IR|16~Lima|-12.05|-77.05|PE|17~Manila|14.6|120.98|PH|18~Bogota|4.6|-74.08|CO|19~Osaka|34.75|135.46|JP|0~Rio de Janeiro|-22.93|-43.23|BR|4~Kinshasa|-4.33|15.31|CD|20~Lahore,لاہور|31.56|74.35|PK|6~Guangzhou|23.14|113.33|CN|3~Bengaluru|12.97|77.56|IN|1~Chicago|41.83|-87.75|US|21~Bangkok|13.75|100.52|TH|22~Hong Kong|22.3|114.19|HK|23~Chennai|13.09|80.28|IN|1~Wuhan|30.58|114.27|CN|3~Tianjin|39.13|117.2|CN|3~Sydney|-33.92|151.19|AU|24~Chongqing|29.56|106.59|CN|25~Baghdad,بغداد|33.34|44.39|IQ|26~Hyderabad,حیدرآباد دکن|17.4|78.48|IN|1~Paris,پیرس|48.87|2.33|FR|27~Melbourne|-37.82|144.98|AU|28~Taipei|25.04|121.57|TW|29~Lagos|6.44|3.39|NG|30~Toronto,ٹورنٹو|43.7|-79.42|CA|31~Ahmedabad|23.03|72.58|IN|1~Dongguan|23.05|113.74|CN|3~Ho Chi Minh City|10.78|106.7|VN|32~Riyadh,ریاض|24.64|46.77|SA|33~Shenzhen|22.55|114.12|CN|3~Singapore|1.29|103.86|SG|34~Chittagong|22.33|91.8|BD|10~Shenyeng|41.8|123.45|CN|3~Houston|29.82|-95.34|US|21~Chengdu|30.67|104.07|CN|25~St. Petersburg|59.94|30.32|RU|8~Alexandria|31.2|29.95|EG|11~Belo Horizonte|-19.92|-43.92|BR|4~Pune|18.53|73.85|IN|1~Yokohama|35.32|139.58|JP|0~Rangoon|16.78|96.17|MM|35~Xian|34.28|108.89|CN|25~Luanda|-8.84|13.23|AO|36~Ankara|39.93|32.86|TR|9~Philadelphia|40|-75.17|US|5~Abidjan|5.32|-4.04|CI|37~Busan|35.1|129.01|KR|12~Harbin|45.75|126.65|CN|38~Nanjing|32.05|118.78|CN|3~Surat|21.2|72.84|IN|1~Khartoum|15.59|32.53|SD|39~Hechi|23.1|109.61|CN|25~Barcelona,بارسلونا|41.38|2.18|ES|40~Berlin,برلن|52.52|13.4|DE|41~Casablanca|33.6|-7.62|MA|42~Kabul,کابل|34.52|69.18|AF|43~Kano|12|8.52|NG|30~Brasilia|-15.78|-47.92|BR|4~Salvador|-12.97|-38.48|BR|44~Montréal|45.5|-73.58|CA|45~Dallas|32.82|-96.84|US|21~Kanpur|26.46|80.32|IN|1~Miami|25.79|-80.22|US|5~Fortaleza|-3.75|-38.58|BR|46~Jeddah,جدہ|21.52|39.22|SA|33~Haora|22.58|88.33|IN|1~Addis Ababa|9.03|38.7|ET|47~Guadalajara|20.67|-103.33|MX|2~Hanoi|21.03|105.85|VN|32~Pyongyang|39.02|125.75|KP|48~Santiago|-33.45|-70.67|CL|49~Nairobi|-1.28|36.82|KE|50~Changchun|43.87|125.34|CN|38~Cape Town|-33.92|18.43|ZA|51~New Taipei|25.01|121.47|TW|29~Taiyuan|37.88|112.55|CN|3~Jaipur|26.92|75.81|IN|1~Dar es Salaam|-6.8|39.27|TZ|52~Madrid,میڈرڈ|40.4|-3.68|ES|40~Quezon City|14.65|121.03|PH|18~Johannesburg|-26.17|28.03|ZA|51~Durban|-29.87|30.98|ZA|51~Nagoya|35.15|136.91|JP|0~El Giza|30.01|31.19|EG|11~Algiers|36.76|3.05|DZ|53~Medellin|6.28|-75.58|CO|19~Porto Alegre|-30.05|-51.2|BR|4~Surabaya|-7.25|112.75|ID|13~Dalian|38.92|121.63|CN|3~Lucknow,لکھنؤ|26.86|80.91|IN|1~Recife|-8.08|-34.92|BR|54~Faisalabad,فیصل آباد|31.41|73.11|PK|6~Incheon|37.48|126.64|KR|12~Dakar|14.72|-17.47|SN|55~Boston|42.33|-71.07|US|5~Detroit|42.33|-83.08|US|56~Damascus,دمشق|33.5|36.3|SY|57~Atlanta|33.83|-84.4|US|5~Daegu|35.87|128.61|KR|12~Izmir|38.44|27.15|TR|9~Washington, D.C.|38.9|-77.01|US|5~Hangzhou|30.25|120.17|CN|3~Phoenix|33.54|-112.07|US|58~Zhangzhou|24.52|117.67|CN|3~Jinan|36.67|117|CN|3~Monterrey|25.67|-100.33|MX|59~Guiyang|26.58|106.72|CN|25~Caracas|10.5|-66.92|VE|60~Nagpur|21.17|79.09|IN|1~Changsha|28.2|112.97|CN|3~Zhengzhou|34.75|113.67|CN|3~Mashhad|36.27|59.57|IR|16~Curitiba|-25.42|-49.32|BR|4~Omdurman|15.62|32.48|SD|39~Lanzhou|36.06|103.79|CN|25~Qingdao|36.09|120.33|CN|3~Guayaquil|-2.22|-79.92|EC|61~Ibadan|7.38|3.93|NG|30~Cali|3.4|-76.5|CO|19~Shijianzhuang|38.05|114.48|CN|3~Sapporo|43.07|141.34|JP|0~Kyiv|50.43|30.52|UA|62~Xiangtan|27.85|112.9|CN|3~Nanchong|30.78|106.13|CN|25~Aleppo|36.23|37.17|SY|57~Kaohsiung|22.63|120.27|TW|29~Jilin|43.85|126.55|CN|38~Milan,میلان|45.47|9.21|IT|63~Nanchang|28.68|115.88|CN|3~Fukuoka|33.6|130.41|JP|0~San Francisco|37.74|-122.46|US|14~Havana|23.13|-82.36|CU|64~Tashkent|41.31|69.29|UZ|65~Vienna|48.2|16.37|AT|66~Bandung|-6.95|107.57|ID|13~Accra|5.55|-0.22|GH|67~Baku|40.4|49.86|AZ|68~Athens|37.98|23.73|GR|69~Kunming|25.07|102.68|CN|25~Bekasi|-6.22|106.97|ID|13~San Diego|32.82|-117.18|US|14~Medan|3.58|98.65|ID|13~Indore|22.72|75.87|IN|1~Denver|39.74|-104.98|US|70~Sanaa|15.35|44.21|YE|71~Campinas|-22.9|-47.1|BR|4~Fuzhou|26.08|119.3|CN|3~Patna|25.62|85.13|IN|1~Zibo|36.8|118.05|CN|3~Saidu Sharif,سیدو شریف|34.75|72.35|PK|6~Santa Cruz|-17.75|-63.23|BO|72~Bucharest|44.43|26.1|RO|73~Taichung|24.15|120.68|TW|29~Urumqi|43.81|87.58|CN|74~Seattle|47.57|-122.34|US|14~Rawalpindi,راولپنڈی|33.6|73.04|PK|6~Benoni|-26.15|28.33|ZA|51~Puebla|19.05|-98.2|MX|2~Belem|-1.45|-48.48|BR|75~Frankfurt|50.1|8.68|DE|41~Beirut|33.87|35.51|LB|76~Stuttgart|48.78|9.2|DE|41~Shuyang|34.13|118.77|CN|3~Maracaibo|10.73|-71.66|VE|60~Hamburg|53.55|10|DE|41~Tel Aviv-Yafo|32.08|34.77|IL|77~Tangshan|39.62|118.19|CN|3~Hefei|31.85|117.28|CN|3~Warsaw|52.25|21|PL|78~Minsk|53.9|27.57|BY|79~Rome,روم|41.9|12.48|IT|63~Rabat|34.03|-6.84|MA|42~Wanzhou|30.82|108.4|CN|25~Budapest|47.5|19.08|HU|80~Lisbon,لزبن|38.72|-9.14|PT|81~Bhopal|23.25|77.41|IN|1~Xuzhou|34.28|117.18|CN|3~Sendai|38.29|141.02|JP|0~Manaus|-3.1|-60|BR|82~Birmingham,برمنگھم|52.47|-1.92|GB|15~Kyoto|35.03|135.75|JP|0~Taian|36.2|117.12|CN|3~Douala|4.06|9.71|CM|83~Naples|40.84|14.25|IT|63~Port-au-Prince|18.54|-72.34|HT|84~Irvine|33.68|-117.83|US|14~George Town|5.41|100.33|MY|85~Wenzhou|28.02|120.65|CN|3~Haikou|20.05|110.32|CN|25~Ludhiana|30.93|75.87|IN|1~Goiania|-16.72|-49.3|BR|4~Palembang|-2.98|104.75|ID|13~Hiroshima|34.39|132.44|JP|0~Vadodara|22.31|73.18|IN|1~Kalyan|19.25|73.16|IN|1~Isfahan|32.7|51.7|IR|16~Tunis|36.8|10.18|TN|86~Valencia|10.23|-67.98|VE|60~Harare|-17.82|31.04|ZW|87~Luoyang|34.68|112.47|CN|3~Quito|-0.21|-78.5|EC|61~Xiamen|24.45|118.08|CN|3~Antananarivo|-18.92|47.52|MG|88~Luzhou|28.88|105.38|CN|25~Pittsburgh|40.43|-80|US|5~Kobe|34.68|135.17|JP|0~Katowice|50.26|19.02|PL|78~Barranquilla|10.96|-74.8|CO|19~Agra|27.17|78.02|IN|1~Suzhou|31.3|120.62|CN|3~Handan|36.58|114.48|CN|3~Conakry|9.53|-13.68|GN|89~Minneapolis|44.98|-93.25|US|21~Nanning|22.82|108.32|CN|25~Multan,ملتان|30.2|71.46|PK|6~Santiago|19.5|-70.67|DO|90~Kumasi|6.69|-1.63|GH|67~Shantou|23.37|116.67|CN|3~Phnom Penh|11.55|104.92|KH|91~Tijuana|32.5|-117.08|MX|92~Datong|40.08|113.3|CN|3~Vancouver|49.27|-123.12|CA|93~Daejeon|36.34|127.43|KR|12~Gujranwala,گوجرانوالہ|32.16|74.19|PK|6~Kuala Lumpur,کوالالمپور|3.17|101.7|MY|85~Khulna|22.84|89.56|BD|10~San Juan|18.44|-66.13|PR|94~Liuzhou|24.28|109.25|CN|25~Fushun|41.87|123.87|CN|3~Baltimore|39.3|-76.62|US|5~Wuxi|31.58|120.3|CN|3~Gwangju|35.17|126.91|KR|12~Bursa|40.2|29.07|TR|9~Suining|30.53|105.53|CN|25~Karaj|35.8|50.97|IR|16~Hyderabad,حیدرآباد|25.38|68.37|PK|6~Anshan|41.12|122.94|CN|3~Yantai|37.53|121.4|CN|3~Xinyang|32.13|114.07|CN|3~Ad Damman|26.43|50.1|SA|33~Luan|31.75|116.48|CN|3~Bamako|12.65|-8|ML|95~Faridabad|28.43|77.32|IN|1~Brisbane|-27.46|153.04|AU|96~Kampala|0.32|32.58|UG|97~Nasik|20|73.78|IN|1~Brussels|50.83|4.33|BE|98~Córdoba|-31.4|-64.18|AR|99~Kawasaki|35.53|139.71|JP|0~Jinxi|40.75|120.83|CN|3~San Antonio|29.49|-98.51|US|21~Makkah,مکہ مکرمہ|21.43|39.82|SA|33~Ciudad Juárez|31.69|-106.49|MX|100~Semarang|-6.97|110.42|ID|13~Kharkiv|50|36.25|UA|62~Pretoria|-25.71|28.23|ZA|51~Mannheim|49.5|8.47|DE|41~Yaounde|3.87|11.52|CM|83~Asansol|23.68|86.98|IN|1~Coimbatore|11|76.95|IN|1~Ningbo|29.88|121.55|CN|3~Tampa|27.95|-82.46|US|5~Tainan|23|120.2|TW|29~Maputo|-25.96|32.59|MZ|101~Manchester,مانچسٹر|53.5|-2.25|GB|15~Meerut|29|77.7|IN|1~Davao|7.11|125.63|PH|18~Tabriz|38.09|46.3|IR|16~Leon|21.15|-101.7|MX|2~Lusaka|-15.42|28.28|ZM|102~Vishakhapatnam|17.73|83.3|IN|1~Haiphong|20.83|106.68|VN|32~San Jose|37.3|-121.85|US|14~Yekaterinburg|56.85|60.6|RU|103~Ghaziabad|28.66|77.41|IN|1~Munich|48.13|11.57|DE|41~Ujungpandang|-5.14|119.43|ID|104~Qiqihar|47.34|123.99|CN|38~Peshawar,پشاور|34.01|71.54|PK|6~St. Louis|38.64|-90.24|US|21~Brazzaville|-4.26|15.28|CG|105~Stockholm|59.35|18.1|SE|106~Turin|45.07|7.67|IT|63~Varanasi|25.33|83|IN|1~Dubai,دبئی|25.23|55.28|AE|107~Hohhot|40.82|111.66|CN|25~Long Beach|33.79|-118.16|US|14~Nizhny Novgorod|56.33|44|RU|8~Adana|36.99|35.32|TR|9~Shiraz|29.63|52.57|IR|16~Huainan|32.63|116.98|CN|3~Baotou|40.65|109.82|CN|25~Mosul|36.35|43.15|IQ|26~Maoming|21.92|110.87|CN|74~Ganzhou|25.92|114.95|CN|3~Novosibirsk|55.03|82.96|RU|108~Tripoli|32.89|13.18|LY|109~Portland|45.52|-122.68|US|14~Perth|-31.96|115.84|AU|110~La Paz|-16.5|-68.15|BO|72~Kaduna|10.52|7.44|NG|30~Rajkot|22.31|70.8|IN|1~Linyi|35.08|118.33|CN|3~Cilacap|-7.72|109.02|ID|13~Cleveland|41.47|-81.69|US|5~Mandalay|21.97|96.09|MM|35~Zaozhuang|34.88|117.57|CN|3~Essen|51.45|7.02|DE|41~Jabalpur|23.18|79.96|IN|1~Amritsar|31.64|74.87|IN|1~Las Vegas|36.21|-115.22|US|14~Changzhou|31.78|119.97|CN|3~Prayagraj|25.45|81.84|IN|1~Xianyang|34.35|108.71|CN|25~Lubumbashi|-11.68|27.48|CD|111~Zhanjiang|21.2|110.38|CN|74~Indianapolis|39.75|-86.17|US|112~Fort Lauderdale|26.14|-80.14|US|5~Madurai|9.92|78.12|IN|1~Lome|6.13|1.22|TG|113~Belgrade|44.82|20.47|RS|114~Nanyang|33|112.53|CN|3~Yerevan|40.18|44.51|AM|115~Marseille|43.29|5.38|FR|27~Bhilai|21.22|81.43|IN|1~Almaty|43.32|76.92|KZ|116~Rosario|-32.95|-60.67|AR|99~Ft. Worth|32.74|-97.34|US|21~Doha,دوحہ|25.29|51.53|QA|117~Omsk|54.99|73.4|RU|118~København|55.68|12.56|DK|119~Mbuji-Mayi|-6.15|23.6|CD|111~Changwon|35.22|128.58|KR|12~Santo Domingo|18.47|-69.9|DO|90~Suwon|37.26|127.01|KR|12~Chhatrapati Sambhajinagar|19.9|75.32|IN|1~Kochi|10.02|76.22|IN|1~Kuwait City,کویت|29.37|47.98|KW|120~Santos|-23.95|-46.33|BR|4~Amman,عمان|31.95|35.93|JO|121~Srinagar,سری نگر|34.1|74.82|IN|1~Tbilisi|41.73|44.79|GE|122~Baoding|38.87|115.48|CN|3~Sacramento|38.58|-121.47|US|14~Warangal|18.01|79.58|IN|1~Rostov|47.23|39.71|RU|8~Abbottabad,ایبٹ آباد|34.15|73.2|PK|6~Sofia|42.68|23.32|BG|123~Ankang|32.68|109.02|CN|25~Zhuhai|22.28|113.57|CN|3~Port Harcourt|4.81|7.01|NG|30~Chelyabinsk|55.15|61.44|RU|103~Toluca|19.33|-99.67|MX|2~Dublin|53.33|-6.25|IE|124~Kazan|55.75|49.13|RU|8~Calgary|51.08|-114.08|CA|125~Ulsan|35.55|129.32|KR|12~Madinah,مدینہ منورہ|24.5|39.58|SA|33~Guatemala|14.62|-90.53|GT|126~Sholapur|17.67|75.9|IN|1~Vitória|-20.32|-40.37|BR|4~Maracay|10.25|-67.6|VE|60~Neijiang|29.58|105.05|CN|25~Vijayawada|16.52|80.63|IN|1~Columbus|39.98|-82.99|US|5~Zhongli|24.97|121.22|TW|29~Maceio|-9.62|-35.73|BR|127~Maanshan|31.73|118.48|CN|3~Leeds,لیڈز|53.83|-1.58|GB|15~Adelaide|-34.93|138.6|AU|128~Mogadishu|2.07|45.37|SO|129~Cologne|50.93|6.95|DE|41~Milwaukee|43.05|-87.92|US|21~Fez|34.05|-5|MA|42~Ottawa|45.42|-75.7|CA|31~San Bernardino|34.12|-117.3|US|14~Cincinnati|39.16|-84.46|US|5~Jodhpur|26.29|73.02|IN|1~Jamshedpur|22.79|86.2|IN|1~Seville|37.41|-5.98|ES|40~Kansas City|39.11|-94.6|US|21~The Hague|52.08|4.27|NL|130~Oakland|37.77|-122.22|US|14~Sharjah,شارجہ|25.37|55.41|AE|107~Lyon|45.77|4.83|FR|27~Chandigarh|30.72|76.78|IN|1~Ranchi|23.37|85.33|IN|1~Charlotte|35.2|-80.83|US|5~Gaziantep|37.07|37.38|TR|9~Florence|43.78|11.25|IT|63~Qom|34.65|50.95|IR|16~Gwalior|26.23|78.18|IN|1~Benin City|6.34|5.62|NG|30~Sheffield|53.37|-1.5|GB|15~Austin|30.27|-97.74|US|21~Ahvaz|31.28|48.72|IR|16~Kelang|3.02|101.55|MY|85~Düsseldorf|51.22|6.78|DE|41~Jacksonville|30.33|-81.67|US|5~Ikare|7.53|5.76|NG|30~Hims|34.73|36.72|SY|57~Amsterdam|52.35|4.92|NL|130~Edmonton|53.55|-113.5|CA|125~Glasgow,گلاسگو|55.87|-4.25|GB|15~Duisburg|51.43|6.75|DE|41~Bandar Lampung|-5.45|105.3|ID|13~Banghazi|32.12|20.07|LY|109~Mysuru|12.31|76.66|IN|1~Virginia Beach|36.85|-75.98|US|5~Aba|5.1|7.35|NG|30~Basra|30.51|47.81|IQ|26~Thiruvananthapuram|8.5|76.95|IN|1~Abuja|9.08|7.53|NG|30~Tiruchirappalli|10.81|78.69|IN|1~Bogor|-6.57|106.75|ID|13~Marrakesh|31.63|-8|MA|42~Padang|-0.96|100.36|ID|13~Az Zarqa|32.07|36.1|JO|121~Hubballi|15.36|75.13|IN|1~Mombasa|-4.04|39.69|KE|50~Johor Bahru|1.48|103.73|MY|85~Port Elizabeth|-33.97|25.6|ZA|51~Kermanshah|34.38|47.06|IR|16~Salem|11.67|78.18|IN|1~Jullundur|31.33|75.57|IN|1~Newcastle|-32.85|151.82|AU|24~Valencia|39.49|-0.4|ES|40~Bhubaneshwar|20.27|85.83|IN|1~Rotterdam|51.92|4.48|NL|130~Irbil|36.18|44.01|IQ|26~Kota|25.18|75.83|IN|1~Porto,پورٹو|41.15|-8.62|PT|81~Raleigh|35.82|-78.64|US|5~Bareilly|28.35|79.42|IN|1~Aligarh|27.89|78.06|IN|1~Orlando|28.51|-81.38|US|5~Atal Nagar|21.23|81.64|IN|1~Malang|-7.98|112.61|ID|13~Aden|12.78|45.01|YE|71~Vereeniging|-26.65|27.96|ZA|51~Palermo|38.13|13.35|IT|63~Mesa|33.42|-111.74|US|58~Auckland|-36.85|174.76|NZ|131~Rajshahi|24.37|88.61|BD|10~Moradabad|28.84|78.76|IN|1~Memphis|35.12|-90|US|21~Agadir|30.44|-9.62|MA|42~Bhiwandi|19.35|73.13|IN|1~Quetta,کوئٹہ|30.22|67.02|PK|6~Dhanbad|23.8|86.42|IN|1~Albuquerque|35.1|-106.64|US|70~Zürich|47.38|8.55|CH|132~Oran|35.71|-0.62|DZ|53~Tangier|35.75|-5.83|MA|42~Konya|37.88|32.48|TR|9~Geneva|46.21|6.14|CH|132~New Haven|41.33|-72.9|US|5~Oslo,اوسلو|59.92|10.75|NO|133~Pekanbaru|0.56|101.43|ID|13~Nashville|36.17|-86.78|US|21~Antalya|36.89|30.7|TR|9~Kozhikode|11.25|75.77|IN|1~Islamabad,اسلام آباد|33.7|73.17|PK|6~Antwerpen|51.22|4.42|BE|98~Taizz|13.6|44.04|YE|71~West Palm Beach|26.75|-80.12|US|5~Gorakhpur|26.75|83.38|IN|1~Tucson|32.2|-110.89|US|58~Birmingham,برمنگھم|33.53|-86.82|US|21~Tulsa|36.12|-95.93|US|21~Amravati|20.95|77.77|IN|1~Providence|41.82|-71.41|US|5~Muscat,مسقط|23.61|58.59|OM|134~Oklahoma City|35.47|-97.52|US|21~El Paso|31.78|-106.51|US|70~Ipoh|4.6|101.06|MY|85~Kolhapur|16.7|74.22|IN|1~As Sulaymaniyah|35.56|45.43|IQ|26~Samarqand|39.67|66.94|UZ|135~Buffalo|42.88|-78.88|US|5~Dehra Dun|30.32|78.05|IN|1~Malacca|2.21|102.25|MY|85~Norfolk|36.85|-76.28|US|5~Omaha|41.24|-96.01|US|21~Diyarbakir|37.92|40.23|TR|9~Toulouse|43.62|1.45|FR|27~Liverpool|53.42|-2.92|GB|15~Lille|50.65|3.08|FR|27~Bremen|53.08|8.8|DE|41~Nice|43.72|7.27|FR|27~Jammu|32.71|74.85|IN|1~Al Hudaydah|14.8|42.95|YE|71~Genoa|44.41|8.93|IT|63~Meknes|33.9|-5.56|MA|42~Pietermaritzburg|-29.61|30.39|ZA|51~Hamilton|43.25|-79.83|CA|31~Dahuk|36.87|43|IQ|26~Jhansi|25.45|78.56|IN|1~Hannover|52.37|9.72|DE|41~Nürnberg|49.45|11.08|DE|41~Bilbao|43.25|-2.93|ES|40~Kandahar|31.61|65.69|AF|43~An Najaf|32|44.34|IQ|26~Belagavi|15.87|74.51|IN|1~Cardiff|51.5|-3.23|GB|15~Winnipeg|49.88|-97.17|CA|136~Copenhagen|55.68|12.57|DK|119~Sangli|16.86|74.58|IN|1~Namangan|41|71.67|UZ|65~Mangaluru|12.9|74.85|IN|1~Louisville|38.23|-85.75|US|137~Al Hillah|23.49|46.76|SA|33~At Taif|21.26|40.38|SA|33~Thessaloniki|40.7|22.89|GR|69~Dortmund|51.53|7.45|DE|41~Nanded|19.17|77.3|IN|1~Bannu,بنوں|32.99|70.6|PK|6~Abu Dhabi,ابوظہبی|24.47|54.37|AE|107~Cuttack|20.47|85.89|IN|1~Honolulu|21.31|-157.86|US|138~Bridgeport|41.18|-73.2|US|5~Icel|36.8|34.62|TR|9~Québec|46.84|-71.25|CA|45~Zahedan|29.5|60.83|IR|16~Samsun|41.28|36.34|TR|9~Salt Lake City|40.78|-111.93|US|70~Tarsus|36.92|34.88|TR|9~Nottingham|52.97|-1.17|GB|15~Malegaon|20.56|74.53|IN|1~Wuppertal|51.25|7.17|DE|41~Kayseri|38.73|35.49|TR|9~Bur Said|31.26|32.29|EG|11~Kerman|30.3|57.08|IR|16~Kirkuk|35.47|44.39|IQ|26~Raurkela|22.23|84.83|IN|1~Ajmer|26.45|74.64|IN|1~Bahawalpur,بہاولپور|29.39|71.67|PK|6~Dresden|51.05|13.75|DE|41~Richmond|37.55|-77.45|US|5~Zaragoza|41.65|-0.89|ES|40~Luxor|25.7|32.65|EG|11~Tiruppur|11.08|77.33|IN|1~Salerno|40.68|14.77|IT|63~Arlington|32.68|-97.02|US|21~Rasht|37.3|49.63|IR|16~Sargodha,سرگودھا|32.09|72.67|PK|6~Nellore|14.44|79.99|IN|1~Fresno|36.75|-119.77|US|14~El Mansura|31.05|31.38|EG|11~Malaga|36.72|-4.42|ES|40~Kuching|1.53|110.33|MY|139~Newcastle|55|-1.6|GB|15~Guntur|16.33|80.45|IN|1~Constantine|36.36|6.6|DZ|53~New Orleans|30|-90.04|US|21~Leipzig|51.34|12.41|DE|41~St. Petersburg|27.77|-82.68|US|5~Göteborg|57.75|12|SE|106~Al Hufuf|25.35|49.59|SA|33~Hartford|41.77|-72.68|US|5~Bordeaux|44.85|-0.6|FR|27~Siliguri|26.72|88.46|IN|1~St. Paul|44.94|-93.08|US|21~Bhavnagar|21.78|72.13|IN|1~Braga|41.55|-8.42|PT|81~Tabuk|28.38|36.55|SA|33~Basel|47.58|7.59|CH|132~Guwahati|26.16|91.77|IN|1~Suez|30|32.55|EG|11~Trabzon|40.98|39.72|TR|9~Bonn|50.72|7.08|DE|41~Kota Kinabalu|5.98|116.11|MY|139~Bristol|51.45|-2.58|GB|15~Eskisehir|39.79|30.53|TR|9~Port Sudan|19.62|37.22|SD|39~Andijon|40.79|72.34|UZ|65~Catania|37.5|15.08|IT|63~Fargona|40.39|71.78|UZ|65~Shah Alam|3.07|101.55|MY|85~Al Hillah|32.47|44.42|IQ|26~Utrecht|52.1|5.12|NL|130~Gaza|31.53|34.45|PS|140~Sialkot,سیالکوٹ|32.52|74.56|PK|6~Saarbrucken|49.25|6.97|DE|41~Liege|50.63|5.58|BE|98~Karbala|32.61|44.02|IQ|26~Irbid|32.55|35.85|JO|121~Ismailia|30.59|32.26|EG|11~Edinburgh|55.95|-3.22|GB|15~Butterworth|5.42|100.4|MY|85~Arak|34.08|49.7|IR|16~Kenitra|34.27|-6.58|MA|42~Yazd|31.92|54.37|IR|16~Malatya|38.37|38.3|TR|9~Chlef|36.17|1.32|DZ|53~Wiesbaden|50.08|8.25|DE|41~Hamah|35.15|36.73|SY|57~Al Ladhiqiyah|35.54|35.78|SY|57~Herat|34.33|62.17|AF|43~Khomeini Shahr|32.7|51.47|IR|16~Sanliurfa|37.17|38.79|TR|9~Gold Coast|-28.08|153.45|AU|96~Bologna|44.5|11.34|IT|63~An Nasiriyah|31.04|46.27|IQ|26~Arak|25.28|3.75|DZ|53~Asyut|27.19|31.18|EG|11~Sukkur,سکھر|27.71|68.85|PK|6~Bandar-e-Abbas|27.2|56.27|IR|16~Kitchener|43.45|-80.5|CA|31~Ardabil|38.25|48.3|IR|16~Bari|41.11|16.87|IT|63~Oujda|34.69|-1.91|MA|42~Douma|33.58|36.4|SY|57~Tanta|30.79|31|EG|11~Sohag|26.55|31.7|EG|11~Jalalabad|34.44|70.44|AF|43~Leicester|52.63|-1.13|GB|15~Bradford,بریڈفورڈ|53.8|-1.75|GB|15~Southend-on-Sea|51.55|0.72|GB|15~Buraydah|26.37|43.96|SA|33~Kota Baharu|6.12|102.23|MY|85~Comilla|23.47|91.17|BD|10~Blida|36.42|2.83|DZ|53~Hail|27.52|41.7|SA|33~Southampton|50.9|-1.4|GB|15~Murcia|37.98|-1.13|ES|40~Mazar-e Sharif|36.7|67.1|AF|43~Sfax|34.75|10.72|TN|86~Las Palmas|28.1|-15.43|ES|141~Larkana,لاڑکانہ|27.56|68.21|PK|6~Belfast|54.6|-5.96|GB|15~Sheikhupura,شیخوپورہ|31.72|73.99|PK|6~Trablous|34.42|35.87|LB|76~Manama,منامہ|26.24|50.58|BH|142~Nantes|47.21|-1.59|FR|27~Strasbourg|48.58|7.75|FR|27~Annaba|36.92|7.76|DZ|53~Rahim Yar Khan,رحیم یار خان|28.42|70.3|PK|6~Al Ayn|24.23|55.74|AE|107~Oshawa|43.88|-78.85|CA|31~Coventry|52.42|-1.5|GB|15~Sandakan|5.84|118.11|MY|139~Jhang,جھنگ|31.28|72.32|PK|6~London,لندن|42.97|-81.25|CA|31~Ad Diwaniyah|31.99|44.92|IQ|26~Gent|51.03|3.7|BE|98~Seremban|2.71|101.94|MY|85~Manukau|-37|174.88|NZ|131~Vigo|42.22|-8.73|ES|40~Al Amarah|31.84|47.15|IQ|26~Karlsruhe|49|8.4|DE|41~Mymensingh|24.75|90.38|BD|10~Stoke|53|-2.18|GB|15~Portsmouth|50.8|-1.08|GB|15~Rouen|49.43|1.08|FR|27~Brighton|50.83|-0.17|GB|15~Piraiévs|37.95|23.7|GR|69~Safi|32.32|-9.24|MA|42~Kuantan|3.83|103.32|MY|85~Palma|39.57|2.65|ES|40~Al Kut|32.49|45.83|IQ|26~Kuala Terengganu|5.33|103.12|MY|85~Sunderland|54.92|-1.38|GB|15~Najran|17.51|44.13|SA|33~Granada|37.16|-3.59|ES|40~Nakuru|-0.28|36.07|KE|50~Bielefeld|52.03|8.53|DE|41~Augsburg|48.35|10.9|DE|41~La Coruña|43.33|-8.42|ES|40~Kisumu|-0.09|34.75|KE|50~Eindhoven|51.43|5.5|NL|130~Gijon|43.53|-5.67|ES|40~Ganca|40.68|46.35|AZ|68~Gujrat,گجرات|32.58|74.08|PK|6~Misratah|32.38|15.1|LY|109~Cordoba|37.88|-4.77|ES|40~Mardan,مردان|34.2|72.04|PK|6~Verona|45.44|10.99|IT|63~Valladolid|41.65|-4.75|ES|40~Al Kharj|24.16|47.31|SA|33~Kingston upon Hull|53.75|-0.33|GB|15~Alicante|38.35|-0.48|ES|40~Wellington|-41.3|174.78|NZ|131~Christchurch|-43.54|172.63|NZ|131~Bournemouth|50.73|-1.9|GB|15~Al Mubarraz|25.43|49.57|SA|33~Kasur,قصور|31.13|74.46|PK|6~Montpellier|43.61|3.87|FR|27~Mirpur Khas,میرپور خاص|25.53|69.01|PK|6~Middlesbrough|54.58|-1.23|GB|15~Santa Cruz de Tenerife|28.47|-16.25|ES|141~Grenoble|45.18|5.72|FR|27~Charleroi|50.42|4.45|BE|98~Venice|45.44|12.33|IT|63~San Sebastián|43.32|-1.98|ES|40~Metz|49.12|6.18|FR|27~Malmö|55.58|13.03|SE|106~Linz|48.32|14.29|AT|66~Toulon|43.13|5.92|FR|27~Reading|51.47|-0.98|GB|15~Hafar al Batin|28.43|45.96|SA|33~Haarlem|52.38|4.63|NL|130~Kohat,کوہاٹ|33.6|71.43|PK|6~Sousse|35.83|10.63|TN|86~Graz|47.08|15.41|AT|66~Plymouth|50.39|-4.16|GB|15~As Sib|23.68|58.18|OM|134~Dera Ghazi Khan,ڈیرہ غازی خان|30.06|70.64|PK|6~Sahiwal,ساہیوال|30.67|73.11|PK|6~Al Jubayl|27|49.65|SA|33~Yanbu al Bahr|24.09|38.05|SA|33~Al-Qatif|26.52|50.01|SA|33~Swansea|51.63|-3.95|GB|15~Århus|56.16|10.21|DK|119~Nawabshah,نوابشاہ|26.25|68.4|PK|6~Okara,اوکاڑہ|30.81|73.45|PK|6~Al Khalil|31.54|35.1|PS|143~Bandar Seri Begawan|4.88|114.93|BN|144~Luton|51.88|-0.42|GB|15~Kondoz|36.73|68.87|AF|43~Blackpool|53.83|-3.05|GB|15~Abha|18.23|42.5|SA|33~Chiniot,چنیوٹ|31.72|72.98|PK|6~Lashkar Gah|31.58|64.36|AF|43~Bergen|60.39|5.32|NO|133~Meymaneh|35.93|64.77|AF|43~Bern|46.92|7.47|CH|132~Al Jahra|29.34|47.66|KW|120~Lausanne|46.53|6.65|CH|132~Sadiqabad,صادق آباد|28.3|70.13|PK|6~Aberdeen|57.17|-2.08|GB|15~Arar|30.99|41.02|SA|33~Norwich|52.63|1.3|GB|15~Salalah|17.03|54.09|OM|134~Oxford|51.77|-1.25|GB|15~Nablus|32.22|35.25|PS|143~Hawalli|29.33|48|KW|120~Luzern|47.05|8.28|CH|132~Baghlan|36.14|68.7|AF|43~Cork|51.9|-8.5|IE|124~Funchal|32.65|-16.88|PT|145~Odense|55.4|10.38|DK|119~York|53.97|-1.08|GB|15~Dundee|56.47|-3|GB|15~Trondheim|63.42|10.42|NO|133~Peterborough|52.58|-0.25|GB|15~Ipswich|52.07|1.17|GB|15~Ras al Khaymah|25.79|55.94|AE|107~Stavanger|58.97|5.68|NO|133~Suhar|24.36|56.73|OM|134~Cambridge|52.2|0.12|GB|15~Gilgit,گلگت|35.92|74.3|PK|6~Setubal|38.53|-8.9|PT|81~Bærum|59.91|11.35|NO|133~Aalborg|57.03|9.92|DK|119~Turbat,تربت|25.99|63.07|PK|6~Male|4.17|73.5|MV|146~Exeter|50.7|-3.53|GB|15~Ibri|23.23|56.52|OM|134~Coimbra|40.2|-8.42|PT|81~Chaman,چمن|30.93|66.45|PK|6~Nizwa|22.93|57.53|OM|134~Zhob,ژوب|31.35|69.44|PK|6~Al Ahmadi|29.08|48.08|KW|120~Sur|22.58|59.53|OM|134~Dera Ismail Khan,ڈیرہ اسماعیل خان|31.83|70.9|PK|6~Mansehra,مانسہرہ|34.34|73.2|PK|6~Parachinar,پاراچنار|33.9|70.1|PK|6~Evora|38.56|-7.91|PT|81~Aveiro|40.64|-8.65|PT|81~Portimao|37.13|-8.53|PT|81~Leiria|39.74|-8.8|PT|81~Ponta Delgada|37.75|-25.67|PT|147~Gwadar,گوادر|25.14|62.33|PK|6~Kundian,کندیاں|32.45|71.47|PK|6~Braganca|41.81|-6.76|PT|81~Castelo Branco|39.81|-7.49|PT|81~Guarda|40.54|-7.26|PT|81~Faro|37.02|-7.93|PT|81~Santarem|39.23|-8.68|PT|81~Beja|38.01|-7.86|PT|81~Viseu|40.66|-7.91|PT|81~Covilha|40.28|-7.5|PT|81~Vila Real|41.29|-7.74|PT|81~Portalegre|39.29|-7.42|PT|81~Viana Do Castelo|41.7|-8.84|PT|81~Angra do Heroismo|38.65|-27.22|PT|147~Horta|38.53|-28.64|PT|147~Muzaffarabad,مظفرآباد|34.37|73.47|PK|6~Mirpur,میرپور|33.15|73.75|PK|6~Jhelum,جہلم|32.93|73.73|PK|6~Attock,اٹک|33.77|72.36|PK|6~Mianwali,میانوالی|32.58|71.54|PK|6~Khanewal,خانیوال|30.3|71.93|PK|6~Vehari,وہاڑی|30.04|72.35|PK|6~Bahawalnagar,بہاولنگر|29.99|73.25|PK|6~Hafizabad,حافظ آباد|32.07|73.69|PK|6~Mandi Bahauddin,منڈی بہاؤالدین|32.58|73.48|PK|6~Swabi,صوابی|34.12|72.47|PK|6~Nowshera,نوشہرہ|34.01|71.98|PK|6~Charsadda,چارسدہ|34.15|71.73|PK|6~Skardu,سکردو|35.3|75.63|PK|6~Chitral,چترال|35.85|71.79|PK|6~Thatta,ٹھٹھہ|24.75|67.92|PK|6~Jacobabad,جیکب آباد|28.28|68.44|PK|6~Khuzdar,خضدار|27.81|66.61|PK|6";
+/* Prayer time calculation: Adhan JavaScript 4.4.6, https://github.com/batoulapps/adhan-js
+   The MIT License (MIT)
+
+   Copyright (c) 2016 Batoul Apps
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to deal
+   in the Software without restriction, including without limitation the rights
+   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in all
+   copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   SOFTWARE. */
+var Adhan=(()=>{var k=Object.defineProperty;var At=Object.getOwnPropertyDescriptor;var Dt=Object.getOwnPropertyNames;var yt=Object.prototype.hasOwnProperty;var jt=(t,e,r)=>e in t?k(t,e,{enumerable:!0,configurable:!0,writable:!0,value:r}):t[e]=r;var wt=(t,e)=>{for(var r in e)k(t,r,{get:e[r],enumerable:!0})},St=(t,e,r,n)=>{if(e&&typeof e=="object"||typeof e=="function")for(let s of Dt(e))!yt.call(t,s)&&s!==r&&k(t,s,{get:()=>e[s],enumerable:!(n=At(e,s))||n.enumerable});return t};var Ct=t=>St(k({},"__esModule",{value:!0}),t);var u=(t,e,r)=>jt(t,typeof e!="symbol"?e+"":e,r);var Lt={};wt(Lt,{CalculationMethod:()=>pt,CalculationParameters:()=>p,Coordinates:()=>x,HighLatitudeRule:()=>q,Madhab:()=>P,PolarCircleResolution:()=>V,Prayer:()=>d,PrayerTimes:()=>F,Qibla:()=>nt,Rounding:()=>C,Shafaq:()=>I,SunnahTimes:()=>_});var P={Shafi:"shafi",Hanafi:"hanafi"};function ut(t){switch(t){case P.Shafi:return 1;case P.Hanafi:return 2;default:throw"Invalid Madhab"}}var et={MiddleOfTheNight:"middleofthenight",SeventhOfTheNight:"seventhofthenight",TwilightAngle:"twilightangle",recommended(t){return Math.abs(t.latitude)>48?et.SeventhOfTheNight:et.MiddleOfTheNight}},q=et;var x=class{constructor(e,r){u(this,"latitude",e);u(this,"longitude",r)}};var C={Nearest:"nearest",Up:"up",None:"none"};function Q(t,e){let r=t.getFullYear(),n=t.getMonth(),s=t.getDate()+e,o=t.getHours(),i=t.getMinutes(),a=t.getSeconds();return new Date(r,n,s,o,i,a)}function R(t,e){return g(t,e*60)}function g(t,e){return new Date(t.getTime()+e*1e3)}function S(t,e=C.Nearest){let r=t.getUTCSeconds(),n=r>=30?60-r:-1*r;return e===C.Up?n=60-r:e===C.None&&(n=0),g(t,n)}function G(t){return!(t%4!==0||t%100===0&&t%400!==0)}function rt(t){let e=0,n=[31,G(t.getFullYear())?29:28,31,30,31,30,31,31,30,31,30,31];for(let s=0;s<t.getMonth();s++)e+=n[s];return e+=t.getDate(),e}function y(t){return t instanceof Date&&!isNaN(t.valueOf())}var Ot=300*1e3;function v(t,e){return!y(t)||!y(e)?!1:e.getTime()-t.getTime()>=Ot}function h(t){return t*Math.PI/180}function O(t){return t*180/Math.PI}function K(t,e){return t-e*Math.floor(t/e)}function b(t){return K(t,360)}function ht(t){return t>=-180&&t<=180?t:t-360*Math.round(t/360)}var I={General:"general",Ahmer:"ahmer",Abyad:"abyad"};var N={meanSolarLongitude(t){let e=t,r=280.4664567,n=36000.76983*e,s=3032e-7*Math.pow(e,2),o=r+n+s;return b(o)},meanLunarLongitude(t){let e=t,r=218.3165,n=481267.8813*e,s=r+n;return b(s)},ascendingLunarNodeLongitude(t){let e=t,r=125.04452,n=1934.136261*e,s=.0020708*Math.pow(e,2),o=Math.pow(e,3)/45e4,i=r-n+s+o;return b(i)},meanSolarAnomaly(t){let e=t,r=357.52911,n=35999.05029*e,s=1537e-7*Math.pow(e,2),o=r+n-s;return b(o)},solarEquationOfTheCenter(t,e){let r=t,n=h(e),s=(1.914602-.004817*r-14e-6*Math.pow(r,2))*Math.sin(n),o=(.019993-101e-6*r)*Math.sin(2*n),i=289e-6*Math.sin(3*n);return s+o+i},apparentSolarLongitude(t,e){let r=t,s=e+N.solarEquationOfTheCenter(r,N.meanSolarAnomaly(r)),o=125.04-1934.136*r,i=s-.00569-.00478*Math.sin(h(o));return b(i)},meanObliquityOfTheEcliptic(t){let e=t,r=23.439291,n=.013004167*e,s=1639e-10*Math.pow(e,2),o=5036e-10*Math.pow(e,3);return r-n-s+o},apparentObliquityOfTheEcliptic(t,e){let r=t,n=e,s=125.04-1934.136*r;return n+.00256*Math.cos(h(s))},meanSiderealTime(t){let e=t,r=e*36525+2451545,n=280.46061837,s=360.98564736629*(r-2451545),o=387933e-9*Math.pow(e,2),i=Math.pow(e,3)/3871e4,a=n+s+o-i;return b(a)},nutationInLongitude(t,e,r,n){let s=e,o=r,i=n,a=-17.2/3600*Math.sin(h(i)),m=1.32/3600*Math.sin(2*h(s)),l=.23/3600*Math.sin(2*h(o)),c=.21/3600*Math.sin(2*h(i));return a-m-l+c},nutationInObliquity(t,e,r,n){let s=e,o=r,i=n,a=9.2/3600*Math.cos(h(i)),m=.57/3600*Math.cos(2*h(s)),l=.1/3600*Math.cos(2*h(o)),c=.09/3600*Math.cos(2*h(i));return a+m+l-c},altitudeOfCelestialBody(t,e,r){let n=t,s=e,o=r,i=Math.sin(h(n))*Math.sin(h(s)),a=Math.cos(h(n))*Math.cos(h(s))*Math.cos(h(o));return O(Math.asin(i+a))},approximateTransit(t,e,r){let n=t,s=e,o=r,i=n*-1,a=K((o+i-s)/360,1),m=K((12-n/15)/24,1);return a-m>.5?a-1:m-a>.5?a+1:a},correctedTransit(t,e,r,n,s,o){let i=t,a=e,m=r,l=n,c=s,M=o,A=a*-1,w=b(m+360.985647*i),B=b(N.interpolateAngles(l,c,M,i)),L=ht(w-A-B)/-360;return(i+L)*24},correctedHourAngle(t,e,r,n,s,o,i,a,m,l,c){let M=t,A=e,w=s,B=o,D=i,L=a,E=m,z=l,W=c,J=r.longitude*-1,$=Math.sin(h(A))-Math.sin(h(r.latitude))*Math.sin(h(E)),X=Math.cos(h(r.latitude))*Math.cos(h(E)),Z=O(Math.acos($/X)),T=n?M+Z/360:M-Z/360;for(let tt=0;tt<10;tt++){let bt=b(w+360.985647*T),Mt=b(N.interpolateAngles(B,D,L,T)),st=N.interpolate(E,z,W,T),ot=bt-J-Mt,Tt=N.altitudeOfCelestialBody(r.latitude,st,ot),it=360*Math.cos(h(st))*Math.cos(h(r.latitude))*Math.sin(h(ot));if(it===0)return NaN;let at=(Tt-A)/it;if(T=T+at,Math.abs(at)<=.01)break}return T*24},interpolate(t,e,r,n){let s=t-e,o=r-t,i=o-s;return t+n/2*(s+o+n*i)},interpolateAngles(t,e,r,n){let s=b(t-e),o=b(r-t),i=o-s;return t+n/2*(s+o+n*i)},julianDay(t,e,r,n=0){let s=Math.trunc,o=s(e>2?t:t-1),i=s(e>2?e:e+12),a=r+n/24,m=s(o/100),l=s(2-m+s(m/4)),c=s(365.25*(o+4716)),M=s(30.6001*(i+1));return c+M+a+l-1524.5},julianCentury(t){return(t-2451545)/36525},seasonAdjustedMorningTwilight(t,e,r,n){let s=75+.5209090909090909*Math.abs(t),o=75+19.44/55*Math.abs(t),i=75+32.74/55*Math.abs(t),a=75+48.1/55*Math.abs(t),m=(function(){let l=N.daysSinceSolstice(e,r,t);return l<91?s+(o-s)/91*l:l<137?o+(i-o)/46*(l-91):l<183?i+(a-i)/46*(l-137):l<229?a+(i-a)/46*(l-183):l<275?i+(o-i)/46*(l-229):o+(s-o)/91*(l-275)})();return g(n,Math.round(m*-60))},seasonAdjustedEveningTwilight(t,e,r,n,s){let o,i,a,m;s===I.Ahmer?(o=62+17.4/55*Math.abs(t),i=62-7.16/55*Math.abs(t),a=62+5.12/55*Math.abs(t),m=62+19.44/55*Math.abs(t)):s===I.Abyad?(o=75+25.6/55*Math.abs(t),i=75+7.16/55*Math.abs(t),a=75+36.84/55*Math.abs(t),m=75+81.84/55*Math.abs(t)):(o=75+25.6/55*Math.abs(t),i=75+2.05/55*Math.abs(t),a=75-9.21/55*Math.abs(t),m=75+6.14/55*Math.abs(t));let l=(function(){let c=N.daysSinceSolstice(e,r,t);return c<91?o+(i-o)/91*c:c<137?i+(a-i)/46*(c-91):c<183?a+(m-a)/46*(c-137):c<229?m+(a-m)/46*(c-183):c<275?a+(i-a)/46*(c-229):i+(o-i)/91*(c-275)})();return g(n,Math.round(l*60))},daysSinceSolstice(t,e,r){let n,o=G(e)?173:172,i=G(e)?366:365;return r>=0?(n=t+10,n>=i&&(n=n-i)):(n=t-o,n<0&&(n=n+i)),n}},f=N;var Y=class{constructor(e){u(this,"declination");u(this,"rightAscension");u(this,"apparentSiderealTime");let r=f.julianCentury(e),n=f.meanSolarLongitude(r),s=f.meanLunarLongitude(r),o=f.ascendingLunarNodeLongitude(r),i=h(f.apparentSolarLongitude(r,n)),a=f.meanSiderealTime(r),m=f.nutationInLongitude(r,n,s,o),l=f.nutationInObliquity(r,n,s,o),c=f.meanObliquityOfTheEcliptic(r),M=h(f.apparentObliquityOfTheEcliptic(r,c));this.declination=O(Math.asin(Math.sin(M)*Math.sin(i))),this.rightAscension=b(O(Math.atan2(Math.cos(M)*Math.sin(i),Math.cos(i)))),this.apparentSiderealTime=a+m*3600*Math.cos(h(c+l))/3600}};var H=class{constructor(e,r){u(this,"observer");u(this,"solar");u(this,"prevSolar");u(this,"nextSolar");u(this,"approxTransit");u(this,"transit");u(this,"sunrise");u(this,"sunset");let n=f.julianDay(e.getFullYear(),e.getMonth()+1,e.getDate(),0);this.observer=r,this.solar=new Y(n),this.prevSolar=new Y(n-1),this.nextSolar=new Y(n+1);let s=f.approximateTransit(r.longitude,this.solar.apparentSiderealTime,this.solar.rightAscension),o=-50/60;this.approxTransit=s,this.transit=f.correctedTransit(s,r.longitude,this.solar.apparentSiderealTime,this.solar.rightAscension,this.prevSolar.rightAscension,this.nextSolar.rightAscension),this.sunrise=f.correctedHourAngle(s,o,r,!1,this.solar.apparentSiderealTime,this.solar.rightAscension,this.prevSolar.rightAscension,this.nextSolar.rightAscension,this.solar.declination,this.prevSolar.declination,this.nextSolar.declination),this.sunset=f.correctedHourAngle(s,o,r,!0,this.solar.apparentSiderealTime,this.solar.rightAscension,this.prevSolar.rightAscension,this.nextSolar.rightAscension,this.solar.declination,this.prevSolar.declination,this.nextSolar.declination)}hourAngle(e,r){return f.correctedHourAngle(this.approxTransit,e,this.observer,r,this.solar.apparentSiderealTime,this.solar.rightAscension,this.prevSolar.rightAscension,this.nextSolar.rightAscension,this.solar.declination,this.prevSolar.declination,this.nextSolar.declination)}afternoon(e){let r=Math.abs(this.observer.latitude-this.solar.declination),n=e+Math.tan(h(r)),s=O(Math.atan(1/n)),o=32/60;if(s<=o/2)return NaN;if(f.altitudeOfCelestialBody(this.observer.latitude,this.solar.declination,0)<s)return NaN;let a=this.hourAngle(s,!0);return a<=this.transit?NaN:a}};var j=class{constructor(e){u(this,"hours");u(this,"minutes");u(this,"seconds");return this.hours=Math.floor(e),this.minutes=Math.floor((e-this.hours)*60),this.seconds=Math.floor((e-(this.hours+this.minutes/60))*60*60),this}utcDate(e,r,n){return new Date(Date.UTC(e,r,n,this.hours,this.minutes,this.seconds))}};var mt=55;function U(t,e,r){let n=new H(e,t),s=Q(e,1),o=new H(s,t),i=new j(n.transit).utcDate(e.getFullYear(),e.getMonth(),e.getDate()),a=new j(n.sunrise).utcDate(e.getFullYear(),e.getMonth(),e.getDate()),m=new j(n.sunset).utcDate(e.getFullYear(),e.getMonth(),e.getDate()),l=new j(n.afternoon(ut(r.madhab))).utcDate(e.getFullYear(),e.getMonth(),e.getDate()),c=new j(o.sunrise).utcDate(s.getFullYear(),s.getMonth(),s.getDate()),M=(Number(c)-Number(m))/1e3,A,w=new j(n.hourAngle(-1*r.fajrAngle,!1)).utcDate(e.getFullYear(),e.getMonth(),e.getDate());r.method==="MoonsightingCommittee"&&t.latitude>=mt&&(A=M/7,w=g(a,-A));let B=(function(){return r.method==="MoonsightingCommittee"?f.seasonAdjustedMorningTwilight(t.latitude,rt(e),e.getFullYear(),a):(A=r.nightPortions().fajr*M,g(a,-A))})();(isNaN(w.getTime())||B>w||!v(w,a))&&(w=B);let D;if(r.ishaInterval>0)D=R(m,r.ishaInterval);else{D=new j(n.hourAngle(-1*r.ishaAngle,!0)).utcDate(e.getFullYear(),e.getMonth(),e.getDate()),r.method==="MoonsightingCommittee"&&t.latitude>=mt&&(A=M/7,D=g(m,A));let T=(function(){return r.method==="MoonsightingCommittee"?f.seasonAdjustedEveningTwilight(t.latitude,rt(e),e.getFullYear(),m,r.shafaq):(A=r.nightPortions().isha*M,g(m,A))})();(isNaN(D.getTime())||!v(m,D)||T<D)&&(D=T)}let L=m;if(r.maghribAngle){let T=new j(n.hourAngle(-1*r.maghribAngle,!0)).utcDate(e.getFullYear(),e.getMonth(),e.getDate());m<T&&D>T&&(L=T)}let E=(r.adjustments.fajr||0)+(r.methodAdjustments.fajr||0),z=(r.adjustments.sunrise||0)+(r.methodAdjustments.sunrise||0),W=(r.adjustments.dhuhr||0)+(r.methodAdjustments.dhuhr||0),J=(r.adjustments.asr||0)+(r.methodAdjustments.asr||0),$=(r.adjustments.maghrib||0)+(r.methodAdjustments.maghrib||0),X=(r.adjustments.isha||0)+(r.methodAdjustments.isha||0);return v(w,a)&&v(a,i)&&v(i,l)&&v(l,L)&&v(L,D)?{isValid:!0,fajr:S(R(w,E),r.rounding),sunrise:S(R(a,z),r.rounding),dhuhr:S(R(i,W),r.rounding),asr:S(R(l,J),r.rounding),sunset:S(m,r.rounding),maghrib:S(R(L,$),r.rounding),isha:S(R(D,X),r.rounding)}:{isValid:!1}}function lt(t,e){if(!t.isValid||e===0)return t;let r=e*86400;return{isValid:!0,fajr:g(t.fajr,r),sunrise:g(t.sunrise,r),dhuhr:g(t.dhuhr,r),asr:g(t.asr,r),sunset:g(t.sunset,r),maghrib:g(t.maghrib,r),isha:g(t.isha,r)}}var V={AqrabBalad:"AqrabBalad",AqrabYaum:"AqrabYaum",Unresolved:"Unresolved"},ct=.5,dt=(t,e,r,n=1,s=1)=>{if(n>Math.ceil(365/2))return null;let o=new Date(e.getTime());o.setDate(o.getDate()+s*n);let i=U(t,o,r);return i.isValid?lt(i,-(s*n)):dt(t,e,r,n+(s>0?0:1),-s)},ft=(t,e,r,n)=>{let s=new x(r,t.longitude),o=U(s,e,n);if(!o.isValid){if(r===0)return null;let i=Math.sign(r)*Math.max(0,Math.abs(r)-ct);return ft(t,e,i,n)}return o},gt=(t,e,r,n)=>{switch(t){case V.AqrabYaum:return dt(e,r,n);case V.AqrabBalad:{let{latitude:s}=e;return ft(e,r,s-Math.sign(s)*ct,n)}default:return null}};var p=class{constructor(e,r=0,n=0,s=0,o=0){u(this,"method",e);u(this,"fajrAngle",r);u(this,"ishaAngle",n);u(this,"ishaInterval",s);u(this,"maghribAngle",o);u(this,"madhab",P.Shafi);u(this,"highLatitudeRule",q.MiddleOfTheNight);u(this,"adjustments",{fajr:0,sunrise:0,dhuhr:0,asr:0,maghrib:0,isha:0});u(this,"methodAdjustments",{fajr:0,sunrise:0,dhuhr:0,asr:0,maghrib:0,isha:0});u(this,"polarCircleResolution",V.AqrabBalad);u(this,"rounding",C.Nearest);u(this,"shafaq",I.General);this.method===null&&(this.method="Other")}nightPortions(){switch(this.highLatitudeRule){case q.MiddleOfTheNight:return{fajr:1/2,isha:1/2};case q.SeventhOfTheNight:return{fajr:1/7,isha:1/7};case q.TwilightAngle:return{fajr:this.fajrAngle/60,isha:this.ishaAngle/60};default:throw`Invalid high latitude rule found when attempting to compute night portions: ${this.highLatitudeRule}`}}};var xt={MuslimWorldLeague(){let t=new p("MuslimWorldLeague",18,17);return t.methodAdjustments.dhuhr=1,t},Egyptian(){let t=new p("Egyptian",19.5,17.5);return t.methodAdjustments.dhuhr=1,t},Karachi(){let t=new p("Karachi",18,18);return t.methodAdjustments.dhuhr=1,t},UmmAlQura(){return new p("UmmAlQura",18.5,0,90)},Dubai(){let t=new p("Dubai",18.2,18.2);return t.methodAdjustments={...t.methodAdjustments,sunrise:-3,dhuhr:3,asr:3,maghrib:3},t},MoonsightingCommittee(){let t=new p("MoonsightingCommittee",18,18);return t.methodAdjustments={...t.methodAdjustments,dhuhr:5,maghrib:3},t},NorthAmerica(){let t=new p("NorthAmerica",15,15);return t.methodAdjustments.dhuhr=1,t},Kuwait(){return new p("Kuwait",18,17.5)},Qatar(){return new p("Qatar",18,0,90)},Singapore(){let t=new p("Singapore",20,18);return t.methodAdjustments.dhuhr=1,t.rounding=C.Up,t},Tehran(){return new p("Tehran",17.7,14,0,4.5)},Turkey(){let t=new p("Turkey",18,17);return t.methodAdjustments={...t.methodAdjustments,sunrise:-7,dhuhr:5,asr:4,maghrib:7},t},Other(){return new p("Other",0,0)}},pt=xt;var Nt={Fajr:"fajr",Sunrise:"sunrise",Dhuhr:"dhuhr",Asr:"asr",Maghrib:"maghrib",Isha:"isha",None:"none"},d=Nt;var F=class{constructor(e,r,n){u(this,"coordinates",e);u(this,"date",r);u(this,"calculationParameters",n);u(this,"fajr");u(this,"sunrise");u(this,"dhuhr");u(this,"asr");u(this,"sunset");u(this,"maghrib");u(this,"isha");let s=U(e,r,n);if(!s.isValid&&n.polarCircleResolution!==V.Unresolved){let o=gt(n.polarCircleResolution,e,r,n);o&&(s=o)}s.isValid?(this.fajr=s.fajr,this.sunrise=s.sunrise,this.dhuhr=s.dhuhr,this.asr=s.asr,this.sunset=s.sunset,this.maghrib=s.maghrib,this.isha=s.isha):(this.fajr=new Date(NaN),this.sunrise=new Date(NaN),this.dhuhr=new Date(NaN),this.asr=new Date(NaN),this.sunset=new Date(NaN),this.maghrib=new Date(NaN),this.isha=new Date(NaN))}get isValid(){return y(this.fajr)&&y(this.sunrise)&&y(this.dhuhr)&&y(this.asr)&&y(this.sunset)&&y(this.maghrib)&&y(this.isha)}timeForPrayer(e){return e===d.Fajr?this.fajr:e===d.Sunrise?this.sunrise:e===d.Dhuhr?this.dhuhr:e===d.Asr?this.asr:e===d.Maghrib?this.maghrib:e===d.Isha?this.isha:null}currentPrayer(e=new Date){return e>=this.isha?d.Isha:e>=this.maghrib?d.Maghrib:e>=this.asr?d.Asr:e>=this.dhuhr?d.Dhuhr:e>=this.sunrise?d.Sunrise:e>=this.fajr?d.Fajr:d.None}nextPrayer(e=new Date){return e>=this.isha?d.None:e>=this.maghrib?d.Isha:e>=this.asr?d.Maghrib:e>=this.dhuhr?d.Asr:e>=this.sunrise?d.Dhuhr:e>=this.fajr?d.Sunrise:d.Fajr}};function nt(t){let e=new x(21.4225241,39.8261818),r=Math.sin(h(e.longitude)-h(t.longitude)),n=Math.cos(h(t.latitude))*Math.tan(h(e.latitude)),s=Math.sin(h(t.latitude))*Math.cos(h(e.longitude)-h(t.longitude)),o=Math.atan2(r,n-s);return b(O(o))}var _=class{constructor(e){u(this,"middleOfTheNight");u(this,"lastThirdOfTheNight");let r=e.date,n=Q(r,1),o=(new F(e.coordinates,n,e.calculationParameters).fajr.getTime()-e.maghrib.getTime())/1e3;this.middleOfTheNight=S(g(e.maghrib,o/2)),this.lastThirdOfTheNight=S(g(e.maghrib,o*(2/3)))}get isValid(){return y(this.middleOfTheNight)&&y(this.lastThirdOfTheNight)}};return Ct(Lt);})();
+
 /* ======================================================================
    Icons
    ====================================================================== */
@@ -698,7 +819,11 @@ const IC={
  iosShare:'<path d="M8.5 9H7a1.5 1.5 0 0 0-1.5 1.5v9A1.5 1.5 0 0 0 7 21h10a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 17 9h-1.5"/><path d="M12 14V3M8.5 6.5L12 3l3.5 3.5"/>',
  kalima:'<path d="M4.5 5.5h15v10h-8l-4.5 4v-4H4.5z"/><path d="M8 9.2h8M8 12.2h5"/>',
  salah:'<rect x="6" y="3" width="12" height="18" rx="1.6"/><path d="M9 21v-7.5a3 3 0 0 1 6 0V21"/><path d="M12 6v2.2"/>',
- names:'<rect x="3" y="5" width="18" height="14" rx="3.6"/><text x="12" y="15.7" text-anchor="middle" font-size="9.6" font-weight="700" font-family="Figtree,system-ui,sans-serif" fill="currentColor" stroke="none">99</text>'
+ names:'<rect x="3" y="5" width="18" height="14" rx="3.6"/><text x="12" y="15.7" text-anchor="middle" font-size="9.6" font-weight="700" font-family="Figtree,system-ui,sans-serif" fill="currentColor" stroke="none">99</text>',
+ bell:'<path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.6 1.7H4.4z"/><path d="M10 20.6a2 2 0 0 0 4 0"/>',
+ bellOff:'<path d="M8.6 5.6A6 6 0 0 1 18 11v4.2M6 11v5.5l-1.6 1.7H18"/><path d="M10 20.6a2 2 0 0 0 4 0M4 4l16 16"/>',
+ mosque:'<path d="M3.5 20.5h17M5.5 20.5v-6h13v6"/><path d="M6.5 14.5a5.5 5.5 0 0 1 11 0"/><path d="M12 9V6.6"/><path d="M12.9 4.7a1.25 1.25 0 1 1-1.5-1.2"/><path d="M10.4 20.5v-2.6a1.6 1.6 0 0 1 3.2 0v2.6"/>',
+ pin:'<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>'
 };
 const icon=(n,c)=>`<svg class="${c||"svg"}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]||""}</svg>`;
 
@@ -773,7 +898,7 @@ function applyUi(){
   renderDrawer();
 }
 function uiDefaults(){
-  if(!S.hLang)S.hLang=isUr()?"ur":"en";
+  if(!S.hLang)S.hLang=isUr()?"ur":"both";
   if(!S.wbwLang)S.wbwLang=isUr()?"ur":"en";
   if(!S.mic)S.mic=isUr()?"ur-PK":"en-US";
   if(!S.tf)S.tf=TF_DEFAULT[isUr()?"ur":"en"];
@@ -817,7 +942,7 @@ function openSheet(html){
   s.hidden=false;$("#scrim").hidden=false;SHEET=true;ovOpen();
 }
 function renderDrawer(){
-  const items=[["#/","home","home"],["#/quran","quran","quran"],["#/quran/juz","juz","juz"],["#/hadith","hadith","hadith"],"faith",["#/kalimas","kalima","kalimas"],["#/salah","salah","salah"],["#/names","names","names"],"learn",["#/wbw","wbw","wbw"],["#/hifz","hifz","hifz"],["#/qaida","qaida","qaida"],["#/quiz","quiz","quiz"],"more",["#/bookmarks","bm","bookmarks"],["#/settings","gear","settings"],["#/about","info","about"]];
+  const items=[["#/","home","home"],["#/quran","quran","quran"],["#/quran/juz","juz","juz"],["#/hadith","hadith","hadith"],"faith",["#/prayer","mosque","prayerTimes"],["#/kalimas","kalima","kalimas"],["#/salah","salah","salah"],["#/names","names","names"],"learn",["#/wbw","wbw","wbw"],["#/hifz","hifz","hifz"],["#/qaida","qaida","qaida"],["#/quiz","quiz","quiz"],"more",["#/bookmarks","bm","bookmarks"],["#/settings","gear","settings"],["#/about","info","about"]];
   $("#drawer").innerHTML=`<div class="dr-head"><img src="icon-192.png" alt="" width="48" height="48"><div><b>${t("app")}</b><span lang="ar">نُورُ الْقُرْآن</span></div></div>
    <div class="dr-nav">${items.map(x=>typeof x==="string"?`<div class="dr-sec">${t(x)}</div>`:`<a href="${x[0]}" data-act="nav" data-nav="${x[0]}">${icon(x[1])}<span>${t(x[2])}</span></a>`).join("")}</div>
    <button class="dr-install" data-act="install" id="drInstall"${installEvt?"":" hidden"}>${icon("download")} ${t("installApp")}</button>
@@ -846,6 +971,7 @@ const ROUTES=[
  [/^\/kalimas(?:\/(\d))?$/,m=>vKalimas(m[1]?+m[1]:0)],
  [/^\/salah(?:\/([a-z]+))?$/,m=>vSalah(m[1]||"")],
  [/^\/names(?:\/(\d{1,2}))?$/,m=>vNames(m[1]?+m[1]:0)],
+ [/^\/prayer(?:\/(place))?$/,m=>vPrayer(m[1]||"")],
  [/^\/wbw$/,()=>{S.wbw=true;save();toast(t("wbwOn"));location.replace(`#/s/${S.last.s}/${S.last.a}`)}],
  [/^\/hifz$/,()=>vHifz()],
  [/^\/qaida$/,()=>vQaida()],
@@ -859,7 +985,7 @@ const ROUTES=[
 ];
 function route(){
   if(OV){OV=false}
-  hideOverlays();
+  hideOverlays();SAYS.clear();SAY_ON="";
   if(VIEW.cleanup){try{VIEW.cleanup()}catch(e){}VIEW.cleanup=null}
   let h=(location.hash||"#/").slice(1);try{h=decodeURIComponent(h)}catch(e){}
   for(const [re,fn] of ROUTES){const m=h.match(re);if(m){fn(m);markNav();return}}
@@ -899,8 +1025,11 @@ async function shareText(text){
   toast(legacyCopy(text)?t("copied"):t("copyFail"));
 }
 function bookName(b){const x=HBOOKS[b];return x?(isUr()?x.ur:x.en):b}
-function hLangFor(b){const want=S.hLang||(isUr()?"ur":"en");if(want==="ur"&&HIDX[b]&&!HIDX[b].urdu)return "en";return want}
-function hLangNote(b){const want=S.hLang||(isUr()?"ur":"en");return want==="ur"&&!HIDX[b].urdu?`<div class="card notice">${t("noUrduHadith")}</div>`:""}
+const FORTY=new Set(["nawawi","qudsi","dehlawi"]);
+const hLangs=()=>tLangs();
+/* Hadith files to load: the translations shown; English is the base list when only Urdu is shown for a book without its own Urdu */
+function hEds(b){const e=[];hLangs().forEach(l=>{if(l==="en")e.push("eng");else if(HIDX[b]&&HIDX[b].urdu)e.push("urd")});if(!e.length)e.push("eng");return e}
+function hLangNote(b){return hLangs().includes("ur")&&FORTY.has(b)?`<div class="card notice">${t("mapNote")}</div>`:""}
 
 /* ======================================================================
    Home
@@ -915,11 +1044,12 @@ function vHome(){
      <button class="searchbox" data-act="cmd">${icon("search")}<span>${t("searchPh")}</span>${icon("mic")}</button>
    </section>
    <a class="card cont" href="#/s/${L.s}/${L.a}"><div><div class="eyebrow">${t("continue")}</div><div class="cont-t" id="contT">${t("surah")} ${num(L.s)} · ${t("verse")} ${num(L.a)}</div></div><span class="btn pri sm">${t("resume")}</span></a>
+   <div id="npSlot">${npCardHTML()}</div>
    <nav class="tiles" aria-label="${t("more")}">${tiles.map(([h,ic,k])=>`<a class="tile" href="${h}"><span class="ic">${icon(ic)}</span><span>${t(k)}</span></a>`).join("")}</nav>
    <div id="installSlot"></div>
    <section class="card" id="vod"><div class="eyebrow">${t("verseOfDay")}</div><p class="muted">${t("loading")}</p></section>
    <section class="card" id="hod"><div class="eyebrow">${t("hadithOfDay")}</div><p class="muted">${t("loading")}</p></section>
-   <a class="card nod" id="nod" href="#/names/${nd[0]}"><span class="na" lang="ar">${esc(nd[1])}</span><span class="main"><span class="eyebrow">${t("nameOfDay")}</span><b dir="ltr">${esc(nd[2])}</b><span class="nmn${trCls()}" dir="${trDir()}">${esc(nameMean(nd))}</span></span>${icon("next","svg flip")}</a>
+   <a class="card nod" id="nod" href="#/names/${nd[0]}"><span class="na" lang="ar">${esc(nd[1])}</span><span class="main"><span class="eyebrow">${t("nameOfDay")}</span><b dir="ltr">${esc(nd[2])}</b>${nameMeans(nd)}</span>${icon("next","svg flip")}</a>
    <div id="hifzMini"></div>`);
   renderInstallSlot();
   surahs().then(list=>{if(!alive(tok))return;const m=list[L.s-1];if(m)$("#contT").textContent=surahName(m)+" · "+t("verse")+" "+num(L.a)}).catch(()=>{});
@@ -942,19 +1072,28 @@ async function loadVerseOfDay(tok){
     $("#vod").innerHTML=`<div class="eyebrow">${t("verseOfDay")}</div><div class="ar-text" lang="ar">${esc(stripBism(ar.text,s,a-1))} <span class="vend">${vend(a)}</span></div><div class="tr${L==="ur"?" ur":""}" dir="${dirOf(L)}" lang="${L}">${esc(tr.text)}</div><div class="cardfoot"><a class="btn sm" href="#/s/${s}/${a}">${esc(isUr()?ar.surah.name:ar.surah.englishName)} · ${num(s+":"+a)}</a></div>`;
   }catch(e){if(alive(tok))$("#vod").innerHTML=`<div class="eyebrow">${t("verseOfDay")}</div><p class="muted">${t("offlineShort")}</p>`}
 }
-async function hadithOne(b,n){
-  const L=hLangFor(b);
-  const [tr,ar]=await Promise.all([hget(`editions/${HED[L]}-${b}/${n}`),S.hAr?hget(`editions/ara-${b}/${n}`).catch(()=>null):Promise.resolve(null)]);
-  const h=tr.hadiths&&tr.hadiths[0];if(!h)throw new Error("none");
-  const secK=Object.keys((tr.metadata&&tr.metadata.section)||{})[0];
-  return {h,ar:ar&&ar.hadiths&&ar.hadiths[0]?ar.hadiths[0].text:"",L,secK,secName:secK?tr.metadata.section[secK]:""};
+/* Puts the Arabic and the translations of one hadith or a whole chapter together, by hadith number */
+function hMerge(eds,trs,ar){
+  const map=new Map(),get=n=>{let x=map.get(n);if(!x){x={n,ar:"",tr:{ur:"",en:""},grades:[]};map.set(n,x)}return x};
+  trs.forEach((j,i)=>{if(j&&j.hadiths)j.hadiths.forEach(h=>{const x=get(h.hadithnumber);x.tr[eds[i]==="urd"?"ur":"en"]=String(h.text||"").trim();if(h.grades&&h.grades.length&&!x.grades.length)x.grades=h.grades})});
+  if(ar&&ar.hadiths)ar.hadiths.forEach(h=>{get(h.hadithnumber).ar=String(h.text||"").trim()});
+  return [...map.values()].sort((a,b)=>a.n-b.n);
 }
+async function hadithOne(b,n){
+  const eds=hEds(b);
+  const [ar,...trs]=await Promise.all([S.hAr?hget(`editions/ara-${b}/${n}`).catch(()=>null):Promise.resolve(null),...eds.map((e,i)=>hget(`editions/${e}-${b}/${n}`).catch(err=>{if(i===0)throw err;return null}))]);
+  const x=hMerge(eds,trs,ar)[0];if(!x)throw new Error("none");
+  const meta=(trs[0]&&trs[0].metadata)||{},secK=Object.keys(meta.section||{})[0];
+  return {x,secK,secName:secK?meta.section[secK]:""};
+}
+/* The translation shown first: used by the home card, the quiz, bookmarks and reading aloud */
+const hMain=x=>{for(const l of hLangs())if(x.tr[l])return {l,text:x.tr[l]};return x.tr.en?{l:"en",text:x.tr.en}:x.tr.ur?{l:"ur",text:x.tr.ur}:{l:"ar",text:x.ar||""}};
 async function loadHadithOfDay(tok){
   const books=["bukhari","muslim","abudawud","tirmidhi","nasai","ibnmajah","malik"];
   const di=dayIndex(),b=books[di%books.length];let n=1+((di*104729)%HIDX[b].last);
   for(let k=0;k<4;k++,n=Math.max(1,n-1)){
-    try{const x=await hadithOne(b,n);if(!alive(tok))return;if(!x.h.text)continue;
-      $("#hod").innerHTML=`<div class="eyebrow">${t("hadithOfDay")}</div><div class="h-tr${x.L==="ur"?" ur":""}" dir="${dirOf(x.L)}" lang="${x.L}">${esc(clip(x.h.text,420))}</div><div class="cardfoot"><a class="btn sm" href="#/hadith/${b}/n/${x.h.hadithnumber}">${esc(bookName(b))} · ${num(x.h.hadithnumber)}</a></div>`;return}catch(e){}
+    try{const r=await hadithOne(b,n);if(!alive(tok))return;const L=hLangs().filter(l=>r.x.tr[l]);if(!L.length)continue;
+      $("#hod").innerHTML=`<div class="eyebrow">${t("hadithOfDay")}</div>${L.map(l=>`<div class="h-tr${l==="ur"?" ur":""}" dir="${dirOf(l)}" lang="${l}">${esc(clip(r.x.tr[l],L.length>1?300:420))}</div>`).join("")}<div class="cardfoot"><a class="btn sm" href="#/hadith/${b}/n/${r.x.n}">${esc(bookName(b))} · ${num(r.x.n)}</a></div>`;return}catch(e){}
   }
   if(alive(tok))$("#hod").innerHTML=`<div class="eyebrow">${t("hadithOfDay")}</div><p class="muted">${t("offlineShort")}</p>`;
 }
@@ -1204,21 +1343,38 @@ function updatePlayer(){
 
 /* Read aloud with the phone's own voice (used when there is no recording) */
 let TTS_TOK=0;
-function ttsStop(){TTS_TOK++;try{if(TTS)TTS.cancel()}catch(e){}}
-function voiceFor(l){try{return TTS.getVoices().find(v=>v.lang&&v.lang.toLowerCase().replace("_","-").startsWith(l))||null}catch(e){return null}}
+/* Read-aloud buttons next to each translation: the text is kept here so the button only carries an id */
+const SAYS=new Map();let SAY_N=0,SAY_ON="";
+function sayUi(){$$("[data-act=sayTx]").forEach(b=>{const on=!!SAY_ON&&b.dataset.s===SAY_ON;b.classList.toggle("on",on);b.setAttribute("aria-pressed",String(on))})}
+function ttsStop(){TTS_TOK++;try{if(TTS)TTS.cancel()}catch(e){}if(SAY_ON){SAY_ON="";sayUi()}}
+function sayKey(text,l){const id="s"+(++SAY_N);SAYS.set(id,{text,l});return id}
+function sayBtn(text,l){if(!text||!TTS)return "";return `<button class="ib say" data-act="sayTx" data-s="${sayKey(text,l)}" aria-pressed="false" aria-label="${t(l==="ur"?"listenUr":"listenEn")}">${icon("speak")}</button>`}
+function sayChip(text,l){if(!text||!TTS)return "";return `<button class="btn sm" data-act="sayTx" data-s="${sayKey(text,l)}" aria-pressed="false">${icon("speak")} ${t(l==="ur"?"listenUr":"listenEn")}</button>`}
+/* Translations under the Arabic: Urdu, English or both (Settings) */
+const tLang=()=>S.hLang||(isUr()?"ur":"both");
+const tLangs=()=>{const m=tLang();return m==="both"?(isUr()?["ur","en"]:["en","ur"]):[m==="en"?"en":"ur"]};
+function trBlock(text,l,cls,say){if(!text)return "";return `<div class="tb ${cls}${l==="ur"?" ur":""}" dir="${dirOf(l)}" lang="${l}"><span class="tx">${esc(text)}</span>${sayBtn(say||text,l)}</div>`}
+const trBlocks=(o,cls)=>tLangs().map(l=>trBlock(o&&o[l],l,cls)).join("");
+function voicesFor(l){try{return TTS.getVoices().filter(v=>v.lang&&v.lang.toLowerCase().replace("_","-").startsWith(l))}catch(e){return []}}
+/* The most natural voice first: Urdu (Pakistan), then Urdu (India); "natural", network and Google voices before others */
+function voiceRank(v,l){const n=String(v.name||"").toLowerCase(),g=String(v.lang||"").toLowerCase().replace("_","-");let s=l==="ur"?(g==="ur-pk"?30:g==="ur-in"?20:10):l==="en"?(/^en-(gb|us|in|pk)$/.test(g)?20:10):10;
+  if(/natural|neural|online|premium|enhanced|wavenet/.test(n))s+=8;if(/google/.test(n))s+=5;if(v.localService===false)s+=2;return s}
+function voiceFor(l){const vs=voicesFor(l);if(!vs.length)return null;const want=l==="ur"?S.vUr:l==="en"?S.vEn:"";if(want){const m=vs.find(v=>v.name===want);if(m)return m}return vs.slice().sort((a,b)=>voiceRank(b,l)-voiceRank(a,l))[0]}
+/* What the voice reads: the sign ﷺ in words, footnote marks left out */
+const sayable=(text,l)=>String(text||"").replace(/ﷺ/g,l==="ur"?" صلی اللہ علیہ وسلم ":l==="en"?" peace be upon him ":" صلى الله عليه وسلم ").replace(/[0-9۰-۹]*؎/g," ").replace(/[«»“”"]/g," ").replace(/\s+/g," ").trim();
 function hasVoice(l){if(!TTS)return false;let v=[];try{v=TTS.getVoices()}catch(e){}if(!v.length)return null;return !!voiceFor(l)}
 function chunks(text){
   const parts=String(text).replace(/([.!?۔؟])\s+/g,"$1\n").split(/\n+/).map(s=>s.trim()).filter(Boolean);
   const out=[];let cur="";
-  for(let p of parts){while(p.length>300){const c=p.lastIndexOf(" ",300)>100?p.lastIndexOf(" ",300):300;out.push(p.slice(0,c));p=p.slice(c).trim()}if(cur&&(cur+" "+p).length>220){out.push(cur);cur=p}else cur=cur?cur+" "+p:p}
+  for(let p of parts){if(p.length>300){if(cur){out.push(cur);cur=""}while(p.length>300){const c=p.lastIndexOf(" ",300)>100?p.lastIndexOf(" ",300):300;out.push(p.slice(0,c));p=p.slice(c).trim()}}if(cur&&(cur+" "+p).length>220){out.push(cur);cur=p}else cur=cur?cur+" "+p:p}
   if(cur)out.push(cur);return out;
 }
 function speak(text,l,onDone){
   if(!TTS){toast(t("noTTS"),5000);return false}
-  if(hasVoice(l)===false&&l!=="en"){toast(t("ttsNoVoice",{l:langName(l)}),8000);return false}
-  ttsStop();const tok=TTS_TOK;const v=voiceFor(l);
-  const list=chunks(text);if(!list.length){if(onDone)setTimeout(onDone,0);return true}
-  list.forEach((p,k)=>{const u=new SpeechSynthesisUtterance(p);u.lang=v?v.lang:l;if(v)u.voice=v;if(k===list.length-1)u.onend=()=>{if(tok===TTS_TOK&&onDone)onDone()};try{TTS.speak(u)}catch(e){}});
+  if(hasVoice(l)===false&&l!=="en"){toast(l==="ur"?t("noUrVoice"):t("ttsNoVoice",{l:langName(l)}),9000);return false}
+  ttsStop();const tok=TTS_TOK;const v=voiceFor(l),rate=clamp(+S.rate||1,0.6,1.5);
+  const list=chunks(sayable(text,l));if(!list.length){if(onDone)setTimeout(onDone,0);return true}
+  list.forEach((p,k)=>{const u=new SpeechSynthesisUtterance(p);u.lang=v?v.lang:l;if(v)u.voice=v;u.rate=rate;if(k===list.length-1)u.onend=()=>{if(tok===TTS_TOK&&onDone)onDone()};try{TTS.speak(u)}catch(e){}});
   return true;
 }
 
@@ -1248,7 +1404,7 @@ async function showTafsir(i,force){
 function vHadithBooks(){
   VIEW.name="hbooks";setBar(t("hadith"),t("hadithSub"),"");setPlayer(false);newTok();
   view(`<p class="lead">${t("hadithIntro")}</p><div class="list">${HORDER.map(b=>{const x=HBOOKS[b],ix=HIDX[b];
-    return `<a class="row" href="#/hadith/${b}"><span class="star ic">${icon("hadith")}</span><span class="main"><span class="t">${esc(bookName(b))}${x.sahih?`<span class="tag">${t("sahihTag")}</span>`:""}</span><span class="s">${num(ix.last)} ${t("ahadith")} · ${ix.urdu?t("langsUEA"):t("langsEA")}</span></span><span class="arn" lang="ar">${esc(x.ar)}</span></a>`}).join("")}</div>`);
+    return `<a class="row" href="#/hadith/${b}"><span class="star ic">${icon("hadith")}</span><span class="main"><span class="t">${esc(bookName(b))}${x.sahih?`<span class="tag">${t("sahihTag")}</span>`:""}</span><span class="s">${num(ix.last)} ${t("ahadith")} · ${ix.urdu?t("langsUEA"):FORTY_UR[b]?t("langsUEAm"):t("langsEA")}</span></span><span class="arn" lang="ar">${esc(x.ar)}</span></a>`}).join("")}</div>`);
 }
 function vHadithBook(b){
   if(!HBOOKS[b])return vHadithBooks();
@@ -1262,21 +1418,20 @@ let HS=null;const HT=new Map();
 async function vHadithSection(b,k){
   if(!HBOOKS[b])return vHadithBooks();
   const sec=HIDX[b].s.find(x=>x[0]===k);
-  VIEW.name="hsec";setBar(sec?sec[1]:bookName(b),bookName(b),"");setPlayer(false);const tok=newTok();
+  VIEW.name="hsec";setBar(sec?sec[1]:bookName(b),bookName(b),"");setPlayer(false);const tok=newTok();VIEW.cleanup=()=>ttsStop();
   view(`${hLangNote(b)}<div id="hlist" class="ayahs"><p class="muted pad">${t("loading")}</p></div><div class="more" id="hmore" hidden><button class="btn" data-act="hmore">${t("showMore")}</button></div>`);
-  const L=hLangFor(b);
+  const eds=hEds(b);
   try{
-    const [tr,ar]=await Promise.all([hget(`editions/${HED[L]}-${b}/sections/${k}`),S.hAr?hget(`editions/ara-${b}/sections/${k}`).catch(()=>null):Promise.resolve(null)]);
+    const [ar,...trs]=await Promise.all([S.hAr?hget(`editions/ara-${b}/sections/${k}`).catch(()=>null):Promise.resolve(null),...eds.map((e,i)=>hget(`editions/${e}-${b}/sections/${k}`).catch(err=>{if(i===0)throw err;return null}))]);
     if(!alive(tok))return;
-    const arMap={};if(ar&&ar.hadiths)ar.hadiths.forEach(h=>{arMap[h.hadithnumber]=h.text});
-    HS={b,k,L,list:(tr.hadiths||[]).filter(h=>(h.text&&h.text.trim())||arMap[h.hadithnumber]),arMap,shown:0};
+    HS={b,k,list:hMerge(eds,trs,ar).filter(x=>x.ar||x.tr.ur||x.tr.en),shown:0};
     $("#hlist").innerHTML="";hMore();
   }catch(e){if(alive(tok))$("#hlist").outerHTML=offlineCard()}
 }
 function hMore(){
   if(!HS)return;const end=Math.min(HS.list.length,HS.shown+20);let html="";
-  for(let i=HS.shown;i<end;i++){const h=HS.list[i];html+=hCard(HS.b,h,HS.arMap[h.hadithnumber],HS.L)}
-  $("#hlist").insertAdjacentHTML("beforeend",html);HS.shown=end;$("#hmore").hidden=HS.shown>=HS.list.length;
+  for(let i=HS.shown;i<end;i++)html+=hCard(HS.b,HS.list[i]);
+  $("#hlist").insertAdjacentHTML("beforeend",html);HS.shown=end;$("#hmore").hidden=HS.shown>=HS.list.length;hFill();
 }
 function gradeCat(s){s=String(s||"").toLowerCase();if(/maudu|mawdu|fabricat/.test(s))return "mawdu";if(/da.?if|daeef|weak|munkar|shadh/.test(s))return "daif";if(/sahih/.test(s))return "sahih";if(/hasan/.test(s))return "hasan";return "other"}
 const GL={sahih:["Sahih","صحیح"],hasan:["Hasan","حسن"],daif:["Da'if (weak)","ضعیف"],mawdu:["Fabricated","موضوع"],other:["Graded","درجہ"]};
@@ -1286,26 +1441,54 @@ function gradesHTML(b,g){
   const main=g.find(x=>/albani/i.test(x.name))||g[0],c=gradeCat(main.grade);
   return `<div class="grades"><span class="grade ${c}">${GL[c][isUr()?1:0]}</span><span class="gnote" dir="ltr" lang="en">${esc(main.grade)} · ${esc(main.name)}</span>${g.length>1?`<details><summary>${t("allGrades",{n:num(g.length)})}</summary><ul dir="ltr" lang="en">${g.map(x=>`<li><b>${esc(x.grade)}</b> · ${esc(x.name)}</li>`).join("")}</ul></details>`:""}</div>`;
 }
-function hCard(b,h,arText,L){
-  const n=h.hadithnumber,bm=isBm("h",b,n);HT.set(b+":"+n,{text:h.text||"",ar:arText||"",L});
+/* The translations of one hadith; Urdu that comes from another book, or English for a hadith without Urdu, is filled in by hFill */
+function hTr(b,x){
+  const L=hLangs(),out=[],wait=w=>`<div class="hfill" data-w="${w}" data-b="${b}" data-n="${x.n}"><p class="muted">${t("loading")}</p></div>`;
+  L.forEach(l=>{
+    if(l==="en"){if(x.tr.en)out.push(trBlock(x.tr.en,"en","h-tr"));return}
+    if(x.tr.ur){out.push(trBlock(x.tr.ur,"ur","h-tr")+(x.urFrom?hFromChip(x.urFrom):""));return}
+    if(FORTY.has(b)&&FORTY_UR[b]&&FORTY_UR[b][x.n]){out.push(wait("ur"));return}
+    out.push(`<p class="note">${t("noUrThis")}</p>`);
+    if(!L.includes("en"))out.push(x.tr.en?trBlock(x.tr.en,"en","h-tr"):wait("en"));
+  });
+  if(!out.length&&!x.ar)out.push(`<p class="muted">${t("noTrText")}</p>`);
+  return out.join("");
+}
+const hFromChip=m=>`<a class="chip src" href="#/hadith/${m[0]}/n/${m[1]}">${t(m[2]?"urFromPart":"urFrom",{b:esc(bookName(m[0])),n:num(m[1])})}</a>`;
+function hFill(){
+  const els=$$(".hfill:not([data-on])");els.forEach(el=>el.setAttribute("data-on","1"));
+  const tok=TOK;let i=0;const next=()=>{const el=els[i++];return el?fillOne(el,tok).then(next,next):Promise.resolve()};
+  return Promise.all([next(),next(),next(),next()]);
+}
+async function fillOne(el,tok){
+  const b=el.dataset.b,n=+el.dataset.n,x=HT.get(b+":"+el.dataset.n);
+  try{
+    if(el.dataset.w==="ur"){const m=FORTY_UR[b][n];const j=await hget(`editions/urd-${m[0]}/${m[1]}`);if(tok!==TOK)return;
+      const tx=String((j.hadiths&&j.hadiths[0]&&j.hadiths[0].text)||"").trim();if(x&&tx){x.tr.ur=tx;x.urFrom=m}
+      el.outerHTML=tx?trBlock(tx,"ur","h-tr")+hFromChip(m):`<p class="note">${t("noUrThis")}</p>`;}
+    else{const j=await hget(`editions/eng-${b}/${el.dataset.n}`);if(tok!==TOK)return;
+      const tx=String((j.hadiths&&j.hadiths[0]&&j.hadiths[0].text)||"").trim();if(x&&tx)x.tr.en=tx;el.outerHTML=tx?trBlock(tx,"en","h-tr"):"";}
+  }catch(e){if(tok===TOK)el.innerHTML=`<p class="muted">${t("offlineShort")}</p>`}
+}
+function hCard(b,x){
+  const n=x.n,bm=isBm("h",b,n);HT.set(b+":"+n,x);
   return `<article class="card hcard" id="h${String(n).replace(".","_")}">
    <div class="top"><span class="vk">${esc(bookName(b))} · ${num(n)}</span><span class="acts">
-    <button class="ib" data-act="hsay" data-b="${b}" data-n="${n}" aria-label="${t("listen")}"${TTS&&h.text?"":" hidden"}>${icon("speak")}</button>
     <button class="ib${bm?" on":""}" data-act="hbm" data-b="${b}" data-n="${n}" aria-label="${t("bookmark")}" aria-pressed="${bm}">${icon(bm?"bmOn":"bm")}</button>
     <button class="ib" data-act="hshare" data-b="${b}" data-n="${n}" aria-label="${t("share")}">${icon("share")}</button></span></div>
-   ${arText&&S.hAr?`<div class="h-ar" lang="ar">${esc(arText)}</div>`:""}
-   ${h.text?`<div class="h-tr${L==="ur"?" ur":""}" dir="${dirOf(L)}" lang="${L}">${esc(h.text)}</div>`:`<p class="muted">${t("noTrText")}</p>`}
-   ${gradesHTML(b,h.grades)}
+   ${x.ar&&S.hAr?`<div class="h-ar" lang="ar">${esc(x.ar)}</div>`:""}
+   ${hTr(b,x)}
+   ${gradesHTML(b,x.grades)}
   </article>`;
 }
 async function vHadithOne(b,n){
   if(!HBOOKS[b])return vHadithBooks();
   const last=HIDX[b].last;n=clamp(n,1,last);
-  VIEW.name="hone";setBar(bookName(b),t("hadithN",{n:num(n)}),"");setPlayer(false);const tok=newTok();
+  VIEW.name="hone";setBar(bookName(b),t("hadithN",{n:num(n)}),"");setPlayer(false);const tok=newTok();VIEW.cleanup=()=>ttsStop();
   view(`${hLangNote(b)}<div id="hone"><p class="muted pad">${t("loading")}</p></div><div class="hnav">${n>1?`<a class="btn" href="#/hadith/${b}/n/${n-1}">${icon("prev","svg flip")} ${t("prevHadith")}</a>`:""}${n<last?`<a class="btn" href="#/hadith/${b}/n/${n+1}">${t("nextHadith")} ${icon("next","svg flip")}</a>`:""}</div>`);
   try{
-    const x=await hadithOne(b,n);if(!alive(tok))return;
-    $("#hone").innerHTML=hCard(b,x.h,x.ar,x.L)+(x.secK?`<a class="btn wide" style="margin-top:12px" href="#/hadith/${b}/${x.secK}">${t("openChapter")}: <span dir="ltr" lang="en">${esc(x.secName)}</span></a>`:"");
+    const r=await hadithOne(b,n);if(!alive(tok))return;
+    $("#hone").innerHTML=hCard(b,r.x)+(r.secK?`<a class="btn wide" style="margin-top:12px" href="#/hadith/${b}/${r.secK}">${t("openChapter")}: <span dir="ltr" lang="en">${esc(r.secName)}</span></a>`:"");hFill();
   }catch(e){if(alive(tok))$("#hone").innerHTML=e&&e.status===404?`<div class="card empty"><p>${t("hadithNotFound")}</p></div>`:offlineCard()}
 }
 
@@ -1353,7 +1536,7 @@ function lessonItems(n){
   return out;
 }
 let VOICES_READY=false;
-if(TTS){try{TTS.getVoices();TTS.addEventListener("voiceschanged",()=>{VOICES_READY=true;if(VIEW.name==="qaida"||VIEW.name==="qlesson")voiceBanner()})}catch(e){}}
+if(TTS){try{TTS.getVoices();TTS.addEventListener("voiceschanged",()=>{VOICES_READY=true;if(VIEW.name==="qaida"||VIEW.name==="qlesson")voiceBanner();if(VIEW.name==="settings"){const v=$("#voiceSet");if(v)v.innerHTML=voiceSetHTML()}})}catch(e){}}
 function hasArabicVoice(){if(!TTS)return false;const v=TTS.getVoices();if(!v.length)return null;return v.some(x=>x.lang&&x.lang.toLowerCase().startsWith("ar"))}
 function voiceBanner(){const el=$("#voiceNote");if(!el)return;const h=hasArabicVoice();el.innerHTML=!TTS?`<div class="card notice">${t("noTTS")}</div>`:h===false?`<div class="card notice">${t("noArabicVoice")}</div>`:""}
 function vQaida(){
@@ -1429,10 +1612,10 @@ async function makeQ(kind){
   }
   if(kind==="hadith"){
     const books=["bukhari","muslim","abudawud","tirmidhi","nasai","ibnmajah","malik"];
-    const b=pick(books);const n=1+rnd(HIDX[b].last);const x=await hadithOne(b,n);
-    if(!x.h.text||x.h.text.length<40)throw new Error("short");
+    const b=pick(books);const n=1+rnd(HIDX[b].last);const r=await hadithOne(b,n),m=hMain(r.x);
+    if(m.l==="ar"||!m.text||m.text.length<40)throw new Error("short");
     const opts=shuffle([b].concat(shuffle(books.filter(y=>y!==b)).slice(0,3)));
-    return {prompt:t("qBook"),body:`<div class="qbody"><div class="h-tr${x.L==="ur"?" ur":""}" dir="${dirOf(x.L)}" lang="${x.L}">${esc(clip(x.h.text,320))}</div></div>`,opts:opts.map(bookName),ans:opts.indexOf(b),link:`#/hadith/${b}/n/${x.h.hadithnumber}`};
+    return {prompt:t("qBook"),body:`<div class="qbody"><div class="h-tr${m.l==="ur"?" ur":""}" dir="${dirOf(m.l)}" lang="${m.l}">${esc(clip(m.text,320))}</div></div>`,opts:opts.map(bookName),ans:opts.indexOf(b),link:`#/hadith/${b}/n/${r.x.n}`};
   }
   throw new Error("kind");
 }
@@ -1477,6 +1660,12 @@ function qzFinish(){
 const ORD_EN=["first","second","third","fourth","fifth","sixth"];
 const trOf=o=>isUr()?o.ur:o.en;
 const trCls=()=>isUr()?" ur":"";
+const nameMeans=x=>tLangs().map(l=>`<span class="nmn${l==="ur"?" ur":""}" dir="${dirOf(l)}" lang="${l}">${esc(l==="ur"?x[4]:x[3])}</span>`).join("");
+/* A paragraph of the app's own text, with its Urdu version under it when both languages are shown in the English app */
+function uiText(key,cls){const a=`<p class="${cls}">${t(key)}</p>`;if(isUr()||tLang()!=="both")return a;const u=STR.ur[key];return u?a+`<p class="${cls} ur2" dir="rtl" lang="ur">${u}</p>`:a}
+/* A bullet list in the translations shown, with a read-aloud button per language */
+function biList(o){const L=tLangs(),n=Math.max(0,...L.map(l=>(o[l]||[]).length));
+  return `<ul class="bullets">${range(0,n-1).map(i=>`<li>${L.map((l,j)=>o[l]&&o[l][i]?`<span class="li${j?" tr2":""}${l==="ur"?" ur":""}" dir="${dirOf(l)}" lang="${l}">${esc(o[l][i])}</span>`:"").join("")}</li>`).join("")}</ul><div class="rfoot">${L.map(l=>sayChip((o[l]||[]).map(x=>/[.!?۔؟]$/.test(x)?x:x+(l==="ur"?"۔":".")).join(" "),l)).join("")}</div>`}
 const trDir=()=>isUr()?"rtl":"ltr";
 const kName=k=>isUr()?k.nu:k.ne;
 const nameMean=x=>isUr()?x[4]:x[3];
@@ -1493,7 +1682,7 @@ function recHTML(key){
     return `<div class="rec"><div class="r-ar q" lang="ar">${vs.map((v,i)=>`${esc(v)} <span class="vend">${vend(i+1)}</span>`).join(" ")}</div><div class="rfoot">${clipBtn("q:"+s)}<a class="btn sm" href="#/s/${s}">${icon("quran")} ${t("openInQuran")}</a></div></div>`;
   }
   const r=SALAH.rec[key];if(!r)return "";
-  return `<div class="rec" id="rec-${key}"><div class="r-ar" lang="ar">${esc(r.ar)}</div>${r.x?`<span class="rx">${t("times",{n:num(r.x)})}</span>`:""}<div class="ktl" dir="ltr" lang="en">${esc(r.tl)}</div><div class="r-tr${trCls()}" dir="${trDir()}">${esc(trOf(r))}</div><div class="rfoot">${r.au?clipBtn("r:"+key):""}${srcChip(r.src)}</div></div>`;
+  return `<div class="rec" id="rec-${key}"><div class="r-ar" lang="ar">${esc(r.ar)}</div>${r.x?`<span class="rx">${t("times",{n:num(r.x)})}</span>`:""}<div class="ktl" dir="ltr" lang="en">${esc(r.tl)}</div>${trBlocks(r,"r-tr")}<div class="rfoot">${r.au?clipBtn("r:"+key):""}${srcChip(r.src)}</div></div>`;
 }
 /* Recorded recitation on these pages: always a human reciter, never the phone's voice.
    Hisn al-Muslim recordings (hisnmuslim.com), the Quran reciter chosen in Settings, and Quran.com word recitation for the Names. */
@@ -1510,6 +1699,7 @@ async function clipParts(key){
   if(kind==="k"){const k=KALIMAS[+id-1];return k&&k.au?[hmPart(k.au)]:[]}
   if(kind==="r"){const r=SALAH.rec[id];if(!r||!r.au)return [];if(r.au.hm)return [hmPart(r.au)];const d=await aq(`/ayah/${r.au.ayah}/${S.qari}`);return d&&d.audio?[audioPart(d)]:[]}
   if(kind==="q"){const d=await aq(`/surah/${+id}/${S.qari}`);return ((d&&d.ayahs)||[]).filter(a=>a.audio).map(audioPart)}
+  if(kind==="d")return DUA_ADHAN.au?[hmPart(DUA_ADHAN.au)]:[];
   if(kind==="n"){
     const ref=NAME_AU[id];if(!ref)return [];
     const want=wskel(id==="0"?"اللَّهُ":NAMES[+id-1][1]);
@@ -1565,22 +1755,22 @@ function vKalimas(n){
    ${KALIMAS.map(k=>`<section class="card kcard" id="k${k.n}"><div class="khead"><span class="star">${num(k.n)}</span><div class="main"><span class="o">${esc(isUr()?k.ou:k.oe)}</span><span class="t">${esc(kName(k))}</span><span class="s">${esc(isUr()?k.su:k.se)}</span></div><button class="ib" data-act="kShare" data-k="${k.n}" aria-label="${t("share")}">${icon("share")}</button></div>
      <div class="k-ar" lang="ar">${esc(k.ar)}</div>
      <div class="ktl" dir="ltr" lang="en">${esc(k.tl)}</div>
-     <div class="k-tr${trCls()}" dir="${trDir()}">${esc(trOf(k))}</div>
-     <div class="rfoot">${k.au?clipBtn("k:"+k.n):""}<button class="btn sm" data-act="kSayTr" data-k="${k.n}">${icon("speak")} ${t("readTr")}</button></div></section>`).join("")}
+     ${trBlocks(k,"k-tr")}
+     ${k.au?`<div class="rfoot">${clipBtn("k:"+k.n)}</div>`:""}</section>`).join("")}
    <a class="btn pri wide" href="#/quiz/salah">${icon("quiz")} ${t("testYourself")}</a>`);
   if(n>=1&&n<=6){const el=$("#k"+n);if(el){el.classList.add("on");setTimeout(()=>{try{el.scrollIntoView({block:"start"})}catch(e){}},40)}}
 }
 function vSalah(sec){
   VIEW.name="salah";setBar(t("salah"),t("hanafi"),"");setPlayer(false);newTok();VIEW.cleanup=leaveBasics;
-  const L=isUr()?"ur":"en",kind={s:"sunnah",g:"sunnah",f:"fard",n:"nafl",w:"witr"};
+  const kind={s:"sunnah",g:"sunnah",f:"fard",n:"nafl",w:"witr"},both=tLang()==="both";
   view(`<nav class="jump" aria-label="${t("salah")}">${[["steps","stepsShort"],["rakat","rakatShort"],["witr","witrShort"],["women","womenShort"]].map(([id,k])=>`<button class="chip" data-act="jump" data-id="sec-${id}">${t(k)}</button>`).join("")}</nav>
-   <section class="card"><p class="sdesc">${t("salahIntro")}</p></section>
-   <section class="card sec"><h2 class="h2">${t("condTitle")}</h2><ul class="bullets">${SALAH.cond[L].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></section>
+   <section class="card">${uiText("salahIntro","sdesc")}</section>
+   <section class="card sec"><h2 class="h2">${t("condTitle")}</h2>${biList(SALAH.cond)}</section>
    <h2 class="h2" id="sec-steps">${t("stepsTitle")}</h2>
-   ${SALAH.steps.map((s,i)=>`<section class="card scard" id="step${i+1}"><div class="khead"><span class="star">${num(i+1)}</span><div class="main"><span class="t">${esc(isUr()?s.ur:s.en)}</span></div></div><p class="sdesc">${esc(isUr()?s.du:s.de)}</p>${(s.r||[]).map(recHTML).join("")}${s.ne?`<div class="snote">${esc(isUr()?s.nu:s.ne)}</div>`:""}</section>`).join("")}
-   <section class="card sec" id="sec-rakat"><h2 class="h2">${t("rakatTitle")}</h2>${SALAH.prayers.map(([p,parts])=>`<div class="prow"><div class="pt">${t("p_"+p)}<span>${t("totalRakat",{n:num(parts.reduce((a,x)=>a+x[1],0))})}</span></div><div class="rk">${parts.map(([k,c])=>`<span class="${k==="f"?"f":k==="w"?"wt":""}">${num(c)} ${t(kind[k])}${k==="g"?"*":""}</span>`).join("")}</div></div>`).join("")}<p class="note">${t("rakatNote")}</p></section>
-   <section class="card sec" id="sec-witr"><h2 class="h2">${t("witrTitle")}</h2><p class="sdesc">${esc(SALAH.witr[L])}</p>${recHTML("qunoot")}</section>
-   <section class="card sec" id="sec-women"><h2 class="h2">${t("womenTitle")}</h2><ul class="bullets">${SALAH.women[L].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></section>
+   ${SALAH.steps.map((s,i)=>`<section class="card scard" id="step${i+1}"><div class="khead"><span class="star">${num(i+1)}</span><div class="main"><span class="t">${esc(isUr()?s.ur:s.en)}</span>${both?`<span class="s${isUr()?"":" ur"}" dir="${isUr()?"ltr":"rtl"}" lang="${isUr()?"en":"ur"}">${esc(isUr()?s.en:s.ur)}</span>`:""}</div></div>${trBlocks({en:s.de,ur:s.du},"sdesc")}${(s.r||[]).map(recHTML).join("")}${s.ne?`<div class="snote">${trBlocks({en:s.ne,ur:s.nu},"sn")}</div>`:""}</section>`).join("")}
+   <section class="card sec" id="sec-rakat"><h2 class="h2">${t("rakatTitle")}</h2>${SALAH.prayers.map(([p,parts])=>`<div class="prow"><div class="pt">${t("p_"+p)}<span>${t("totalRakat",{n:num(parts.reduce((a,x)=>a+x[1],0))})}</span></div><div class="rk">${parts.map(([k,c])=>`<span class="${k==="f"?"f":k==="w"?"wt":""}">${num(c)} ${t(kind[k])}${k==="g"?"*":""}</span>`).join("")}</div></div>`).join("")}${uiText("rakatNote","note")}</section>
+   <section class="card sec" id="sec-witr"><h2 class="h2">${t("witrTitle")}</h2>${trBlocks(SALAH.witr,"sdesc")}${recHTML("qunoot")}</section>
+   <section class="card sec" id="sec-women"><h2 class="h2">${t("womenTitle")}</h2>${biList(SALAH.women)}</section>
    <a class="btn pri wide" href="#/quiz/salah">${icon("quiz")} ${t("testYourself")}</a>`);
   if(sec){const el=$("#sec-"+sec);if(el)setTimeout(()=>{try{el.scrollIntoView({block:"start"})}catch(e){}},40)}
 }
@@ -1589,7 +1779,7 @@ function vNames(n){
   view(`<section class="card nhead"><span class="nallah" lang="ar">اللَّهُ</span><b>Allah</b><span class="muted">${t("allahName")}</span><div class="rfoot" style="justify-content:center;margin-top:8px">${clipBtn("n:0")}${quranChip(NAME_AU["0"])}</div></section>
    <section class="card"><div class="eyebrow">${t("hadith")}</div><div class="h-ar" lang="ar">${esc(HADITH99.ar)}</div><div class="h-tr${trCls()}" dir="${trDir()}">${esc(trOf(HADITH99))}</div><div class="cardfoot">${srcChip(HADITH99.src)}</div></section>
    <input type="search" data-live="filter" placeholder="${t("namesFilter")}" aria-label="${t("namesFilter")}" autocomplete="off">
-   <div class="ngrid" id="list">${NAMES.map(x=>`<button class="nm" data-act="nOpen" data-n="${x[0]}" data-f="${esc(plain(x[0]+" "+x[2]+" "+x[3]+" "+x[4]+" "+x[1]))}"><span class="no">${num(x[0])}</span><span class="na${plain(x[1]).replace(/\s/g,"").length>8?" long":""}" lang="ar">${esc(x[1])}</span><span class="nt">${esc(x[2])}</span><span class="nmn${trCls()}" dir="${trDir()}">${esc(nameMean(x))}</span></button>`).join("")}</div>
+   <div class="ngrid" id="list">${NAMES.map(x=>`<button class="nm" data-act="nOpen" data-n="${x[0]}" data-f="${esc(plain(x[0]+" "+x[2]+" "+x[3]+" "+x[4]+" "+x[1]))}"><span class="no">${num(x[0])}</span><span class="na${plain(x[1]).replace(/\s/g,"").length>8?" long":""}" lang="ar">${esc(x[1])}</span><span class="nt">${esc(x[2])}</span>${nameMeans(x)}</button>`).join("")}</div>
    <a class="btn pri wide" href="#/quiz/names">${icon("quiz")} ${t("testYourself")}</a>`);
   if(n>=1&&n<=NAMES.length)openName(n);
 }
@@ -1598,7 +1788,7 @@ function openName(n){
   const x=NAMES[n-1];if(!x)return;clipStop();
   const p=n===1?NAMES.length:n-1,q=n===NAMES.length?1:n+1;
   openSheet(`<div class="eyebrow" style="text-align:center">${t("nameN",{n:num(n)})}</div><div class="nbig" lang="ar">${esc(x[1])}</div><div class="ntl" dir="ltr">${esc(x[2])}</div>
-   <div class="nmean${trCls()}" dir="${trDir()}">${esc(nameMean(x))}</div><div class="nmean2${isUr()?"":" ur"}" dir="${isUr()?"ltr":"rtl"}" lang="${isUr()?"en":"ur"}">${esc(isUr()?x[3]:x[4])}</div>${isUr()?"":`<p class="nex">${esc(x[5])}</p>`}
+   <div class="nmean${trCls()}" dir="${trDir()}">${esc(nameMean(x))}</div><div class="nmean2${isUr()?"":" ur"}" dir="${isUr()?"ltr":"rtl"}" lang="${isUr()?"en":"ur"}">${esc(isUr()?x[3]:x[4])}</div>${tLangs().map(l=>{const tx=l==="ur"?NAME_UR[n-1]:x[5];return trBlock(tx,l,"nex",(l==="ur"?x[4]+"۔ ":x[3]+". ")+tx)}).join("")}
    <div class="cardfoot" style="justify-content:center;align-items:center">${NAME_AU[n]?clipBtn("n:"+n)+quranChip(NAME_AU[n]):""}<button class="btn sm" data-act="nShare" data-n="${n}">${icon("share")} ${t("share")}</button></div>
    <div class="hnav"><button class="btn" data-act="nOpen" data-n="${p}">${icon("prev","svg flip")} ${t("prevN")}</button><button class="btn" data-act="nOpen" data-n="${q}">${t("nextN")} ${icon("next","svg flip")}</button></div>`);
 }
@@ -1613,6 +1803,202 @@ function kalimaFrom(q){
   for(let i=0;i<K_ORD.length;i++)if(K_ORD[i].some(o=>w.includes(o)))return i+1;
   for(let i=0;i<K_NAME.length;i++)if(K_NAME[i].test(q))return i+1;
   return -1;
+}
+
+/* ======================================================================
+   Prayer times and reminders
+   Times are worked out on the phone (Adhan JavaScript, bundled above) for the chosen place, with the method used in its region.
+   A reminder shows at each prayer time while the app is open, and a notification when it is in the background.
+   ====================================================================== */
+const PT_KEYS=["fajr","sunrise","dhuhr","asr","maghrib","isha"],PRAYERS5=["fajr","dhuhr","asr","maghrib","isha"];
+const METHODS=["Karachi","MuslimWorldLeague","UmmAlQura","Egyptian","Dubai","Qatar","Kuwait","MoonsightingCommittee","NorthAmerica","Singapore","Turkey","Tehran"];
+const METHOD_BY_CC={PK:"Karachi",IN:"Karachi",BD:"Karachi",AF:"Karachi",NP:"Karachi",LK:"Karachi",SA:"UmmAlQura",YE:"UmmAlQura",AE:"Dubai",QA:"Qatar",KW:"Kuwait",EG:"Egyptian",SD:"Egyptian",LY:"Egyptian",SY:"Egyptian",LB:"Egyptian",JO:"Egyptian",PS:"Egyptian",TR:"Turkey",IR:"Tehran",SG:"Singapore",MY:"Singapore",ID:"Singapore",BN:"Singapore",US:"NorthAmerica",CA:"NorthAmerica",GB:"MoonsightingCommittee",IE:"MoonsightingCommittee"};
+/* Where the official times use the earlier Asr; everywhere else this Hanafi app starts with the Hanafi Asr (it can be changed) */
+const STD_ASR=new Set("SA YE AE QA KW BH OM EG SD LY SY LB JO PS IQ TR IR SG MY ID BN MA DZ TN".split(" "));
+let CITIES=null;
+function cities(){if(!CITIES)CITIES=CITY_SRC.split("~").map(r=>{const [nm,lat,lng,cc,tz]=r.split("|");const [en,ur]=nm.split(",");return {en,ur:ur||"",lat:+lat,lng:+lng,cc,tz:CITY_TZ[+tz]}});return CITIES}
+function distKm(a,b,c,d){const r=Math.PI/180,x=Math.sin((c-a)*r/2),y=Math.sin((d-b)*r/2);return 12742*Math.asin(Math.sqrt(x*x+Math.cos(a*r)*Math.cos(c*r)*y*y))}
+function nearestCity(lat,lng){let best=null,bd=1e9;cities().forEach(c=>{const d=distKm(lat,lng,c.lat,c.lng);if(d<bd){bd=d;best=c}});return best?{c:best,d:bd}:null}
+const cityName=c=>isUr()&&c.ur?c.ur:c.en;
+const _cn={};
+function countryName(cc){if(!cc)return "";const k=(isUr()?"ur":"en")+cc;if(_cn[k])return _cn[k];let n=cc;try{n=new Intl.DisplayNames([isUr()?"ur":"en"],{type:"region"}).of(cc)||cc}catch(e){}return(_cn[k]=n)}
+const devTz=()=>{try{return Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch(e){return ""}};
+function locName(){
+  const L=S.pt.loc;if(!L)return "";const c=isUr()&&L.cityUr?L.cityUr:L.city;
+  if(L.src==="gps")return c?t("nearC",{c}):t("yourLoc");
+  return c+(L.cc?(isUr()?"، ":", ")+countryName(L.cc):"");
+}
+function ptMethod(){const m=S.pt.method;if(m&&m!=="auto"&&METHODS.includes(m))return m;const cc=S.pt.loc&&S.pt.loc.cc;return METHOD_BY_CC[cc]||"MuslimWorldLeague"}
+function ptHanafi(){const a=S.pt.asr;if(a==="hanafi")return true;if(a==="shafi")return false;const cc=S.pt.loc&&S.pt.loc.cc;return !(cc&&STD_ASR.has(cc))}
+function ymdIn(tz,d){try{const p=new Intl.DateTimeFormat("en-CA",{timeZone:tz,year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(d);const g=k=>+p.find(x=>x.type===k).value;return [g("year"),g("month"),g("day")]}catch(e){return [d.getFullYear(),d.getMonth()+1,d.getDate()]}}
+function hijriMonth(d,tz){try{return +new Intl.DateTimeFormat("en-u-ca-islamic-umalqura-nu-latn",{timeZone:tz,month:"numeric"}).format(d)}catch(e){return 0}}
+const PTC=new Map();
+/* Times for a day of the place's own calendar: 0 today, 1 tomorrow, -1 yesterday */
+function ptDay(off){
+  const L=S.pt.loc;if(!L||typeof Adhan==="undefined")return null;
+  const [y,m,d]=ymdIn(L.tz,new Date());const day=new Date(y,m-1,d+(off||0));
+  const meth=ptMethod(),han=ptHanafi(),adj=S.pt.adj||{};
+  const key=[L.lat,L.lng,L.tz,meth,han,PT_KEYS.map(k=>+adj[k]||0).join(","),day.getFullYear(),day.getMonth(),day.getDate()].join("|");
+  if(PTC.has(key))return PTC.get(key);
+  let out=null;
+  try{
+    const A=Adhan,coords=new A.Coordinates(L.lat,L.lng),p=A.CalculationMethod[meth]();
+    p.madhab=han?A.Madhab.Hanafi:A.Madhab.Shafi;
+    if(meth!=="MoonsightingCommittee")p.highLatitudeRule=A.HighLatitudeRule.recommended(coords);
+    const a={};PT_KEYS.forEach(k=>{a[k]=clamp(Math.round(+adj[k]||0),-60,60)});
+    if(meth==="UmmAlQura"&&hijriMonth(new Date(Date.UTC(day.getFullYear(),day.getMonth(),day.getDate(),12)),L.tz)===9)a.isha+=30;
+    p.adjustments=a;
+    const pt=new A.PrayerTimes(coords,day,p);out={day,times:{}};
+    PT_KEYS.forEach(k=>{const v=pt[k];out.times[k]=v&&!isNaN(v.getTime())?v:null});
+  }catch(e){out=null}
+  if(PTC.size>40)PTC.clear();PTC.set(key,out);return out;
+}
+function ptNext(now){now=now||Date.now();for(let off=0;off<=1;off++){const d=ptDay(off);if(!d)return null;for(const k of PRAYERS5){const at=d.times[k];if(at&&at.getTime()>now)return {k,at}}}return null}
+/* The prayer whose time it is now (none between sunrise and Zuhr) */
+function ptCurrent(now){now=now||Date.now();const d=ptDay(0);if(!d)return "";let cur="";PT_KEYS.forEach(k=>{const at=d.times[k];if(at&&at.getTime()<=now)cur=k});return cur==="sunrise"?"":cur}
+function isFri(at){try{return new Intl.DateTimeFormat("en-US",{timeZone:S.pt.loc.tz,weekday:"short"}).format(at)==="Fri"}catch(e){return at.getDay()===5}}
+const ptName=(k,at)=>k==="dhuhr"?(at&&isFri(at)?t("p_jumuah"):t("p_zuhr")):t("p_"+k);
+function fmtTime(d){
+  if(!d)return "–";const tz=S.pt.loc&&S.pt.loc.tz;
+  try{
+    if(isUr()){const p=new Intl.DateTimeFormat("en-GB",{timeZone:tz,hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(d);const h=+p.find(x=>x.type==="hour").value,m=p.find(x=>x.type==="minute").value;
+      return num((h%12||12)+":"+m)+" "+(h<4?"رات":h<12?"صبح":h<15?"دوپہر":h<17?"سہ پہر":h<19?"شام":"رات")}
+    return new Intl.DateTimeFormat("en-US",{timeZone:tz,hour:"numeric",minute:"2-digit",hour12:true}).format(d);
+  }catch(e){return d.toLocaleTimeString()}
+}
+function fmtLeft(ms){const m=Math.max(1,Math.ceil(ms/60000)),h=Math.floor(m/60),mm=m%60;return h?t("hm",{h:num(h),m:num(mm)}):t("mOnly",{m:num(mm)})}
+function fmtToday(){try{return num(new Intl.DateTimeFormat(isUr()?"ur":"en-GB",{timeZone:S.pt.loc.tz,weekday:"long",day:"numeric",month:"long"}).format(new Date()))}catch(e){return ""}}
+function hijriIn(){try{return num(new Intl.DateTimeFormat((isUr()?"ur":"en")+"-u-ca-islamic-umalqura",{timeZone:S.pt.loc.tz,day:"numeric",month:"long",year:"numeric"}).format(new Date()))}catch(e){return hijri()}}
+const methodLine=()=>t("m_"+ptMethod())+" · "+t("asrLbl")+": "+(ptHanafi()?t("asrHanafi"):t("asrStd"));
+
+/* Choosing the place */
+function ptGps(){
+  const msg=(s,err)=>{const el=$("#ptMsg");if(el){el.textContent=s;el.className="status"+(err?" err":"")}else if(s)toast(s)};
+  if(!navigator.geolocation){msg(t("gpsFail"),true);return}
+  msg(t("locating"));
+  navigator.geolocation.getCurrentPosition(p=>{
+    const lat=+p.coords.latitude.toFixed(3),lng=+p.coords.longitude.toFixed(3),nc=nearestCity(lat,lng);
+    const near=nc&&nc.d<=60?nc.c:null;
+    S.pt.loc={src:"gps",lat,lng,tz:devTz()||(nc?nc.c.tz:"UTC"),cc:nc&&nc.d<=500?nc.c.cc:"",city:near?near.en:"",cityUr:near?near.ur:""};
+    ptChanged();go("#/prayer");
+  },e=>{msg(e&&e.code===1?t("gpsDenied"):t("gpsFail"),true)},{enableHighAccuracy:false,timeout:20000,maximumAge:6*3600e3});
+}
+function ptSetCity(i){const c=cities()[i];if(!c)return;S.pt.loc={src:"city",lat:c.lat,lng:c.lng,tz:c.tz,cc:c.cc,city:c.en,cityUr:c.ur};ptChanged();go("#/prayer")}
+function ptChanged(){PTC.clear();save();ptTick(true)}
+const POPULAR=["Makkah","Madinah","Karachi","Lahore","Islamabad","Rawalpindi","Faisalabad","Peshawar","Multan","London","Birmingham","Dubai","Lisbon","Delhi","Riyadh","Jeddah"];
+function cityResults(q){
+  const Q=plain(asciiDigits(q||"")).trim(),all=cities();let res=[];
+  if(Q){all.forEach((c,i)=>{const a=plain(c.en),u=plain(c.ur);const s=a.startsWith(Q)||u.startsWith(Q)?2:a.includes(Q)||u.includes(Q)||plain(countryName(c.cc)).includes(Q)?1:0;if(s)res.push({i,s})});res.sort((x,y)=>y.s-x.s||x.i-y.i)}
+  else{const tz=devTz(),seen=new Set();all.forEach((c,i)=>{if(tz&&c.tz===tz&&res.length<6){res.push({i});seen.add(i)}});POPULAR.forEach(n=>{const i=all.findIndex(c=>c.en===n);if(i>=0&&!seen.has(i)){res.push({i});seen.add(i)}})}
+  return res.slice(0,14).map(({i})=>{const c=all[i];return `<button class="row" data-act="ptCity" data-i="${i}"><span class="star ic">${icon("pin")}</span><span class="main"><span class="t">${esc(cityName(c))}</span><span class="s">${esc(countryName(c.cc))}</span></span><span class="chev">${icon("next","svg flip")}</span></button>`}).join("")||`<p class="muted pad">${t("noCity")}</p>`;
+}
+function ptPlaceHTML(){
+  return `<section class="card set"><h2 class="h2">${t("setLoc")}</h2><p class="muted" style="margin:0">${t("setLocHint")}</p>
+   <button class="btn pri wide" data-act="ptGps">${icon("pin")} ${t("useGps")}</button><div class="status" id="ptMsg" role="status"></div>
+   <label class="fld"><span>${t("chooseCity")}</span><input type="search" id="citySearch" data-live="city" placeholder="${t("cityPh")}" autocomplete="off" enterkeyhint="search"></label></section>
+   <div class="list" id="cityList">${cityResults("")}</div>`;
+}
+
+/* The prayer times page */
+const ptSw=(k,on,lbl)=>`<button class="sw${on?" on":""}" role="switch" aria-checked="${!!on}" data-act="ptSw" data-k="${k}" aria-label="${esc(lbl)}"><i></i></button>`;
+const notifPerm=()=>{try{return "Notification" in window?Notification.permission:"unsupported"}catch(e){return "unsupported"}};
+function ptNextHTML(){const n=ptNext();if(!n)return "";return `<div class="eyebrow">${t("nextPrayer")}</div><div class="np"><b>${esc(ptName(n.k,n.at))}</b><span class="npt">${esc(fmtTime(n.at))}</span></div><div class="npl" data-ptleft>${esc(t("inT",{t:fmtLeft(n.at-Date.now())}))}</div>`}
+function ptRowsHTML(){
+  const d=ptDay(0);if(!d)return "";const n=ptNext(),cur=ptCurrent();
+  return PT_KEYS.map(k=>{const at=d.times[k],five=k!=="sunrise",on=!!S.pt.on[k],isNext=n&&n.k===k&&at&&n.at.getTime()===at.getTime();
+    return `<div class="ptrow${isNext?" next":""}${k===cur?" cur":""}"><span class="pn">${esc(ptName(k,at))}</span><bdi class="ptm">${esc(fmtTime(at))}</bdi>${five?`<button class="ib bell${on?" on":""}" data-act="ptOn" data-k="${k}" aria-pressed="${on}" aria-label="${esc(t("adhanFor",{p:ptName(k,at)}))}">${icon(on?"bell":"bellOff")}</button>`:`<span class="ib" aria-hidden="true"></span>`}</div>`}).join("");
+}
+function methodOptions(){const auto=METHOD_BY_CC[S.pt.loc&&S.pt.loc.cc]||"MuslimWorldLeague";return `<option value="auto"${S.pt.method==="auto"?" selected":""}>${esc(t("mAuto",{m:t("m_"+auto)}))}</option>`+METHODS.map(m=>`<option value="${m}"${S.pt.method===m?" selected":""}>${esc(t("m_"+m))}</option>`).join("")}
+function adjHTML(){return `<div class="adjgrid">${PT_KEYS.map(k=>`<label for="adj-${k}">${esc(ptName(k))}</label><input id="adj-${k}" type="number" inputmode="numeric" min="-60" max="60" step="1" value="${+S.pt.adj[k]||0}" data-ptadj="${k}">`).join("")}</div>`}
+function duaHTML(){const r=DUA_ADHAN;return `<div class="rec"><div class="r-ar" lang="ar">${esc(r.ar)}</div><div class="ktl" dir="ltr" lang="en">${esc(r.tl)}</div>${trBlocks(r,"r-tr")}<div class="rfoot">${clipBtn("d:adhan")}${srcChip(r.src)}</div></div>`}
+function vPrayer(sub){
+  VIEW.name="prayer";setPlayer(false);newTok();VIEW.cleanup=()=>{wakeOff();clipStop();ttsStop()};
+  if(sub==="place"||!S.pt.loc){setBar(t("prayerTimes"),"","");view(ptPlaceHTML());return}
+  setBar(t("prayerTimes"),locName(),"");
+  const d=ptDay(0);if(!d){view(`<div class="card empty"><p>${t("netMsg")}</p></div>`);return}
+  const perm=notifPerm();
+  view(`<section class="card ptnext" id="ptNext">${ptNextHTML()}</section>
+   <section class="card ptday"><div class="pthead"><b>${esc(fmtToday())}</b><span>${esc(hijriIn())}</span></div><div class="ptrows" id="ptRows">${ptRowsHTML()}</div><p class="note">${esc(methodLine())}</p></section>
+   <section class="card set" id="azCard"><h2 class="h2">${t("adhanSec")}</h2>
+    <div class="opt-row"><span>${t("adhanAuto")}</span>${ptSw("adhan",S.pt.adhan,t("adhanAuto"))}</div>
+    <div class="opt-row"><span>${t("keepOn")}</span>${ptSw("wake",S.pt.wake,t("keepOn"))}</div>
+    ${perm==="unsupported"?"":`<div class="opt-row"><span>${t("notifyLbl")}</span>${ptSw("notify",S.pt.notify&&perm==="granted",t("notifyLbl"))}</div>${perm==="denied"?`<p class="note err">${t("notifyBlocked")}</p>`:""}`}
+    <p class="note">${t("adhanLimit")}</p></section>
+   <section class="card set"><h2 class="h2">${t("prayerSet")}</h2>
+    <div class="opt-row"><span>${icon("pin")} ${esc(locName())}</span><a class="btn sm" href="#/prayer/place">${t("changeLoc")}</a></div>
+    <label class="fld"><span>${t("methodLbl")}</span><select data-pt="method">${methodOptions()}</select></label>
+    <div class="fld"><span>${t("asrLbl")}</span>${seg("asr",[["hanafi",t("asrHanafi")],["shafi",t("asrStd")]],ptHanafi()?"hanafi":"shafi","ptSeg")}</div>
+    <details class="adj"><summary>${t("adjLbl")}</summary>${adjHTML()}</details></section>
+   <section class="card sec"><h2 class="h2">${t("duaAdhan")}</h2>${duaHTML()}</section>`);
+  wakeOn();
+}
+function npCardHTML(){
+  if(!S.pt.loc)return `<a class="card np-card" href="#/prayer"><span class="ic">${icon("mosque")}</span><span class="main"><span class="eyebrow">${t("prayerTimes")}</span><span>${t("npSet")}</span></span>${icon("next","svg flip")}</a>`;
+  const n=ptNext();if(!n)return "";
+  return `<a class="card np-card" href="#/prayer"><span class="ic">${icon("mosque")}</span><span class="main"><span class="eyebrow">${t("nextPrayer")}</span><b>${esc(ptName(n.k,n.at))} · ${esc(fmtTime(n.at))}</b><span class="muted"><span data-ptleft>${esc(t("inT",{t:fmtLeft(n.at-Date.now())}))}</span> · ${esc(locName())}</span></span>${S.pt.adhan?`<span class="azdot" title="${esc(t("adhanOnT"))}">${icon("bell")}</span>`:""}${icon("next","svg flip")}</a>`;
+}
+
+/* Keeping the screen on while the prayer page is open */
+let WL=null;
+async function wakeOn(){try{if(!S.pt.wake||VIEW.name!=="prayer"||WL||!navigator.wakeLock||document.visibilityState!=="visible")return;WL=await navigator.wakeLock.request("screen");WL.addEventListener("release",()=>{WL=null})}catch(e){WL=null}}
+function wakeOff(){try{if(WL)WL.release()}catch(e){}WL=null}
+
+/* The reminder state: what has been shown already, and the timers */
+const AZS={tid:0,iv:0,nextKey:"",fired:store.get("noorAz",{})};
+/* The bar at the bottom: shown at prayer time until it is closed */
+const AZB={k:"",at:0};
+function azBar(k,at){AZB.k=k;AZB.at=at?at.getTime():0;azUi()}
+function azUi(){
+  const bar=$("#azbar");if(!bar)return;
+  const k=AZB.k,show=!!k;
+  bar.hidden=!show;document.body.classList.toggle("az",show);if(!show){bar.innerHTML="";return}
+  const at=AZB.at?new Date(AZB.at):null;
+  bar.innerHTML=`<div class="az-in" role="status"><span class="ic">${icon("mosque")}</span><div class="main"><b>${esc(t("timeForP",{p:ptName(k,at)}))}</b><span>${at?esc(fmtTime(at))+" · ":""}${esc(locName())}</span></div><button class="btn sm pri" data-act="azClose">${t("close")}</button></div>`;
+}
+async function ptNotify(k,at){
+  try{
+    if(notifPerm()!=="granted")return;const title=t("timeForP",{p:ptName(k,at)}),body=fmtTime(at)+" · "+locName();
+    const opt={body,tag:"prayer-"+k,renotify:true,icon:"icon-192.png",badge:"icon-192.png",vibrate:[300,150,300,150,600],requireInteraction:true,data:{url:"./#/prayer"}};
+    const reg=navigator.serviceWorker&&await navigator.serviceWorker.getRegistration();
+    if(reg&&reg.showNotification)await reg.showNotification(title,opt);else new Notification(title,opt);
+  }catch(e){}
+}
+function azKey(k,at){const [y,m,d]=ymdIn(S.pt.loc.tz,at);return `${y}-${m}-${d}:${k}`}
+/* At prayer time: a notification if allowed (and the app is not on screen, or the reminder bar is off), and the bar */
+function ptFire(k,at,fresh){
+  if(!S.pt.on[k])return;
+  const vis=document.visibilityState==="visible";
+  if(S.pt.notify&&(!vis||!S.pt.adhan))ptNotify(k,at);
+  if(!S.pt.adhan&&!S.pt.notify)return;
+  azBar(k,at);
+}
+function ptTick(force){
+  if(!S.pt.loc)return;const now=Date.now();let changed=false;
+  [-1,0].forEach(off=>{const d=ptDay(off);if(!d)return;PRAYERS5.forEach(k=>{const at=d.times[k];if(!at)return;const dt=now-at.getTime();
+    if(dt>=0&&dt<30*60e3){const key=azKey(k,at);if(!AZS.fired[key]){AZS.fired[key]=now;changed=true;ptFire(k,at,dt<3*60e3)}}})});
+  if(changed){const keep={};Object.keys(AZS.fired).forEach(x=>{if(now-AZS.fired[x]<3*864e5)keep[x]=AZS.fired[x]});AZS.fired=keep;store.set("noorAz",keep)}
+  ptRefresh(force);ptArm();
+}
+/* Keep the countdown and the highlighted prayer up to date */
+function ptRefresh(force){
+  const n=ptNext(),key=n?n.k+n.at.getTime():"";
+  if(key!==AZS.nextKey||force){AZS.nextKey=key;
+    if(VIEW.name==="prayer"&&S.pt.loc){const a=$("#ptNext");if(a)a.innerHTML=ptNextHTML();const r=$("#ptRows");if(r)r.innerHTML=ptRowsHTML()}
+    const h=$("#npSlot");if(h)h.innerHTML=npCardHTML();
+    return}
+  if(n)$$("[data-ptleft]").forEach(el=>{el.textContent=t("inT",{t:fmtLeft(n.at-Date.now())})});
+}
+function ptArm(){clearTimeout(AZS.tid);const n=ptNext();if(!n)return;const ms=n.at.getTime()-Date.now()+400;AZS.tid=setTimeout(()=>ptTick(),Math.max(1000,Math.min(ms,6*3600e3)))}
+function ptInit(){
+  if(AZS.iv)return;AZS.iv=setInterval(()=>ptTick(),20000);
+  try{if(typeof caches!=="undefined")caches.delete("noor-adhan")}catch(e){}
+  document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"){ptTick();wakeOn()}else wakeOff()});
+  ptTick();
+}
+async function ptNotifySwitch(el){
+  if(S.pt.notify){S.pt.notify=false;save();el.classList.remove("on");el.setAttribute("aria-checked","false");return}
+  let p=notifPerm();if(p==="default"){try{p=await Notification.requestPermission()}catch(e){p="denied"}}
+  if(p==="granted"){S.pt.notify=true;save();el.classList.add("on");el.setAttribute("aria-checked","true")}else{toast(t("notifyBlocked"),6000);if(VIEW.name==="prayer")vPrayer()}
 }
 
 /* ======================================================================
@@ -1653,10 +2039,12 @@ async function vSettings(){
     <div class="fld"><span>${t("wbwLang")}</span>${seg("wbwLang",[["ur","اردو"],["en","English"]],S.wbwLang)}</div>
     <div class="opt-row"><span>${t("translit")}</span>${toggle("translit",S.translit)}</div>
    </section>
-   <section class="card set"><h2 class="h2">${t("hadith")}</h2>
-    <div class="fld"><span>${t("hadithLang")}</span>${seg("hLang",[["ur","اردو"],["en","English"]],S.hLang)}</div>
-    <div class="opt-row"><span>${t("showArabic")}</span>${toggle("hAr",S.hAr)}</div>
+   <section class="card set"><h2 class="h2">${t("trSec")}</h2>
+    <div class="fld"><span>${t("trLangLbl")}</span>${seg("hLang",[["ur","اردو"],["en","English"],["both",t("both")]],tLang())}</div>
+    <div class="opt-row"><span>${t("showArabic")} · ${t("hadith")}</span>${toggle("hAr",S.hAr)}</div>
    </section>
+   <section class="card set" id="voiceSet">${voiceSetHTML()}</section>
+   <a class="card np-card" href="#/prayer"><span class="ic">${icon("mosque")}</span><span class="main"><b>${t("prayerTimes")}</b><span class="muted">${S.pt.loc?esc(locName())+" · "+(S.pt.adhan?t("adhanOnT"):t("adhanOffT")):t("prayerSub")}</span></span>${icon("next","svg flip")}</a>
    <section class="card set"><h2 class="h2">${t("voiceSec")}</h2>
     <label class="fld"><span>${t("voiceLang")}</span><select data-set="mic">${[["ur-PK","اردو"],["en-US","English"],["ar-SA","العربية"],["pt-PT","Português"]].map(([v,l])=>`<option value="${v}"${S.mic===v?" selected":""}>${l}</option>`).join("")}</select></label>
    </section>
@@ -1674,9 +2062,20 @@ async function vSettings(){
     $("#setQari").innerHTML=qs.map(e=>`<option value="${esc(e.identifier)}"${e.identifier===S.qari?" selected":""}>${esc(e.englishName)}</option>`).join("");
   }catch(e){}
 }
+function voiceOpts(l){const sel=l==="ur"?S.vUr:S.vEn,vs=voicesFor(l).sort((a,b)=>voiceRank(b,l)-voiceRank(a,l));return `<option value="">${t("voiceBest")}${vs.length?": "+esc(vs[0].name):""}</option>`+vs.map(v=>`<option value="${esc(v.name)}"${v.name===sel?" selected":""}>${esc(v.name)} (${esc(v.lang)})</option>`).join("")}
+function voiceSetHTML(){
+  const head=`<h2 class="h2">${t("readSec")}</h2>`;if(!TTS)return head+`<p class="note">${t("noTTS")}</p>`;
+  let all=[];try{all=TTS.getVoices()}catch(e){}const noUr=all.length>0&&!voicesFor("ur").length,r=clamp(+S.rate||1,0.6,1.5);
+  return head+`<label class="fld"><span>${t("urVoice")}</span><select data-set="vUr">${voiceOpts("ur")}</select></label>${noUr?`<div class="card notice">${t("noUrVoice")}</div>`:""}
+   <button class="btn" data-act="vTest" data-l="ur">${icon("speak")} ${t("testVoice")} · ${t("inUrdu")}</button>
+   <label class="fld"><span>${t("enVoice")}</span><select data-set="vEn">${voiceOpts("en")}</select></label>
+   <button class="btn" data-act="vTest" data-l="en">${icon("speak")} ${t("testVoice")} · ${t("inEnglish")}</button>
+   <label class="fld"><span>${t("speechRate")}: <b id="rateV" dir="ltr">${num(r)}×</b></span><input type="range" min="0.7" max="1.3" step="0.05" value="${r}" data-set="rate" data-live="rate"></label>
+   <p class="note">${t("voiceNote")}</p>`;
+}
 function vAbout(){
   VIEW.name="about";setBar(t("about"),"","");setPlayer(false);newTok();
-  view(`<section class="card about"><div class="salam"><img src="icon-192.png" width="72" height="72" alt="" style="border-radius:18px"><span class="ar" lang="ar">نُورُ الْقُرْآن</span></div><p>${t("aboutLead")}</p><p>${t("aboutTrust")}</p><p>${t("aboutBasics")}</p><p class="muted">${t("version")} 2.1</p></section>
+  view(`<section class="card about"><div class="salam"><img src="icon-192.png" width="72" height="72" alt="" style="border-radius:18px"><span class="ar" lang="ar">نُورُ الْقُرْآن</span></div><p>${t("aboutLead")}</p><p>${t("aboutTrust")}</p><p>${t("aboutBasics")}</p><p class="muted">${t("version")} 2.4</p></section>
    <section class="card about"><div class="eyebrow">${t("sources")}</div><ul dir="ltr" lang="en">
     <li>Quran text, translations and recitations: <a href="https://alquran.cloud" target="_blank" rel="noopener">AlQuran Cloud</a> (text from Tanzil)</li>
     <li>Word-by-word meanings and word audio: <a href="https://quran.com" target="_blank" rel="noopener">Quran.com</a></li>
@@ -1684,7 +2083,10 @@ function vAbout(){
     <li>Tafsir: <a href="https://github.com/spa5k/tafsir_api" target="_blank" rel="noopener">Tafsir API</a></li>
     <li>Six Kalimas: Arabic checked word by word against the text published by Jamia Saeedia Dar-ul-Quran and other published copies</li>
     <li>Salah: Hanafi method, checked against the guide by Darul Iftaa Birmingham. Recitations from Sahih al-Bukhari, Sunan Abu Dawud, Jami at-Tirmidhi and Sunan Ibn Majah; Dua-e-Qunoot as taught by Ibn Mas'ud (Musannaf Ibn Abi Shaybah); Al-Fatiha and Al-Ikhlas from Tanzil</li>
-    <li>Names of Allah: meanings and notes from the <a href="https://github.com/muzzammil763/99-Names" target="_blank" rel="noopener">99 Names project</a> (MIT licence, © 2026 99 Names contributors); Arabic cross-checked against a second list</li>
+    <li>Names of Allah: meanings and notes from the <a href="https://github.com/muzzammil763/99-Names" target="_blank" rel="noopener">99 Names project</a> (MIT licence, © 2026 99 Names contributors); Arabic cross-checked against a second list; Urdu notes translated for this app</li>
+    <li>Urdu for the forty-hadith books (an-Nawawi, Qudsi, Shah Waliullah): the published Urdu translation of the same hadith in the main books, from the Hadith API; matched by comparing the Arabic</li>
+    <li>Prayer times: <a href="https://github.com/batoulapps/adhan-js" target="_blank" rel="noopener">Adhan JavaScript</a> by Batoul Apps (MIT licence), calculated on the phone; cities from Natural Earth (public domain) via <a href="https://github.com/kevinroberts/city-timezones" target="_blank" rel="noopener">city-timezones</a> (MIT licence)</li>
+    <li>Dua after the Adhan: Sunan Ibn Majah 722 (also Sahih al-Bukhari 614) with its published Urdu and English translations; recited from Hisn al-Muslim (hisnmuslim.com)</li>
     <li>Recited audio on these pages is always a human reciter: Hisn al-Muslim recordings from <a href="https://www.hisnmuslim.com" target="_blank" rel="noopener">hisnmuslim.com</a>, the official site of the book (Sana, Ta'awwuz, ruku, sajdah, Tashahhud, Durood, dua, Kalimas 2 and 3); Bismillah, Al-Fatiha and Al-Ikhlas by the Quran reciter chosen in Settings; Names of Allah recited word by word from the Quran (Quran.com)</li>
     <li>Fonts: Amiri Quran, Amiri, Noto Nastaliq Urdu, Figtree (Google Fonts)</li></ul></section>`);
 }
@@ -1734,6 +2136,7 @@ async function run(raw){
   let m=q.match(/^(?:search|find|search for|talash|تلاش|ڈھونڈیں|ڈھونڈو)\s+(?:for\s+)?(.+)$/);if(m)return go("#/search/"+encodeURIComponent(m[1]));
   if(/^(stop|pause|ruko|رکو|رکیں|بند|بند کرو|بس)$/.test(q)){stopAll();hideOverlays();return closeAll()}
   const NAV=[[/^(home|ہوم|گھر)$/,"#/"],[/^(quran|قرآن|قران|surahs|سورتیں)$/,"#/quran"],[/^(paras?|juz|پارے|سپارے)$/,"#/quran/juz"],[/^(hadith|ahadith|hadees|حدیث|احادیث)$/,"#/hadith"],[/^(qaida|qaidah|قاعدہ|قاعده)$/,"#/qaida"],[/^(quiz|کوئز|امتحان)$/,"#/quiz"],[/^(hifz|memorize|memorise|حفظ)$/,"#/hifz"],[/^(bookmarks?|بک مارکس?)$/,"#/bookmarks"],[/^(settings|ترتیبات|سیٹنگز|سیٹنگ)$/,"#/settings"],[/^(word by word|wbw|لفظ بہ لفظ)$/,"#/wbw"],
+    [/^(prayer times?|prayer timings?|namaz times?|namaz timings?|namaz (ke|ka|ki) (auqat|oqat|waqt|time|times|timing|timings)|salah times?|salat times?|azan|adhan|athan|azaan|next prayer|اذان|نماز کے اوقات|نماز کا وقت|اوقات نماز|اوقاتِ نماز|نماز ٹائم|اگلی نماز)$/,"#/prayer"],
     [/^(salah|salat|salaah|namaz|namaaz|nimaz|prayer|prayers|how to pray|namaz ka tariqa|namaz ka tareeqa|نماز|نمازیں|نماز کا طریقہ|طریقہ نماز|طریقۂ نماز)$/,"#/salah"],
     [/^(witr|vitr|qunoot|qunut|dua e qunoot|dua-e-qunoot|duae qunoot|dua qunoot|وتر|قنوت|دعائے قنوت|دعا قنوت|دعاے قنوت)$/,"#/salah/witr"],
     [/^((99|100) names( of allah)?|names of allah|allah names|allah's (99 |100 )?names|asma ul husna|asmaul husna|asma-ul-husna|asma al husna|allah ke naam|اسماء الحسنی|اسماء الحسنیٰ|اسمائے حسنی|اسمائے حسنیٰ|اسمائے الحسنیٰ|اللہ کے نام|اللہ کے ننانوے نام|(99|100) نام|ننانوے نام)$/,"#/names"]];
@@ -1777,7 +2180,7 @@ async function setTrLang(code){
 function setTheme(th){S.theme=th;save();applyTheme();toast(t("themeSet"));if(VIEW.name==="settings")$$(".th").forEach(b=>{b.classList.toggle("on",b.dataset.v===th);b.setAttribute("aria-pressed",b.dataset.v===th)})}
 
 /* Command sheet and voice input */
-function examples(){return isUr()?["سورہ یاسین","آیت الکرسی","تفسیر ۲:۲۵۵","بخاری ۱","پارہ ۳۰","تیسرا کلمہ","نماز","اسماء الحسنیٰ","تلاش رحمت"]:["Surah Yasin","Ayatul Kursi","Tafsir 2:255","Bukhari 1","Para 30","Kalima 3","Namaz","99 Names","Search mercy"]}
+function examples(){return isUr()?["سورہ یاسین","آیت الکرسی","تفسیر ۲:۲۵۵","بخاری ۱","پارہ ۳۰","تیسرا کلمہ","نماز","نماز کے اوقات","اسماء الحسنیٰ","تلاش رحمت"]:["Surah Yasin","Ayatul Kursi","Tafsir 2:255","Bukhari 1","Para 30","Kalima 3","Namaz","Prayer times","99 Names","Search mercy"]}
 function openCmd(){
   openSheet(`<h3>${t("searchTitle")}</h3><form class="cmdform" data-form="cmd"><input id="cmdIn" type="search" placeholder="${t("searchPh")}" autocomplete="off" enterkeyhint="go" aria-label="${t("searchPh")}"><button type="button" class="mic" id="micBtn" data-act="mic" aria-label="${t("speak")}">${icon("mic")}</button></form><div class="status" id="cmdStatus"></div><div class="eyebrow">${t("tryThese")}</div><div class="chips">${examples().map(c=>`<button class="chip" data-act="ex" data-c="${esc(c)}">${esc(c)}</button>`).join("")}</div>`);
 }
@@ -1808,6 +2211,7 @@ function afterSetting(k){
     else if(k==="tr1"||k==="tr2"||k==="qari")go(`#/s/${R.s}/${(R.cur||0)+1}`);
   }
   if((k==="hLang"||k==="hAr")&&/^h/.test(VIEW.name)&&VIEW.name!=="hifz")route();
+  if(k==="hLang"&&["kalimas","salah","names","prayer"].includes(VIEW.name))route();
   if(k==="rep")toast(t("repSet",{n:num(S.rep)}),1400);
 }
 function openOptsInPlace(){const keep=OV;openOpts();OV=keep}
@@ -1855,13 +2259,13 @@ const ACT={
     if(w.au&&WA){if(P.on)stopAll();ttsStop();let tries=0;const src=x=>/^https?:/.test(w.au)?w.au:WAUD[x]+w.au;WA.onerror=()=>{if(++tries<WAUD.length){WA.src=src(tries);WA.play().catch(()=>{})}};WA.src=src(0);WA.play().catch(()=>{});updatePlayer()}
   },
   hmore:()=>hMore(),
-  hsay:(el)=>{const x=HT.get(el.dataset.b+":"+el.dataset.n);if(x&&x.text)speak(x.text,x.L)},
+  hsay:(el)=>{const x=HT.get(el.dataset.b+":"+el.dataset.n);if(x){const m=hMain(x);if(m.l!=="ar")speak(m.text,m.l)}},
   hbm:(el)=>{
     const b=el.dataset.b,n=+el.dataset.n,x=HT.get(b+":"+el.dataset.n)||{};const ix=S.bm.findIndex(y=>y.t==="h"&&y.b===b&&y.n===n);
-    if(ix>=0){S.bm.splice(ix,1);toast(t("removed"))}else{S.bm.unshift({t:"h",b,n,tx:clip(x.text||x.ar,170),L:x.text?x.L:"ar",at:Date.now()});toast(t("bookmarked"))}
+    if(ix>=0){S.bm.splice(ix,1);toast(t("removed"))}else{const m=x.tr?hMain(x):{l:"ar",text:x.ar||""};S.bm.unshift({t:"h",b,n,tx:clip(m.text,170),L:m.l,at:Date.now()});toast(t("bookmarked"))}
     save();const on=ix<0;el.classList.toggle("on",on);el.setAttribute("aria-pressed",on);el.innerHTML=icon(on?"bmOn":"bm");
   },
-  hshare:(el)=>{const b=el.dataset.b,x=HT.get(b+":"+el.dataset.n)||{};shareText(`${x.ar?x.ar+"\n\n":""}${x.text||""}\n\n— ${HBOOKS[b].en} ${el.dataset.n}`)},
+  hshare:(el)=>{const b=el.dataset.b,x=HT.get(b+":"+el.dataset.n)||{tr:{}},trs=hLangs().map(l=>x.tr&&x.tr[l]).filter(Boolean);shareText(`${x.ar?x.ar+"\n\n":""}${trs.join("\n\n")}\n\n— ${HBOOKS[b].en} ${el.dataset.n}`)},
   bmDel:(el)=>{S.bm.splice(+el.dataset.ix,1);save();toast(t("removed"));vBookmarks()},
   say1:(el)=>{const it=QL&&QL.items[+el.dataset.k];if(!it)return;$$(".lt.on").forEach(x=>x.classList.remove("on"));el.classList.add("on");speak(it.s,"ar")},
   qpStart:()=>{if(!QL)return;QP={items:QL.items,round:0,total:10,score:0};qpNext()},
@@ -1885,11 +2289,21 @@ const ACT={
   install:async()=>{if(!installEvt)return;const ev=installEvt;installEvt=null;updateInstallUi();try{await ev.prompt();const c=await ev.userChoice;if(c&&c.outcome==="accepted")toast(t("installing"))}catch(e){}},
   iosHintOff:()=>{S.iosHintOff=true;save();renderInstallSlot()},
   kSayTr:(el)=>{const k=KALIMAS[+el.dataset.k-1];if(k)speak(trOf(k),isUr()?"ur":"en")},
-  kShare:(el)=>{const k=KALIMAS[+el.dataset.k-1];if(k)shareText(`${k.ar}\n\n${trOf(k)}\n\n— ${isUr()?k.ou+": "+k.nu:k.oe+": "+k.ne}`)},
+  kShare:(el)=>{const k=KALIMAS[+el.dataset.k-1];if(k)shareText(`${k.ar}\n\n${tLangs().map(l=>k[l]).filter(Boolean).join("\n\n")}\n\n— ${isUr()?k.ou+": "+k.nu:k.oe+": "+k.ne}`)},
   clip:(el)=>{if(CL.key&&CL.key===el.dataset.k){clipStop();return}clipStart(el.dataset.k)},
   jump:(el)=>smoothScroll($("#"+el.dataset.id)),
   nOpen:(el)=>openName(+el.dataset.n),
   nShare:(el)=>{const x=NAMES[+el.dataset.n-1];if(x)shareText(`${x[1]}\n${x[2]}\n${x[3]}\n${x[4]}\n\n— ${t("names")} ${x[0]}`)},
+  sayTx:(el)=>{const id=el.dataset.s,x=SAYS.get(id);if(!x)return;if(SAY_ON===id){ttsStop();return}clipStop();if(P.on)stopAll();
+    if(!speak(x.text,x.l,()=>{if(SAY_ON===id){SAY_ON="";sayUi()}}))return;SAY_ON=id;sayUi()},
+  vTest:(el)=>{const l=el.dataset.l;speak(l==="ur"?t("testUr"):t("testEn"),l)},
+  ptGps:()=>ptGps(),
+  ptCity:(el)=>ptSetCity(+el.dataset.i),
+  ptOn:(el)=>{const k=el.dataset.k;S.pt.on[k]=!S.pt.on[k];save();const on=S.pt.on[k];el.classList.toggle("on",on);el.setAttribute("aria-pressed",String(on));el.innerHTML=icon(on?"bell":"bellOff")},
+  ptSw:(el)=>{const k=el.dataset.k;if(k==="notify"){ptNotifySwitch(el);return}S.pt[k]=!S.pt[k];save();el.classList.toggle("on",S.pt[k]);el.setAttribute("aria-checked",String(S.pt[k]));
+    if(k==="wake"){if(S.pt.wake)wakeOn();else wakeOff()}if(k==="adhan"){toast(S.pt.adhan?t("adhanOnT"):t("adhanOffT"),1400);const h=$("#npSlot");if(h)h.innerHTML=npCardHTML()}},
+  ptSeg:(el)=>{const k=el.dataset.k,v=el.dataset.v;S.pt[k]=v;ptChanged();vPrayer()},
+  azClose:()=>{AZB.k="";azUi()},
   welcome:(el)=>{S.ui=el.dataset.v;if(S.ui==="en"&&!S.tr2)S.tr2="en.sahih";uiDefaults();saveNow();$("#welcome").hidden=true;applyUi();route()}
 };
 document.addEventListener("click",e=>{
@@ -1898,8 +2312,10 @@ document.addEventListener("click",e=>{
   e.preventDefault();fn(el,e);
 });
 document.addEventListener("change",e=>{
+  const pe=e.target.closest("[data-pt]");if(pe){S.pt[pe.dataset.pt]=pe.value;ptChanged();vPrayer();return}
+  const pa=e.target.closest("[data-ptadj]");if(pa){S.pt.adj[pa.dataset.ptadj]=clamp(Math.round(+pa.value||0),-60,60);ptChanged();const r=$("#ptRows");if(r)r.innerHTML=ptRowsHTML();const nx=$("#ptNext");if(nx)nx.innerHTML=ptNextHTML();return}
   const el=e.target.closest("[data-set]");if(!el)return;const k=el.dataset.set;
-  let v=el.type==="checkbox"?el.checked:el.value;if(k==="arSize"||k==="trSize")v=+v;
+  let v=el.type==="checkbox"?el.checked:el.value;if(k==="arSize"||k==="trSize"||k==="rate")v=+v;
   S[k]=v;if(k==="tr1"&&TF_DEFAULT[edLang(v)]&&tfInfo(S.tf).lang!==edLang(v))S.tf=TF_DEFAULT[edLang(v)];
   save();afterSetting(k);
 });
@@ -1907,6 +2323,8 @@ document.addEventListener("input",e=>{
   const el=e.target.closest("[data-live]");if(!el)return;const k=el.dataset.live;
   if(k==="filter"){const q=plain(asciiDigits(el.value.trim()));$$("#list [data-f]").forEach(r=>{r.hidden=!!q&&!(r.dataset.f||"").includes(q)});return}
   if(k==="arSize"||k==="trSize"){S[k]=+el.value;applySizes();const b=$("#"+k+"V");if(b)b.textContent=num(S[k]);save()}
+  if(k==="rate"){S.rate=+el.value;const b=$("#rateV");if(b)b.textContent=num(S.rate)+"×";save()}
+  if(k==="city"){const l=$("#cityList");if(l)l.innerHTML=cityResults(el.value)}
 });
 document.addEventListener("submit",e=>{
   const f=e.target.closest("[data-form]");if(!f)return;e.preventDefault();
@@ -1923,7 +2341,7 @@ function isInstalled(){try{return matchMedia("(display-mode: standalone)").match
 function updateInstallUi(){const d=$("#drInstall");if(d)d.hidden=!installEvt;const s=$("#setInstall");if(s)s.hidden=!installEvt;renderInstallSlot()}
 window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();if(isInstalled())return;installEvt=e;updateInstallUi()});
 window.addEventListener("appinstalled",()=>{installEvt=null;updateInstallUi();toast(t("installed"),4000)});
-if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})})}
+if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})});try{navigator.serviceWorker.addEventListener("message",e=>{if(e.data&&e.data.type==="prayer")go("#/prayer")})}catch(e){}}
 
 /* ======================================================================
    Start
@@ -1935,8 +2353,8 @@ if(!S.ui){
   $("#welcome").hidden=false;
 }else{uiDefaults();applyUi();route()}
 validateEditions().then(ch=>{if(ch&&VIEW.name==="reader")route()});
-measure();
-window.NoorQuran={run,state:S,go,get R(){return R},data:{KALIMAS,SALAH,NAMES,HADITH99},get clip(){return {key:CL.key,audio:CA}}};
+measure();ptInit();
+window.NoorQuran={run,state:S,go,get R(){return R},data:{KALIMAS,SALAH,NAMES,HADITH99,NAME_UR,FORTY_UR,DUA_ADHAN},get clip(){return {key:CL.key,audio:CA}},prayer:{day:ptDay,next:ptNext,tick:ptTick,fire:ptFire,cities,fmtTime,method:ptMethod,hanafi:ptHanafi,get bar(){return {key:AZB.k,at:AZB.at}},get fired(){return AZS.fired}}};
 })();
 </script>
 </body>

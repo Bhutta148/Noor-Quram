@@ -1,8 +1,9 @@
 /* Noor Quran offline worker.
    - The app page always loads fresh when online, and from the saved copy when offline.
    - Surahs, translations, tafsir, word meanings and hadith chapters you have opened are saved, so they open without internet.
-   - Recitation audio is never saved (too large); it streams as normal. */
-const VERSION = "v2";
+   - Recitation audio is never saved (too large); it streams as normal.
+   - Tapping a prayer-time notification opens the prayer times page. */
+const VERSION = "v5";
 const SHELL = "noor-shell-" + VERSION;
 const DATA = "noor-data";
 const FONTS = "noor-fonts";
@@ -86,3 +87,19 @@ async function trim(cache) {
   const keys = (await cache.keys()).filter((k) => !DATA_PRELOAD.includes(k.url));
   for (let i = 0; i < keys.length - MAX_DATA_ITEMS; i++) await cache.delete(keys[i]);
 }
+
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  const url = new URL((event.notification.data && event.notification.data.url) || "./#/prayer", self.registration.scope).href;
+  event.waitUntil((async () => {
+    const list = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
+    for (const c of list) {
+      if (c.url.startsWith(self.registration.scope) && "focus" in c) {
+        await c.focus();
+        c.postMessage({ type: "prayer" });
+        return;
+      }
+    }
+    if (self.clients.openWindow) await self.clients.openWindow(url);
+  })());
+});
